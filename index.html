@@ -43,7 +43,7 @@
       scroll-padding-top: 5rem;
     }
 
-    body {
+    html body {
       margin: 0;
       overflow-x: hidden;
       background:
@@ -73,51 +73,60 @@
       color: hsl(var(--white));
     }
 
-    a {
+    html a {
       color: inherit;
       text-decoration: none;
     }
 
-    button,
-    input,
-    textarea,
-    select {
+    html button,
+    html input,
+    html textarea,
+    html select {
       font: inherit;
     }
 
-    img {
+    html img {
       display: block;
       max-width: 100%;
     }
 
-    h1,
-    h2,
-    h3,
-    blockquote,
-    p {
+    html h1,
+    html h2,
+    html h3,
+    html blockquote,
+    html p {
       margin-top: 0;
     }
 
-    h1,
-    h2,
-    h3,
-    blockquote {
+    html h1,
+    html h2,
+    html h3,
+    html blockquote {
       font-family: var(--display);
       font-weight: 700;
       letter-spacing: -0.03em;
       line-height: 1.06;
     }
 
-    h2 {
+    html h2 {
       margin-bottom: 1.5rem;
       font-size: clamp(2.8rem, 6vw, 6.6rem);
     }
 
-    h3 {
+    h2::after {
+      display: block;
+      width: 2.5rem;
+      height: 2px;
+      margin-top: 1.1rem;
+      background: hsl(var(--primary));
+      content: '';
+    }
+
+    html h3 {
       font-size: clamp(1.65rem, 2.3vw, 2.4rem);
     }
 
-    p {
+    html p {
       max-width: 68ch;
     }
 
@@ -169,7 +178,7 @@
       min-height: 3.2rem;
       padding: 0.65em 1.5em;
       border: 1px solid transparent;
-      border-radius: 999px;
+      border-radius: 0.25rem;
       font-size: 0.84rem;
       font-weight: 700;
       letter-spacing: 0.04em;
@@ -321,7 +330,7 @@
       gap: 0.2rem;
       padding: 1rem;
       border: 1px solid hsl(var(--text) / 0.08);
-      border-radius: 1rem;
+      border-radius: 0.35rem;
       background: hsl(var(--bg) / 0.96);
       box-shadow: var(--shadow-lg), inset 0 1px hsl(var(--white) / 0.7);
       opacity: 0;
@@ -339,7 +348,7 @@
 
     .mobile-menu a {
       padding: 0.8rem 1rem;
-      border-radius: 0.6rem;
+      border-radius: 0.3rem;
       font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -357,17 +366,6 @@
       min-height: 100svh;
       padding: 7.5rem 0 2rem;
       overflow: hidden;
-    }
-
-    .hero::before {
-      position: absolute;
-      right: -11rem;
-      top: 9rem;
-      width: 28rem;
-      height: 28rem;
-      border: 1px solid hsl(var(--accent) / 0.25);
-      border-radius: 50%;
-      content: '';
     }
 
     .hero-grid {
@@ -437,7 +435,7 @@
       position: relative;
       aspect-ratio: 0.86;
       overflow: hidden;
-      border-radius: 15rem 15rem 1.5rem 1.5rem;
+      border-radius: 0.4rem;
       box-shadow: var(--shadow-lg), inset 0 1px hsl(var(--white) / 0.5);
     }
 
@@ -463,23 +461,23 @@
 
     .hero-stamp {
       position: absolute;
-      right: -0.4rem;
-      bottom: 2.4rem;
+      right: 0;
+      bottom: 0;
       z-index: 2;
       display: grid;
-      width: 7.2rem;
-      height: 7.2rem;
+      width: 8.5rem;
+      padding: 1rem 1.1rem;
       place-items: center;
-      border: 1px solid hsl(var(--white) / 0.45);
-      border-radius: 50%;
-      background: hsl(var(--primary) / 0.92);
+      border-top: 1px solid hsl(var(--white) / 0.18);
+      border-left: 1px solid hsl(var(--white) / 0.18);
+      border-radius: 0.4rem 0 0 0;
+      background: hsl(var(--primary) / 0.94);
       color: hsl(var(--white));
       font-family: var(--display);
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 700;
       line-height: 1.15;
       text-align: center;
-      box-shadow: var(--shadow-lg), inset 0 1px hsl(var(--white) / 0.2);
       backdrop-filter: blur(8px);
     }
 
@@ -523,6 +521,10 @@
       padding-block: clamp(5.5rem, 11vw, 10rem);
     }
 
+    .band-section {
+      background: hsl(var(--surface) / 0.6);
+    }
+
     .split {
       display: grid;
       gap: 3rem;
@@ -538,7 +540,7 @@
       position: relative;
       aspect-ratio: 0.88;
       overflow: hidden;
-      border-radius: 1.2rem;
+      border-radius: 0.4rem;
       box-shadow: var(--shadow-lg), inset 0 1px hsl(var(--white) / 0.5);
     }
 
@@ -550,7 +552,7 @@
       max-width: 14rem;
       padding: 1.2rem 1.4rem;
       border: 1px solid hsl(var(--text) / 0.08);
-      border-radius: 0.8rem;
+      border-radius: 0.3rem;
       background: hsl(var(--white) / 0.9);
       box-shadow: var(--shadow-sm), inset 0 1px hsl(var(--white));
       font-family: var(--display);
@@ -582,7 +584,7 @@
       margin-top: 1rem;
       padding: 0.8rem 1rem;
       border: 1px solid hsl(var(--primary) / 0.22);
-      border-radius: 0.7rem;
+      border-radius: 0.3rem;
       background: hsl(var(--primary) / 0.07);
       color: hsl(var(--primary));
       font-size: 0.75rem;
@@ -675,7 +677,7 @@
       min-height: 31rem;
       padding: clamp(1.6rem, 4vw, 3.4rem);
       overflow: hidden;
-      border-radius: 1rem;
+      border-radius: 0.4rem;
     }
 
     .service-card:nth-child(2) {
@@ -685,12 +687,11 @@
 
     .service-card:nth-child(2)::before {
       position: absolute;
-      right: -5rem;
-      bottom: -6rem;
-      width: 19rem;
-      height: 19rem;
+      right: -3rem;
+      bottom: -3rem;
+      width: 14rem;
+      height: 14rem;
       border: 1px solid hsl(var(--white) / 0.18);
-      border-radius: 50%;
       content: '';
     }
 
@@ -701,7 +702,7 @@
       margin-bottom: 5rem;
       place-items: center;
       border: 1px solid currentColor;
-      border-radius: 50%;
+      border-radius: 0.25rem;
       font-size: 0.72rem;
       font-weight: 700;
     }
@@ -805,7 +806,7 @@
       min-height: 23rem;
       align-content: space-between;
       padding: 1.7rem;
-      border-radius: 1rem;
+      border-radius: 0.4rem;
     }
 
     .knowledge-card:nth-child(2) {
@@ -855,7 +856,7 @@
       min-height: 10rem;
       align-content: center;
       padding: 1.5rem;
-      border-radius: 0.9rem;
+      border-radius: 0.4rem;
     }
 
     .contact-card span {
@@ -967,10 +968,6 @@
         justify-self: end;
       }
 
-      .hero-stamp {
-        right: -2rem;
-      }
-
       .split {
         grid-template-columns: minmax(20rem, 0.88fr) minmax(0, 1.12fr);
         gap: clamp(4rem, 9vw, 9rem);
@@ -1009,10 +1006,6 @@
     }
 
     @media (min-width: 1200px) {
-      .hero-stamp {
-        right: -3.5rem;
-      }
-
       .photo-caption {
         right: -2.8rem;
       }
@@ -1027,7 +1020,7 @@
       margin: 0 auto 1.25rem;
       padding: clamp(2rem, 6vw, 4.5rem);
       border: 1px solid hsl(var(--text) / 0.08);
-      border-radius: 1.25rem;
+      border-radius: 0.4rem;
       background: hsl(var(--white) / 0.58);
       box-shadow: var(--shadow-lg), inset 0 1px hsl(var(--white) / 0.82);
       text-align: center;
@@ -1058,14 +1051,6 @@
       .hero {
         min-height: auto;
         padding: 9rem 0 7rem;
-      }
-
-      .hero::before {
-        right: 50%;
-        top: 10rem;
-        width: min(72vw, 42rem);
-        height: min(72vw, 42rem);
-        transform: translateX(50%);
       }
 
       .hero-grid {
@@ -1102,16 +1087,10 @@
         justify-self: center;
       }
 
-      .hero-frame {
-        border-radius: 14rem 14rem 1.25rem 1.25rem;
-      }
-
       .hero-stamp {
-        right: -1.7rem;
-        bottom: 1.8rem;
-        width: 6.5rem;
-        height: 6.5rem;
-        font-size: 0.9rem;
+        width: 7rem;
+        padding: 0.85rem;
+        font-size: 0.85rem;
       }
 
       .trust-grid {
@@ -1120,6 +1099,10 @@
 
       .section {
         text-align: center;
+      }
+
+      .section h2::after {
+        margin-inline: auto;
       }
 
       .split,
@@ -1301,10 +1284,6 @@
         width: 100%;
       }
 
-      .hero-stamp {
-        right: -0.6rem;
-      }
-
       .trust-item {
         justify-items: center;
       }
@@ -1409,7 +1388,7 @@
       </div>
     </aside>
 
-    <section class="section" id="o-mnie">
+    <section class="section band-section" id="o-mnie">
       <div class="container split">
         <figure class="photo-wrap" data-reveal>
           <div class="photo-frame" data-parallax>
