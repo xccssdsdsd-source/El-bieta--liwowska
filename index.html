@@ -1213,6 +1213,339 @@
       }
     }
 
+    body {
+      background:
+        radial-gradient(circle at 50% -10%, hsl(var(--white)), transparent 42rem),
+        radial-gradient(circle at 50% 52%, hsl(var(--primary) / 0.06), transparent 36rem),
+        hsl(var(--bg));
+    }
+
+    h2 {
+      font-size: clamp(2.65rem, 5vw, 5.4rem);
+    }
+
+    p {
+      margin-inline: auto;
+    }
+
+    .container {
+      width: min(100% - 2rem, 76rem);
+    }
+
+    .eyebrow {
+      justify-content: center;
+    }
+
+    .eyebrow::after {
+      width: 2.3rem;
+      height: 1px;
+      background: currentColor;
+      content: '';
+    }
+
+    .hero {
+      min-height: auto;
+      padding: 9rem 0 7rem;
+    }
+
+    .hero::before {
+      right: 50%;
+      top: 10rem;
+      width: min(72vw, 42rem);
+      height: min(72vw, 42rem);
+      transform: translateX(50%);
+    }
+
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .hero-copy {
+      max-width: 60rem;
+      margin: 0;
+      padding-top: 0;
+    }
+
+    .hero h1 {
+      max-width: 11ch;
+      margin-inline: auto;
+      font-size: clamp(3.4rem, 8vw, 7.4rem);
+    }
+
+    .hero-lead {
+      max-width: 42rem;
+    }
+
+    .hero-actions,
+    .hero-note {
+      justify-content: center;
+    }
+
+    .hero-visual {
+      width: min(82vw, 27rem);
+      justify-self: center;
+    }
+
+    .hero-frame {
+      border-radius: 14rem 14rem 1.25rem 1.25rem;
+    }
+
+    .hero-stamp {
+      right: -1.7rem;
+      bottom: 1.8rem;
+      width: 6.5rem;
+      height: 6.5rem;
+      font-size: 0.9rem;
+    }
+
+    .trust-grid {
+      text-align: center;
+    }
+
+    .section {
+      padding-block: clamp(5.5rem, 9vw, 8.5rem);
+      text-align: center;
+    }
+
+    .split,
+    .process-grid {
+      grid-template-columns: 1fr;
+      gap: clamp(3.5rem, 7vw, 5.5rem);
+      justify-items: center;
+    }
+
+    .photo-wrap,
+    .process-photo {
+      width: min(82vw, 29rem);
+      justify-self: center;
+    }
+
+    .photo-caption {
+      right: auto;
+      left: 50%;
+      width: min(18rem, calc(100% - 2rem));
+      transform: translateX(-50%);
+    }
+
+    .about-copy {
+      max-width: 46rem;
+    }
+
+    .license {
+      justify-content: center;
+    }
+
+    .quote-section {
+      min-height: min(48rem, 68svh);
+    }
+
+    .quote-section blockquote {
+      max-width: 20ch;
+      margin-inline: auto;
+      font-size: clamp(2.8rem, 6.5vw, 6.2rem);
+    }
+
+    .quote-section blockquote::before {
+      left: 50%;
+      top: -0.72em;
+      transform: translateX(-50%);
+    }
+
+    .quote-footer {
+      justify-content: center;
+    }
+
+    .quote-footer::after {
+      width: 3.5rem;
+      height: 1px;
+      background: hsl(var(--accent));
+      content: '';
+    }
+
+    .services-head,
+    .knowledge-intro,
+    .contact-head {
+      grid-template-columns: 1fr;
+      max-width: 54rem;
+      margin-inline: auto;
+      margin-bottom: 3.5rem;
+    }
+
+    .services-head p,
+    .knowledge-intro p,
+    .contact-head p {
+      max-width: 44rem;
+    }
+
+    .service-grid {
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      display: grid;
+      min-height: 0;
+      align-content: start;
+      padding: clamp(2rem, 4vw, 3.25rem);
+      text-align: center;
+    }
+
+    .service-index {
+      margin: 0 auto 2rem;
+    }
+
+    .service-card h3 {
+      font-size: clamp(2.6rem, 4.5vw, 4.25rem);
+    }
+
+    .service-card > div > p {
+      max-width: 31rem;
+    }
+
+    .service-card ul {
+      width: min(100%, 28rem);
+      margin-inline: auto;
+      text-align: left;
+    }
+
+    .process-photo {
+      position: relative;
+      top: auto;
+    }
+
+    .process-grid > div {
+      max-width: 52rem;
+    }
+
+    .process-list {
+      width: min(100%, 46rem);
+      margin-inline: auto;
+    }
+
+    .process-step {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+      justify-items: center;
+      padding-block: 1.8rem;
+    }
+
+    .process-step p {
+      max-width: 36rem;
+    }
+
+    .knowledge-grid {
+      gap: 1.25rem;
+    }
+
+    .knowledge-card,
+    .knowledge-card:nth-child(2) {
+      min-height: 20rem;
+      margin-top: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .knowledge-card p {
+      max-width: 28rem;
+    }
+
+    .contact-section {
+      background: linear-gradient(180deg, hsl(var(--bg)), hsl(var(--surface) / 0.62));
+    }
+
+    .contact-panel {
+      max-width: 50rem;
+      margin: 0 auto 1.25rem;
+      padding: clamp(2rem, 6vw, 4.5rem);
+      border: 1px solid hsl(var(--text) / 0.08);
+      border-radius: 1.25rem;
+      background: hsl(var(--white) / 0.58);
+      box-shadow: var(--shadow-lg), inset 0 1px hsl(var(--white) / 0.82);
+    }
+
+    .contact-panel h3 {
+      max-width: 16ch;
+      margin: 0 auto 1rem;
+      font-size: clamp(2.25rem, 4.8vw, 4.4rem);
+    }
+
+    .contact-panel > p:not(.eyebrow) {
+      max-width: 38rem;
+      color: hsl(var(--muted));
+    }
+
+    .contact-panel .hero-actions {
+      margin-top: 1.75rem;
+    }
+
+    .contact-cards {
+      grid-template-columns: 1fr;
+      max-width: 50rem;
+      margin-inline: auto;
+    }
+
+    .contact-card {
+      min-height: 8.5rem;
+      justify-items: center;
+      text-align: center;
+    }
+
+    a.contact-card::after {
+      justify-self: center;
+    }
+
+    .footer {
+      margin-top: 5rem;
+      text-align: center;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+
+    .footer-links {
+      justify-content: center;
+    }
+
+    @media (min-width: 640px) {
+      .container {
+        width: min(100% - 3rem, 76rem);
+      }
+
+      .contact-cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 639px) {
+      .hero {
+        padding: 7.5rem 0 5.5rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 15vw, 4.5rem);
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .hero-stamp {
+        right: -0.6rem;
+      }
+
+      .trust-item {
+        justify-items: center;
+      }
+
+      .quote-section blockquote {
+        font-size: clamp(2.65rem, 13vw, 4rem);
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
@@ -1423,64 +1756,28 @@
       </div>
     </section>
 
-    <section class="section support-section" aria-labelledby="szczegoly-title">
-      <div class="container support-layout">
-        <div class="support-copy" data-reveal>
-          <p class="eyebrow">Wasze doświadczenia</p>
-          <h2 id="szczegoly-title">Opinie klientów.</h2>
-          <p>Każda dobra współpraca ma swoją historię — opartą na uważności, zaufaniu i spokojnie podjętej decyzji.</p>
-          <div class="reviews-placeholder">
-            <article class="review-ghost">
-              <span class="review-mark" aria-hidden="true">“</span>
-              <div class="placeholder-lines" aria-hidden="true"><i></i><i></i><i></i></div>
-            </article>
-            <article class="review-ghost">
-              <span class="review-mark" aria-hidden="true">“</span>
-              <div class="placeholder-lines" aria-hidden="true"><i></i><i></i><i></i></div>
-            </article>
-          </div>
-        </div>
-        <div class="missing-grid" data-reveal>
-          <article class="missing-card" aria-label="Adres biura"><span>Adres biura</span><div class="placeholder-lines" aria-hidden="true"><i></i><i></i></div></article>
-          <article class="missing-card" aria-label="Godziny pracy"><span>Godziny pracy</span><div class="placeholder-lines" aria-hidden="true"><i></i><i></i></div></article>
-          <article class="missing-card" aria-label="Zasady wynagrodzenia"><span>Zasady wynagrodzenia</span><div class="placeholder-lines" aria-hidden="true"><i></i><i></i></div></article>
-          <article class="missing-card" aria-label="Adres e-mail"><span>Adres e-mail</span><div class="placeholder-lines" aria-hidden="true"><i></i><i></i></div></article>
-        </div>
-      </div>
-    </section>
-
     <section class="section contact-section" id="kontakt">
       <div class="container">
         <div class="contact-head" data-reveal>
-          <div>
-            <p class="eyebrow">Kontakt</p>
-            <h2>Zacznijmy od rozmowy.</h2>
-          </div>
+          <div><p class="eyebrow">Kontakt</p><h2>Zacznijmy od rozmowy.</h2></div>
           <p>Planujesz sprzedaż lub zakup nieruchomości? Z przyjemnością przeprowadzę Cię przez ten proces.</p>
         </div>
-        <div class="contact-layout">
-          <div class="contact-cards" data-reveal>
-            <a class="contact-card" href="tel:668887845"><span>Telefon</span><strong>668&nbsp;887&nbsp;845</strong></a>
-            <a class="contact-card" href="https://www.instagram.com/elasliwowska_/" target="_blank" rel="noopener noreferrer"><span>Instagram</span><strong>@elasliwowska_</strong></a>
-            <article class="contact-card" aria-label="Adres e-mail"><span>E-mail</span><div class="placeholder-lines" aria-hidden="true"><i></i><i></i></div></article>
-            <article class="contact-card"><span>Obszar działania</span><strong>Białystok i okolice</strong></article>
+        <div class="contact-panel" data-reveal>
+          <p class="eyebrow">Bez zobowiązań</p>
+          <h3>Porozmawiajmy o Twojej nieruchomości.</h3>
+          <p>Pierwsza rozmowa pozwoli nam spokojnie określić Twoją sytuację, potrzeby i najlepszy następny krok.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:668887845">
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg>
+              Zadzwoń teraz
+            </a>
+            <a class="button button-outline" href="https://www.instagram.com/elasliwowska_/" target="_blank" rel="noopener noreferrer">Napisz na Instagramie</a>
           </div>
-          <form class="contact-form" data-reveal>
-            <h3>Napisz wiadomość</h3>
-            <p>Opowiedz krótko o swojej sytuacji i o tym, jakiego wsparcia potrzebujesz.</p>
-            <fieldset disabled>
-              <legend class="sr-only">Dane wiadomości kontaktowej</legend>
-              <div class="form-grid">
-                <div class="field"><label for="name">Imię</label><input id="name" name="name" type="text" autocomplete="name" placeholder="Twoje imię"></div>
-                <div class="field"><label for="reply">Telefon lub e-mail</label><input id="reply" name="reply" type="text" autocomplete="email" placeholder="Jak się z Tobą skontaktować?"></div>
-                <div class="field field-full"><label for="topic">Temat</label><select id="topic" name="topic"><option>Zakup nieruchomości</option><option>Sprzedaż nieruchomości</option><option>Inna sprawa</option></select></div>
-                <div class="field field-full"><label for="message">Wiadomość</label><textarea id="message" name="message" placeholder="Opowiedz krótko o swojej sytuacji"></textarea></div>
-              </div>
-            </fieldset>
-            <div class="form-footer">
-              <button class="button button-primary button-disabled" type="submit" disabled aria-disabled="true">Wyślij wiadomość</button>
-            </div>
-          </form>
+        </div>
+        <div class="contact-cards" data-reveal>
+          <a class="contact-card" href="tel:668887845"><span>Telefon</span><strong>668&nbsp;887&nbsp;845</strong></a>
+          <a class="contact-card" href="https://www.instagram.com/elasliwowska_/" target="_blank" rel="noopener noreferrer"><span>Instagram</span><strong>@elasliwowska_</strong></a>
+          <article class="contact-card"><span>Obszar działania</span><strong>Białystok i okolice</strong></article>
         </div>
         <footer class="footer">
           <div class="footer-grid">
