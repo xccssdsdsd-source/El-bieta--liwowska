@@ -146,8 +146,14 @@
     }
 
     .container {
-      width: min(100% - 3rem, 68rem);
+      width: min(100% - 8vw, 62rem);
       margin-inline: auto;
+    }
+
+    @media (min-width: 1400px) {
+      .container {
+        width: min(100% - 16vw, 62rem);
+      }
     }
 
     .eyebrow {
@@ -916,7 +922,7 @@
 
     @media (min-width: 640px) {
       .container {
-        width: min(100% - 3rem, 82rem);
+        width: min(100% - 8vw, 62rem);
       }
 
       .trust-grid {
@@ -963,12 +969,8 @@
       }
 
       .hero-grid {
-        grid-template-columns: minmax(0, 1.16fr) minmax(22rem, 0.84fr);
-        gap: 0;
-      }
-
-      .hero-copy {
-        margin-right: -4rem;
+        grid-template-columns: minmax(0, 1.1fr) minmax(20rem, 0.9fr);
+        gap: 3rem;
       }
 
       .hero-visual {
