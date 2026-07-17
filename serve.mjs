@@ -2,7 +2,7 @@ import http from 'http'
 import fs from 'fs'
 import path from 'path'
 
-const port = 3000
+const port = process.env.PORT || 3100
 const types = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.mjs': 'text/javascript', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.svg': 'image/svg+xml', '.json': 'application/json' }
 
 http.createServer((req, res) => {
