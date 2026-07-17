@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f2eb">
+  <meta name="description" content="Elżbieta Śliwowska — pośrednik w obrocie nieruchomościami w Białymstoku. Spokojne, transparentne wsparcie w zakupie i sprzedaży nieruchomości.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="Elżbieta Śliwowska — pośrednik nieruchomości">
+  <meta property="og:description" content="Spokojna i świadoma decyzja. Kompleksowe wsparcie przy zakupie i sprzedaży nieruchomości w Białymstoku i okolicach.">
+  <meta property="og:image" content="logo.jpg">
+  <meta property="og:image:alt" content="Elżbieta Śliwowska — pośrednik w obrocie nieruchomościami">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,600;6..96,700;6..96,800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Elżbieta Śliwowska — pośrednik nieruchomości</title>
+  <style>
+    :root {
+      --bg: 38 36% 95%;
+      --surface: 34 27% 89%;
+      --primary: 30 31% 43%;
+      --accent: 35 52% 68%;
+      --text: 29 20% 14%;
+      --muted: 28 10% 42%;
+      --white: 42 46% 98%;
+      --line: 29 20% 14%;
+      --display: 'Bodoni Moda', Georgia, serif;
+      --body: 'Manrope', sans-serif;
+      --shadow-sm: 0 12px 32px hsl(28 28% 20% / 0.08);
+      --shadow-lg: 0 35px 90px hsl(28 28% 16% / 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 8% 8%, hsl(var(--white) / 0.95), transparent 31rem),
+        radial-gradient(circle at 91% 35%, hsl(var(--primary) / 0.08), transparent 29rem),
+        hsl(var(--bg));
+      color: hsl(var(--text));
+      font-family: var(--body);
+      font-size: 1rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      pointer-events: none;
+      content: '';
+      opacity: 0.16;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.14'/%3E%3C/svg%3E");
+      mix-blend-mode: multiply;
+    }
+
+    ::selection {
+      background: hsl(var(--primary));
+      color: hsl(var(--white));
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    blockquote,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    blockquote {
+      font-family: var(--display);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.06;
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+      font-size: clamp(2.8rem, 6vw, 6.6rem);
+    }
+
+    h3 {
+      font-size: clamp(1.65rem, 2.3vw, 2.4rem);
+    }
+
+    p {
+      max-width: 68ch;
+    }
+
+    .skip-link {
+      position: fixed;
+      left: 1rem;
+      top: -5rem;
+      z-index: 100;
+      padding: 0.65em 1.5em;
+      background: hsl(var(--text));
+      color: hsl(var(--white));
+      transition: transform 180ms ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(6rem);
+    }
+
+    .container {
+      width: min(100% - 2rem, 82rem);
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      color: hsl(var(--primary));
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.19em;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 2.3rem;
+      height: 1px;
+      background: currentColor;
+      content: '';
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      min-height: 3.2rem;
+      padding: 0.65em 1.5em;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: hsl(var(--primary));
+      color: hsl(var(--white));
+      box-shadow: 0 10px 24px hsl(var(--primary) / 0.22), inset 0 1px hsl(var(--white) / 0.22);
+    }
+
+    .button-primary:hover,
+    .button-primary:focus-visible {
+      box-shadow: 0 16px 34px hsl(var(--primary) / 0.3), inset 0 1px hsl(var(--white) / 0.22);
+    }
+
+    .button-outline {
+      border-color: hsl(var(--text) / 0.17);
+      background: hsl(var(--white) / 0.42);
+      box-shadow: inset 0 1px hsl(var(--white) / 0.6);
+    }
+
+    .button-outline:hover,
+    .button-outline:focus-visible {
+      border-color: hsl(var(--primary) / 0.5);
+      box-shadow: var(--shadow-sm), inset 0 1px hsl(var(--white) / 0.7);
+    }
+
+    .icon {
+      width: 1.05rem;
+      height: 1.05rem;
+      flex: none;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 50;
+      border-bottom: 1px solid transparent;
+      transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .site-header.scrolled {
+      border-color: hsl(var(--text) / 0.08);
+      background: hsl(var(--bg) / 0.78);
+      box-shadow: 0 10px 30px hsl(var(--text) / 0.04);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 4.7rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.25;
+    }
+
+    .brand img {
+      width: 2.55rem;
+      height: 2.55rem;
+      border: 1px solid hsl(var(--white) / 0.8);
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: 50% 28%;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand span {
+      display: grid;
+    }
+
+    .brand small {
+      color: hsl(var(--muted));
+      font-size: 0.61rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: clamp(1rem, 2.1vw, 2rem);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-block: 0.5rem;
+    }
+
+    .nav-links a::after {
+      position: absolute;
+      right: 0;
+      bottom: 0.25rem;
+      left: 0;
+      height: 1px;
+      background: hsl(var(--primary));
+      content: '';
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 180ms ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .menu-button {
+      display: grid;
+      width: 2.75rem;
+      height: 2.75rem;
+      place-items: center;
+      border: 1px solid hsl(var(--text) / 0.12);
+      border-radius: 50%;
+      background: hsl(var(--white) / 0.42);
+      color: hsl(var(--text));
+    }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 4.7rem 1rem auto;
+      z-index: 45;
+      display: grid;
+      gap: 0.2rem;
+      padding: 1rem;
+      border: 1px solid hsl(var(--text) / 0.08);
+      border-radius: 1rem;
+      background: hsl(var(--bg) / 0.96);
+      box-shadow: var(--shadow-lg), inset 0 1px hsl(var(--white) / 0.7);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-0.75rem);
+      transition: transform 180ms ease, opacity 180ms ease;
+      backdrop-filter: blur(20px);
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .mobile-menu a {
+      padding: 0.8rem 1rem;
+      border-radius: 0.6rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a:focus-visible {
+      background: hsl(var(--surface) / 0.75);
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: 100svh;
+      padding: 7.5rem 0 2rem;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      position: absolute;
+      right: -11rem;
+      top: 9rem;
+      width: 28rem;
+      height: 28rem;
+      border: 1px solid hsl(var(--accent) / 0.25);
+      border-radius: 50%;
+      content: '';
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      padding-top: 1rem;
+    }
+
+    .hero h1 {
+      max-width: 12.2ch;
+      margin-bottom: 1.5rem;
+      font-size: clamp(3.2rem, 8.5vw, 8.5rem);
+    }
+
+    .hero h1 em {
+      color: hsl(var(--primary));
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .hero-lead {
+      max-width: 37rem;
+      margin-bottom: 1.7rem;
+      color: hsl(var(--muted));
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-top: 1.4rem;
+      color: hsl(var(--muted));
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-note span {
+      width: 0.42rem;
+      height: 0.42rem;
+      border-radius: 50%;
+      background: hsl(var(--accent));
+      box-shadow: 0 0 0 0.35rem hsl(var(--accent) / 0.13);
+    }
+
+    .hero-visual {
+      position: relative;
+      width: min(100%, 35rem);
+      justify-self: center;
+    }
+
+    .hero-frame {
+      position: relative;
+      aspect-ratio: 0.86;
+      overflow: hidden;
+      border-radius: 15rem 15rem 1.5rem 1.5rem;
+      box-shadow: var(--shadow-lg), inset 0 1px hsl(var(--white) / 0.5);
+    }
+
+    .hero-frame::after,
+    .photo-frame::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, hsl(var(--text) / 0.23), transparent 45%);
+      content: '';
+      pointer-events: none;
+    }
+
+    .hero-frame img,
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-frame img {
+      object-position: 50% 34%;
+    }
+
+    .hero-stamp {
+      position: absolute;
+      right: -0.4rem;
+      bottom: 2.4rem;
+      z-index: 2;
+      display: grid;
+      width: 7.2rem;
+      height: 7.2rem;
+      place-items: center;
+      border: 1px solid hsl(var(--white) / 0.45);
+      border-radius: 50%;
+      background: hsl(var(--primary) / 0.92);
+      color: hsl(var(--white));
+      font-family: var(--display);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.15;
+      text-align: center;
+      box-shadow: var(--shadow-lg), inset 0 1px hsl(var(--white) / 0.2);
+      backdrop-filter: blur(8px);
+    }
+
+    .trust-bar {
+      border-block: 1px solid hsl(var(--text) / 0.1);
+      background: hsl(var(--white) / 0.34);
+    }
+
+    .trust-grid {
+      display: grid;
+    }
+
+    .trust-item {
+      display: grid;
+      gap: 0.1rem;
+      padding: 1.35rem 0;
+      border-bottom: 1px solid hsl(var(--text) / 0.08);
+    }
+
+    .trust-item:last-child {
+      border-bottom: 0;
+    }
+
+    .trust-item strong {
+      font-family: var(--display);
+      font-size: 1.65rem;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .trust-item span {
+      color: hsl(var(--muted));
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      position: relative;
+      padding-block: clamp(5.5rem, 11vw, 10rem);
+    }
+
+    .split {
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .photo-wrap {
+      position: relative;
+      width: min(100%, 35rem);
+    }
+
+    .photo-frame {
+      position: relative;
+      aspect-ratio: 0.88;
+      overflow: hidden;
+      border-radius: 1.2rem;
+      box-shadow: var(--shadow-lg), inset 0 1px hsl(var(--white) / 0.5);
+    }
+
+    .photo-caption {
+      position: absolute;
+      right: -0.5rem;
+      bottom: -1.5rem;
+      z-index: 2;
+      max-width: 14rem;
+      padding: 1.2rem 1.4rem;
+      border: 1px solid hsl(var(--text) / 0.08);
+      border-radius: 0.8rem;
+      background: hsl(var(--white) / 0.9);
+      box-shadow: var(--shadow-sm), inset 0 1px hsl(var(--white));
+      font-family: var(--display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .about-copy {
+      max-width: 38rem;
+    }
+
+    .about-copy .lead {
+      color: hsl(var(--text));
+      font-family: var(--display);
+      font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .about-copy p:not(.lead) {
+      color: hsl(var(--muted));
+    }
+
+    .license {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-top: 1rem;
+      padding: 0.8rem 1rem;
+      border: 1px solid hsl(var(--primary) / 0.22);
+      border-radius: 0.7rem;
+      background: hsl(var(--primary) / 0.07);
+      color: hsl(var(--primary));
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .quote-section {
+      display: grid;
+      min-height: min(68rem, 82svh);
+      place-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, hsl(var(--text) / 0.98), hsl(28 19% 23% / 0.97)),
+        hsl(var(--text));
+      color: hsl(var(--white));
+    }
+
+    .quote-section blockquote {
+      position: relative;
+      max-width: 18ch;
+      margin: 0;
+      font-size: clamp(3rem, 8vw, 8rem);
+    }
+
+    .quote-section blockquote::before {
+      position: absolute;
+      left: -0.1em;
+      top: -0.35em;
+      color: hsl(var(--accent) / 0.42);
+      content: '“';
+      font-size: 2em;
+    }
+
+    .quote-footer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      color: hsl(var(--white) / 0.62);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .quote-footer::before {
+      width: 3.5rem;
+      height: 1px;
+      background: hsl(var(--accent));
+      content: '';
+    }
+
+    .services-head {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .services-head p {
+      align-self: end;
+      color: hsl(var(--muted));
+    }
+
+    .service-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .service-card,
+    .knowledge-card,
+    .missing-card,
+    .contact-card {
+      border: 1px solid hsl(var(--text) / 0.08);
+      background: hsl(var(--white) / 0.46);
+      box-shadow: var(--shadow-sm), inset 0 1px hsl(var(--white) / 0.75);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .service-card:hover,
+    .knowledge-card:hover,
+    .missing-card:hover,
+    .contact-card:hover {
+      transform: translateY(-2px);
+      border-color: hsl(var(--primary) / 0.3);
+      box-shadow: var(--shadow-lg), inset 0 1px hsl(var(--white) / 0.8);
+    }
+
+    .service-card {
+      position: relative;
+      min-height: 31rem;
+      padding: clamp(1.6rem, 4vw, 3.4rem);
+      overflow: hidden;
+      border-radius: 1rem;
+    }
+
+    .service-card:nth-child(2) {
+      background: hsl(var(--primary));
+      color: hsl(var(--white));
+    }
+
+    .service-card:nth-child(2)::before {
+      position: absolute;
+      right: -5rem;
+      bottom: -6rem;
+      width: 19rem;
+      height: 19rem;
+      border: 1px solid hsl(var(--white) / 0.18);
+      border-radius: 50%;
+      content: '';
+    }
+
+    .service-index {
+      display: inline-grid;
+      width: 2.7rem;
+      height: 2.7rem;
+      margin-bottom: 5rem;
+      place-items: center;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .service-card h3 {
+      margin-bottom: 1.2rem;
+      font-size: clamp(2.6rem, 5vw, 5rem);
+    }
+
+    .service-card ul {
+      display: grid;
+      gap: 0.7rem;
+      margin: 2rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .service-card li {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+      font-size: 0.88rem;
+    }
+
+    .service-card li::before {
+      width: 1.3rem;
+      height: 1px;
+      flex: none;
+      background: hsl(var(--accent));
+      content: '';
+    }
+
+    .process-section {
+      background: hsl(var(--surface) / 0.56);
+    }
+
+    .process-grid {
+      display: grid;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .process-photo {
+      position: sticky;
+      top: 7rem;
+    }
+
+    .process-photo .photo-frame {
+      aspect-ratio: 0.9;
+    }
+
+    .process-list {
+      margin-top: 3rem;
+      border-top: 1px solid hsl(var(--text) / 0.12);
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: 2.8rem 1fr;
+      gap: 0.8rem;
+      padding-block: 1.6rem;
+      border-bottom: 1px solid hsl(var(--text) / 0.12);
+    }
+
+    .process-step > span {
+      color: hsl(var(--primary));
+      font-family: var(--display);
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .process-step h3 {
+      margin-bottom: 0.45rem;
+      font-size: 1.4rem;
+    }
+
+    .process-step p {
+      margin-bottom: 0;
+      color: hsl(var(--muted));
+      font-size: 0.9rem;
+    }
+
+    .knowledge-intro {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .knowledge-intro p {
+      align-self: end;
+      color: hsl(var(--muted));
+    }
+
+    .knowledge-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .knowledge-card {
+      display: grid;
+      min-height: 23rem;
+      align-content: space-between;
+      padding: 1.7rem;
+      border-radius: 1rem;
+    }
+
+    .knowledge-card:nth-child(2) {
+      margin-top: 0;
+    }
+
+    .knowledge-number {
+      color: hsl(var(--primary));
+      font-family: var(--display);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .knowledge-card h3 {
+      margin-bottom: 1rem;
+    }
+
+    .knowledge-card p {
+      margin-bottom: 0;
+      color: hsl(var(--muted));
+      font-size: 0.9rem;
+    }
+
+    .support-section {
+      background: hsl(var(--text));
+      color: hsl(var(--white));
+    }
+
+    .support-layout {
+      display: grid;
+      gap: 3rem;
+    }
+
+    .support-copy h2 {
+      max-width: 10ch;
+    }
+
+    .support-copy p {
+      color: hsl(var(--white) / 0.6);
+    }
+
+    .missing-grid {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .missing-card {
+      display: grid;
+      min-height: 10.5rem;
+      align-content: space-between;
+      padding: 1.3rem;
+      border-color: hsl(var(--white) / 0.1);
+      border-radius: 0.8rem;
+      background: hsl(var(--white) / 0.05);
+      box-shadow: inset 0 1px hsl(var(--white) / 0.08);
+    }
+
+    .missing-card:hover {
+      border-color: hsl(var(--white) / 0.22);
+      box-shadow: 0 20px 50px hsl(0 0% 0% / 0.18), inset 0 1px hsl(var(--white) / 0.1);
+    }
+
+    .missing-card span {
+      color: hsl(var(--white) / 0.47);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .placeholder-lines {
+      display: grid;
+      gap: 0.85rem;
+      opacity: 0.72;
+    }
+
+    .placeholder-lines i {
+      display: block;
+      width: 84%;
+      height: 1px;
+      background: linear-gradient(90deg, hsl(var(--accent) / 0.76), hsl(var(--white) / 0.14));
+    }
+
+    .placeholder-lines i:last-child {
+      width: 55%;
+    }
+
+    .review-mark {
+      color: hsl(var(--accent));
+      font-family: var(--display);
+      font-size: 2.5rem;
+      line-height: 0.75;
+    }
+
+    .reviews-placeholder {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .review-ghost {
+      min-height: 13rem;
+      padding: 1.4rem;
+      border: 1px solid hsl(var(--white) / 0.09);
+      border-radius: 0.8rem;
+      background: hsl(var(--white) / 0.035);
+    }
+
+    .review-ghost .placeholder-lines {
+      margin-block: 1.7rem;
+    }
+
+    .contact-section {
+      padding-bottom: 3rem;
+    }
+
+    .contact-head {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-head p {
+      align-self: end;
+      color: hsl(var(--muted));
+    }
+
+    .contact-layout {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact-cards {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact-card {
+      display: grid;
+      gap: 0.35rem;
+      min-height: 10rem;
+      align-content: center;
+      padding: 1.5rem;
+      border-radius: 0.9rem;
+    }
+
+    .contact-card span {
+      color: hsl(var(--muted));
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .contact-card strong {
+      font-family: var(--display);
+      font-size: clamp(1.35rem, 3vw, 2.2rem);
+      letter-spacing: -0.03em;
+    }
+
+    a.contact-card::after {
+      color: hsl(var(--primary));
+      content: '↗';
+      font-size: 1.3rem;
+      justify-self: end;
+    }
+
+    .contact-card .placeholder-lines {
+      max-width: 16rem;
+      margin-block: 0.55rem;
+    }
+
+    .contact-card .placeholder-lines i {
+      background: linear-gradient(90deg, hsl(var(--primary) / 0.72), hsl(var(--text) / 0.09));
+    }
+
+    .contact-form {
+      padding: clamp(1.5rem, 4vw, 3rem);
+      border: 1px solid hsl(var(--text) / 0.08);
+      border-radius: 1rem;
+      background: hsl(var(--surface) / 0.64);
+      box-shadow: var(--shadow-lg), inset 0 1px hsl(var(--white) / 0.7);
+    }
+
+    .contact-form h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-form > p {
+      margin-bottom: 1.8rem;
+      color: hsl(var(--muted));
+      font-size: 0.84rem;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .field label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      border: 1px solid hsl(var(--text) / 0.13);
+      border-radius: 0.55rem;
+      outline: none;
+      background: hsl(var(--white) / 0.55);
+      color: hsl(var(--text));
+      padding: 0.85rem 0.95rem;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: hsl(var(--primary));
+      box-shadow: 0 0 0 3px hsl(var(--primary) / 0.13);
+    }
+
+    .field textarea {
+      min-height: 7.5rem;
+      resize: vertical;
+    }
+
+    .contact-form fieldset {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      opacity: 1;
+    }
+
+    .form-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .button-disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .footer {
+      margin-top: 6rem;
+      padding-block: 2rem;
+      border-top: 1px solid hsl(var(--text) / 0.1);
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 1.4rem;
+      color: hsl(var(--muted));
+      font-size: 0.72rem;
+    }
+
+    .footer-brand {
+      color: hsl(var(--text));
+      font-family: var(--display);
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .container {
+        width: min(100% - 3rem, 82rem);
+      }
+
+      .trust-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .trust-item {
+        padding: 1.5rem 1.8rem;
+        border-right: 1px solid hsl(var(--text) / 0.08);
+        border-bottom: 0;
+      }
+
+      .trust-item:first-child {
+        padding-left: 0;
+      }
+
+      .trust-item:last-child {
+        padding-right: 0;
+        border-right: 0;
+      }
+
+      .knowledge-grid,
+      .missing-grid,
+      .contact-cards,
+      .reviews-placeholder {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .field-full {
+        grid-column: 1 / -1;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr auto;
+        align-items: end;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .menu-button,
+      .mobile-menu {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 6rem;
+      }
+
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.16fr) minmax(22rem, 0.84fr);
+        gap: 0;
+      }
+
+      .hero-copy {
+        margin-right: -4rem;
+      }
+
+      .hero-visual {
+        justify-self: end;
+      }
+
+      .hero-stamp {
+        right: -2rem;
+      }
+
+      .split {
+        grid-template-columns: minmax(20rem, 0.88fr) minmax(0, 1.12fr);
+        gap: clamp(4rem, 9vw, 9rem);
+      }
+
+      .photo-wrap {
+        justify-self: start;
+      }
+
+      .services-head,
+      .knowledge-intro,
+      .contact-head {
+        grid-template-columns: 1.35fr 0.65fr;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns: minmax(20rem, 0.88fr) minmax(0, 1.12fr);
+        gap: clamp(4rem, 9vw, 9rem);
+      }
+
+      .knowledge-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .knowledge-card:nth-child(2) {
+        margin-top: 4rem;
+      }
+
+      .support-layout {
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 5rem;
+      }
+
+      .contact-layout {
+        grid-template-columns: 0.76fr 1.24fr;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .hero-stamp {
+        right: -3.5rem;
+      }
+
+      .photo-caption {
+        right: -2.8rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Elżbieta Śliwowska",
+      "description": "Pośrednik w obrocie nieruchomościami. Kompleksowa obsługa zakupu i sprzedaży nieruchomości w Białymstoku i okolicach.",
+      "telephone": "+48668887845",
+      "image": "logo.jpg",
+      "areaServed": "Białystok i okolice",
+      "sameAs": ["https://www.instagram.com/elasliwowska_/"],
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Licencja pośrednika PFRN",
+        "identifier": "32560"
+      }
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header" id="site-header">
+    <nav class="container nav-shell" aria-label="Główna nawigacja">
+      <a class="brand" href="#start" aria-label="Elżbieta Śliwowska — strona główna">
+        <img src="logo.jpg" alt="" width="1440" height="1440">
+        <span>Elżbieta Śliwowska<small>Pośrednik nieruchomości</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#o-mnie">O mnie</a>
+        <a href="#uslugi">Usługi</a>
+        <a href="#proces">Proces</a>
+        <a href="#wiedza">Wiedza</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+      <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Otwórz menu">
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </nav>
+  </header>
+  <div class="mobile-menu" id="mobile-menu" inert>
+    <a href="#o-mnie">O mnie</a>
+    <a href="#uslugi">Usługi</a>
+    <a href="#proces">Proces</a>
+    <a href="#wiedza">Wiedza</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+
+  <main id="main">
+    <section class="hero" id="start">
+      <div class="container hero-grid">
+        <div class="hero-copy" data-hero>
+          <p class="eyebrow">Białystok i okolice</p>
+          <h1>Spokojna <em>decyzja</em> bez presji.</h1>
+          <p class="hero-lead">Kupujesz lub sprzedajesz nieruchomość? Pomagam, żeby była to spokojna i świadoma decyzja — z pełnym wsparciem na każdym etapie.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:668887845">
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg>
+              Porozmawiajmy
+            </a>
+            <a class="button button-outline" href="https://www.instagram.com/elasliwowska_/" target="_blank" rel="noopener noreferrer">
+              Instagram
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+          <p class="hero-note"><span aria-hidden="true"></span>Pośrednik PFRN 32560</p>
+        </div>
+        <div class="hero-visual" data-hero>
+          <figure class="hero-frame">
+            <img src="logo.jpg" alt="Elżbieta Śliwowska w jasnym, eleganckim wnętrzu" width="1440" height="1440" decoding="async">
+          </figure>
+          <div class="hero-stamp">20+ lat<br>doświadczenia</div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="trust-bar" aria-label="Najważniejsze informacje">
+      <div class="container trust-grid">
+        <div class="trust-item" data-reveal><strong>20+ lat</strong><span>Doświadczenia w branży</span></div>
+        <div class="trust-item" data-reveal><strong>PFRN 32560</strong><span>Licencjonowany pośrednik</span></div>
+        <div class="trust-item" data-reveal><strong>Białystok</strong><span>I najbliższe okolice</span></div>
+      </div>
+    </aside>
+
+    <section class="section" id="o-mnie">
+      <div class="container split">
+        <figure class="photo-wrap" data-reveal>
+          <div class="photo-frame" data-parallax>
+            <img src="ImageDownloader_www.instagram.com_730748708_18092903828622485_2324683726566441076_n.jpg" alt="Elżbieta Śliwowska przy biurku z dokumentami" width="1440" height="1440" loading="lazy" decoding="async">
+          </div>
+          <figcaption class="photo-caption">„Po drugiej stronie słuchawki jest człowiek.”</figcaption>
+        </figure>
+        <div class="about-copy" data-reveal>
+          <p class="eyebrow">O mnie</p>
+          <h2>Relacje przed transakcją.</h2>
+          <p class="lead">Nieruchomość to nie tylko metry i dokumenty. To decyzja, która wpływa na codzienność, bezpieczeństwo i plany na przyszłość.</p>
+          <p>Od ponad 20 lat pracuję na styku wnętrz i nieruchomości — z architektami, biurami projektowymi, showroomami i producentami. Dziś to doświadczenie wykorzystuję, by pomagać klientom spojrzeć na nieruchomość praktycznie i przejść przez cały proces z większym spokojem.</p>
+          <p>Porządkuję informacje, weryfikuję ryzyka i dbam o interes osoby, którą reprezentuję. Bez nacisku. Z uważnością, odpowiedzialnością i transparentnością.</p>
+          <div class="license">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            Licencja PFRN 32560 · Ubezpieczenie OC
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section section">
+      <div class="container" data-reveal>
+        <blockquote>Najpierw buduje się relacje, później zawiera transakcje.</blockquote>
+        <p class="quote-footer">Elżbieta Śliwowska</p>
+      </div>
+    </section>
+
+    <section class="section" id="uslugi">
+      <div class="container">
+        <div class="services-head" data-reveal>
+          <div>
+            <p class="eyebrow">Moje usługi</p>
+            <h2>Po Twojej stronie.</h2>
+          </div>
+          <p>Każda sytuacja jest inna. Dlatego zaczynam od rozmowy, a zakres wsparcia dopasowuję do realnych potrzeb — kupującego albo sprzedającego.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card" data-reveal>
+            <span class="service-index">01</span>
+            <div>
+              <h3>Kupuję</h3>
+              <p>Pomagam znaleźć nieruchomość, której wartość sięga dalej niż to, co widać na zdjęciach.</p>
+              <ul>
+                <li>Selekcja nieruchomości dopasowanych do potrzeb</li>
+                <li>Weryfikacja stanu prawnego i dokumentów</li>
+                <li>Ocena wartości, ryzyk i ukrytych kosztów</li>
+                <li>Negocjacje, formalności i oferty off-market</li>
+              </ul>
+            </div>
+          </article>
+          <article class="service-card" data-reveal>
+            <span class="service-index">02</span>
+            <div>
+              <h3>Sprzedaję</h3>
+              <p>Przygotowuję i prowadzę proces tak, by nieruchomość trafiła do właściwych osób na dobrych warunkach.</p>
+              <ul>
+                <li>Ocena wartości nieruchomości</li>
+                <li>Profesjonalne przygotowanie oferty</li>
+                <li>Dotarcie do zainteresowanych kupujących</li>
+                <li>Negocjacje i uporządkowanie formalności</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process-section" id="proces">
+      <div class="container process-grid">
+        <figure class="process-photo" data-reveal>
+          <div class="photo-frame" data-parallax>
+            <img src="750117629_18095697110622485_7130592569823673256_n.jpg" alt="Elżbieta Śliwowska w eleganckim wnętrzu związanym z nieruchomościami" width="1080" height="1080" loading="lazy" decoding="async">
+          </div>
+        </figure>
+        <div data-reveal>
+          <p class="eyebrow">Spokojny proces</p>
+          <h2>Krok po kroku. Bez chaosu.</h2>
+          <p>Wiesz, co dzieje się teraz, co będzie dalej i dlaczego podejmujemy daną decyzję.</p>
+          <div class="process-list">
+            <article class="process-step"><span>01</span><div><h3>Rozmowa</h3><p>Poznanie Twojej sytuacji, potrzeb, planów i najważniejszych obaw.</p></div></article>
+            <article class="process-step"><span>02</span><div><h3>Analiza potrzeb</h3><p>Ustalenie priorytetów i zakresu wsparcia dopasowanego do Ciebie.</p></div></article>
+            <article class="process-step"><span>03</span><div><h3>Przygotowanie i weryfikacja</h3><p>Selekcja ofert lub przygotowanie sprzedaży, dokumentów i informacji.</p></div></article>
+            <article class="process-step"><span>04</span><div><h3>Negocjacje</h3><p>Ochrona Twoich interesów i spokojne wypracowanie właściwych warunków.</p></div></article>
+            <article class="process-step"><span>05</span><div><h3>Bezpieczne zamknięcie</h3><p>Koordynacja formalności aż do momentu, gdy możesz powiedzieć: to była dobra decyzja.</p></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="wiedza">
+      <div class="container">
+        <div class="knowledge-intro" data-reveal>
+          <div>
+            <p class="eyebrow">Warto wiedzieć</p>
+            <h2>Świadoma decyzja zaczyna się od pytań.</h2>
+          </div>
+          <p>Część wartości nieruchomości nie jest widoczna na zdjęciach. Dlatego pokazuję, co warto sprawdzić, zanim pojawi się podpis.</p>
+        </div>
+        <div class="knowledge-grid">
+          <article class="knowledge-card" data-reveal><span class="knowledge-number">01</span><div><h3>Czego nie pokazują zdjęcia?</h3><p>Stan prawny, otoczenie, koszty utrzymania i potencjalne ryzyka często decydują o prawdziwej wartości nieruchomości.</p></div></article>
+          <article class="knowledge-card" data-reveal><span class="knowledge-number">02</span><div><h3>Jakie dokumenty sprawdzić?</h3><p>Uporządkowana weryfikacja dokumentów pomaga wcześniej zauważyć niejasności i ograniczyć ryzyko formalnych błędów.</p></div></article>
+          <article class="knowledge-card" data-reveal><span class="knowledge-number">03</span><div><h3>Jak ograniczyć ryzyko?</h3><p>Rzetelne informacje, właściwe pytania i negocjacje bez pośpiechu pozwalają podejmować decyzje z większą pewnością.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section section">
+      <div class="container" data-reveal>
+        <blockquote>To nie sprzedaż. To wsparcie.</blockquote>
+        <p class="quote-footer">Spokojne decyzje bez presji</p>
+      </div>
+    </section>
+
+    <section class="section support-section" aria-labelledby="szczegoly-title">
+      <div class="container support-layout">
+        <div class="support-copy" data-reveal>
+          <p class="eyebrow">Wasze doświadczenia</p>
+          <h2 id="szczegoly-title">Opinie klientów.</h2>
+          <p>Każda dobra współpraca ma swoją historię — opartą na uważności, zaufaniu i spokojnie podjętej decyzji.</p>
+          <div class="reviews-placeholder">
+            <article class="review-ghost">
+              <span class="review-mark" aria-hidden="true">“</span>
+              <div class="placeholder-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+            </article>
+            <article class="review-ghost">
+              <span class="review-mark" aria-hidden="true">“</span>
+              <div class="placeholder-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+            </article>
+          </div>
+        </div>
+        <div class="missing-grid" data-reveal>
+          <article class="missing-card" aria-label="Adres biura"><span>Adres biura</span><div class="placeholder-lines" aria-hidden="true"><i></i><i></i></div></article>
+          <article class="missing-card" aria-label="Godziny pracy"><span>Godziny pracy</span><div class="placeholder-lines" aria-hidden="true"><i></i><i></i></div></article>
+          <article class="missing-card" aria-label="Zasady wynagrodzenia"><span>Zasady wynagrodzenia</span><div class="placeholder-lines" aria-hidden="true"><i></i><i></i></div></article>
+          <article class="missing-card" aria-label="Adres e-mail"><span>Adres e-mail</span><div class="placeholder-lines" aria-hidden="true"><i></i><i></i></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="kontakt">
+      <div class="container">
+        <div class="contact-head" data-reveal>
+          <div>
+            <p class="eyebrow">Kontakt</p>
+            <h2>Zacznijmy od rozmowy.</h2>
+          </div>
+          <p>Planujesz sprzedaż lub zakup nieruchomości? Z przyjemnością przeprowadzę Cię przez ten proces.</p>
+        </div>
+        <div class="contact-layout">
+          <div class="contact-cards" data-reveal>
+            <a class="contact-card" href="tel:668887845"><span>Telefon</span><strong>668&nbsp;887&nbsp;845</strong></a>
+            <a class="contact-card" href="https://www.instagram.com/elasliwowska_/" target="_blank" rel="noopener noreferrer"><span>Instagram</span><strong>@elasliwowska_</strong></a>
+            <article class="contact-card" aria-label="Adres e-mail"><span>E-mail</span><div class="placeholder-lines" aria-hidden="true"><i></i><i></i></div></article>
+            <article class="contact-card"><span>Obszar działania</span><strong>Białystok i okolice</strong></article>
+          </div>
+          <form class="contact-form" data-reveal>
+            <h3>Napisz wiadomość</h3>
+            <p>Opowiedz krótko o swojej sytuacji i o tym, jakiego wsparcia potrzebujesz.</p>
+            <fieldset disabled>
+              <legend class="sr-only">Dane wiadomości kontaktowej</legend>
+              <div class="form-grid">
+                <div class="field"><label for="name">Imię</label><input id="name" name="name" type="text" autocomplete="name" placeholder="Twoje imię"></div>
+                <div class="field"><label for="reply">Telefon lub e-mail</label><input id="reply" name="reply" type="text" autocomplete="email" placeholder="Jak się z Tobą skontaktować?"></div>
+                <div class="field field-full"><label for="topic">Temat</label><select id="topic" name="topic"><option>Zakup nieruchomości</option><option>Sprzedaż nieruchomości</option><option>Inna sprawa</option></select></div>
+                <div class="field field-full"><label for="message">Wiadomość</label><textarea id="message" name="message" placeholder="Opowiedz krótko o swojej sytuacji"></textarea></div>
+              </div>
+            </fieldset>
+            <div class="form-footer">
+              <button class="button button-primary button-disabled" type="submit" disabled aria-disabled="true">Wyślij wiadomość</button>
+            </div>
+          </form>
+        </div>
+        <footer class="footer">
+          <div class="footer-grid">
+            <div><div class="footer-brand">Elżbieta Śliwowska</div><span>Pośrednik w Obrocie Nieruchomościami · PFRN 32560</span></div>
+            <div class="footer-links"><a href="tel:668887845">668&nbsp;887&nbsp;845</a><a href="https://www.instagram.com/elasliwowska_/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="#start">Wróć na górę ↑</a></div>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@latest/dist/lenis.min.js"></script>
+  <script>
+    const header = document.querySelector('#site-header')
+    const menuButton = document.querySelector('#menu-button')
+    const mobileMenu = document.querySelector('#mobile-menu')
+    const mobileLinks = mobileMenu.querySelectorAll('a')
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const screenshotMode = new URLSearchParams(window.location.search).has('screenshot')
+
+    if (screenshotMode) {
+      document.querySelectorAll('img[loading="lazy"]').forEach((image) => image.loading = 'eager')
+    }
+
+    const setMenu = (open) => {
+      mobileMenu.classList.toggle('open', open)
+      mobileMenu.inert = !open
+      menuButton.setAttribute('aria-expanded', String(open))
+      menuButton.setAttribute('aria-label', open ? 'Zamknij menu' : 'Otwórz menu')
+    }
+
+    menuButton.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')))
+    mobileLinks.forEach((link) => link.addEventListener('click', () => setMenu(false)))
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') setMenu(false)
+    })
+
+    const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 20)
+    updateHeader()
+    window.addEventListener('scroll', updateHeader, { passive: true })
+
+    if (!reducedMotion && !screenshotMode && window.gsap && window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger)
+
+      if (window.Lenis) {
+        const lenis = new Lenis()
+        lenis.on('scroll', ScrollTrigger.update)
+        gsap.ticker.add((time) => lenis.raf(time * 1000))
+        gsap.ticker.lagSmoothing(0)
+      }
+
+      gsap.utils.toArray('[data-reveal]').forEach((element) => {
+        gsap.from(element, {
+          y: 40,
+          opacity: 0,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: element, start: 'top 85%' }
+        })
+      })
+
+      gsap.from('[data-hero] > *', {
+        y: 32,
+        opacity: 0,
+        duration: 1.1,
+        ease: 'expo.out',
+        stagger: 0.12,
+        delay: 0.15
+      })
+
+      gsap.utils.toArray('[data-parallax] img').forEach((image) => {
+        gsap.fromTo(image, { yPercent: -3, scale: 1.06 }, {
+          yPercent: 3,
+          ease: 'none',
+          scrollTrigger: { trigger: image, start: 'top bottom', end: 'bottom top', scrub: true }
+        })
+      })
+    }
+  </script>
+</body>
+</html>
