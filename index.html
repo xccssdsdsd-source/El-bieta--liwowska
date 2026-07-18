@@ -22,6 +22,8 @@
   --beige:#e3d6bf;
   --accent:#b6996f;
   --accent-deep:#9a7f57;
+  --deep:#2e2823;
+  --deep-2:#241f1b;
   --ink:#37312a;
   --ink-soft:#6d6456;
   --ink-faint:#9a9080;
@@ -76,8 +78,13 @@ img{display:block;max-width:100%}
 .frame.is-loaded .media::before{display:none}
 @keyframes shimmer{to{background-position:-120% 0}}
 
-.nav{position:fixed;inset:0 0 auto;z-index:100;transition:background .3s ease,box-shadow .3s ease,padding .3s ease;padding:1.35rem 0}
-.nav.scrolled{background:rgba(250,247,240,.82);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding:.85rem 0}
+.nav{
+  position:fixed;inset:0 0 auto;z-index:100;padding:.9rem 0;
+  background:rgba(250,247,240,.86);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);
+  opacity:0;visibility:hidden;transform:translateY(-100%);
+  transition:opacity .45s var(--ease-out),transform .55s var(--ease-out),visibility .45s;
+}
+.nav.scrolled{opacity:1;visibility:visible;transform:none}
 .nav .row{display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .brand{font-family:'Cormorant Garamond',serif;font-size:1.4rem;letter-spacing:-.01em}
 .brand span{color:var(--accent-deep)}
@@ -88,43 +95,71 @@ img{display:block;max-width:100%}
 .nav-links a:focus-visible{outline:2px solid var(--accent-deep);outline-offset:4px}
 
 .btn{
-  display:inline-flex;align-items:center;gap:.7rem;
-  font-family:'Karla',sans-serif;font-size:.9rem;font-weight:500;letter-spacing:.04em;
-  padding:1.05rem 2.1rem;cursor:pointer;border:none;
-  background:var(--ink);color:var(--cream);
-  transition:transform .18s var(--ease-out),background .3s ease,box-shadow .3s ease;
+  display:inline-flex;align-items:center;justify-content:center;gap:.7rem;
+  font-family:'Karla',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  padding:1.05rem 2.2rem;cursor:pointer;border:1px solid var(--accent-deep);border-radius:2px;
+  background:var(--accent-deep);color:var(--cream);position:relative;overflow:hidden;
+  transition:transform .2s var(--ease-out),color .35s ease,box-shadow .35s ease,border-color .35s ease;
+  box-shadow:0 10px 26px -18px rgba(60,45,25,.85);
   will-change:transform;
 }
+.btn::before{content:'';position:absolute;inset:0;background:var(--deep);transform:translateY(101%);transition:transform .45s var(--ease-out);z-index:0}
+.btn>*{position:relative;z-index:1}
 .btn .arrow{transition:transform .3s var(--ease-out)}
-@media(hover:hover){.btn:hover{background:var(--accent-deep);box-shadow:0 14px 30px -14px rgba(154,127,87,.7)}.btn:hover .arrow{transform:translateX(5px)}}
-.btn:active{transform:scale(.97)}
+@media(hover:hover){
+  .btn:hover{transform:translateY(-2px);border-color:var(--deep);box-shadow:0 18px 34px -18px rgba(46,40,35,.8)}
+  .btn:hover::before{transform:translateY(0)}
+  .btn:hover .arrow{transform:translateX(5px)}
+}
+.btn:active{transform:translateY(0) scale(.98)}
 .btn:focus-visible{outline:2px solid var(--accent-deep);outline-offset:4px}
-.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
-@media(hover:hover){.btn-ghost:hover{background:var(--ink);color:var(--cream);box-shadow:none}}
+.btn-ghost{background:transparent;color:var(--accent-deep);box-shadow:none}
+@media(hover:hover){.btn-ghost:hover{color:var(--cream)}}
 
 section{position:relative}
 .pad{padding-block:clamp(4.5rem,11vw,9rem)}
+.band{background:var(--cream)}
+.band-2{background:linear-gradient(180deg,var(--cream-2),#efe6d5)}
+.band-dark{background:var(--deep);color:var(--cream-2)}
+.band-dark h2,.band-dark h3{color:var(--cream)}
+.band-dark .eyebrow{color:var(--accent)}
+.band-dark .tag::before{background:var(--accent)}
+.rule{height:clamp(4rem,7vw,6.5rem);position:relative;overflow:hidden}
+.rule::before{content:'';position:absolute;left:50%;top:0;width:1px;height:100%;background:linear-gradient(180deg,transparent,var(--line),transparent);transform:translateX(-50%) scaleY(0);transform-origin:top;transition:transform .9s var(--ease-out)}
+.rule.on::before{transform:translateX(-50%) scaleY(1)}
+.rule::after{content:'';position:absolute;left:50%;top:50%;width:7px;height:7px;background:var(--accent);transform:translate(-50%,-50%) rotate(45deg) scale(0);transition:transform .6s .35s var(--ease-out)}
+.rule.on::after{transform:translate(-50%,-50%) rotate(45deg) scale(1)}
+.rule-dark{background:var(--deep)}
+.rule-dark::before{background:linear-gradient(180deg,transparent,rgba(236,226,208,.28),transparent)}
+.rule-into-dark{background:#efe6d5}
+.rule-into-dark::before,.rule-into-dark-2::before{background:linear-gradient(180deg,transparent,rgba(182,153,111,.55),transparent)}
+.rule-into-light::before{background:linear-gradient(180deg,transparent,rgba(236,226,208,.32),transparent)}
+.rule-into-light{background:var(--deep)}
+.rule-into-light::after{background:var(--accent)}
+.rule-up{background:linear-gradient(180deg,#efe6d5,var(--cream))}
+.rule-into-dark-2{background:var(--cream)}
 .tag{display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1.4rem}
 .tag::before{content:'';width:2rem;height:1px;background:var(--accent)}
 .h-sec{font-size:clamp(2.1rem,5.5vw,3.5rem)}
 
-.hero{padding-top:clamp(7rem,15vw,10rem);padding-bottom:clamp(3rem,8vw,6rem)}
-.hero-grid{display:grid;gap:clamp(2.5rem,6vw,4.5rem);align-items:center}
-.hero-copy .eyebrow{display:block;margin-bottom:1.6rem}
-.hero-copy h1{font-size:clamp(2.6rem,7.5vw,5rem);margin-bottom:1.7rem}
-.hero-copy h1 em{font-style:italic;color:var(--accent-deep)}
-.hero-name{font-family:'Karla',sans-serif;font-size:.8rem;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:2.3rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
-.hero-name b{font-weight:600;color:var(--ink)}
-.hero-name .lic{color:var(--accent-deep);letter-spacing:.16em}
-.hero-cta{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.6rem}
-.hero-media{position:relative}
-.hero-media .frame{transform:rotate(-1.2deg)}
-.hero-media .stamp{
-  position:absolute;z-index:5;left:-1.1rem;bottom:2.4rem;
-  background:var(--cream);border:1px solid var(--line);padding:1rem 1.3rem;max-width:15rem;
-  transform:rotate(1.5deg);
+.hero{
+  position:relative;min-height:100svh;display:flex;align-items:center;
+  padding-block:clamp(5rem,12vw,8rem);
+  background:
+    radial-gradient(1000px 700px at 78% 25%,rgba(227,214,191,.55),transparent 62%),
+    linear-gradient(180deg,#fdfaf3,var(--cream-2));
 }
-.hero-media .stamp p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;line-height:1.3;color:var(--ink)}
+.hero-grid{display:grid;gap:clamp(2.5rem,6vw,4.5rem);align-items:center}
+.hero-copy h1{font-size:clamp(3rem,9vw,6.4rem);line-height:1.06;margin-bottom:1.8rem}
+.hero-copy h1 span{display:block;padding-block:.02em}
+.hero-copy h1 .last{color:var(--accent-deep);font-style:italic}
+.hero-role{font-family:'Karla',sans-serif;font-size:clamp(.72rem,1.6vw,.84rem);letter-spacing:.34em;text-transform:uppercase;color:var(--ink-soft);display:flex;align-items:center;gap:1.1rem}
+.hero-role::before{content:'';width:clamp(2rem,6vw,3.6rem);height:1px;background:var(--accent)}
+.hero-media{position:relative}
+.hero-media .frame{transform:rotate(-1.2deg);background:rgba(255,255,255,.5)}
+.hero-scroll{position:absolute;left:50%;bottom:clamp(1.6rem,4vw,2.6rem);transform:translateX(-50%);font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);display:flex;flex-direction:column;align-items:center;gap:.7rem}
+.hero-scroll::after{content:'';width:1px;height:2.6rem;background:linear-gradient(180deg,var(--accent),transparent);animation:drop 2.4s var(--ease-inout) infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
 .about-grid{display:grid;gap:clamp(2.5rem,6vw,5rem);align-items:center}
 .about-media .frame{transform:rotate(1deg)}
@@ -135,11 +170,12 @@ section{position:relative}
 .about-meta div b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.35rem;color:var(--ink)}
 
 .stats-head{max-width:40ch;margin-bottom:clamp(2.5rem,5vw,3.5rem)}
-.stats{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
-.stat{background:var(--cream);padding:clamp(1.8rem,3.5vw,2.6rem)}
-.stat .num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7vw,4.2rem);line-height:1;color:var(--accent-deep);display:block;margin-bottom:.7rem}
-.stat .num .skel{height:clamp(2.4rem,6vw,3.6rem);width:2.6ch;border-radius:5px}
-.stat .lbl{font-size:.92rem;color:var(--ink-soft);letter-spacing:.01em}
+.stats{display:grid;gap:1px;background:rgba(236,226,208,.16);border:1px solid rgba(236,226,208,.16)}
+.stat{background:var(--deep);padding:clamp(1.8rem,3.5vw,2.6rem);transition:background .35s ease}
+@media(hover:hover){.stat:hover{background:var(--deep-2)}}
+.stat .num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7vw,4.2rem);line-height:1;color:var(--accent);display:block;margin-bottom:.7rem}
+.stat .num .skel{height:clamp(2.4rem,6vw,3.6rem);width:2.6ch;border-radius:5px;background:rgba(236,226,208,.14)}
+.stat .lbl{font-size:.92rem;color:rgba(236,226,208,.72);letter-spacing:.01em}
 
 .svc{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
 .svc-item{background:var(--cream);padding:clamp(1.8rem,3vw,2.4rem);position:relative;transition:background .35s ease,transform .35s var(--ease-out)}
@@ -162,25 +198,36 @@ section{position:relative}
 @media(hover:hover){.prop:hover{transform:translateY(-6px);box-shadow:0 26px 50px -30px rgba(55,49,42,.4)}}
 
 .quotes{display:grid;gap:clamp(1.5rem,3vw,2rem)}
-.quote{background:var(--cream);border:1px solid var(--line);padding:clamp(1.9rem,3.2vw,2.6rem);display:flex;flex-direction:column;gap:1.6rem}
-.quote .mark{font-family:'Cormorant Garamond',serif;font-size:3.2rem;line-height:.4;color:var(--beige);height:1.2rem}
-.quote p{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;line-height:1.45;color:var(--ink);flex:1}
-.quote .who{font-size:.82rem;letter-spacing:.06em;color:var(--ink-soft)}
-.quote .who b{display:block;font-weight:600;color:var(--ink);font-family:'Karla',sans-serif;letter-spacing:.02em;margin-bottom:.15rem}
+.quote{background:rgba(250,247,240,.04);border:1px solid rgba(236,226,208,.16);padding:clamp(1.9rem,3.2vw,2.6rem);display:flex;flex-direction:column;gap:1.6rem;transition:transform .4s var(--ease-out),background .4s ease}
+@media(hover:hover){.quote:hover{transform:translateY(-5px);background:rgba(250,247,240,.07)}}
+.quote .mark{font-family:'Cormorant Garamond',serif;font-size:3.2rem;line-height:.4;color:var(--accent);height:1.2rem}
+.quote p{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;line-height:1.45;color:var(--cream-2);flex:1}
+.quote .who{font-size:.82rem;letter-spacing:.06em;color:rgba(236,226,208,.6)}
+.quote .who b{display:block;font-weight:600;color:var(--cream);font-family:'Karla',sans-serif;letter-spacing:.02em;margin-bottom:.15rem}
+.band-dark .skel{background:rgba(236,226,208,.14)}
+.band-dark .skel::after{background:linear-gradient(100deg,transparent 18%,rgba(255,255,255,.14) 42%,transparent 66%);background-size:220% 100%}
 
-.contact{background:linear-gradient(180deg,transparent,rgba(227,214,191,.28))}
-.contact-grid{display:grid;gap:clamp(2.5rem,5vw,4rem)}
-.contact-right{display:flex;flex-direction:column;gap:2rem}
+.contact{background:linear-gradient(180deg,var(--cream-2),#efe5d3)}
+.contact-grid{display:grid;gap:clamp(2rem,4vw,3rem);align-items:stretch}
+.contact-info,.contact-right{display:flex;flex-direction:column}
+.contact-right{gap:clamp(1.5rem,3vw,2rem)}
 .contact-info h2{margin-bottom:1.6rem}
 .contact-info .lede{margin-bottom:2.6rem}
-.channels{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:2.4rem}
+.channels{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:auto;flex:1}
+.channels .channel{flex:1}
 .channel{background:var(--cream);padding:1.3rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:background .3s ease}
 .channel span{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
 .channel b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.35rem}
 .channel a{color:var(--accent-deep)}
 @media(hover:hover){.channel:hover{background:var(--cream-2)}}
 
-.cal{background:var(--cream);border:1px solid var(--line);padding:clamp(1.4rem,3vw,2rem)}
+.card{background:var(--cream);border:1px solid var(--line);padding:clamp(1.4rem,3vw,2rem);box-shadow:0 24px 50px -40px rgba(55,49,42,.5)}
+.contact-right .card:first-child{flex:1;display:flex;flex-direction:column}
+.contact-right .form{flex:1;display:flex;flex-direction:column}
+.field-msg{flex:1;display:flex;flex-direction:column}
+.field-msg textarea{flex:1}
+.card-title{font-family:'Cormorant Garamond',serif;font-size:1.45rem;margin-bottom:1.3rem}
+.cal{display:flex;flex-direction:column}
 .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.4rem}
 .cal-head .m{font-family:'Cormorant Garamond',serif;font-size:1.5rem}
 .cal-nav{display:flex;gap:.5rem}
@@ -215,13 +262,13 @@ section{position:relative}
 .form-status{font-size:.9rem;padding:.9rem 1.1rem;border:1px solid var(--accent);background:rgba(182,153,111,.12);color:var(--ink);display:none}
 .form-status.show{display:block}
 
-.foot{border-top:1px solid var(--line);padding-block:3.2rem;margin-top:2rem}
+.foot{background:var(--deep);color:var(--cream-2);padding-block:3.6rem}
 .foot .row{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:center}
-.foot .brand{font-size:1.5rem}
-.foot small{color:var(--ink-faint);font-size:.82rem;letter-spacing:.02em}
+.foot .brand{font-size:1.5rem;color:var(--cream)}
+.foot small{color:rgba(236,226,208,.55);font-size:.82rem;letter-spacing:.02em}
 .foot .fl{display:flex;gap:1.6rem;flex-wrap:wrap}
-.foot .fl a{font-size:.85rem;color:var(--ink-soft)}
-@media(hover:hover){.foot .fl a:hover{color:var(--accent-deep)}}
+.foot .fl a{font-size:.85rem;color:rgba(236,226,208,.75)}
+@media(hover:hover){.foot .fl a:hover{color:var(--accent)}}
 
 .reveal>*{opacity:0;transform:translateY(26px)}
 body.no-anim .reveal>*{opacity:1;transform:none}
@@ -267,34 +314,26 @@ body.no-anim .reveal>*{opacity:1;transform:none}
   </div>
 </nav>
 
-<header class="hero pad" id="start">
+<header class="hero" id="start">
   <div class="shell hero-grid">
-    <div class="hero-copy reveal">
-      <span class="eyebrow">Pośrednik w Obrocie Nieruchomościami</span>
-      <h1>Kupujesz dom? To decyzja życiowa. Pomagam, żeby była <em>świadoma</em>.</h1>
-      <div class="hero-name">
-        <b>Elżbieta Śliwowska</b>
-        <span class="lic">Licencja PFRN 32560</span>
-        <span>Białystok i okolice</span>
-      </div>
-      <p class="lede">Spokojne, transparentne wsparcie na każdym etapie zakupu i sprzedaży nieruchomości. Bez pośpiechu, bez presji, z pełną uwagą na Twoje potrzeby.</p>
-      <div class="hero-cta">
-        <a class="btn" href="#kontakt">Porozmawiajmy <span class="arrow">→</span></a>
-        <a class="btn btn-ghost" href="#uslugi">Zobacz, jak pomagam</a>
-      </div>
+    <div class="hero-copy">
+      <h1><span>Elżbieta</span><span class="last">Śliwowska</span></h1>
+      <p class="hero-role">Pośrednik w obrocie nieruchomościami</p>
     </div>
-    <div class="hero-media reveal">
+    <div class="hero-media">
       <div class="frame">
         <div class="media" style="aspect-ratio:4/5">
           <img src="assets/img/hero-elzbieta.jpg" alt="Elżbieta Śliwowska, pośrednik w obrocie nieruchomościami w Białymstoku" width="800" height="1000">
         </div>
       </div>
-      <div class="stamp"><p>Po drugiej stronie słuchawki jest człowiek.</p></div>
     </div>
   </div>
+  <div class="hero-scroll">Przewiń</div>
 </header>
 
-<section class="pad" id="o-mnie">
+<div class="rule band-2"></div>
+
+<section class="pad band-2" id="o-mnie">
   <div class="shell about-grid">
     <div class="about-media reveal">
       <div class="frame">
@@ -317,7 +356,9 @@ body.no-anim .reveal>*{opacity:1;transform:none}
   </div>
 </section>
 
-<section class="pad" id="dlaczego">
+<div class="rule rule-into-dark"></div>
+
+<section class="pad band-dark" id="dlaczego">
   <div class="shell">
     <div class="stats-head reveal">
       <div class="tag"><span class="eyebrow">Dlaczego ja</span></div>
@@ -333,7 +374,9 @@ body.no-anim .reveal>*{opacity:1;transform:none}
   </div>
 </section>
 
-<section class="pad" id="uslugi">
+<div class="rule rule-into-light"></div>
+
+<section class="pad band-2" id="uslugi">
   <div class="shell">
     <div class="stats-head reveal">
       <div class="tag"><span class="eyebrow">Moje usługi</span></div>
@@ -352,7 +395,9 @@ body.no-anim .reveal>*{opacity:1;transform:none}
   </div>
 </section>
 
-<section class="pad" id="nieruchomosci">
+<div class="rule rule-up"></div>
+
+<section class="pad band" id="nieruchomosci">
   <div class="shell">
     <div class="stats-head reveal">
       <div class="tag"><span class="eyebrow">Aktualne nieruchomości</span></div>
@@ -388,7 +433,9 @@ body.no-anim .reveal>*{opacity:1;transform:none}
   </div>
 </section>
 
-<section class="pad" id="opinie">
+<div class="rule rule-into-dark-2"></div>
+
+<section class="pad band-dark" id="opinie">
   <div class="shell">
     <div class="stats-head reveal">
       <div class="tag"><span class="eyebrow">Opinie</span></div>
@@ -415,6 +462,8 @@ body.no-anim .reveal>*{opacity:1;transform:none}
   </div>
 </section>
 
+<div class="rule rule-into-light"></div>
+
 <section class="contact pad" id="kontakt">
   <div class="shell contact-grid">
     <div class="contact-info reveal">
@@ -431,18 +480,21 @@ body.no-anim .reveal>*{opacity:1;transform:none}
     </div>
     <div class="contact-right reveal">
       <!-- Walidacja frontendowa. Brak realnej wysylki. Podlacz backend lub usluge mailowa w handlerze submit ponizej (patrz PODPIECIE BACKENDU). -->
+      <div class="card">
+      <h3 class="card-title">Napisz wiadomość</h3>
       <form class="form" id="contact-form" novalidate>
         <div class="form-row">
           <div class="field"><label for="f-name">Imię <span class="req">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" required><span class="err">Podaj imię.</span></div>
           <div class="field"><label for="f-phone">Telefon <span class="req">*</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><span class="err">Podaj poprawny numer telefonu.</span></div>
         </div>
         <div class="field"><label for="f-email">E mail</label><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email"><span class="err">Podaj poprawny adres e mail.</span></div>
-        <div class="field"><label for="f-msg">Wiadomość <span class="req">*</span></label><textarea id="f-msg" name="message" required></textarea><span class="err">Napisz kilka słów o tym, w czym mogę pomóc.</span></div>
+        <div class="field field-msg"><label for="f-msg">Wiadomość <span class="req">*</span></label><textarea id="f-msg" name="message" required></textarea><span class="err">Napisz kilka słów o tym, w czym mogę pomóc.</span></div>
         <div class="form-status" id="form-status">Dziękuję. Wiadomość została zapisana. Odezwę się telefonicznie.</div>
-        <button class="btn" type="submit">Wyślij wiadomość <span class="arrow">→</span></button>
+        <button class="btn" type="submit"><span>Wyślij wiadomość</span> <span class="arrow">→</span></button>
       </form>
+      </div>
       <!-- Fejkowy widget kalendarza. Czysto wizualny mockup, brak realnej integracji. Placeholder do podpiecia rezerwacji terminow w przyszlosci. -->
-      <div class="cal" id="cal">
+      <div class="cal card" id="cal">
         <div class="cal-head">
           <div class="m" id="cal-month"></div>
           <div class="cal-nav">
@@ -460,7 +512,7 @@ body.no-anim .reveal>*{opacity:1;transform:none}
 <footer class="foot">
   <div class="shell row">
     <div>
-      <div class="brand">Elżbieta <span style="color:var(--accent-deep)">Śliwowska</span></div>
+      <div class="brand">Elżbieta <span style="color:var(--accent)">Śliwowska</span></div>
       <small>Pośrednik w Obrocie Nieruchomościami · Licencja PFRN 32560 · Nieruchomości Przestrzeń</small>
     </div>
     <div class="fl">
@@ -487,7 +539,8 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
 const isMobile = matchMedia('(max-width: 768px)').matches
 
 const nav = document.getElementById('nav')
-const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20)
+const hero = document.getElementById('start')
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > hero.offsetHeight * 0.6)
 onScroll()
 addEventListener('scroll', onScroll, {passive:true})
 
@@ -570,8 +623,38 @@ if (!reduceMotion && !isScreenshot && window.gsap) {
       scrollTrigger: {trigger: box, start: 'top 82%'}
     })
   })
+
+  gsap.timeline({defaults:{ease:'expo.out'}})
+    .from('.hero-copy h1 span', {y:48, opacity:0, duration:1.4, stagger:0.12}, 0.15)
+    .from('.hero-role', {y:22, opacity:0, duration:1.1}, 0.6)
+    .from('.hero-media .frame', {y:46, opacity:0, scale:0.96, duration:1.6}, 0.25)
+    .from('.hero-scroll', {opacity:0, duration:1}, 0.9)
+
+  gsap.to('.hero-media .frame', {
+    yPercent: -9, ease: 'none',
+    scrollTrigger: {trigger:'.hero', start:'top top', end:'bottom top', scrub:0.6}
+  })
+
+  gsap.utils.toArray('.rule').forEach(r => {
+    ScrollTrigger.create({trigger:r, start:'top 88%', onEnter:() => r.classList.add('on')})
+  })
+
+  gsap.utils.toArray('.stat, .svc-item, .prop, .quote, .channel').forEach((el, i) => {
+    gsap.from(el, {
+      y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', delay: (i % 4) * 0.06,
+      scrollTrigger: {trigger: el, start: 'top 90%'}
+    })
+  })
+
+  gsap.utils.toArray('.h-sec').forEach(h => {
+    gsap.from(h, {
+      y: 34, opacity: 0, duration: 1.1, ease: 'power4.out',
+      scrollTrigger: {trigger: h, start: 'top 88%'}
+    })
+  })
 } else {
   document.body.classList.add('no-anim')
+  document.querySelectorAll('.rule').forEach(r => r.classList.add('on'))
 }
 </script>
 </body>
