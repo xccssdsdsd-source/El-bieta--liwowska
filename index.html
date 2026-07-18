@@ -115,16 +115,19 @@ img{display:block;max-width:100%}
 .btn:focus-visible{outline:2px solid var(--accent-deep);outline-offset:4px}
 .btn-ghost{background:transparent;color:var(--accent-deep);box-shadow:none}
 @media(hover:hover){.btn-ghost:hover{color:var(--cream)}}
+.nav-links a.btn-nav{padding:.72rem 1.5rem;font-size:.74rem;letter-spacing:.14em;color:var(--cream)}
+.nav-links a.btn-nav::after{display:none}
 
 section{position:relative}
-.pad{padding-block:clamp(4.5rem,11vw,9rem)}
+[id]{scroll-margin-top:5.5rem}
+.pad{padding-block:clamp(3.2rem,6.5vw,5.4rem)}
 .band{background:var(--cream)}
 .band-2{background:linear-gradient(180deg,var(--cream-2),#efe6d5)}
 .band-dark{background:var(--deep);color:var(--cream-2)}
 .band-dark h2,.band-dark h3{color:var(--cream)}
 .band-dark .eyebrow{color:var(--accent)}
 .band-dark .tag::before{background:var(--accent)}
-.rule{height:clamp(4rem,7vw,6.5rem);position:relative;overflow:hidden}
+.rule{height:clamp(2.4rem,4vw,3.4rem);position:relative;overflow:hidden}
 .rule::before{content:'';position:absolute;left:50%;top:0;width:1px;height:100%;background:linear-gradient(180deg,transparent,var(--line),transparent);transform:translateX(-50%) scaleY(0);transform-origin:top;transition:transform .9s var(--ease-out)}
 .rule.on::before{transform:translateX(-50%) scaleY(1)}
 .rule::after{content:'';position:absolute;left:50%;top:50%;width:7px;height:7px;background:var(--accent);transform:translate(-50%,-50%) rotate(45deg) scale(0);transition:transform .6s .35s var(--ease-out)}
@@ -143,18 +146,18 @@ section{position:relative}
 .h-sec{font-size:clamp(2.1rem,5.5vw,3.5rem)}
 
 .hero{
-  position:relative;min-height:100svh;display:flex;align-items:center;
-  padding-block:clamp(5rem,12vw,8rem);
+  position:relative;min-height:min(100svh,52rem);display:flex;align-items:center;
+  padding-block:clamp(4rem,9vw,6rem);
   background:
     radial-gradient(1000px 700px at 78% 25%,rgba(227,214,191,.55),transparent 62%),
     linear-gradient(180deg,#fdfaf3,var(--cream-2));
 }
 .hero-grid{display:grid;gap:clamp(2.5rem,6vw,4.5rem);align-items:center}
-.hero-copy h1{font-size:clamp(3rem,9vw,6.4rem);line-height:1.06;margin-bottom:1.8rem}
+.hero-copy h1{font-size:clamp(3rem,9vw,6.4rem);line-height:1.06}
 .hero-copy h1 span{display:block;padding-block:.02em}
 .hero-copy h1 .last{color:var(--accent-deep);font-style:italic}
-.hero-role{font-family:'Karla',sans-serif;font-size:clamp(.72rem,1.6vw,.84rem);letter-spacing:.34em;text-transform:uppercase;color:var(--ink-soft);display:flex;align-items:center;gap:1.1rem}
-.hero-role::before{content:'';width:clamp(2rem,6vw,3.6rem);height:1px;background:var(--accent)}
+.hero-role{font-family:'Karla',sans-serif;font-size:clamp(.72rem,1.6vw,.84rem);letter-spacing:.34em;text-transform:uppercase;color:var(--ink-soft);display:flex;align-items:center;gap:1.1rem;margin-bottom:1.5rem}
+.hero-role::before{content:'';width:clamp(2rem,6vw,3.6rem);height:1px;background:var(--accent);transform-origin:left}
 .hero-media{position:relative}
 .hero-media .frame{transform:rotate(-1.2deg);background:rgba(255,255,255,.5)}
 .hero-scroll{position:absolute;left:50%;bottom:clamp(1.6rem,4vw,2.6rem);transform:translateX(-50%);font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);display:flex;flex-direction:column;align-items:center;gap:.7rem}
@@ -169,7 +172,7 @@ section{position:relative}
 .about-meta div span{display:block;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:.35rem}
 .about-meta div b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.35rem;color:var(--ink)}
 
-.stats-head{max-width:40ch;margin-bottom:clamp(2.5rem,5vw,3.5rem)}
+.stats-head{max-width:40ch;margin-bottom:clamp(1.8rem,3.2vw,2.6rem)}
 .stats{display:grid;gap:1px;background:rgba(236,226,208,.16);border:1px solid rgba(236,226,208,.16)}
 .stat{background:var(--deep);padding:clamp(1.8rem,3.5vw,2.6rem);transition:background .35s ease}
 @media(hover:hover){.stat:hover{background:var(--deep-2)}}
@@ -178,7 +181,9 @@ section{position:relative}
 .stat .lbl{font-size:.92rem;color:rgba(236,226,208,.72);letter-spacing:.01em}
 
 .svc{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
-.svc-item{background:var(--cream);padding:clamp(1.8rem,3vw,2.4rem);position:relative;transition:background .35s ease,transform .35s var(--ease-out)}
+.svc-item{background:var(--cream);padding:clamp(1.4rem,2.4vw,1.9rem);position:relative;overflow:hidden;transition:background .35s ease,transform .35s var(--ease-out)}
+.svc-item::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease-out)}
+@media(hover:hover){.svc-item:hover::after{transform:scaleX(1)}}
 .svc-item .idx{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--accent);display:block;margin-bottom:1.1rem}
 .svc-item h3{font-size:1.5rem;margin-bottom:.6rem}
 .svc-item p{font-size:.92rem;color:var(--ink-soft)}
@@ -215,7 +220,9 @@ section{position:relative}
 .contact-info .lede{margin-bottom:2.6rem}
 .channels{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:auto;flex:1}
 .channels .channel{flex:1}
-.channel{background:var(--cream);padding:1.3rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:background .3s ease}
+.channel{background:var(--cream);padding:1.1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;position:relative;transition:background .3s ease}
+.channel::before{content:'';position:absolute;left:0;top:0;width:2px;height:100%;background:var(--accent);transform:scaleY(0);transform-origin:bottom;transition:transform .4s var(--ease-out)}
+@media(hover:hover){.channel:hover::before{transform:scaleY(1);transform-origin:top}}
 .channel span{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
 .channel b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.35rem}
 .channel a{color:var(--accent-deep)}
@@ -309,7 +316,7 @@ body.no-anim .reveal>*{opacity:1;transform:none}
       <a href="#uslugi">Usługi</a>
       <a href="#nieruchomosci">Nieruchomości</a>
       <a href="#opinie">Opinie</a>
-      <a href="#kontakt">Kontakt</a>
+      <a class="btn btn-nav" href="#kontakt"><span>Kontakt</span></a>
     </div>
   </div>
 </nav>
@@ -317,8 +324,8 @@ body.no-anim .reveal>*{opacity:1;transform:none}
 <header class="hero" id="start">
   <div class="shell hero-grid">
     <div class="hero-copy">
-      <h1><span>Elżbieta</span><span class="last">Śliwowska</span></h1>
       <p class="hero-role">Pośrednik w obrocie nieruchomościami</p>
+      <h1><span>Elżbieta</span><span class="last">Śliwowska</span></h1>
     </div>
     <div class="hero-media">
       <div class="frame">
@@ -539,8 +546,7 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
 const isMobile = matchMedia('(max-width: 768px)').matches
 
 const nav = document.getElementById('nav')
-const hero = document.getElementById('start')
-const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > hero.offsetHeight * 0.6)
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60)
 onScroll()
 addEventListener('scroll', onScroll, {passive:true})
 
@@ -558,6 +564,7 @@ const monthLabel = document.getElementById('cal-month')
 const today = new Date()
 const view = new Date(today.getFullYear(), today.getMonth(), 1)
 let selected = null
+let animateCal = () => {}
 const renderCal = () => {
   grid.innerHTML = ''
   monthLabel.textContent = `${months[view.getMonth()]} ${view.getFullYear()}`
@@ -582,8 +589,8 @@ const renderCal = () => {
     grid.appendChild(c)
   }
 }
-document.getElementById('cal-prev').addEventListener('click', () => { view.setMonth(view.getMonth() - 1); renderCal() })
-document.getElementById('cal-next').addEventListener('click', () => { view.setMonth(view.getMonth() + 1); renderCal() })
+document.getElementById('cal-prev').addEventListener('click', () => { view.setMonth(view.getMonth() - 1); renderCal(); animateCal() })
+document.getElementById('cal-next').addEventListener('click', () => { view.setMonth(view.getMonth() + 1); renderCal(); animateCal() })
 renderCal()
 
 const form = document.getElementById('contact-form')
@@ -652,6 +659,23 @@ if (!reduceMotion && !isScreenshot && window.gsap) {
       scrollTrigger: {trigger: h, start: 'top 88%'}
     })
   })
+
+  gsap.utils.toArray('.tag').forEach(t => {
+    gsap.from(t, {
+      x: -18, opacity: 0, duration: 0.8, ease: 'power3.out',
+      scrollTrigger: {trigger: t, start: 'top 92%'}
+    })
+  })
+
+  gsap.from('.foot .row > *', {
+    y: 24, opacity: 0, duration: 0.9, ease: 'power3.out', stagger: 0.12,
+    scrollTrigger: {trigger: '.foot', start: 'top 92%'}
+  })
+
+  animateCal = () => gsap.from('#cal-grid .cal-day', {
+    opacity: 0, y: 8, scale: 0.9, duration: 0.5, ease: 'power2.out', stagger: 0.012
+  })
+  animateCal()
 } else {
   document.body.classList.add('no-anim')
   document.querySelectorAll('.rule').forEach(r => r.classList.add('on'))
