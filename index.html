@@ -54,18 +54,13 @@ img{display:block;max-width:100%}
 .eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--accent-deep);font-weight:600}
 .lede{font-size:1.075rem;color:var(--ink-soft);max-width:46ch}
 
-.tok{
-  color:var(--accent-deep);
-  font-style:italic;
-  filter:blur(.4px);
-  padding:0 .12em;
-  border-bottom:1px dashed rgba(154,127,87,.5);
-  white-space:nowrap;
-  transition:filter .2s ease,opacity .2s ease;
-}
-.tok::before{content:'⌇';font-style:normal;font-size:.62em;vertical-align:.35em;margin-right:.18em;opacity:.55}
-body.tokens-off .tok{filter:none;font-style:normal;color:var(--ink-faint);border-bottom-color:var(--line)}
-body.tokens-off .tok::before{display:none}
+.skel{display:inline-block;position:relative;overflow:hidden;background:var(--sand);border-radius:3px;vertical-align:middle}
+.skel::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,transparent 18%,rgba(255,255,255,.6) 42%,transparent 66%);background-size:220% 100%;animation:shimmer 2s var(--ease-inout) infinite}
+.skel-line{height:.72em;width:7ch;margin-block:.25em}
+.skel-lines{display:flex;flex-direction:column;gap:.55em;width:100%}
+.skel-lines .skel-line{margin:0;height:.78em}
+.soon{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-faint)}
+@media(prefers-reduced-motion:reduce){.skel::after{animation:none}}
 
 .frame{position:relative;padding:.9rem;background:var(--cream-2);border:1px solid var(--line)}
 .frame::after{content:'';position:absolute;inset:.35rem;border:1px solid var(--line-soft);pointer-events:none}
@@ -143,7 +138,7 @@ section{position:relative}
 .stats{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
 .stat{background:var(--cream);padding:clamp(1.8rem,3.5vw,2.6rem)}
 .stat .num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7vw,4.2rem);line-height:1;color:var(--accent-deep);display:block;margin-bottom:.7rem}
-.stat .num .tok{font-size:1.15rem;white-space:normal;display:inline-block;line-height:1.35}
+.stat .num .skel{height:clamp(2.4rem,6vw,3.6rem);width:2.6ch;border-radius:5px}
 .stat .lbl{font-size:.92rem;color:var(--ink-soft);letter-spacing:.01em}
 
 .svc{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
@@ -327,12 +322,12 @@ body.no-anim .reveal>*{opacity:1;transform:none}
       <div class="tag"><span class="eyebrow">Dlaczego ja</span></div>
       <h2 class="h-sec">Doświadczenie, które można policzyć.</h2>
     </div>
-    <!-- Liczby ponizej sa tokenami. Nigdy nie wpisuj tu wymyslonych wartosci. -->
+    <!-- Liczby ponizej to placeholdery. Tokeny w data-token (Ctrl F). Nigdy nie wpisuj tu wymyslonych wartosci. -->
     <div class="stats reveal">
-      <div class="stat"><span class="num"><span class="tok" data-ph="•••">{{LICZBA_LAT}}</span></span><span class="lbl">lat doświadczenia w branży wnętrzarskiej i nieruchomościowej</span></div>
-      <div class="stat"><span class="num"><span class="tok" data-ph="•••">{{LICZBA_TRANSAKCJI}}</span></span><span class="lbl">przeprowadzonych transakcji</span></div>
-      <div class="stat"><span class="num"><span class="tok" data-ph="•••">{{LICZBA_ZADOWOLONYCH_KLIENTOW}}</span></span><span class="lbl">zadowolonych klientów</span></div>
-      <div class="stat"><span class="num"><span class="tok" data-ph="•••">{{LICZBA_OFERT_OFF_MARKET}}</span></span><span class="lbl">ofert off market w zasięgu ręki</span></div>
+      <div class="stat"><span class="num"><span class="skel" data-token="{{LICZBA_LAT}}"></span></span><span class="lbl">lat doświadczenia w branży wnętrzarskiej i nieruchomościowej</span></div>
+      <div class="stat"><span class="num"><span class="skel" data-token="{{LICZBA_TRANSAKCJI}}"></span></span><span class="lbl">przeprowadzonych transakcji</span></div>
+      <div class="stat"><span class="num"><span class="skel" data-token="{{LICZBA_ZADOWOLONYCH_KLIENTOW}}"></span></span><span class="lbl">zadowolonych klientów</span></div>
+      <div class="stat"><span class="num"><span class="skel" data-token="{{LICZBA_OFERT_OFF_MARKET}}"></span></span><span class="lbl">ofert off market w zasięgu ręki</span></div>
     </div>
   </div>
 </section>
@@ -362,30 +357,30 @@ body.no-anim .reveal>*{opacity:1;transform:none}
       <div class="tag"><span class="eyebrow">Aktualne nieruchomości</span></div>
       <h2 class="h-sec">Wybrane oferty z mojego portfela.</h2>
     </div>
-    <!-- Karty ponizej to placeholdery. Tytul, lokalizacja, metraz i cena to tokeny do uzupelnienia. -->
+    <!-- Karty ponizej to placeholdery. Tokeny w data-token (Ctrl F): tytul, lokalizacja, metraz, cena. -->
     <div class="props reveal">
       <article class="prop">
-        <div class="frame"><div class="media"><img alt="" data-fallback></div></div>
+        <div class="frame"><div class="media"><span class="soon">Wkrótce</span></div></div>
         <div class="prop-body">
-          <div class="prop-loc"><span class="tok" data-ph="Lokalizacja">{{NIERUCHOMOSC_1_LOKALIZACJA}}</span></div>
-          <h3><span class="tok" data-ph="Tytuł oferty">{{NIERUCHOMOSC_1_TYTUL}}</span></h3>
-          <div class="prop-foot"><span class="area"><span class="tok" data-ph="Metraż">{{NIERUCHOMOSC_1_METRAZ}}</span></span><span class="price"><span class="tok" data-ph="Cena">{{NIERUCHOMOSC_1_CENA}}</span></span></div>
+          <div class="prop-loc"><span class="skel skel-line" data-token="{{NIERUCHOMOSC_1_LOKALIZACJA}}" style="width:9ch"></span></div>
+          <h3><span class="skel-lines" data-token="{{NIERUCHOMOSC_1_TYTUL}}"><span class="skel skel-line" style="width:85%"></span><span class="skel skel-line" style="width:55%"></span></span></h3>
+          <div class="prop-foot"><span class="area"><span class="skel skel-line" data-token="{{NIERUCHOMOSC_1_METRAZ}}" style="width:6ch"></span></span><span class="price"><span class="skel skel-line" data-token="{{NIERUCHOMOSC_1_CENA}}" style="width:8ch;height:.9em"></span></span></div>
         </div>
       </article>
       <article class="prop">
-        <div class="frame"><div class="media"><img alt="" data-fallback></div></div>
+        <div class="frame"><div class="media"><span class="soon">Wkrótce</span></div></div>
         <div class="prop-body">
-          <div class="prop-loc"><span class="tok" data-ph="Lokalizacja">{{NIERUCHOMOSC_2_LOKALIZACJA}}</span></div>
-          <h3><span class="tok" data-ph="Tytuł oferty">{{NIERUCHOMOSC_2_TYTUL}}</span></h3>
-          <div class="prop-foot"><span class="area"><span class="tok" data-ph="Metraż">{{NIERUCHOMOSC_2_METRAZ}}</span></span><span class="price"><span class="tok" data-ph="Cena">{{NIERUCHOMOSC_2_CENA}}</span></span></div>
+          <div class="prop-loc"><span class="skel skel-line" data-token="{{NIERUCHOMOSC_2_LOKALIZACJA}}" style="width:9ch"></span></div>
+          <h3><span class="skel-lines" data-token="{{NIERUCHOMOSC_2_TYTUL}}"><span class="skel skel-line" style="width:78%"></span><span class="skel skel-line" style="width:60%"></span></span></h3>
+          <div class="prop-foot"><span class="area"><span class="skel skel-line" data-token="{{NIERUCHOMOSC_2_METRAZ}}" style="width:6ch"></span></span><span class="price"><span class="skel skel-line" data-token="{{NIERUCHOMOSC_2_CENA}}" style="width:8ch;height:.9em"></span></span></div>
         </div>
       </article>
       <article class="prop">
-        <div class="frame"><div class="media"><img alt="" data-fallback></div></div>
+        <div class="frame"><div class="media"><span class="soon">Wkrótce</span></div></div>
         <div class="prop-body">
-          <div class="prop-loc"><span class="tok" data-ph="Lokalizacja">{{NIERUCHOMOSC_3_LOKALIZACJA}}</span></div>
-          <h3><span class="tok" data-ph="Tytuł oferty">{{NIERUCHOMOSC_3_TYTUL}}</span></h3>
-          <div class="prop-foot"><span class="area"><span class="tok" data-ph="Metraż">{{NIERUCHOMOSC_3_METRAZ}}</span></span><span class="price"><span class="tok" data-ph="Cena">{{NIERUCHOMOSC_3_CENA}}</span></span></div>
+          <div class="prop-loc"><span class="skel skel-line" data-token="{{NIERUCHOMOSC_3_LOKALIZACJA}}" style="width:9ch"></span></div>
+          <h3><span class="skel-lines" data-token="{{NIERUCHOMOSC_3_TYTUL}}"><span class="skel skel-line" style="width:82%"></span><span class="skel skel-line" style="width:50%"></span></span></h3>
+          <div class="prop-foot"><span class="area"><span class="skel skel-line" data-token="{{NIERUCHOMOSC_3_METRAZ}}" style="width:6ch"></span></span><span class="price"><span class="skel skel-line" data-token="{{NIERUCHOMOSC_3_CENA}}" style="width:8ch;height:.9em"></span></span></div>
         </div>
       </article>
     </div>
@@ -398,22 +393,22 @@ body.no-anim .reveal>*{opacity:1;transform:none}
       <div class="tag"><span class="eyebrow">Opinie</span></div>
       <h2 class="h-sec">Głosy osób, którym towarzyszyłam.</h2>
     </div>
-    <!-- Sekcja przygotowana pod przyszle referencje. Tresc i imiona to tokeny. -->
+    <!-- Sekcja przygotowana pod przyszle referencje. Tokeny w data-token (Ctrl F): tresc, autor, kontekst. -->
     <div class="quotes reveal">
       <blockquote class="quote">
         <div class="mark">&ldquo;</div>
-        <p><span class="tok" data-ph="Treść opinii klienta">{{OPINIA_1_TRESC}}</span></p>
-        <div class="who"><b><span class="tok" data-ph="Imię klienta">{{OPINIA_1_AUTOR}}</span></b><span class="tok" data-ph="Rodzaj transakcji">{{OPINIA_1_KONTEKST}}</span></div>
+        <p><span class="skel-lines" data-token="{{OPINIA_1_TRESC}}"><span class="skel skel-line" style="width:100%"></span><span class="skel skel-line" style="width:94%"></span><span class="skel skel-line" style="width:70%"></span></span></p>
+        <div class="who"><b><span class="skel skel-line" data-token="{{OPINIA_1_AUTOR}}" style="width:8ch"></span></b><span class="skel skel-line" data-token="{{OPINIA_1_KONTEKST}}" style="width:11ch"></span></div>
       </blockquote>
       <blockquote class="quote">
         <div class="mark">&ldquo;</div>
-        <p><span class="tok" data-ph="Treść opinii klienta">{{OPINIA_2_TRESC}}</span></p>
-        <div class="who"><b><span class="tok" data-ph="Imię klienta">{{OPINIA_2_AUTOR}}</span></b><span class="tok" data-ph="Rodzaj transakcji">{{OPINIA_2_KONTEKST}}</span></div>
+        <p><span class="skel-lines" data-token="{{OPINIA_2_TRESC}}"><span class="skel skel-line" style="width:100%"></span><span class="skel skel-line" style="width:88%"></span><span class="skel skel-line" style="width:64%"></span></span></p>
+        <div class="who"><b><span class="skel skel-line" data-token="{{OPINIA_2_AUTOR}}" style="width:8ch"></span></b><span class="skel skel-line" data-token="{{OPINIA_2_KONTEKST}}" style="width:11ch"></span></div>
       </blockquote>
       <blockquote class="quote">
         <div class="mark">&ldquo;</div>
-        <p><span class="tok" data-ph="Treść opinii klienta">{{OPINIA_3_TRESC}}</span></p>
-        <div class="who"><b><span class="tok" data-ph="Imię klienta">{{OPINIA_3_AUTOR}}</span></b><span class="tok" data-ph="Rodzaj transakcji">{{OPINIA_3_KONTEKST}}</span></div>
+        <p><span class="skel-lines" data-token="{{OPINIA_3_TRESC}}"><span class="skel skel-line" style="width:100%"></span><span class="skel skel-line" style="width:91%"></span><span class="skel skel-line" style="width:58%"></span></span></p>
+        <div class="who"><b><span class="skel skel-line" data-token="{{OPINIA_3_AUTOR}}" style="width:8ch"></span></b><span class="skel skel-line" data-token="{{OPINIA_3_KONTEKST}}" style="width:11ch"></span></div>
       </blockquote>
     </div>
   </div>
@@ -429,8 +424,8 @@ body.no-anim .reveal>*{opacity:1;transform:none}
         <div class="channel"><span>Telefon</span><b><a href="tel:+48668887845">668 887 845</a></b></div>
         <div class="channel"><span>Biuro</span><b>Nieruchomości Przestrzeń</b></div>
         <div class="channel"><span>Instagram</span><b><a href="https://instagram.com/elasliwowska_" target="_blank" rel="noopener">@elasliwowska_</a></b></div>
-        <div class="channel"><span>Adres biura</span><b><span class="tok" data-ph="Adres biura">{{ADRES_BIURA}}</span></b></div>
-        <div class="channel"><span>Godziny pracy</span><b><span class="tok" data-ph="Godziny">{{GODZINY_PRACY}}</span></b></div>
+        <div class="channel"><span>Adres biura</span><b><span class="skel skel-line" data-token="{{ADRES_BIURA}}" style="width:14ch;height:.9em"></span></b></div>
+        <div class="channel"><span>Godziny pracy</span><b><span class="skel skel-line" data-token="{{GODZINY_PRACY}}" style="width:12ch;height:.9em"></span></b></div>
       </div>
       <!-- Fejkowy widget kalendarza. Czysto wizualny mockup, brak realnej integracji. Placeholder do podpiecia rezerwacji terminow w przyszlosci. -->
       <div class="cal" id="cal">
@@ -486,17 +481,9 @@ body.no-anim .reveal>*{opacity:1;transform:none}
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script>
-const SHOW_TOKENS = true
-
 const isScreenshot = location.search.includes('screenshot')
-const cleanMode = location.search.includes('clean') || !SHOW_TOKENS
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
 const isMobile = matchMedia('(max-width: 768px)').matches
-
-if (cleanMode) {
-  document.body.classList.add('tokens-off')
-  document.querySelectorAll('.tok').forEach(el => { el.textContent = el.dataset.ph || '—' })
-}
 
 const nav = document.getElementById('nav')
 const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20)
