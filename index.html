@@ -1,1657 +1,590 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f6f2eb">
-  <meta name="description" content="Elżbieta Śliwowska — pośrednik w obrocie nieruchomościami w Białymstoku. Spokojne, transparentne wsparcie w zakupie i sprzedaży nieruchomości.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pl_PL">
-  <meta property="og:title" content="Elżbieta Śliwowska — pośrednik nieruchomości">
-  <meta property="og:description" content="Spokojna i świadoma decyzja. Kompleksowe wsparcie przy zakupie i sprzedaży nieruchomości w Białymstoku i okolicach.">
-  <meta property="og:image" content="logo.jpg">
-  <meta property="og:image:alt" content="Elżbieta Śliwowska — pośrednik w obrocie nieruchomościami">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" type="image/jpeg" href="logo.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,600;6..96,700;6..96,800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>Elżbieta Śliwowska — pośrednik nieruchomości</title>
-  <style>
-    :root {
-      --bg: 38 36% 95%;
-      --surface: 34 27% 89%;
-      --primary: 30 31% 43%;
-      --accent: 35 52% 68%;
-      --text: 29 20% 14%;
-      --muted: 28 10% 42%;
-      --white: 42 46% 98%;
-      --line: 29 20% 14%;
-      --display: 'Bodoni Moda', Georgia, serif;
-      --body: 'Manrope', sans-serif;
-      --shadow-sm: 0 12px 32px hsl(28 28% 20% / 0.08);
-      --shadow-lg: 0 35px 90px hsl(28 28% 16% / 0.14);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 5rem;
-    }
-
-    html body {
-      margin: 0;
-      overflow-x: hidden;
-      background:
-        radial-gradient(circle at 8% 8%, hsl(var(--white) / 0.95), transparent 31rem),
-        radial-gradient(circle at 91% 35%, hsl(var(--primary) / 0.08), transparent 29rem),
-        hsl(var(--bg));
-      color: hsl(var(--text));
-      font-family: var(--body);
-      font-size: 1rem;
-      line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body::before {
-      position: fixed;
-      inset: 0;
-      z-index: 20;
-      pointer-events: none;
-      content: '';
-      opacity: 0.16;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.14'/%3E%3C/svg%3E");
-      mix-blend-mode: multiply;
-    }
-
-    ::selection {
-      background: hsl(var(--primary));
-      color: hsl(var(--white));
-    }
-
-    html a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    html button,
-    html input,
-    html textarea,
-    html select {
-      font: inherit;
-    }
-
-    html img {
-      display: block;
-      max-width: 100%;
-    }
-
-    html h1,
-    html h2,
-    html h3,
-    html blockquote,
-    html p {
-      margin-top: 0;
-    }
-
-    html h1,
-    html h2,
-    html h3,
-    html blockquote {
-      font-family: var(--display);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.06;
-    }
-
-    html h2 {
-      margin-bottom: 1.5rem;
-      font-size: clamp(2.1rem, 4.4vw, 4.4rem);
-    }
-
-    h2::after {
-      display: block;
-      width: 2.5rem;
-      height: 2px;
-      margin-top: 1.1rem;
-      background: hsl(var(--primary));
-      content: '';
-    }
-
-    html h3 {
-      font-size: clamp(1.3rem, 1.8vw, 1.8rem);
-    }
-
-    html p {
-      max-width: 68ch;
-    }
-
-    .skip-link {
-      position: fixed;
-      left: 1rem;
-      top: -5rem;
-      z-index: 100;
-      padding: 0.65em 1.5em;
-      background: hsl(var(--text));
-      color: hsl(var(--white));
-      transition: transform 180ms ease;
-    }
-
-    .skip-link:focus {
-      transform: translateY(6rem);
-    }
-
-    .container {
-      width: min(100% - 8vw, 62rem);
-      margin-inline: auto;
-    }
-
-    @media (min-width: 1400px) {
-      .container {
-        width: min(100% - 16vw, 62rem);
-      }
-    }
-
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1.25rem;
-      color: hsl(var(--primary));
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.19em;
-      line-height: 1.35;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      width: 2.3rem;
-      height: 1px;
-      background: currentColor;
-      content: '';
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.7rem;
-      min-height: 3.2rem;
-      padding: 0.65em 1.5em;
-      border: 1px solid transparent;
-      border-radius: 0.25rem;
-      font-size: 0.84rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      line-height: 1.2;
-      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease;
-    }
-
-    .button:hover,
-    .button:focus-visible {
-      transform: translateY(-2px);
-    }
-
-    .button:active {
-      transform: scale(0.97);
-    }
-
-    .button-primary {
-      background: hsl(var(--primary));
-      color: hsl(var(--white));
-      box-shadow: 0 10px 24px hsl(var(--primary) / 0.22), inset 0 1px hsl(var(--white) / 0.22);
-    }
-
-    .button-primary:hover,
-    .button-primary:focus-visible {
-      box-shadow: 0 16px 34px hsl(var(--primary) / 0.3), inset 0 1px hsl(var(--white) / 0.22);
-    }
-
-    .button-outline {
-      border-color: hsl(var(--text) / 0.17);
-      background: hsl(var(--white) / 0.42);
-      box-shadow: inset 0 1px hsl(var(--white) / 0.6);
-    }
-
-    .button-outline:hover,
-    .button-outline:focus-visible {
-      border-color: hsl(var(--primary) / 0.5);
-      box-shadow: var(--shadow-sm), inset 0 1px hsl(var(--white) / 0.7);
-    }
-
-    .icon {
-      width: 1.05rem;
-      height: 1.05rem;
-      flex: none;
-    }
-
-    .site-header {
-      position: fixed;
-      inset: 0 0 auto;
-      z-index: 50;
-      border-bottom: 1px solid transparent;
-      transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-    }
-
-    .site-header.scrolled {
-      border-color: hsl(var(--text) / 0.08);
-      background: hsl(var(--bg) / 0.78);
-      box-shadow: 0 10px 30px hsl(var(--text) / 0.04);
-      backdrop-filter: blur(18px);
-    }
-
-    .nav-shell {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 4.7rem;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      line-height: 1.25;
-    }
-
-    .brand img {
-      width: 2.55rem;
-      height: 2.55rem;
-      border: 1px solid hsl(var(--white) / 0.8);
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: 50% 28%;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .brand span {
-      display: grid;
-    }
-
-    .brand small {
-      color: hsl(var(--muted));
-      font-size: 0.61rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-    }
-
-    .nav-links {
-      display: none;
-      align-items: center;
-      gap: clamp(1rem, 2.1vw, 2rem);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .nav-links a {
-      position: relative;
-      padding-block: 0.5rem;
-    }
-
-    .nav-links a::after {
-      position: absolute;
-      right: 0;
-      bottom: 0.25rem;
-      left: 0;
-      height: 1px;
-      background: hsl(var(--primary));
-      content: '';
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 180ms ease;
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a:focus-visible::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-
-    .menu-button {
-      display: grid;
-      width: 2.75rem;
-      height: 2.75rem;
-      place-items: center;
-      border: 1px solid hsl(var(--text) / 0.12);
-      border-radius: 50%;
-      background: hsl(var(--white) / 0.42);
-      color: hsl(var(--text));
-    }
-
-    .mobile-menu {
-      position: fixed;
-      inset: 4.7rem 1rem auto;
-      z-index: 45;
-      display: grid;
-      gap: 0.2rem;
-      padding: 1rem;
-      border: 1px solid hsl(var(--text) / 0.08);
-      border-radius: 0.35rem;
-      background: hsl(var(--bg) / 0.96);
-      box-shadow: var(--shadow-lg), inset 0 1px hsl(var(--white) / 0.7);
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(-0.75rem);
-      transition: transform 180ms ease, opacity 180ms ease;
-      backdrop-filter: blur(20px);
-    }
-
-    .mobile-menu.open {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    .mobile-menu a {
-      padding: 0.8rem 1rem;
-      border-radius: 0.3rem;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .mobile-menu a:hover,
-    .mobile-menu a:focus-visible {
-      background: hsl(var(--surface) / 0.75);
-    }
-
-    .hero {
-      position: relative;
-      display: grid;
-      min-height: 100svh;
-      padding: 7.5rem 0 2rem;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    .hero-copy {
-      position: relative;
-      z-index: 2;
-      padding-top: 1rem;
-      padding-left: 0.1em;
-      overflow: hidden;
-    }
-
-    .hero h1 {
-      max-width: 12.2ch;
-      margin-bottom: 1.5rem;
-      font-size: clamp(2.4rem, 5.6vw, 5.2rem);
-    }
-
-    .hero h1 em {
-      color: hsl(var(--primary));
-      font-style: italic;
-      font-weight: 600;
-    }
-
-    .hero-lead {
-      max-width: 33rem;
-      margin-bottom: 1.7rem;
-      color: hsl(var(--muted));
-      font-size: clamp(0.92rem, 1.2vw, 1.02rem);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .hero-note {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      margin-top: 1.4rem;
-      color: hsl(var(--muted));
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .hero-note span {
-      width: 0.42rem;
-      height: 0.42rem;
-      border-radius: 50%;
-      background: hsl(var(--accent));
-      box-shadow: 0 0 0 0.35rem hsl(var(--accent) / 0.13);
-    }
-
-    .hero-visual {
-      position: relative;
-      width: min(100%, 35rem);
-      justify-self: center;
-    }
-
-    .hero-frame {
-      position: relative;
-      aspect-ratio: 0.86;
-      overflow: hidden;
-      border-radius: 0.4rem;
-      box-shadow: var(--shadow-lg), inset 0 1px hsl(var(--white) / 0.5);
-    }
-
-    .hero-frame::after,
-    .photo-frame::after {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, hsl(var(--text) / 0.23), transparent 45%);
-      content: '';
-      pointer-events: none;
-    }
-
-    .hero-frame img,
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-frame img {
-      object-position: 50% 34%;
-    }
-
-    .hero-stamp {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      z-index: 2;
-      display: grid;
-      width: 8.5rem;
-      padding: 1rem 1.1rem;
-      place-items: center;
-      border-top: 1px solid hsl(var(--white) / 0.18);
-      border-left: 1px solid hsl(var(--white) / 0.18);
-      border-radius: 0.4rem 0 0 0;
-      background: hsl(var(--primary) / 0.94);
-      color: hsl(var(--white));
-      font-family: var(--display);
-      font-size: 0.95rem;
-      font-weight: 700;
-      line-height: 1.15;
-      text-align: center;
-      backdrop-filter: blur(8px);
-    }
-
-    .trust-bar {
-      border-block: 1px solid hsl(var(--text) / 0.1);
-      background: hsl(var(--white) / 0.34);
-    }
-
-    .trust-grid {
-      display: grid;
-    }
-
-    .trust-item {
-      display: grid;
-      gap: 0.1rem;
-      padding: 1.35rem 0;
-      border-bottom: 1px solid hsl(var(--text) / 0.08);
-    }
-
-    .trust-item:last-child {
-      border-bottom: 0;
-    }
-
-    .trust-item strong {
-      font-family: var(--display);
-      font-size: 1.65rem;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-    }
-
-    .trust-item span {
-      color: hsl(var(--muted));
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .section {
-      position: relative;
-      padding-block: clamp(5.5rem, 11vw, 10rem);
-    }
-
-    .band-section {
-      background: hsl(var(--surface) / 0.6);
-    }
-
-    .section-white {
-      background: hsl(var(--white) / 0.55);
-    }
-
-    .section-tint {
-      background: hsl(35 40% 90% / 0.65);
-    }
-
-    .split {
-      display: grid;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .photo-wrap {
-      position: relative;
-      width: min(100%, 35rem);
-    }
-
-    .photo-frame {
-      position: relative;
-      aspect-ratio: 0.88;
-      overflow: hidden;
-      border-radius: 0.4rem;
-      box-shadow: var(--shadow-lg), inset 0 1px hsl(var(--white) / 0.5);
-    }
-
-    .photo-caption {
-      position: absolute;
-      right: -0.5rem;
-      bottom: -1.5rem;
-      z-index: 2;
-      max-width: 14rem;
-      padding: 1.2rem 1.4rem;
-      border: 1px solid hsl(var(--text) / 0.08);
-      border-radius: 0.3rem;
-      background: hsl(var(--white) / 0.9);
-      box-shadow: var(--shadow-sm), inset 0 1px hsl(var(--white));
-      font-family: var(--display);
-      font-size: 1.15rem;
-      font-weight: 700;
-      line-height: 1.3;
-    }
-
-    .about-copy {
-      max-width: 38rem;
-    }
-
-    .about-copy .lead {
-      color: hsl(var(--text));
-      font-family: var(--display);
-      font-size: clamp(1.25rem, 2.2vw, 1.75rem);
-      font-weight: 600;
-      line-height: 1.5;
-    }
-
-    .about-copy p:not(.lead) {
-      color: hsl(var(--muted));
-    }
-
-    .license {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      margin-top: 1rem;
-      padding: 0.8rem 1rem;
-      border: 1px solid hsl(var(--primary) / 0.22);
-      border-radius: 0.3rem;
-      background: hsl(var(--primary) / 0.07);
-      color: hsl(var(--primary));
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .quote-section {
-      display: grid;
-      min-height: min(68rem, 82svh);
-      place-items: center;
-      overflow: hidden;
-      background:
-        linear-gradient(135deg, hsl(var(--text) / 0.98), hsl(28 19% 23% / 0.97)),
-        hsl(var(--text));
-      color: hsl(var(--white));
-    }
-
-    .quote-section blockquote {
-      position: relative;
-      max-width: 18ch;
-      margin: 0;
-      font-size: clamp(2rem, 4.6vw, 4.4rem);
-    }
-
-    .quote-section blockquote::before {
-      position: absolute;
-      left: -0.1em;
-      top: -0.35em;
-      color: hsl(var(--accent) / 0.42);
-      content: '“';
-      font-size: 2em;
-    }
-
-    .quote-footer {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 2rem;
-      color: hsl(var(--white) / 0.62);
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    .quote-footer::before {
-      width: 3.5rem;
-      height: 1px;
-      background: hsl(var(--accent));
-      content: '';
-    }
-
-    .services-head {
-      display: grid;
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
-
-    .services-head p {
-      align-self: end;
-      color: hsl(var(--muted));
-    }
-
-    .service-grid {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .service-card,
-    .knowledge-card,
-    .contact-card {
-      border: 1px solid hsl(var(--text) / 0.08);
-      background: hsl(var(--white) / 0.46);
-      box-shadow: var(--shadow-sm), inset 0 1px hsl(var(--white) / 0.75);
-      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-    }
-
-    .service-card:hover,
-    .knowledge-card:hover,
-    .contact-card:hover {
-      transform: translateY(-2px);
-      border-color: hsl(var(--primary) / 0.3);
-      box-shadow: var(--shadow-lg), inset 0 1px hsl(var(--white) / 0.8);
-    }
-
-    .service-card {
-      position: relative;
-      min-height: 22rem;
-      padding: clamp(1.4rem, 3vw, 2.4rem);
-      overflow: hidden;
-      border-radius: 0.4rem;
-      background: hsl(var(--surface));
-    }
-
-    .service-card:nth-child(2) {
-      background: hsl(var(--white));
-    }
-
-    .service-card:nth-child(2)::before {
-      position: absolute;
-      right: -3rem;
-      bottom: -3rem;
-      width: 14rem;
-      height: 14rem;
-      border: 1px solid hsl(var(--primary) / 0.18);
-      content: '';
-    }
-
-    .service-index {
-      display: inline-grid;
-      width: 2.4rem;
-      height: 2.4rem;
-      margin-bottom: 2.75rem;
-      place-items: center;
-      border: 1px solid currentColor;
-      border-radius: 0.25rem;
-      font-size: 0.68rem;
-      font-weight: 700;
-    }
-
-    .service-card h3 {
-      margin-bottom: 1rem;
-      font-size: clamp(1.8rem, 3vw, 2.7rem);
-    }
-
-    .service-card ul {
-      display: grid;
-      gap: 0.7rem;
-      margin: 2rem 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .service-card li {
-      display: flex;
-      gap: 0.8rem;
-      align-items: center;
-      font-size: 0.88rem;
-    }
-
-    .service-card li::before {
-      width: 1.3rem;
-      height: 1px;
-      flex: none;
-      background: hsl(var(--accent));
-      content: '';
-    }
-
-    .process-section {
-      background: hsl(var(--surface) / 0.56);
-    }
-
-    .process-grid {
-      display: grid;
-      gap: 3.5rem;
-      align-items: start;
-    }
-
-    .process-photo {
-      position: sticky;
-      top: 7rem;
-    }
-
-    .process-photo .photo-frame {
-      aspect-ratio: 0.9;
-    }
-
-    .process-list {
-      margin-top: 3rem;
-      border-top: 1px solid hsl(var(--text) / 0.12);
-    }
-
-    .process-step {
-      display: grid;
-      grid-template-columns: 2.8rem 1fr;
-      gap: 0.8rem;
-      padding-block: 1.6rem;
-      border-bottom: 1px solid hsl(var(--text) / 0.12);
-    }
-
-    .process-step > span {
-      color: hsl(var(--primary));
-      font-family: var(--display);
-      font-size: 1.35rem;
-      font-weight: 700;
-    }
-
-    .process-step h3 {
-      margin-bottom: 0.45rem;
-      font-size: 1.4rem;
-    }
-
-    .process-step p {
-      margin-bottom: 0;
-      color: hsl(var(--muted));
-      font-size: 0.9rem;
-    }
-
-    .knowledge-intro {
-      display: grid;
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
-
-    .knowledge-intro p {
-      align-self: end;
-      color: hsl(var(--muted));
-    }
-
-    .knowledge-grid {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .knowledge-card {
-      display: grid;
-      min-height: 17rem;
-      align-content: space-between;
-      padding: 1.4rem;
-      border-radius: 0.4rem;
-    }
-
-    .knowledge-card:nth-child(2) {
-      margin-top: 0;
-    }
-
-    .knowledge-number {
-      color: hsl(var(--primary));
-      font-family: var(--display);
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-
-    .knowledge-card h3 {
-      margin-bottom: 1rem;
-    }
-
-    .knowledge-card p {
-      margin-bottom: 0;
-      color: hsl(var(--muted));
-      font-size: 0.9rem;
-    }
-
-    .contact-section {
-      padding-bottom: 3rem;
-    }
-
-    .contact-head {
-      display: grid;
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
-
-    .contact-head p {
-      align-self: end;
-      color: hsl(var(--muted));
-    }
-
-    .contact-cards {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .contact-card {
-      display: grid;
-      gap: 0.3rem;
-      min-height: 6.5rem;
-      align-content: center;
-      padding: 1.1rem 1.3rem;
-      border-radius: 0.4rem;
-    }
-
-    .contact-card span {
-      color: hsl(var(--muted));
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .contact-card strong {
-      font-family: var(--display);
-      font-size: clamp(1.1rem, 2vw, 1.5rem);
-      letter-spacing: -0.03em;
-    }
-
-    a.contact-card::after {
-      color: hsl(var(--primary));
-      content: '↗';
-      font-size: 1.3rem;
-      justify-self: end;
-    }
-
-    .footer {
-      margin-top: 6rem;
-      padding-block: 2rem;
-      border-top: 1px solid hsl(var(--text) / 0.1);
-    }
-
-    .footer-grid {
-      display: grid;
-      gap: 1.4rem;
-      color: hsl(var(--muted));
-      font-size: 0.72rem;
-    }
-
-    .footer-brand {
-      color: hsl(var(--text));
-      font-family: var(--display);
-      font-size: 1.25rem;
-      font-weight: 700;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    @media (min-width: 640px) {
-      .container {
-        width: min(100% - 8vw, 62rem);
-      }
-
-      .trust-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .trust-item {
-        padding: 1.5rem 1.8rem;
-        border-right: 1px solid hsl(var(--text) / 0.08);
-        border-bottom: 0;
-      }
-
-      .trust-item:first-child {
-        padding-left: 0;
-      }
-
-      .trust-item:last-child {
-        padding-right: 0;
-        border-right: 0;
-      }
-
-      .knowledge-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr auto;
-        align-items: end;
-      }
-    }
-
-    @media (min-width: 900px) {
-      .nav-links {
-        display: flex;
-      }
-
-      .menu-button,
-      .mobile-menu {
-        display: none;
-      }
-
-      .hero {
-        padding-top: 6rem;
-      }
-
-      .hero-grid {
-        grid-template-columns: minmax(0, 1.1fr) minmax(20rem, 0.9fr);
-        gap: 3rem;
-      }
-
-      .hero-visual {
-        justify-self: end;
-      }
-
-      .split {
-        grid-template-columns: minmax(20rem, 0.88fr) minmax(0, 1.12fr);
-        gap: clamp(4rem, 9vw, 9rem);
-      }
-
-      .photo-wrap {
-        justify-self: start;
-      }
-
-      .services-head,
-      .knowledge-intro,
-      .contact-head {
-        grid-template-columns: 1.35fr 0.65fr;
-      }
-
-      .service-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .process-grid {
-        grid-template-columns: minmax(20rem, 0.88fr) minmax(0, 1.12fr);
-        gap: clamp(4rem, 9vw, 9rem);
-      }
-
-      .knowledge-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .knowledge-card:nth-child(2) {
-        margin-top: 4rem;
-      }
-
-      .contact-split {
-        grid-template-columns: 1fr 1fr;
-        gap: clamp(3rem, 6vw, 5rem);
-      }
-    }
-
-    @media (min-width: 1200px) {
-      .photo-caption {
-        right: -2.8rem;
-      }
-    }
-
-    .contact-section {
-      background: linear-gradient(180deg, hsl(var(--bg)), hsl(var(--surface) / 0.62));
-    }
-
-    .contact-split {
-      display: grid;
-      gap: 2.5rem;
-      align-items: start;
-    }
-
-    .contact-info h3 {
-      max-width: 18ch;
-      margin: 0 0 1rem;
-      font-size: clamp(1.7rem, 3.2vw, 2.6rem);
-    }
-
-    .contact-info > p:not(.eyebrow) {
-      color: hsl(var(--muted));
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-info .contact-cards {
-      margin-bottom: 1.75rem;
-    }
-
-    .contact-form {
-      display: grid;
-      gap: 1rem;
-      padding: clamp(1.6rem, 3.5vw, 2.5rem);
-      border: 1px solid hsl(var(--text) / 0.08);
-      border-radius: 0.4rem;
-      background: hsl(var(--white) / 0.58);
-      box-shadow: var(--shadow-lg), inset 0 1px hsl(var(--white) / 0.82);
-    }
-
-    .contact-form label {
-      display: grid;
-      gap: 0.4rem;
-      color: hsl(var(--muted));
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      padding: 0.75em 1em;
-      border: 1px solid hsl(var(--text) / 0.15);
-      border-radius: 0.3rem;
-      background: hsl(var(--white) / 0.7);
-      color: hsl(var(--text));
-      font-size: 0.9rem;
-      resize: vertical;
-    }
-
-    .contact-form input:focus-visible,
-    .contact-form textarea:focus-visible {
-      outline: 2px solid hsl(var(--primary) / 0.5);
-      outline-offset: 1px;
-    }
-
-    .contact-form button {
-      justify-self: start;
-      margin-top: 0.5rem;
-    }
-
-    @media (max-width: 899px) {
-      .hero {
-        min-height: auto;
-        padding: 9rem 0 7rem;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 3.5rem;
-        justify-items: center;
-        text-align: center;
-      }
-
-      .hero-copy {
-        max-width: 60rem;
-        margin: 0;
-        padding-top: 0;
-      }
-
-      .hero h1 {
-        max-width: 11ch;
-        margin-inline: auto;
-        font-size: clamp(3.4rem, 8vw, 7.4rem);
-      }
-
-      .hero-lead {
-        max-width: 42rem;
-        margin-inline: auto;
-      }
-
-      .hero-actions,
-      .hero-note {
-        justify-content: center;
-      }
-
-      .hero-visual {
-        width: min(82vw, 27rem);
-        justify-self: center;
-      }
-
-      .hero-stamp {
-        width: 7rem;
-        padding: 0.85rem;
-        font-size: 0.85rem;
-      }
-
-      .trust-grid {
-        text-align: center;
-      }
-
-      .section {
-        text-align: center;
-      }
-
-      .section h2::after {
-        margin-inline: auto;
-      }
-
-      .split,
-      .process-grid {
-        grid-template-columns: 1fr;
-        gap: clamp(3.5rem, 7vw, 5.5rem);
-        justify-items: center;
-      }
-
-      .photo-wrap,
-      .process-photo {
-        width: min(82vw, 29rem);
-        justify-self: center;
-      }
-
-      .photo-caption {
-        right: auto;
-        left: 50%;
-        width: min(18rem, calc(100% - 2rem));
-        transform: translateX(-50%);
-      }
-
-      .about-copy {
-        max-width: 46rem;
-        margin-inline: auto;
-      }
-
-      .license {
-        justify-content: center;
-      }
-
-      .quote-section blockquote {
-        max-width: 20ch;
-        margin-inline: auto;
-        text-align: center;
-      }
-
-      .quote-section blockquote::before {
-        left: 50%;
-        top: -0.72em;
-        transform: translateX(-50%);
-      }
-
-      .quote-footer {
-        justify-content: center;
-      }
-
-      .services-head,
-      .knowledge-intro,
-      .contact-head {
-        grid-template-columns: 1fr;
-        max-width: 54rem;
-        margin-inline: auto;
-        margin-bottom: 3.5rem;
-        text-align: center;
-      }
-
-      .services-head p,
-      .knowledge-intro p,
-      .contact-head p {
-        max-width: 44rem;
-        margin-inline: auto;
-      }
-
-      .service-card {
-        display: grid;
-        min-height: 0;
-        align-content: start;
-        padding: clamp(2rem, 4vw, 3.25rem);
-        text-align: center;
-      }
-
-      .service-index {
-        margin: 0 auto 2rem;
-      }
-
-      .service-card h3 {
-        font-size: clamp(2.6rem, 4.5vw, 4.25rem);
-      }
-
-      .service-card > div > p {
-        max-width: 31rem;
-        margin-inline: auto;
-      }
-
-      .service-card ul {
-        width: min(100%, 28rem);
-        margin-inline: auto;
-        text-align: left;
-      }
-
-      .process-photo {
-        position: relative;
-        top: auto;
-      }
-
-      .process-grid > div {
-        max-width: 52rem;
-      }
-
-      .process-list {
-        width: min(100%, 46rem);
-        margin-inline: auto;
-      }
-
-      .process-step {
-        grid-template-columns: 1fr;
-        gap: 0.4rem;
-        justify-items: center;
-        padding-block: 1.8rem;
-        text-align: center;
-      }
-
-      .process-step p {
-        max-width: 36rem;
-        margin-inline: auto;
-      }
-
-      .knowledge-card,
-      .knowledge-card:nth-child(2) {
-        min-height: 20rem;
-        margin-top: 0;
-        padding: 2rem;
-        text-align: center;
-      }
-
-      .knowledge-card p {
-        max-width: 28rem;
-        margin-inline: auto;
-      }
-
-      .contact-cards {
-        grid-template-columns: 1fr;
-        max-width: 50rem;
-        margin-inline: auto;
-      }
-
-      .contact-card {
-        min-height: 8.5rem;
-        justify-items: center;
-        text-align: center;
-      }
-
-      a.contact-card::after {
-        justify-self: center;
-      }
-
-      .footer {
-        margin-top: 5rem;
-        text-align: center;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        justify-items: center;
-      }
-
-      .footer-links {
-        justify-content: center;
-      }
-    }
-
-    @media (min-width: 640px) and (max-width: 899px) {
-      .contact-cards {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (max-width: 639px) {
-      .hero {
-        padding: 7.5rem 0 5.5rem;
-      }
-
-      .hero h1 {
-        font-size: clamp(3rem, 15vw, 4.5rem);
-      }
-
-      .hero-actions .button {
-        width: 100%;
-      }
-
-      .trust-item {
-        justify-items: center;
-      }
-
-      .quote-section blockquote {
-        font-size: clamp(2.65rem, 13vw, 4rem);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-  </style>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "RealEstateAgent",
-      "name": "Elżbieta Śliwowska",
-      "description": "Pośrednik w obrocie nieruchomościami. Kompleksowa obsługa zakupu i sprzedaży nieruchomości w Białymstoku i okolicach.",
-      "telephone": "+48668887845",
-      "image": "logo.jpg",
-      "areaServed": "Białystok i okolice",
-      "sameAs": ["https://www.instagram.com/elasliwowska_/"],
-      "hasCredential": {
-        "@type": "EducationalOccupationalCredential",
-        "credentialCategory": "Licencja pośrednika PFRN",
-        "identifier": "32560"
-      }
-    }
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elżbieta Śliwowska — Pośrednik w Obrocie Nieruchomościami | Białystok</title>
+<meta name="description" content="Elżbieta Śliwowska, pośrednik w obrocie nieruchomościami w Białymstoku i okolicach. Ponad 20 lat doświadczenia. Spokojne, partnerskie wsparcie w zakupie i sprzedaży nieruchomości.">
+<meta name="theme-color" content="#f6f0e4">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Elżbieta Śliwowska — Pośrednik w Obrocie Nieruchomościami">
+<meta property="og:description" content="Białystok i okolice. Buduje się relacje, później zawiera transakcje. To nie sprzedaż. To wsparcie.">
+<meta property="og:image" content="assets/img/hero-elzbieta.jpg">
+<link rel="icon" href="assets/img/hero-elzbieta.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf7f0;
+  --cream-2:#f4ede0;
+  --sand:#ece2d0;
+  --beige:#e3d6bf;
+  --accent:#b6996f;
+  --accent-deep:#9a7f57;
+  --ink:#37312a;
+  --ink-soft:#6d6456;
+  --ink-faint:#9a9080;
+  --line:rgba(55,49,42,.12);
+  --line-soft:rgba(55,49,42,.07);
+  --ease-out:cubic-bezier(.23,1,.32,1);
+  --ease-inout:cubic-bezier(.77,0,.175,1);
+  --shell:min(1240px,100% - 2.5rem);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  font-family:'Karla',system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.7;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  background-image:
+    radial-gradient(1200px 600px at 85% -5%,rgba(182,153,111,.12),transparent 60%),
+    radial-gradient(900px 500px at -10% 40%,rgba(227,214,191,.35),transparent 55%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.028'/%3E%3C/svg%3E");
+}
+h1,h2,h3,.display{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.02em;line-height:1.05}
+::selection{background:var(--accent);color:var(--cream)}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.shell{width:var(--shell);margin-inline:auto}
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--accent-deep);font-weight:600}
+.lede{font-size:1.075rem;color:var(--ink-soft);max-width:46ch}
+
+.tok{
+  color:var(--accent-deep);
+  font-style:italic;
+  filter:blur(.4px);
+  padding:0 .12em;
+  border-bottom:1px dashed rgba(154,127,87,.5);
+  white-space:nowrap;
+  transition:filter .2s ease,opacity .2s ease;
+}
+.tok::before{content:'⌇';font-style:normal;font-size:.62em;vertical-align:.35em;margin-right:.18em;opacity:.55}
+body.tokens-off .tok{filter:none;font-style:normal;color:var(--ink-faint);border-bottom-color:var(--line)}
+body.tokens-off .tok::before{display:none}
+
+.frame{position:relative;padding:.9rem;background:var(--cream-2);border:1px solid var(--line)}
+.frame::after{content:'';position:absolute;inset:.35rem;border:1px solid var(--line-soft);pointer-events:none}
+.frame .media{position:relative;overflow:hidden;background:var(--sand)}
+.frame .media::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(100deg,var(--sand) 20%,#f3ead9 40%,var(--sand) 60%);
+  background-size:220% 100%;
+  animation:shimmer 1.9s var(--ease-inout) infinite;
+}
+.frame img{position:relative;z-index:2;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s var(--ease-out)}
+.frame img.is-loaded{opacity:1}
+.frame.is-loaded .media::before{display:none}
+@keyframes shimmer{to{background-position:-120% 0}}
+
+.nav{position:fixed;inset:0 0 auto;z-index:100;transition:background .3s ease,box-shadow .3s ease,padding .3s ease;padding:1.35rem 0}
+.nav.scrolled{background:rgba(250,247,240,.82);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding:.85rem 0}
+.nav .row{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{font-family:'Cormorant Garamond',serif;font-size:1.4rem;letter-spacing:-.01em}
+.brand span{color:var(--accent-deep)}
+.nav-links{display:none;gap:2.2rem;align-items:center}
+.nav-links a{font-size:.86rem;letter-spacing:.02em;color:var(--ink-soft);position:relative;padding:.2rem 0}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--accent-deep);transition:width .3s var(--ease-out)}
+@media(hover:hover){.nav-links a:hover{color:var(--ink)}.nav-links a:hover::after{width:100%}}
+.nav-links a:focus-visible{outline:2px solid var(--accent-deep);outline-offset:4px}
+
+.btn{
+  display:inline-flex;align-items:center;gap:.7rem;
+  font-family:'Karla',sans-serif;font-size:.9rem;font-weight:500;letter-spacing:.04em;
+  padding:1.05rem 2.1rem;cursor:pointer;border:none;
+  background:var(--ink);color:var(--cream);
+  transition:transform .18s var(--ease-out),background .3s ease,box-shadow .3s ease;
+  will-change:transform;
+}
+.btn .arrow{transition:transform .3s var(--ease-out)}
+@media(hover:hover){.btn:hover{background:var(--accent-deep);box-shadow:0 14px 30px -14px rgba(154,127,87,.7)}.btn:hover .arrow{transform:translateX(5px)}}
+.btn:active{transform:scale(.97)}
+.btn:focus-visible{outline:2px solid var(--accent-deep);outline-offset:4px}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+@media(hover:hover){.btn-ghost:hover{background:var(--ink);color:var(--cream);box-shadow:none}}
+
+section{position:relative}
+.pad{padding-block:clamp(4.5rem,11vw,9rem)}
+.tag{display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1.4rem}
+.tag::before{content:'';width:2rem;height:1px;background:var(--accent)}
+.h-sec{font-size:clamp(2.1rem,5.5vw,3.5rem)}
+
+.hero{padding-top:clamp(7rem,15vw,10rem);padding-bottom:clamp(3rem,8vw,6rem)}
+.hero-grid{display:grid;gap:clamp(2.5rem,6vw,4.5rem);align-items:center}
+.hero-copy .eyebrow{display:block;margin-bottom:1.6rem}
+.hero-copy h1{font-size:clamp(2.6rem,7.5vw,5rem);margin-bottom:1.7rem}
+.hero-copy h1 em{font-style:italic;color:var(--accent-deep)}
+.hero-name{font-family:'Karla',sans-serif;font-size:.8rem;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:2.3rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.hero-name b{font-weight:600;color:var(--ink)}
+.hero-name .lic{color:var(--accent-deep);letter-spacing:.16em}
+.hero-cta{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.6rem}
+.hero-media{position:relative}
+.hero-media .frame{transform:rotate(-1.2deg)}
+.hero-media .stamp{
+  position:absolute;z-index:5;left:-1.1rem;bottom:2.4rem;
+  background:var(--cream);border:1px solid var(--line);padding:1rem 1.3rem;max-width:15rem;
+  transform:rotate(1.5deg);
+}
+.hero-media .stamp p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;line-height:1.3;color:var(--ink)}
+
+.about-grid{display:grid;gap:clamp(2.5rem,6vw,5rem);align-items:center}
+.about-media .frame{transform:rotate(1deg)}
+.about-copy p{margin-bottom:1.2rem;color:var(--ink-soft)}
+.about-copy p.lead-line{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3.2vw,2rem);font-style:italic;color:var(--ink);line-height:1.35;margin-bottom:2rem}
+.about-meta{display:flex;flex-wrap:wrap;gap:2.4rem;margin-top:2.4rem;padding-top:2.2rem;border-top:1px solid var(--line)}
+.about-meta div span{display:block;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:.35rem}
+.about-meta div b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.35rem;color:var(--ink)}
+
+.stats-head{max-width:40ch;margin-bottom:clamp(2.5rem,5vw,3.5rem)}
+.stats{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{background:var(--cream);padding:clamp(1.8rem,3.5vw,2.6rem)}
+.stat .num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7vw,4.2rem);line-height:1;color:var(--accent-deep);display:block;margin-bottom:.7rem}
+.stat .num .tok{font-size:1.15rem;white-space:normal;display:inline-block;line-height:1.35}
+.stat .lbl{font-size:.92rem;color:var(--ink-soft);letter-spacing:.01em}
+
+.svc{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.svc-item{background:var(--cream);padding:clamp(1.8rem,3vw,2.4rem);position:relative;transition:background .35s ease,transform .35s var(--ease-out)}
+.svc-item .idx{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--accent);display:block;margin-bottom:1.1rem}
+.svc-item h3{font-size:1.5rem;margin-bottom:.6rem}
+.svc-item p{font-size:.92rem;color:var(--ink-soft)}
+@media(hover:hover){.svc-item:hover{background:var(--cream-2)}.svc-item:hover h3{color:var(--accent-deep)}}
+
+.props{display:grid;gap:clamp(1.5rem,3vw,2rem)}
+.prop{background:var(--cream);border:1px solid var(--line);transition:transform .4s var(--ease-out),box-shadow .4s ease}
+.prop .frame{padding:.7rem;border:none;background:transparent}
+.prop .frame::after{inset:.7rem;border-color:transparent}
+.prop .media{aspect-ratio:4/3}
+.prop-body{padding:1.4rem 1.5rem 1.8rem}
+.prop-loc{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:.6rem}
+.prop-body h3{font-size:1.55rem;margin-bottom:1.1rem}
+.prop-foot{display:flex;justify-content:space-between;align-items:baseline;padding-top:1rem;border-top:1px solid var(--line);gap:1rem}
+.prop-foot .area{font-size:.9rem;color:var(--ink-soft)}
+.prop-foot .price{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--accent-deep)}
+@media(hover:hover){.prop:hover{transform:translateY(-6px);box-shadow:0 26px 50px -30px rgba(55,49,42,.4)}}
+
+.quotes{display:grid;gap:clamp(1.5rem,3vw,2rem)}
+.quote{background:var(--cream);border:1px solid var(--line);padding:clamp(1.9rem,3.2vw,2.6rem);display:flex;flex-direction:column;gap:1.6rem}
+.quote .mark{font-family:'Cormorant Garamond',serif;font-size:3.2rem;line-height:.4;color:var(--beige);height:1.2rem}
+.quote p{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;line-height:1.45;color:var(--ink);flex:1}
+.quote .who{font-size:.82rem;letter-spacing:.06em;color:var(--ink-soft)}
+.quote .who b{display:block;font-weight:600;color:var(--ink);font-family:'Karla',sans-serif;letter-spacing:.02em;margin-bottom:.15rem}
+
+.contact{background:linear-gradient(180deg,transparent,rgba(227,214,191,.28))}
+.contact-grid{display:grid;gap:clamp(2.5rem,5vw,4rem)}
+.contact-info h2{margin-bottom:1.6rem}
+.contact-info .lede{margin-bottom:2.6rem}
+.channels{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:2.4rem}
+.channel{background:var(--cream);padding:1.3rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:background .3s ease}
+.channel span{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
+.channel b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.35rem}
+.channel a{color:var(--accent-deep)}
+@media(hover:hover){.channel:hover{background:var(--cream-2)}}
+
+.cal{background:var(--cream);border:1px solid var(--line);padding:clamp(1.4rem,3vw,2rem)}
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.4rem}
+.cal-head .m{font-family:'Cormorant Garamond',serif;font-size:1.5rem}
+.cal-nav{display:flex;gap:.5rem}
+.cal-nav button{width:2.2rem;height:2.2rem;border:1px solid var(--line);background:transparent;color:var(--ink-soft);cursor:pointer;font-size:1rem;transition:background .2s ease,transform .15s var(--ease-out)}
+@media(hover:hover){.cal-nav button:hover{background:var(--cream-2)}}
+.cal-nav button:active{transform:scale(.94)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.35rem}
+.cal-dow{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center;padding-bottom:.5rem}
+.cal-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--ink);background:transparent;border:1px solid transparent;cursor:pointer;font-family:'Karla',sans-serif;transition:background .2s ease,color .2s ease,transform .15s var(--ease-out)}
+.cal-day.empty{cursor:default}
+.cal-day.muted{color:var(--ink-faint);cursor:default}
+@media(hover:hover){.cal-day:not(.empty):not(.muted):hover{background:var(--sand)}}
+.cal-day:not(.empty):not(.muted):active{transform:scale(.9)}
+.cal-day.selected{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.cal-note{margin-top:1.2rem;font-size:.8rem;color:var(--ink-faint);text-align:center}
+
+.form{display:grid;gap:1.3rem}
+.field{display:grid;gap:.5rem}
+.field label{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.field label .req{color:var(--accent-deep)}
+.field input,.field textarea{
+  font-family:'Karla',sans-serif;font-size:1rem;color:var(--ink);
+  background:var(--cream);border:1px solid var(--line);padding:.95rem 1.1rem;width:100%;
+  transition:border-color .25s ease,box-shadow .25s ease;
+}
+.field textarea{resize:vertical;min-height:7rem}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--accent-deep);box-shadow:0 0 0 3px rgba(182,153,111,.16)}
+.field.invalid input,.field.invalid textarea{border-color:#a5563f;box-shadow:0 0 0 3px rgba(165,86,63,.14)}
+.field .err{font-size:.78rem;color:#a5563f;display:none}
+.field.invalid .err{display:block}
+.form-row{display:grid;gap:1.3rem}
+.form-status{font-size:.9rem;padding:.9rem 1.1rem;border:1px solid var(--accent);background:rgba(182,153,111,.12);color:var(--ink);display:none}
+.form-status.show{display:block}
+
+.foot{border-top:1px solid var(--line);padding-block:3.2rem;margin-top:2rem}
+.foot .row{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:center}
+.foot .brand{font-size:1.5rem}
+.foot small{color:var(--ink-faint);font-size:.82rem;letter-spacing:.02em}
+.foot .fl{display:flex;gap:1.6rem;flex-wrap:wrap}
+.foot .fl a{font-size:.85rem;color:var(--ink-soft)}
+@media(hover:hover){.foot .fl a:hover{color:var(--accent-deep)}}
+
+.reveal>*{opacity:0;transform:translateY(26px)}
+body.no-anim .reveal>*{opacity:1;transform:none}
+
+@media(min-width:600px){
+  .form-row{grid-template-columns:1fr 1fr}
+  .quotes{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .svc{grid-template-columns:repeat(2,1fr)}
+}
+@media(min-width:768px){
+  .nav-links{display:flex}
+}
+@media(min-width:900px){
+  .hero-grid{grid-template-columns:1.05fr .95fr}
+  .about-grid{grid-template-columns:.92fr 1.08fr}
+  .contact-grid{grid-template-columns:1fr 1fr}
+  .props{grid-template-columns:repeat(3,1fr)}
+  .quotes{grid-template-columns:repeat(3,1fr)}
+  .stats{grid-template-columns:repeat(4,1fr)}
+  .svc{grid-template-columns:repeat(4,1fr)}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important}
+  html{scroll-behavior:auto}
+  .frame .media::before{animation:none}
+}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Przejdź do treści</a>
-  <header class="site-header" id="site-header">
-    <nav class="container nav-shell" aria-label="Główna nawigacja">
-      <a class="brand" href="#start" aria-label="Elżbieta Śliwowska — strona główna">
-        <img src="logo.jpg" alt="" width="1440" height="1440">
-        <span>Elżbieta Śliwowska<small>Pośrednik nieruchomości</small></span>
-      </a>
-      <div class="nav-links">
-        <a href="#o-mnie">O mnie</a>
-        <a href="#uslugi">Usługi</a>
-        <a href="#proces">Proces</a>
-        <a href="#wiedza">Wiedza</a>
-        <a href="#kontakt">Kontakt</a>
-      </div>
-      <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Otwórz menu">
-        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16M4 16h16"/></svg>
-      </button>
-    </nav>
-  </header>
-  <div class="mobile-menu" id="mobile-menu" inert>
-    <a href="#o-mnie">O mnie</a>
-    <a href="#uslugi">Usługi</a>
-    <a href="#proces">Proces</a>
-    <a href="#wiedza">Wiedza</a>
-    <a href="#kontakt">Kontakt</a>
+
+<nav class="nav" id="nav">
+  <div class="shell row">
+    <a class="brand" href="#start">Elżbieta <span>Śliwowska</span></a>
+    <div class="nav-links">
+      <a href="#o-mnie">O mnie</a>
+      <a href="#dlaczego">Dlaczego ja</a>
+      <a href="#uslugi">Usługi</a>
+      <a href="#nieruchomosci">Nieruchomości</a>
+      <a href="#opinie">Opinie</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
   </div>
+</nav>
 
-  <main id="main">
-    <section class="hero section-tint" id="start">
-      <div class="container hero-grid">
-        <div class="hero-copy" data-hero>
-          <p class="eyebrow">Białystok i okolice</p>
-          <h1>Spokojna <em>decyzja</em> bez presji.</h1>
-          <p class="hero-lead">Kupujesz lub sprzedajesz nieruchomość? Pomagam, żeby była to spokojna i świadoma decyzja — z pełnym wsparciem na każdym etapie.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="tel:668887845">
-              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg>
-              Porozmawiajmy
-            </a>
-            <a class="button button-outline" href="https://www.instagram.com/elasliwowska_/" target="_blank" rel="noopener noreferrer">
-              Instagram
-              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/></svg>
-            </a>
-          </div>
-          <p class="hero-note"><span aria-hidden="true"></span>Pośrednik PFRN 32560</p>
-        </div>
-        <div class="hero-visual" data-hero>
-          <figure class="hero-frame">
-            <img src="logo.jpg" alt="Elżbieta Śliwowska w jasnym, eleganckim wnętrzu" width="1440" height="1440" decoding="async">
-          </figure>
-          <div class="hero-stamp">20+ lat<br>doświadczenia</div>
+<header class="hero pad" id="start">
+  <div class="shell hero-grid">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">Pośrednik w Obrocie Nieruchomościami</span>
+      <h1>Kupujesz dom? To decyzja życiowa. Pomagam, żeby była <em>świadoma</em>.</h1>
+      <div class="hero-name">
+        <b>Elżbieta Śliwowska</b>
+        <span class="lic">Licencja PFRN 32560</span>
+        <span>Białystok i okolice</span>
+      </div>
+      <p class="lede">Spokojne, transparentne wsparcie na każdym etapie zakupu i sprzedaży nieruchomości. Bez pośpiechu, bez presji, z pełną uwagą na Twoje potrzeby.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#kontakt">Porozmawiajmy <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="#uslugi">Zobacz, jak pomagam</a>
+      </div>
+    </div>
+    <div class="hero-media reveal">
+      <div class="frame">
+        <div class="media" style="aspect-ratio:4/5">
+          <img src="assets/img/hero-elzbieta.jpg" alt="Elżbieta Śliwowska, pośrednik w obrocie nieruchomościami w Białymstoku" width="800" height="1000">
         </div>
       </div>
-    </section>
+      <div class="stamp"><p>Po drugiej stronie słuchawki jest człowiek.</p></div>
+    </div>
+  </div>
+</header>
 
-    <aside class="trust-bar" aria-label="Najważniejsze informacje">
-      <div class="container trust-grid">
-        <div class="trust-item" data-reveal><strong>20+ lat</strong><span>Doświadczenia w branży</span></div>
-        <div class="trust-item" data-reveal><strong>PFRN 32560</strong><span>Licencjonowany pośrednik</span></div>
-        <div class="trust-item" data-reveal><strong>Białystok</strong><span>I najbliższe okolice</span></div>
-      </div>
-    </aside>
-
-    <section class="section section-white" id="o-mnie">
-      <div class="container split">
-        <figure class="photo-wrap" data-reveal>
-          <div class="photo-frame" data-parallax>
-            <img src="ImageDownloader_www.instagram.com_730748708_18092903828622485_2324683726566441076_n.jpg" alt="Elżbieta Śliwowska przy biurku z dokumentami" width="1440" height="1440" loading="lazy" decoding="async">
-          </div>
-        </figure>
-        <div class="about-copy" data-reveal>
-          <p class="eyebrow">O mnie</p>
-          <h2>Relacje przed transakcją.</h2>
-          <p class="lead">Nieruchomość to nie tylko metry i dokumenty. To decyzja, która wpływa na codzienność, bezpieczeństwo i plany na przyszłość.</p>
-          <p>Od ponad 20 lat pracuję na styku wnętrz i nieruchomości — z architektami, biurami projektowymi, showroomami i producentami. Dziś to doświadczenie wykorzystuję, by pomagać klientom spojrzeć na nieruchomość praktycznie i przejść przez cały proces z większym spokojem.</p>
-          <p>Porządkuję informacje, weryfikuję ryzyka i dbam o interes osoby, którą reprezentuję. Bez nacisku. Z uważnością, odpowiedzialnością i transparentnością.</p>
-          <div class="license">
-            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-            Licencja PFRN 32560 · Ubezpieczenie OC
-          </div>
+<section class="pad" id="o-mnie">
+  <div class="shell about-grid">
+    <div class="about-media reveal">
+      <div class="frame">
+        <div class="media" style="aspect-ratio:4/5">
+          <img src="assets/img/about-elzbieta.jpg" alt="Portret Elżbiety Śliwowskiej" width="800" height="1000">
         </div>
       </div>
-    </section>
-
-    <section class="quote-section section">
-      <div class="container" data-reveal>
-        <blockquote>Najpierw buduje się relacje, później zawiera transakcje.</blockquote>
-        <p class="quote-footer">Elżbieta Śliwowska</p>
+    </div>
+    <div class="about-copy reveal">
+      <div class="tag"><span class="eyebrow">O mnie</span></div>
+      <p class="lead-line">Buduje się relacje, później zawiera transakcje. To nie sprzedaż. To wsparcie.</p>
+      <p>Od ponad 20 lat jestem blisko przestrzeni, w których ludzie żyją i pracują. Zaczynałam w branży wnętrzarskiej, współpracując z architektami, biurami projektowymi, showroomami i producentami. To tam nauczyłam się patrzeć na nieruchomość nie jak na metry kwadratowe, ale jak na miejsce, które ma komuś służyć przez lata.</p>
+      <p>Dziś to doświadczenie przekładam na obrót nieruchomościami. Prowadzę cały proces spokojnie i w uporządkowany sposób, tłumaczę każdy krok i pilnuję Twojego interesu. Wierzę w podejście partnerskie i edukacyjne, bo najlepsze decyzje to te podjęte świadomie.</p>
+      <div class="about-meta">
+        <div><span>Licencja</span><b>PFRN 32560</b></div>
+        <div><span>Doświadczenie</span><b>Ponad 20 lat</b></div>
+        <div><span>Biuro</span><b>Nieruchomości Przestrzeń</b></div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section class="section band-section" id="uslugi">
-      <div class="container">
-        <div class="services-head" data-reveal>
-          <div>
-            <p class="eyebrow">Moje usługi</p>
-            <h2>Po Twojej stronie.</h2>
-          </div>
-          <p>Każda sytuacja jest inna. Dlatego zaczynam od rozmowy, a zakres wsparcia dopasowuję do realnych potrzeb — kupującego albo sprzedającego.</p>
+<section class="pad" id="dlaczego">
+  <div class="shell">
+    <div class="stats-head reveal">
+      <div class="tag"><span class="eyebrow">Dlaczego ja</span></div>
+      <h2 class="h-sec">Doświadczenie, które można policzyć.</h2>
+    </div>
+    <!-- Liczby ponizej sa tokenami. Nigdy nie wpisuj tu wymyslonych wartosci. -->
+    <div class="stats reveal">
+      <div class="stat"><span class="num"><span class="tok" data-ph="•••">{{LICZBA_LAT}}</span></span><span class="lbl">lat doświadczenia w branży wnętrzarskiej i nieruchomościowej</span></div>
+      <div class="stat"><span class="num"><span class="tok" data-ph="•••">{{LICZBA_TRANSAKCJI}}</span></span><span class="lbl">przeprowadzonych transakcji</span></div>
+      <div class="stat"><span class="num"><span class="tok" data-ph="•••">{{LICZBA_ZADOWOLONYCH_KLIENTOW}}</span></span><span class="lbl">zadowolonych klientów</span></div>
+      <div class="stat"><span class="num"><span class="tok" data-ph="•••">{{LICZBA_OFERT_OFF_MARKET}}</span></span><span class="lbl">ofert off market w zasięgu ręki</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="uslugi">
+  <div class="shell">
+    <div class="stats-head reveal">
+      <div class="tag"><span class="eyebrow">Moje usługi</span></div>
+      <h2 class="h-sec">Wszystko, czego potrzebujesz, w jednych rękach.</h2>
+    </div>
+    <div class="svc reveal">
+      <div class="svc-item"><span class="idx">01</span><h3>Selekcja nieruchomości</h3><p>Wybieram oferty realnie dopasowane do Twoich potrzeb, żebyś nie tracił czasu na przypadkowe mieszkania.</p></div>
+      <div class="svc-item"><span class="idx">02</span><h3>Stan prawny i dokumenty</h3><p>Weryfikuję stan prawny nieruchomości i komplet dokumentów, zanim podejmiesz decyzję.</p></div>
+      <div class="svc-item"><span class="idx">03</span><h3>Ocena wartości</h3><p>Rzetelnie oceniam wartość nieruchomości w oparciu o rynek i realny stan.</p></div>
+      <div class="svc-item"><span class="idx">04</span><h3>Wsparcie w negocjacjach</h3><p>Reprezentuję Twój interes przy stole i dbam o korzystne warunki.</p></div>
+      <div class="svc-item"><span class="idx">05</span><h3>Uporządkowany proces</h3><p>Prowadzę cały proces krok po kroku, żeby nic Cię nie zaskoczyło.</p></div>
+      <div class="svc-item"><span class="idx">06</span><h3>Oferty off market</h3><p>Daję dostęp do nieruchomości, które nie trafiają do publicznych ogłoszeń.</p></div>
+      <div class="svc-item"><span class="idx">07</span><h3>Formalności</h3><p>Wspieram na każdym etapie formalności, od umowy po finał transakcji.</p></div>
+      <div class="svc-item"><span class="idx">08</span><h3>Oszczędność czasu</h3><p>Biorę na siebie to, co czasochłonne, żebyś mógł skupić się na decyzji.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="nieruchomosci">
+  <div class="shell">
+    <div class="stats-head reveal">
+      <div class="tag"><span class="eyebrow">Aktualne nieruchomości</span></div>
+      <h2 class="h-sec">Wybrane oferty z mojego portfela.</h2>
+    </div>
+    <!-- Karty ponizej to placeholdery. Tytul, lokalizacja, metraz i cena to tokeny do uzupelnienia. -->
+    <div class="props reveal">
+      <article class="prop">
+        <div class="frame"><div class="media"><img alt="" data-fallback></div></div>
+        <div class="prop-body">
+          <div class="prop-loc"><span class="tok" data-ph="Lokalizacja">{{NIERUCHOMOSC_1_LOKALIZACJA}}</span></div>
+          <h3><span class="tok" data-ph="Tytuł oferty">{{NIERUCHOMOSC_1_TYTUL}}</span></h3>
+          <div class="prop-foot"><span class="area"><span class="tok" data-ph="Metraż">{{NIERUCHOMOSC_1_METRAZ}}</span></span><span class="price"><span class="tok" data-ph="Cena">{{NIERUCHOMOSC_1_CENA}}</span></span></div>
         </div>
-        <div class="service-grid">
-          <article class="service-card" data-reveal>
-            <span class="service-index">01</span>
-            <div>
-              <h3>Kupuję</h3>
-              <p>Pomagam znaleźć nieruchomość, której wartość sięga dalej niż to, co widać na zdjęciach.</p>
-              <ul>
-                <li>Selekcja nieruchomości dopasowanych do potrzeb</li>
-                <li>Weryfikacja stanu prawnego i dokumentów</li>
-                <li>Ocena wartości, ryzyk i ukrytych kosztów</li>
-                <li>Negocjacje, formalności i oferty off-market</li>
-              </ul>
-            </div>
-          </article>
-          <article class="service-card" data-reveal>
-            <span class="service-index">02</span>
-            <div>
-              <h3>Sprzedaję</h3>
-              <p>Przygotowuję i prowadzę proces tak, by nieruchomość trafiła do właściwych osób na dobrych warunkach.</p>
-              <ul>
-                <li>Ocena wartości nieruchomości</li>
-                <li>Profesjonalne przygotowanie oferty</li>
-                <li>Dotarcie do zainteresowanych kupujących</li>
-                <li>Negocjacje i uporządkowanie formalności</li>
-              </ul>
-            </div>
-          </article>
+      </article>
+      <article class="prop">
+        <div class="frame"><div class="media"><img alt="" data-fallback></div></div>
+        <div class="prop-body">
+          <div class="prop-loc"><span class="tok" data-ph="Lokalizacja">{{NIERUCHOMOSC_2_LOKALIZACJA}}</span></div>
+          <h3><span class="tok" data-ph="Tytuł oferty">{{NIERUCHOMOSC_2_TYTUL}}</span></h3>
+          <div class="prop-foot"><span class="area"><span class="tok" data-ph="Metraż">{{NIERUCHOMOSC_2_METRAZ}}</span></span><span class="price"><span class="tok" data-ph="Cena">{{NIERUCHOMOSC_2_CENA}}</span></span></div>
         </div>
+      </article>
+      <article class="prop">
+        <div class="frame"><div class="media"><img alt="" data-fallback></div></div>
+        <div class="prop-body">
+          <div class="prop-loc"><span class="tok" data-ph="Lokalizacja">{{NIERUCHOMOSC_3_LOKALIZACJA}}</span></div>
+          <h3><span class="tok" data-ph="Tytuł oferty">{{NIERUCHOMOSC_3_TYTUL}}</span></h3>
+          <div class="prop-foot"><span class="area"><span class="tok" data-ph="Metraż">{{NIERUCHOMOSC_3_METRAZ}}</span></span><span class="price"><span class="tok" data-ph="Cena">{{NIERUCHOMOSC_3_CENA}}</span></span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="opinie">
+  <div class="shell">
+    <div class="stats-head reveal">
+      <div class="tag"><span class="eyebrow">Opinie</span></div>
+      <h2 class="h-sec">Głosy osób, którym towarzyszyłam.</h2>
+    </div>
+    <!-- Sekcja przygotowana pod przyszle referencje. Tresc i imiona to tokeny. -->
+    <div class="quotes reveal">
+      <blockquote class="quote">
+        <div class="mark">&ldquo;</div>
+        <p><span class="tok" data-ph="Treść opinii klienta">{{OPINIA_1_TRESC}}</span></p>
+        <div class="who"><b><span class="tok" data-ph="Imię klienta">{{OPINIA_1_AUTOR}}</span></b><span class="tok" data-ph="Rodzaj transakcji">{{OPINIA_1_KONTEKST}}</span></div>
+      </blockquote>
+      <blockquote class="quote">
+        <div class="mark">&ldquo;</div>
+        <p><span class="tok" data-ph="Treść opinii klienta">{{OPINIA_2_TRESC}}</span></p>
+        <div class="who"><b><span class="tok" data-ph="Imię klienta">{{OPINIA_2_AUTOR}}</span></b><span class="tok" data-ph="Rodzaj transakcji">{{OPINIA_2_KONTEKST}}</span></div>
+      </blockquote>
+      <blockquote class="quote">
+        <div class="mark">&ldquo;</div>
+        <p><span class="tok" data-ph="Treść opinii klienta">{{OPINIA_3_TRESC}}</span></p>
+        <div class="who"><b><span class="tok" data-ph="Imię klienta">{{OPINIA_3_AUTOR}}</span></b><span class="tok" data-ph="Rodzaj transakcji">{{OPINIA_3_KONTEKST}}</span></div>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="contact pad" id="kontakt">
+  <div class="shell contact-grid">
+    <div class="contact-info reveal">
+      <div class="tag"><span class="eyebrow">Kontakt</span></div>
+      <h2 class="h-sec">Zacznijmy od rozmowy.</h2>
+      <p class="lede">Bez zobowiązań i bez presji. Opowiedz, czego szukasz albo co chcesz sprzedać, a ja podpowiem, jak najlepiej poprowadzić ten proces.</p>
+      <div class="channels">
+        <div class="channel"><span>Telefon</span><b><a href="tel:+48668887845">668 887 845</a></b></div>
+        <div class="channel"><span>Biuro</span><b>Nieruchomości Przestrzeń</b></div>
+        <div class="channel"><span>Instagram</span><b><a href="https://instagram.com/elasliwowska_" target="_blank" rel="noopener">@elasliwowska_</a></b></div>
+        <div class="channel"><span>Adres biura</span><b><span class="tok" data-ph="Adres biura">{{ADRES_BIURA}}</span></b></div>
+        <div class="channel"><span>Godziny pracy</span><b><span class="tok" data-ph="Godziny">{{GODZINY_PRACY}}</span></b></div>
       </div>
-    </section>
-
-    <section class="section process-section" id="proces">
-      <div class="container process-grid">
-        <figure class="process-photo" data-reveal>
-          <div class="photo-frame" data-parallax>
-            <img src="750117629_18095697110622485_7130592569823673256_n.jpg" alt="Elżbieta Śliwowska w eleganckim wnętrzu związanym z nieruchomościami" width="1080" height="1080" loading="lazy" decoding="async">
-          </div>
-        </figure>
-        <div data-reveal>
-          <p class="eyebrow">Spokojny proces</p>
-          <h2>Krok po kroku. Bez chaosu.</h2>
-          <p>Wiesz, co dzieje się teraz, co będzie dalej i dlaczego podejmujemy daną decyzję.</p>
-          <div class="process-list">
-            <article class="process-step"><span>01</span><div><h3>Rozmowa</h3><p>Poznanie Twojej sytuacji, potrzeb, planów i najważniejszych obaw.</p></div></article>
-            <article class="process-step"><span>02</span><div><h3>Analiza potrzeb</h3><p>Ustalenie priorytetów i zakresu wsparcia dopasowanego do Ciebie.</p></div></article>
-            <article class="process-step"><span>03</span><div><h3>Przygotowanie i weryfikacja</h3><p>Selekcja ofert lub przygotowanie sprzedaży, dokumentów i informacji.</p></div></article>
-            <article class="process-step"><span>04</span><div><h3>Negocjacje</h3><p>Ochrona Twoich interesów i spokojne wypracowanie właściwych warunków.</p></div></article>
-            <article class="process-step"><span>05</span><div><h3>Bezpieczne zamknięcie</h3><p>Koordynacja formalności aż do momentu, gdy możesz powiedzieć: to była dobra decyzja.</p></div></article>
+      <!-- Fejkowy widget kalendarza. Czysto wizualny mockup, brak realnej integracji. Placeholder do podpiecia rezerwacji terminow w przyszlosci. -->
+      <div class="cal" id="cal">
+        <div class="cal-head">
+          <div class="m" id="cal-month"></div>
+          <div class="cal-nav">
+            <button type="button" id="cal-prev" aria-label="Poprzedni miesiąc">‹</button>
+            <button type="button" id="cal-next" aria-label="Następny miesiąc">›</button>
           </div>
         </div>
+        <div class="cal-grid" id="cal-grid"></div>
+        <p class="cal-note">Wybierz orientacyjny termin rozmowy. Potwierdzę go telefonicznie.</p>
       </div>
-    </section>
-
-    <section class="section section-white" id="wiedza">
-      <div class="container">
-        <div class="knowledge-intro" data-reveal>
-          <div>
-            <p class="eyebrow">Warto wiedzieć</p>
-            <h2>Świadoma decyzja zaczyna się od pytań.</h2>
-          </div>
-          <p>Część wartości nieruchomości nie jest widoczna na zdjęciach. Dlatego pokazuję, co warto sprawdzić, zanim pojawi się podpis.</p>
+    </div>
+    <div class="reveal">
+      <!-- Walidacja frontendowa. Brak realnej wysylki. Podlacz backend lub usluge mailowa w handlerze submit ponizej (patrz PODPIECIE BACKENDU). -->
+      <form class="form" id="contact-form" novalidate>
+        <div class="form-row">
+          <div class="field"><label for="f-name">Imię <span class="req">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" required><span class="err">Podaj imię.</span></div>
+          <div class="field"><label for="f-phone">Telefon <span class="req">*</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><span class="err">Podaj poprawny numer telefonu.</span></div>
         </div>
-        <div class="knowledge-grid">
-          <article class="knowledge-card" data-reveal><span class="knowledge-number">01</span><div><h3>Czego nie pokazują zdjęcia?</h3><p>Stan prawny, otoczenie, koszty utrzymania i potencjalne ryzyka często decydują o prawdziwej wartości nieruchomości.</p></div></article>
-          <article class="knowledge-card" data-reveal><span class="knowledge-number">02</span><div><h3>Jakie dokumenty sprawdzić?</h3><p>Uporządkowana weryfikacja dokumentów pomaga wcześniej zauważyć niejasności i ograniczyć ryzyko formalnych błędów.</p></div></article>
-          <article class="knowledge-card" data-reveal><span class="knowledge-number">03</span><div><h3>Jak ograniczyć ryzyko?</h3><p>Rzetelne informacje, właściwe pytania i negocjacje bez pośpiechu pozwalają podejmować decyzje z większą pewnością.</p></div></article>
-        </div>
-      </div>
-    </section>
+        <div class="field"><label for="f-email">E mail</label><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email"><span class="err">Podaj poprawny adres e mail.</span></div>
+        <div class="field"><label for="f-msg">Wiadomość <span class="req">*</span></label><textarea id="f-msg" name="message" required></textarea><span class="err">Napisz kilka słów o tym, w czym mogę pomóc.</span></div>
+        <div class="form-status" id="form-status">Dziękuję. Wiadomość została zapisana. Odezwę się telefonicznie.</div>
+        <button class="btn" type="submit">Wyślij wiadomość <span class="arrow">→</span></button>
+      </form>
+    </div>
+  </div>
+</section>
 
-    <section class="quote-section section">
-      <div class="container" data-reveal>
-        <blockquote>To nie sprzedaż. To wsparcie.</blockquote>
-        <p class="quote-footer">Spokojne decyzje bez presji</p>
-      </div>
-    </section>
+<footer class="foot">
+  <div class="shell row">
+    <div>
+      <div class="brand">Elżbieta <span style="color:var(--accent-deep)">Śliwowska</span></div>
+      <small>Pośrednik w Obrocie Nieruchomościami · Licencja PFRN 32560 · Nieruchomości Przestrzeń</small>
+    </div>
+    <div class="fl">
+      <a href="tel:+48668887845">668 887 845</a>
+      <a href="https://instagram.com/elasliwowska_" target="_blank" rel="noopener">@elasliwowska_</a>
+      <a href="#start">Do góry ↑</a>
+    </div>
+  </div>
+</footer>
 
-    <section class="section contact-section" id="kontakt">
-      <div class="container">
-        <div class="contact-head" data-reveal>
-          <div><p class="eyebrow">Kontakt</p><h2>Zacznijmy od rozmowy.</h2></div>
-          <p>Planujesz sprzedaż lub zakup nieruchomości? Z przyjemnością przeprowadzę Cię przez ten proces.</p>
-        </div>
-        <div class="contact-split" data-reveal>
-          <div class="contact-info">
-            <p class="eyebrow">Bez zobowiązań</p>
-            <h3>Porozmawiajmy o Twojej nieruchomości.</h3>
-            <p>Pierwsza rozmowa pozwoli nam spokojnie określić Twoją sytuację, potrzeby i najlepszy następny krok.</p>
-            <div class="contact-cards">
-              <a class="contact-card" href="tel:668887845"><span>Telefon</span><strong>668&nbsp;887&nbsp;845</strong></a>
-              <a class="contact-card" href="https://www.instagram.com/elasliwowska_/" target="_blank" rel="noopener noreferrer"><span>Instagram</span><strong>@elasliwowska_</strong></a>
-              <article class="contact-card"><span>Obszar działania</span><strong>Białystok i okolice</strong></article>
-            </div>
-            <a class="button button-primary" href="tel:668887845">
-              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg>
-              Zadzwoń teraz
-            </a>
-          </div>
-          <form class="contact-form" action="https://formsubmit.co/kontakt@elasliwowska.pl" method="POST">
-            <label>Imię i nazwisko<input type="text" name="name" required></label>
-            <label>Telefon lub e-mail<input type="text" name="contact" required></label>
-            <label>Wiadomość<textarea name="message" rows="4" required></textarea></label>
-            <button class="button button-primary" type="submit">Wyślij wiadomość</button>
-          </form>
-        </div>
-        <footer class="footer">
-          <div class="footer-grid">
-            <div><div class="footer-brand">Elżbieta Śliwowska</div><span>Pośrednik w Obrocie Nieruchomościami · PFRN 32560</span></div>
-            <div class="footer-links"><a href="tel:668887845">668&nbsp;887&nbsp;845</a><a href="https://www.instagram.com/elasliwowska_/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="#start">Wróć na górę ↑</a></div>
-          </div>
-        </footer>
-      </div>
-    </section>
-  </main>
+<!--
+  ZDJECIA / ASSETS:
+  assets/img/hero-elzbieta.jpg   sekcja Start, favicon oraz og image
+  assets/img/about-elzbieta.jpg  sekcja O mnie
+  assets/img/extra-elzbieta.jpg  ZAREZERWOWANE, niewykorzystane na razie, dostepne na przyszlosc
+-->
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@latest/dist/lenis.min.js"></script>
-  <script>
-    const header = document.querySelector('#site-header')
-    const menuButton = document.querySelector('#menu-button')
-    const mobileMenu = document.querySelector('#mobile-menu')
-    const mobileLinks = mobileMenu.querySelectorAll('a')
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const screenshotMode = new URLSearchParams(window.location.search).has('screenshot')
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+const SHOW_TOKENS = true
 
-    if (screenshotMode) {
-      document.querySelectorAll('img[loading="lazy"]').forEach((image) => image.loading = 'eager')
-    }
+const isScreenshot = location.search.includes('screenshot')
+const cleanMode = location.search.includes('clean') || !SHOW_TOKENS
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
+const isMobile = matchMedia('(max-width: 768px)').matches
 
-    const setMenu = (open) => {
-      mobileMenu.classList.toggle('open', open)
-      mobileMenu.inert = !open
-      menuButton.setAttribute('aria-expanded', String(open))
-      menuButton.setAttribute('aria-label', open ? 'Zamknij menu' : 'Otwórz menu')
-    }
+if (cleanMode) {
+  document.body.classList.add('tokens-off')
+  document.querySelectorAll('.tok').forEach(el => { el.textContent = el.dataset.ph || '—' })
+}
 
-    menuButton.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')))
-    mobileLinks.forEach((link) => link.addEventListener('click', () => setMenu(false)))
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') setMenu(false)
+const nav = document.getElementById('nav')
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20)
+onScroll()
+addEventListener('scroll', onScroll, {passive:true})
+
+document.querySelectorAll('.frame img[src]').forEach(img => {
+  const frame = img.closest('.frame')
+  const done = () => { img.classList.add('is-loaded'); frame.classList.add('is-loaded') }
+  if (img.complete && img.naturalWidth) done()
+  else { img.addEventListener('load', done); img.addEventListener('error', () => frame.classList.remove('is-loaded')) }
+})
+
+const months = ['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec','Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień']
+const dows = ['Pn','Wt','Śr','Cz','Pt','So','Nd']
+const grid = document.getElementById('cal-grid')
+const monthLabel = document.getElementById('cal-month')
+const today = new Date()
+const view = new Date(today.getFullYear(), today.getMonth(), 1)
+let selected = null
+const renderCal = () => {
+  grid.innerHTML = ''
+  monthLabel.textContent = `${months[view.getMonth()]} ${view.getFullYear()}`
+  dows.forEach(d => { const c = document.createElement('div'); c.className = 'cal-dow'; c.textContent = d; grid.appendChild(c) })
+  const first = (new Date(view.getFullYear(), view.getMonth(), 1).getDay() + 6) % 7
+  const days = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate()
+  for (let i = 0; i < first; i++) { const c = document.createElement('div'); c.className = 'cal-day empty'; grid.appendChild(c) }
+  const floor = new Date(today.getFullYear(), today.getMonth(), today.getDate())
+  for (let d = 1; d <= days; d++) {
+    const date = new Date(view.getFullYear(), view.getMonth(), d)
+    const c = document.createElement('button')
+    c.type = 'button'
+    c.className = 'cal-day'
+    c.textContent = d
+    if (date < floor || date.getDay() === 0) c.classList.add('muted')
+    else c.addEventListener('click', () => {
+      grid.querySelectorAll('.selected').forEach(s => s.classList.remove('selected'))
+      c.classList.add('selected')
+      selected = date
     })
+    if (selected && date.getTime() === selected.getTime()) c.classList.add('selected')
+    grid.appendChild(c)
+  }
+}
+document.getElementById('cal-prev').addEventListener('click', () => { view.setMonth(view.getMonth() - 1); renderCal() })
+document.getElementById('cal-next').addEventListener('click', () => { view.setMonth(view.getMonth() + 1); renderCal() })
+renderCal()
 
-    const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 20)
-    updateHeader()
-    window.addEventListener('scroll', updateHeader, { passive: true })
+const form = document.getElementById('contact-form')
+const status = document.getElementById('form-status')
+const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
+const phoneOk = v => v.replace(/[\s()-]/g,'').length >= 9 && /^[+\d][\d\s()-]+$/.test(v)
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  const {name, phone, email, message} = form
+  let ok = true
+  const checks = [
+    [name, name.value.trim().length > 1],
+    [phone, phoneOk(phone.value.trim())],
+    [email, email.value.trim() === '' || emailOk(email.value.trim())],
+    [message, message.value.trim().length > 3]
+  ]
+  checks.forEach(([el, valid]) => { el.closest('.field').classList.toggle('invalid', !valid); if (!valid) ok = false })
+  if (!ok) { const bad = form.querySelector('.field.invalid input, .field.invalid textarea'); if (bad) bad.focus(); return }
+  // PODPIECIE BACKENDU: tutaj wyslij dane formularza (fetch/POST do endpointu lub uslugi mailowej).
+  // Obecnie brak realnej wysylki, dane pozostaja po stronie frontendu.
+  status.classList.add('show')
+  form.reset()
+})
+form.querySelectorAll('input,textarea').forEach(el => el.addEventListener('input', () => el.closest('.field').classList.remove('invalid')))
 
-    if (!reducedMotion && !screenshotMode && window.gsap && window.ScrollTrigger) {
-      gsap.registerPlugin(ScrollTrigger)
-
-      if (window.Lenis) {
-        const lenis = new Lenis()
-        lenis.on('scroll', ScrollTrigger.update)
-        gsap.ticker.add((time) => lenis.raf(time * 1000))
-        gsap.ticker.lagSmoothing(0)
-      }
-
-      gsap.utils.toArray('[data-reveal]').forEach((element) => {
-        gsap.from(element, {
-          y: 40,
-          opacity: 0,
-          duration: 0.9,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: element, start: 'top 85%' }
-        })
-      })
-
-      gsap.from('[data-hero] > *', {
-        y: 32,
-        opacity: 0,
-        duration: 1.1,
-        ease: 'expo.out',
-        stagger: 0.12,
-        delay: 0.15
-      })
-
-      gsap.utils.toArray('[data-parallax] img').forEach((image) => {
-        gsap.fromTo(image, { yPercent: -3, scale: 1.06 }, {
-          yPercent: 3,
-          ease: 'none',
-          scrollTrigger: { trigger: image, start: 'top bottom', end: 'bottom top', scrub: true }
-        })
-      })
-    }
-  </script>
+if (!reduceMotion && !isScreenshot && window.gsap) {
+  gsap.registerPlugin(ScrollTrigger)
+  if (!isMobile && window.Lenis) {
+    const lenis = new Lenis({lerp:0.1})
+    lenis.on('scroll', ScrollTrigger.update)
+    gsap.ticker.add(t => lenis.raf(t * 1000))
+    gsap.ticker.lagSmoothing(0)
+  }
+  gsap.utils.toArray('.reveal').forEach(box => {
+    gsap.to(box.children, {
+      opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger: 0.09,
+      scrollTrigger: {trigger: box, start: 'top 82%'}
+    })
+  })
+} else {
+  document.body.classList.add('no-anim')
+}
+</script>
 </body>
 </html>
