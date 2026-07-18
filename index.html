@@ -61,8 +61,8 @@ img{display:block;max-width:100%}
 .skel-line{height:.72em;width:7ch;margin-block:.25em}
 .skel-lines{display:flex;flex-direction:column;gap:.55em;width:100%}
 .skel-lines .skel-line{margin:0;height:.78em}
-.h-sec .skel-lines{gap:.3em;max-width:18ch}
-.h-sec .skel-line{height:.5em}
+.h-sec .skel-lines{gap:.34em;max-width:20ch}
+.h-sec .skel-line{height:.42em;border-radius:1px}
 .soon{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-faint)}
 
 .frame{position:relative;padding:.9rem;background:var(--cream-2);border:1px solid var(--line)}
@@ -361,7 +361,7 @@ body.no-anim .reveal>*{opacity:1;transform:none}
   <div class="shell">
     <div class="stats-head reveal">
       <div class="tag"><span class="eyebrow">Dlaczego ja</span></div>
-      <h2 class="h-sec"><span class="skel-lines" data-token="{{DLACZEGO_JA_TYTUL}}"><span class="skel skel-line" style="width:62%"></span><span class="skel skel-line" style="width:38%"></span></span></h2>
+      <h2 class="h-sec"><span class="skel-lines" data-token="{{DLACZEGO_JA_TYTUL}}"><span class="skel skel-line" style="width:100%"></span><span class="skel skel-line" style="width:76%"></span><span class="skel skel-line" style="width:44%"></span></span></h2>
     </div>
     <!-- Liczby ponizej to placeholdery. Tokeny w data-token (Ctrl F). Nigdy nie wpisuj tu wymyslonych wartosci. -->
     <div class="stats reveal">
@@ -379,7 +379,7 @@ body.no-anim .reveal>*{opacity:1;transform:none}
   <div class="shell">
     <div class="stats-head reveal">
       <div class="tag"><span class="eyebrow">Moje usługi</span></div>
-      <h2 class="h-sec"><span class="skel-lines" data-token="{{MOJE_USLUGI_TYTUL}}"><span class="skel skel-line" style="width:66%"></span><span class="skel skel-line" style="width:42%"></span></span></h2>
+      <h2 class="h-sec"><span class="skel-lines" data-token="{{MOJE_USLUGI_TYTUL}}"><span class="skel skel-line" style="width:100%"></span><span class="skel skel-line" style="width:72%"></span><span class="skel skel-line" style="width:48%"></span></span></h2>
     </div>
     <div class="svc reveal">
       <div class="svc-item"><span class="idx">01</span><h3>Selekcja nieruchomości</h3><p>Wybieram oferty realnie dopasowane do Twoich potrzeb, żebyś nie tracił czasu na przypadkowe mieszkania.</p></div>
@@ -400,7 +400,7 @@ body.no-anim .reveal>*{opacity:1;transform:none}
   <div class="shell">
     <div class="stats-head reveal">
       <div class="tag"><span class="eyebrow">Aktualne nieruchomości</span></div>
-      <h2 class="h-sec"><span class="skel-lines" data-token="{{NIERUCHOMOSCI_TYTUL}}"><span class="skel skel-line" style="width:58%"></span><span class="skel skel-line" style="width:36%"></span></span></h2>
+      <h2 class="h-sec"><span class="skel-lines" data-token="{{NIERUCHOMOSCI_TYTUL}}"><span class="skel skel-line" style="width:100%"></span><span class="skel skel-line" style="width:70%"></span><span class="skel skel-line" style="width:42%"></span></span></h2>
     </div>
     <!-- Karty ponizej to placeholdery. Tokeny w data-token (Ctrl F): tytul, lokalizacja, metraz, cena. -->
     <div class="props reveal">
@@ -438,7 +438,7 @@ body.no-anim .reveal>*{opacity:1;transform:none}
   <div class="shell">
     <div class="stats-head reveal">
       <div class="tag"><span class="eyebrow">Opinie</span></div>
-      <h2 class="h-sec"><span class="skel-lines" data-token="{{OPINIE_TYTUL}}"><span class="skel skel-line" style="width:60%"></span><span class="skel skel-line" style="width:34%"></span></span></h2>
+      <h2 class="h-sec"><span class="skel-lines" data-token="{{OPINIE_TYTUL}}"><span class="skel skel-line" style="width:100%"></span><span class="skel skel-line" style="width:74%"></span><span class="skel skel-line" style="width:46%"></span></span></h2>
     </div>
     <!-- Sekcja przygotowana pod przyszle referencje. Tokeny w data-token (Ctrl F): tresc, autor, kontekst. -->
     <div class="quotes reveal">
@@ -619,7 +619,7 @@ if (!reduceMotion && !isScreenshot && window.gsap) {
   gsap.utils.toArray('.reveal').forEach(box => {
     gsap.to(box.children, {
       opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger: 0.09,
-      scrollTrigger: {trigger: box, start: 'top 82%'}
+      scrollTrigger: {trigger: box, start: 'top 96%', once: true}
     })
   })
 
@@ -641,28 +641,41 @@ if (!reduceMotion && !isScreenshot && window.gsap) {
   gsap.utils.toArray('.stat, .svc-item, .prop, .quote, .channel').forEach((el, i) => {
     gsap.from(el, {
       y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', delay: (i % 4) * 0.06,
-      scrollTrigger: {trigger: el, start: 'top 90%'}
+      scrollTrigger: {trigger: el, start: 'top 96%', once: true}
     })
   })
 
   gsap.utils.toArray('.h-sec').forEach(h => {
     gsap.from(h, {
-      y: 34, opacity: 0, duration: 1.1, ease: 'power4.out',
-      scrollTrigger: {trigger: h, start: 'top 88%'}
+      y: 34, duration: 1.1, ease: 'power4.out',
+      scrollTrigger: {trigger: h, start: 'top 96%', once: true}
     })
   })
 
   gsap.utils.toArray('.tag').forEach(t => {
     gsap.from(t, {
       x: -18, opacity: 0, duration: 0.8, ease: 'power3.out',
-      scrollTrigger: {trigger: t, start: 'top 92%'}
+      scrollTrigger: {trigger: t, start: 'top 96%', once: true}
     })
   })
 
   gsap.from('.foot .row > *', {
     y: 24, opacity: 0, duration: 0.9, ease: 'power3.out', stagger: 0.12,
-    scrollTrigger: {trigger: '.foot', start: 'top 92%'}
+    scrollTrigger: {trigger: '.foot', start: 'top 96%', once: true}
   })
+
+  const refresh = () => ScrollTrigger.refresh()
+  window.addEventListener('load', () => {
+    refresh()
+    setTimeout(() => {
+      refresh()
+      document.querySelectorAll('.reveal > *').forEach(el => {
+        const r = el.getBoundingClientRect()
+        if (r.top < innerHeight && getComputedStyle(el).opacity < 0.05) gsap.set(el, {opacity: 1, y: 0})
+      })
+    }, 1200)
+  })
+  if (document.fonts) document.fonts.ready.then(refresh)
 
   animateCal = () => gsap.from('#cal-grid .cal-day', {
     opacity: 0, y: 8, scale: 0.9, duration: 0.5, ease: 'power2.out', stagger: 0.012
