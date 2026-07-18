@@ -170,6 +170,7 @@ section{position:relative}
 
 .contact{background:linear-gradient(180deg,transparent,rgba(227,214,191,.28))}
 .contact-grid{display:grid;gap:clamp(2.5rem,5vw,4rem)}
+.contact-right{display:flex;flex-direction:column;gap:2rem}
 .contact-info h2{margin-bottom:1.6rem}
 .contact-info .lede{margin-bottom:2.6rem}
 .channels{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:2.4rem}
@@ -427,6 +428,19 @@ body.no-anim .reveal>*{opacity:1;transform:none}
         <div class="channel"><span>Adres biura</span><b><span class="skel skel-line" data-token="{{ADRES_BIURA}}" style="width:14ch;height:.9em"></span></b></div>
         <div class="channel"><span>Godziny pracy</span><b><span class="skel skel-line" data-token="{{GODZINY_PRACY}}" style="width:12ch;height:.9em"></span></b></div>
       </div>
+    </div>
+    <div class="contact-right reveal">
+      <!-- Walidacja frontendowa. Brak realnej wysylki. Podlacz backend lub usluge mailowa w handlerze submit ponizej (patrz PODPIECIE BACKENDU). -->
+      <form class="form" id="contact-form" novalidate>
+        <div class="form-row">
+          <div class="field"><label for="f-name">Imię <span class="req">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" required><span class="err">Podaj imię.</span></div>
+          <div class="field"><label for="f-phone">Telefon <span class="req">*</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><span class="err">Podaj poprawny numer telefonu.</span></div>
+        </div>
+        <div class="field"><label for="f-email">E mail</label><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email"><span class="err">Podaj poprawny adres e mail.</span></div>
+        <div class="field"><label for="f-msg">Wiadomość <span class="req">*</span></label><textarea id="f-msg" name="message" required></textarea><span class="err">Napisz kilka słów o tym, w czym mogę pomóc.</span></div>
+        <div class="form-status" id="form-status">Dziękuję. Wiadomość została zapisana. Odezwę się telefonicznie.</div>
+        <button class="btn" type="submit">Wyślij wiadomość <span class="arrow">→</span></button>
+      </form>
       <!-- Fejkowy widget kalendarza. Czysto wizualny mockup, brak realnej integracji. Placeholder do podpiecia rezerwacji terminow w przyszlosci. -->
       <div class="cal" id="cal">
         <div class="cal-head">
@@ -439,19 +453,6 @@ body.no-anim .reveal>*{opacity:1;transform:none}
         <div class="cal-grid" id="cal-grid"></div>
         <p class="cal-note">Wybierz orientacyjny termin rozmowy. Potwierdzę go telefonicznie.</p>
       </div>
-    </div>
-    <div class="reveal">
-      <!-- Walidacja frontendowa. Brak realnej wysylki. Podlacz backend lub usluge mailowa w handlerze submit ponizej (patrz PODPIECIE BACKENDU). -->
-      <form class="form" id="contact-form" novalidate>
-        <div class="form-row">
-          <div class="field"><label for="f-name">Imię <span class="req">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" required><span class="err">Podaj imię.</span></div>
-          <div class="field"><label for="f-phone">Telefon <span class="req">*</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><span class="err">Podaj poprawny numer telefonu.</span></div>
-        </div>
-        <div class="field"><label for="f-email">E mail</label><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email"><span class="err">Podaj poprawny adres e mail.</span></div>
-        <div class="field"><label for="f-msg">Wiadomość <span class="req">*</span></label><textarea id="f-msg" name="message" required></textarea><span class="err">Napisz kilka słów o tym, w czym mogę pomóc.</span></div>
-        <div class="form-status" id="form-status">Dziękuję. Wiadomość została zapisana. Odezwę się telefonicznie.</div>
-        <button class="btn" type="submit">Wyślij wiadomość <span class="arrow">→</span></button>
-      </form>
     </div>
   </div>
 </section>
