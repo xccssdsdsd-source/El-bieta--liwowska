@@ -56,17 +56,19 @@ img{display:block;max-width:100%}
 .eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--accent-deep);font-weight:600}
 .lede{font-size:1.075rem;color:var(--ink-soft);max-width:46ch}
 
-.skel{display:inline-block;position:relative;background:rgba(154,127,87,.42);vertical-align:middle}
-.band-dark .skel{background:rgba(182,153,111,.5)}
-.skel-line{height:2px;width:7ch;margin-block:.45em}
-.skel-lines{display:flex;flex-direction:column;gap:.85em;width:100%}
+.skel{display:inline-block;position:relative;vertical-align:middle;border-radius:999px;background:rgba(55,49,42,.13);animation:skel-pulse 3.4s var(--ease-inout) infinite}
+.band-dark .skel{background:rgba(236,226,208,.15)}
+.skel-line{height:9px;width:7ch;margin-block:.4em}
+.skel-lines{display:flex;flex-direction:column;gap:.75em;width:100%}
 .skel-lines .skel-line{margin:0}
-.h-sec .skel-lines{gap:1.15em;max-width:22ch;padding-block:.5em}
-.h-sec .skel-line{height:5px;filter:blur(1.6px)}
-.h-sec .skel-line:nth-child(even){height:2px;filter:none}
-.prop h3 .skel-line{height:5px;filter:blur(1.6px)}
-.prop h3 .skel-line:nth-child(even){height:2px;filter:none}
-.stat .num .skel{filter:blur(1.4px)}
+.h-sec .skel-lines{gap:.85em;max-width:26ch;padding-block:.5em}
+.h-sec .skel-line{height:15px;transform-origin:left}
+.h-sec .skel-line:nth-child(even){height:11px}
+.prop h3 .skel-line{height:13px}
+.prop h3 .skel-line:nth-child(even){height:10px}
+.stat .num .skel{height:26px}
+@keyframes skel-pulse{0%,100%{opacity:1}50%{opacity:.62}}
+@media(prefers-reduced-motion:reduce){.skel{animation:none}}
 .soon{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-faint)}
 
 .frame{position:relative;padding:.9rem;background:var(--cream-2);border:1px solid var(--line)}
@@ -77,6 +79,7 @@ img{display:block;max-width:100%}
 .frame img.is-loaded{opacity:1}
 .frame.is-loaded .media::before{display:none}
 
+.progress{position:fixed;left:0;top:0;z-index:200;height:2px;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--accent-deep),var(--accent),#d8c197);pointer-events:none}
 .nav{
   position:fixed;inset:0 0 auto;z-index:100;padding:.9rem 0;
   background:rgba(250,247,240,.86);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);
@@ -175,7 +178,7 @@ section{position:relative}
 .stat{background:var(--deep);padding:clamp(1.8rem,3.5vw,2.6rem);transition:background .35s ease}
 @media(hover:hover){.stat:hover{background:var(--deep-2)}}
 .stat .num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7vw,4.2rem);line-height:1;color:var(--accent);display:block;margin-bottom:.7rem}
-.stat .num .skel{height:5px;width:2.6ch;margin-bottom:.55em;background:rgba(182,153,111,.5)}
+.stat .num .skel{width:2.6ch;margin-bottom:.5em}
 .stat .lbl{font-size:.92rem;color:rgba(236,226,208,.72);letter-spacing:.01em}
 
 .svc{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
@@ -201,12 +204,14 @@ section{position:relative}
 @media(hover:hover){.prop:hover{transform:translateY(-6px);box-shadow:0 28px 52px -28px rgba(55,49,42,.42);border-color:var(--accent)}}
 
 .quotes{display:grid;gap:clamp(1rem,1.6vw,1.3rem)}
-.quote{background:rgba(250,247,240,.04);border:1px solid rgba(236,226,208,.16);padding:clamp(1.7rem,2.6vw,2.3rem);display:flex;flex-direction:column;gap:1.4rem;transition:transform .4s var(--ease-out),background .4s ease,border-color .4s ease}
-@media(hover:hover){.quote:hover{transform:translateY(-5px);background:rgba(250,247,240,.07);border-color:rgba(236,226,208,.3)}}
+.quote{position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(250,247,240,.06),rgba(250,247,240,.02));border:1px solid rgba(236,226,208,.16);padding:clamp(1.9rem,2.8vw,2.5rem);display:flex;flex-direction:column;gap:1.6rem;transition:transform .5s var(--ease-out),background .4s ease,border-color .4s ease,box-shadow .5s ease}
+.quote::before{content:'';position:absolute;left:0;top:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(182,153,111,.55),transparent);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease-out)}
+.quote .who{margin-top:auto;display:flex;flex-direction:column;gap:.5rem}
+@media(hover:hover){.quote:hover{transform:translateY(-6px);background:linear-gradient(160deg,rgba(250,247,240,.1),rgba(250,247,240,.03));border-color:rgba(182,153,111,.42);box-shadow:0 30px 60px -34px rgba(0,0,0,.75)}.quote:hover::before{transform:scaleX(1)}}
 .quote .mark{font-family:'Cormorant Garamond',serif;font-size:3.2rem;line-height:.4;color:var(--accent);height:1.2rem}
 .quote p{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;line-height:1.45;color:var(--cream-2);flex:1}
-.quote .who{font-size:.82rem;letter-spacing:.06em;color:rgba(236,226,208,.6)}
-.quote .who b{display:block;font-weight:600;color:var(--cream);font-family:'Karla',sans-serif;letter-spacing:.02em;margin-bottom:.15rem}
+.quote .who{font-size:.82rem;letter-spacing:.06em;color:rgba(236,226,208,.6);padding-top:1.2rem;border-top:1px solid rgba(236,226,208,.12)}
+.quote .who b{display:block;font-weight:600;color:var(--cream);font-family:'Karla',sans-serif;letter-spacing:.02em}
 
 .contact{background:linear-gradient(180deg,var(--cream-2),#efe5d3)}
 .contact-grid{display:grid;gap:clamp(2rem,4vw,3rem);align-items:stretch}
@@ -302,6 +307,8 @@ body.no-anim .reveal>*{opacity:1;transform:none}
 </style>
 </head>
 <body>
+
+<div class="progress" id="progress"></div>
 
 <nav class="nav" id="nav">
   <div class="shell row">
@@ -448,17 +455,17 @@ body.no-anim .reveal>*{opacity:1;transform:none}
     <div class="quotes reveal">
       <blockquote class="quote">
         <div class="mark">&ldquo;</div>
-        <p><span class="skel-lines" data-token="{{OPINIA_1_TRESC}}"><span class="skel skel-line" style="width:100%"></span><span class="skel skel-line" style="width:94%"></span><span class="skel skel-line" style="width:70%"></span></span></p>
+        <p><span class="skel-lines" data-token="{{OPINIA_1_TRESC}}"><span class="skel skel-line" style="width:100%"></span><span class="skel skel-line" style="width:90%"></span><span class="skel skel-line" style="width:64%"></span></span></p>
         <div class="who"><b><span class="skel skel-line" data-token="{{OPINIA_1_AUTOR}}" style="width:8ch"></span></b><span class="skel skel-line" data-token="{{OPINIA_1_KONTEKST}}" style="width:11ch"></span></div>
       </blockquote>
       <blockquote class="quote">
         <div class="mark">&ldquo;</div>
-        <p><span class="skel-lines" data-token="{{OPINIA_2_TRESC}}"><span class="skel skel-line" style="width:100%"></span><span class="skel skel-line" style="width:88%"></span><span class="skel skel-line" style="width:64%"></span></span></p>
+        <p><span class="skel-lines" data-token="{{OPINIA_2_TRESC}}"><span class="skel skel-line" style="width:100%"></span><span class="skel skel-line" style="width:90%"></span><span class="skel skel-line" style="width:64%"></span></span></p>
         <div class="who"><b><span class="skel skel-line" data-token="{{OPINIA_2_AUTOR}}" style="width:8ch"></span></b><span class="skel skel-line" data-token="{{OPINIA_2_KONTEKST}}" style="width:11ch"></span></div>
       </blockquote>
       <blockquote class="quote">
         <div class="mark">&ldquo;</div>
-        <p><span class="skel-lines" data-token="{{OPINIA_3_TRESC}}"><span class="skel skel-line" style="width:100%"></span><span class="skel skel-line" style="width:91%"></span><span class="skel skel-line" style="width:58%"></span></span></p>
+        <p><span class="skel-lines" data-token="{{OPINIA_3_TRESC}}"><span class="skel skel-line" style="width:100%"></span><span class="skel skel-line" style="width:90%"></span><span class="skel skel-line" style="width:64%"></span></span></p>
         <div class="who"><b><span class="skel skel-line" data-token="{{OPINIA_3_AUTOR}}" style="width:8ch"></span></b><span class="skel skel-line" data-token="{{OPINIA_3_KONTEKST}}" style="width:11ch"></span></div>
       </blockquote>
     </div>
@@ -663,6 +670,33 @@ if (!reduceMotion && !isScreenshot && window.gsap) {
     })
   })
 
+  gsap.utils.toArray('.h-sec .skel-line').forEach(l => {
+    gsap.from(l, {
+      scaleX: 0, duration: 1.2, ease: 'expo.out',
+      scrollTrigger: {trigger: l, start: 'top 97%', once: true}
+    })
+  })
+
+  gsap.utils.toArray('.prop .media').forEach(m => {
+    gsap.from(m, {
+      clipPath: 'inset(0% 0% 100% 0%)', duration: 1.2, ease: 'power4.out',
+      scrollTrigger: {trigger: m, start: 'top 92%', once: true}
+    })
+  })
+
+  gsap.utils.toArray('.prop .media img').forEach(img => {
+    gsap.set(img, {scale: 1.12})
+    gsap.to(img, {
+      yPercent: -5, ease: 'none',
+      scrollTrigger: {trigger: img, start: 'top bottom', end: 'bottom top', scrub: 0.8}
+    })
+  })
+
+  gsap.to('#progress', {
+    scaleX: 1, ease: 'none',
+    scrollTrigger: {trigger: document.body, start: 'top top', end: 'bottom bottom', scrub: 0.3}
+  })
+
   gsap.from('.foot .row > *', {
     y: 24, opacity: 0, duration: 0.9, ease: 'power3.out', stagger: 0.12,
     scrollTrigger: {trigger: '.foot', start: 'top 96%', once: true}
@@ -676,6 +710,9 @@ if (!reduceMotion && !isScreenshot && window.gsap) {
       document.querySelectorAll('.reveal > *').forEach(el => {
         const r = el.getBoundingClientRect()
         if (r.top < innerHeight && getComputedStyle(el).opacity < 0.05) gsap.set(el, {opacity: 1, y: 0})
+      })
+      document.querySelectorAll('.h-sec .skel-line').forEach(el => {
+        if (el.getBoundingClientRect().width < 2) gsap.set(el, {scaleX: 1})
       })
     }, 1200)
   })
