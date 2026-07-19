@@ -303,10 +303,6 @@ body.no-anim .reveal>*{opacity:1;transform:none}
 .hero-kicker::before{content:'';width:2.6rem;height:1px;background:var(--accent-deep)}
 .hero-lede{max-width:36rem;margin-top:1.6rem;font-size:clamp(1.02rem,1.7vw,1.2rem);line-height:1.65;color:var(--ink-soft)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
-.hero-proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:2.2rem;max-width:38rem;background:rgba(55,49,42,.12);border:1px solid rgba(55,49,42,.12)}
-.hero-proof div{background:rgba(250,247,240,.55);padding:1rem}
-.hero-proof strong{display:block;font-family:'Cormorant Garamond',serif;font-size:1.35rem;line-height:1;color:var(--ink)}
-.hero-proof span{display:block;margin-top:.45rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);line-height:1.35}
 .section-intro{display:grid;gap:1.2rem;align-items:end;margin-bottom:clamp(1.9rem,3.8vw,3rem)}
 .section-intro .stats-head{margin:0}
 .section-intro .lede{justify-self:start}
@@ -371,7 +367,6 @@ body.no-anim .reveal>*{opacity:1;transform:none}
   .availability-card{flex:0 0 min(86vw,28rem);scroll-snap-align:start}
 }
 @media(max-width:599px){
-  .hero-proof{grid-template-columns:1fr}
   .hero-actions .btn{width:100%}
   .channel{align-items:flex-start;flex-direction:column}
 }
@@ -409,11 +404,6 @@ body.no-anim .reveal>*{opacity:1;transform:none}
       <div class="hero-actions">
         <a class="btn" href="#kontakt"><span>Umów rozmowę</span> <span class="arrow">→</span></a>
         <a class="btn btn-ghost" href="#uslugi"><span>Zobacz zakres</span></a>
-      </div>
-      <div class="hero-proof">
-        <div><strong>PFRN 32560</strong><span>Licencja pośrednika</span></div>
-        <div><strong>&gt; 20 lat</strong><span>Doświadczenia w branży wnętrz</span></div>
-        <div><strong>Kompleksowo</strong><span>Zakup i sprzedaż</span></div>
       </div>
     </div>
     <div class="hero-media">
