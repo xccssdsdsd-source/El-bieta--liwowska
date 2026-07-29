@@ -26,11 +26,49 @@
   })
 
   const steps = [...document.querySelectorAll('.step')]
-  steps.forEach(step => {
+  const process = document.querySelector('.process')
+  let activeStepIndex = 0
+
+  const setActiveStep = index => {
+    activeStepIndex = Math.max(0, Math.min(steps.length - 1, index))
+    steps.forEach((item, itemIndex) => {
+      const active = itemIndex === activeStepIndex
+      item.classList.toggle('active', active)
+      item.setAttribute('aria-current', active ? 'step' : 'false')
+    })
+  }
+
+  steps.forEach((step, index) => {
     step.addEventListener('click', () => {
-      steps.forEach(item => item.classList.toggle('active', item === step))
+      setActiveStep(index)
     })
   })
+
+  const updateProcess = () => {
+    if (!process || innerWidth <= 980 || reduceMotion) return
+    const rect = process.getBoundingClientRect()
+    const scrollRange = Math.max(1, process.offsetHeight - innerHeight)
+    const progress = Math.max(0, Math.min(0.9999, -rect.top / scrollRange))
+    const nextIndex = Math.floor(progress * steps.length)
+    if (nextIndex !== activeStepIndex) setActiveStep(nextIndex)
+  }
+
+  setActiveStep(0)
+  updateProcess()
+  addEventListener('scroll', updateProcess, { passive: true })
+  addEventListener('resize', updateProcess)
+
+  if ('IntersectionObserver' in window) {
+    const mobileStepObserver = new IntersectionObserver(entries => {
+      if (innerWidth > 980) return
+      const centered = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+      if (centered) setActiveStep(steps.indexOf(centered.target))
+    }, { rootMargin: '-24% 0px -24% 0px', threshold: [0.25, 0.5, 0.75] })
+
+    steps.forEach(step => mobileStepObserver.observe(step))
+  }
 
   const reveals = document.querySelectorAll('.reveal')
   reveals.forEach((element, index) => {
