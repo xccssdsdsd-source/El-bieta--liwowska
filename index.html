@@ -14,7 +14,7 @@
 <link rel="icon" href="assets/img/hero-elzbieta.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Italiana&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap&subset=latin-ext" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"RealEstateAgent","name":"Elżbieta Śliwowska","telephone":"+48 668 887 845","areaServed":"Białystok i okolice","sameAs":["https://instagram.com/elasliwowska_"]}
 </script>
@@ -62,7 +62,7 @@ button,input,textarea{font:inherit}
 button{color:inherit}
 img{display:block;width:100%;height:100%;object-fit:cover}
 h1,h2,h3,p,figure,blockquote{margin-top:0}
-h1,h2,h3,.serif{font-family:"Italiana",serif;font-weight:400}
+h1,h2,h3,.serif{font-family:"Playfair Display",Georgia,serif;font-weight:400}
 .shell{width:var(--shell);margin-inline:auto}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .eyebrow{
@@ -968,6 +968,131 @@ h1,h2,h3,.serif{font-family:"Italiana",serif;font-weight:400}
   .motion-ready .hero-location,.motion-ready .hero h1,.motion-ready .hero-photo{opacity:1;transform:none;animation:none!important}
   .service,.service.open,.step,.step.active{transform:none!important;filter:none!important}
 }
+
+/* cohesive forest / ivory experience */
+:root{
+  --paper:#f7f3ea;
+  --paper-deep:#ebe5d8;
+  --ink:#18251f;
+  --muted:#5d6861;
+  --forest:#173c2f;
+  --forest-soft:#2f5b49;
+  --sage:#cad8cd;
+  --sand:#efe4d4;
+  --gold:#b48b50;
+  --line:rgba(24,37,31,.13);
+  --shadow:0 30px 86px rgba(20,48,36,.14);
+}
+h1,h2,h3,.serif,.brand,.signature-name,.contact-row a,.contact-row span,.service-index,.step-number,.month-calendar caption{
+  font-family:"Playfair Display",Georgia,serif;
+  font-synthesis:none;
+}
+main>section{position:relative;isolation:isolate;scroll-margin-top:64px}
+.approach,.portrait,.quote-section{
+  min-height:100svh;
+  display:grid;
+  align-items:center;
+  padding-block:clamp(72px,9vh,118px);
+}
+.approach::before,.portrait::before,.quote-section::before,.contact::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  width:clamp(280px,38vw,620px);
+  aspect-ratio:1;
+  left:var(--glow-x,14%);
+  top:var(--glow-y,18%);
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(71,112,91,.18),rgba(180,139,80,.08) 38%,transparent 70%);
+  filter:blur(18px);
+  transform:translate(-50%,-50%);
+  transition:left 900ms var(--ease),top 900ms var(--ease);
+  pointer-events:none;
+}
+.portrait::before{left:var(--glow-x,82%);background:radial-gradient(circle,rgba(102,139,117,.19),rgba(239,228,212,.15) 42%,transparent 70%)}
+.quote-section::before,.contact::before{background:radial-gradient(circle,rgba(202,216,205,.13),rgba(180,139,80,.08) 40%,transparent 70%)}
+.approach-copy>.intro,.approach-detail span,.service-content p,.step p{
+  filter:none;
+  opacity:1;
+  user-select:auto;
+}
+.services{
+  min-height:390svh;
+  background:var(--forest);
+}
+.services-sticky{
+  background:
+    radial-gradient(circle at var(--glow-x,78%) var(--glow-y,18%),rgba(119,161,137,.24),transparent 27%),
+    linear-gradient(145deg,rgba(255,255,255,.035),transparent 42%),
+    var(--forest);
+}
+.service{
+  background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(10,42,30,.24));
+  border-color:rgba(231,240,233,.17);
+}
+.service.open,.service:nth-child(even).open{
+  color:var(--ink);
+  background:linear-gradient(135deg,#fffdf8 0%,#e5eee6 100%);
+  border-color:rgba(235,245,238,.82);
+  box-shadow:0 38px 105px rgba(2,20,13,.42),0 0 70px rgba(103,151,124,.12);
+}
+.process{
+  min-height:390svh;
+  background:
+    radial-gradient(circle at var(--glow-x,18%) var(--glow-y,20%),rgba(77,121,98,.17),transparent 29%),
+    linear-gradient(135deg,#f4efe5,#e7e9df);
+}
+.step,.step:nth-child(2),.step:nth-child(4){background:rgba(255,253,248,.62)}
+.step.active{
+  background:linear-gradient(145deg,#fffefb,#e7efe8);
+  border-color:rgba(47,91,73,.19);
+  box-shadow:0 38px 100px rgba(31,66,49,.17);
+}
+.quote-section{background:linear-gradient(135deg,#12372a,#1b4938)}
+.quote-assistant{
+  min-height:min(640px,72svh);
+  background:linear-gradient(145deg,rgba(255,255,255,.11),rgba(7,37,27,.22));
+}
+.quote-assistant .chat-messages{height:auto;min-height:250px}
+.faq-prompts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.faq-prompts button{
+  padding:9px 13px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:999px;
+  background:rgba(255,255,255,.07);
+  color:rgba(255,255,255,.82);
+  font-size:11px;
+  cursor:pointer;
+  transition:background-color 180ms ease,transform 180ms var(--ease),border-color 180ms ease;
+}
+.faq-prompts button:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.13)}
+.faq-prompts button:focus-visible{outline:2px solid var(--sand);outline-offset:2px}
+.contact{
+  min-height:100svh;
+  display:grid;
+  align-items:center;
+  padding-block:clamp(68px,8vh,108px);
+  background:linear-gradient(145deg,#263f34,#3b433b);
+}
+.tool-card{background:linear-gradient(145deg,#faf6ee,#e9e7dc)}
+.reveal{transition-duration:850ms}
+@media (min-width:981px){
+  .approach-grid,.portrait-grid{max-height:calc(100svh - 150px)}
+  .approach-photo,.portrait-photo{max-height:min(72svh,720px)}
+  .contact-grid{max-height:calc(100svh - 110px)}
+  .contact-info .section-title{font-size:clamp(2.7rem,4.2vw,4.8rem)}
+  .contact-card{margin-top:30px}
+  .contact-row{min-height:58px}
+  .tool-card{padding:clamp(22px,2.4vw,36px)}
+  .field textarea{min-height:95px}
+  .month-calendar td{height:36px}
+}
+@media (max-width:980px){
+  .approach,.portrait,.quote-section,.contact{min-height:auto}
+  .services,.process{min-height:auto}
+  .services-sticky,.process-sticky{min-height:auto;position:relative}
+  main>section{scroll-margin-top:58px}
+}
 </style>
 </head>
 <body>
@@ -1118,6 +1243,12 @@ h1,h2,h3,.serif{font-family:"Italiana",serif;font-weight:400}
         </div>
         <div class="chat-messages" id="chat-messages" aria-live="polite">
           <div class="chat-message bot">Dzień dobry! Chętnie odpowiem na pierwsze pytania dotyczące sprzedaży, zakupu lub wynajmu nieruchomości.</div>
+        </div>
+        <div class="faq-prompts" aria-label="Najczęściej zadawane pytania">
+          <button type="button" data-question="Jak przygotować mieszkanie do sprzedaży?">Jak przygotować mieszkanie?</button>
+          <button type="button" data-question="Jakie dokumenty są potrzebne do sprzedaży?">Jakie dokumenty przygotować?</button>
+          <button type="button" data-question="Jak wygląda pierwsza konsultacja?">Jak wygląda pierwsza rozmowa?</button>
+          <button type="button" data-question="Czy obsługujesz nieruchomości poza Białymstokiem?">Jaki obszar obsługujesz?</button>
         </div>
         <form class="chat-form" id="chat-form">
           <label class="sr-only" for="chat-input">Wiadomość do asystenta</label>
@@ -1300,6 +1431,14 @@ const snapImmersiveSection = section => {
 };
 addEventListener("scrollend",() => {
   immersiveSections.forEach(snapImmersiveSection);
+  if (reduceMotion || innerWidth <= 980) return;
+  const sections = [...document.querySelectorAll("main>section:not(.services):not(.process)")];
+  const nearest = sections
+    .map(section => ({section,distance:Math.abs(section.getBoundingClientRect().top - 64)}))
+    .sort((a,b) => a.distance - b.distance)[0];
+  if (nearest && nearest.distance < innerHeight * .16) {
+    nearest.section.scrollIntoView({behavior:"smooth",block:"start"});
+  }
 });
 
 const heroPhoto = document.querySelector(".hero-photo");
@@ -1308,6 +1447,16 @@ if (heroPhoto && !reduceMotion) {
     const rect = heroPhoto.getBoundingClientRect();
     heroPhoto.style.setProperty("--photo-x",`${((event.clientX - rect.left) / rect.width) * 100}%`);
     heroPhoto.style.setProperty("--photo-y",`${((event.clientY - rect.top) / rect.height) * 100}%`);
+  });
+}
+
+if (!reduceMotion && matchMedia("(pointer:fine)").matches) {
+  document.querySelectorAll("main>section").forEach(section => {
+    section.addEventListener("pointermove",event => {
+      const rect = section.getBoundingClientRect();
+      section.style.setProperty("--glow-x",`${((event.clientX - rect.left) / rect.width) * 100}%`);
+      section.style.setProperty("--glow-y",`${((event.clientY - rect.top) / rect.height) * 100}%`);
+    },{passive:true});
   });
 }
 
@@ -1358,6 +1507,12 @@ const addChatMessage = (text,type) => {
   chatMessages.scrollTop = chatMessages.scrollHeight;
   return message;
 };
+document.querySelectorAll(".faq-prompts button").forEach(button => {
+  button.addEventListener("click", () => {
+    chatInput.value = button.dataset.question;
+    chatForm.requestSubmit();
+  });
+});
 chatForm.addEventListener("submit", async event => {
   event.preventDefault();
   const text = chatInput.value.trim();
