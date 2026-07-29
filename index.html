@@ -506,6 +506,364 @@ h1,h2,h3,.serif{font-family:"Italiana",serif;font-weight:400}
   *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
   .reveal{opacity:1;transform:none}
 }
+
+.nav.immersive{
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(-110%);
+}
+.hero{
+  background:
+    radial-gradient(circle at 18% 24%,rgba(215,196,164,.21),transparent 28%),
+    linear-gradient(112deg,#183127 0 52%,#e7ded0 52% 100%);
+}
+.hero-copy::after{
+  content:"PFRN 32560";
+  display:block;
+  width:max-content;
+  margin-top:34px;
+  padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.28);
+  color:rgba(255,255,255,.58);
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.22em;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}
+.hero-action-primary{border-color:#eadbc1;background:#eadbc1;color:#20352c}
+.hero-action-secondary{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.04)}
+.hero-photo{
+  aspect-ratio:1.08/1;
+  overflow:visible;
+  isolation:isolate;
+  border-radius:5px 5px 5px 180px;
+  background:#d8c9b5;
+  box-shadow:0 46px 120px rgba(7,18,12,.38);
+  transition:transform 700ms var(--ease),box-shadow 700ms var(--ease);
+}
+.hero-photo::before{
+  content:"";
+  position:absolute;
+  inset:-18px 18px 18px -18px;
+  z-index:-1;
+  border:1px solid rgba(255,255,255,.36);
+  border-radius:5px 5px 5px 200px;
+  background:
+    radial-gradient(circle at var(--photo-x,72%) var(--photo-y,28%),rgba(226,197,146,.62),transparent 24%),
+    linear-gradient(145deg,#355449,#b5a183);
+  box-shadow:0 28px 80px rgba(10,25,17,.28);
+  transition:transform 700ms var(--ease),box-shadow 700ms var(--ease);
+}
+.hero-photo img{overflow:hidden;border-radius:5px 5px 5px 180px;filter:saturate(.88) contrast(1.02)}
+@media (hover:hover) and (pointer:fine){
+  .hero-photo:hover{transform:translate3d(0,-8px,0);box-shadow:0 58px 150px rgba(7,18,12,.44)}
+  .hero-photo:hover::before{transform:translate3d(-7px,7px,0);box-shadow:0 38px 100px rgba(10,25,17,.34)}
+}
+.approach{overflow:hidden}
+.approach-grid{grid-template-columns:1.05fr .95fr;gap:clamp(54px,8vw,124px)}
+.approach-photo{
+  width:min(100%,640px);
+  aspect-ratio:.86;
+  overflow:visible;
+  isolation:isolate;
+  border-radius:220px 220px 24px 24px;
+  background:#d8cdbf;
+  box-shadow:0 42px 110px rgba(54,41,25,.16);
+  transition:transform 650ms var(--ease),box-shadow 650ms var(--ease);
+}
+.approach-photo::before{
+  content:"";
+  position:absolute;
+  inset:18px -22px -22px 22px;
+  z-index:-1;
+  border:1px solid rgba(166,129,79,.3);
+  border-radius:220px 220px 24px 24px;
+  background:linear-gradient(145deg,#d6c5ac,#f4eee5);
+  box-shadow:0 30px 90px rgba(78,56,31,.14);
+}
+.approach-photo img{overflow:hidden;border-radius:220px 220px 24px 24px;transition:filter 600ms ease,transform 900ms var(--ease)}
+.approach-copy>.intro,.approach-detail span,.service-content p,.step p{
+  filter:blur(5px);
+  opacity:.48;
+  user-select:none;
+}
+@media (hover:hover) and (pointer:fine){
+  .approach-photo:hover{transform:translate3d(0,-8px,0) rotate(-.5deg);box-shadow:0 54px 135px rgba(54,41,25,.2)}
+  .approach-photo:hover img{filter:saturate(1.05);transform:scale(1.025)}
+}
+
+.services{min-height:430svh}
+.services-sticky{padding:clamp(38px,5vh,64px) 0}
+.services-head{grid-template-columns:1fr;margin-bottom:clamp(24px,4vh,42px)}
+.services-head .section-title{font-size:clamp(2.6rem,4.6vw,4.9rem)}
+.service-list{
+  min-height:clamp(430px,60svh,650px);
+  display:flex;
+  gap:12px;
+}
+.service{
+  --focus:0;
+  position:relative;
+  inset:auto;
+  flex:1 1 0;
+  min-width:0;
+  display:flex;
+  align-content:initial;
+  flex-direction:column;
+  justify-content:space-between;
+  transform:none;
+  opacity:1;
+  z-index:1!important;
+  border-radius:25px;
+  background:linear-gradient(155deg,rgba(255,255,255,.085),rgba(255,255,255,.025));
+  transition:flex-grow 750ms var(--ease),background-color 500ms ease,color 500ms ease,border-radius 650ms var(--ease),box-shadow 650ms ease,border-color 500ms ease;
+}
+.service.open{
+  flex-grow:6.5;
+  z-index:2!important;
+  border-radius:38px;
+  box-shadow:0 45px 125px rgba(4,12,8,.42),inset 0 1px rgba(255,255,255,.55);
+}
+.service-toggle{
+  height:100%;
+  grid-template-columns:1fr;
+  grid-template-rows:auto 1fr auto;
+  align-items:start;
+  gap:24px;
+  padding:30px 24px;
+  transition:padding 650ms var(--ease);
+}
+.service:not(.open) .service-toggle{cursor:pointer}
+.service.open .service-toggle{
+  height:auto;
+  grid-template-columns:100px 1fr auto;
+  grid-template-rows:auto;
+  align-items:center;
+  padding:48px 52px 24px;
+}
+.service-index{
+  width:max-content;
+  padding:7px 10px;
+  border:1px solid rgba(215,196,164,.36);
+  border-radius:999px;
+  font-size:18px;
+}
+.service.open .service-index{padding:9px 14px;border-color:rgba(166,129,79,.4);font-size:27px}
+.service-title{
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  align-self:end;
+  color:rgba(255,255,255,.72);
+  font-size:clamp(1.5rem,2.1vw,2.5rem);
+  line-height:1;
+  overflow:visible;
+}
+.service.open .service-title{
+  writing-mode:horizontal-tb;
+  transform:none;
+  align-self:auto;
+  color:var(--ink);
+  font-size:clamp(3.25rem,5vw,5.8rem);
+}
+.service-status{align-self:end}
+.service.open .service-status{align-self:auto}
+.service-body{display:none}
+.service.open .service-body{display:grid;grid-template-rows:1fr}
+.service-content{grid-template-columns:100px 1fr;gap:28px;padding:0 52px 48px}
+.service-content p{max-width:62ch;font-size:1.05rem;line-height:1.85}
+
+.process{
+  min-height:430svh;
+  padding:0;
+  background:
+    radial-gradient(circle at 18% 20%,rgba(166,129,79,.11),transparent 28%),
+    var(--paper-deep);
+}
+.process-sticky{
+  min-height:100svh;
+  position:sticky;
+  top:0;
+  display:grid;
+  align-items:center;
+  overflow:hidden;
+  padding:clamp(38px,5vh,64px) 0;
+}
+.process-head{margin-bottom:clamp(26px,4vh,46px)}
+.process-head .intro{margin-top:14px}
+.steps{
+  min-height:clamp(410px,57svh,610px);
+  display:flex;
+  gap:12px;
+}
+.step,.step:nth-child(2),.step:nth-child(4){
+  flex:1 1 0;
+  min-width:0;
+  min-height:0;
+  margin-top:0;
+  padding:28px 22px;
+  border-radius:24px;
+  background:rgba(255,255,255,.48);
+  box-shadow:0 18px 48px rgba(72,55,33,.07);
+  transition:flex-grow 760ms var(--ease),transform 600ms var(--ease),background-color 500ms ease,border-radius 650ms var(--ease),box-shadow 650ms ease;
+}
+.step.active{
+  flex-grow:6.5;
+  padding:46px 50px;
+  border-color:rgba(166,129,79,.24);
+  border-radius:38px;
+  background:#fffdf9;
+  box-shadow:0 42px 110px rgba(72,55,33,.17),inset 0 1px rgba(255,255,255,.9);
+}
+.step-number{
+  width:max-content;
+  padding:7px 11px;
+  border:1px solid rgba(166,129,79,.3);
+  border-radius:999px;
+  font-size:18px;
+}
+.step h3{
+  margin:auto 0 18px;
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  align-self:center;
+  font-size:clamp(1.35rem,1.9vw,2rem);
+}
+.step.active h3{
+  max-width:10ch;
+  margin:auto 0 24px;
+  writing-mode:horizontal-tb;
+  transform:none;
+  align-self:auto;
+  font-size:clamp(3.2rem,5.5vw,6.4rem);
+  line-height:.93;
+}
+.step p{display:none;max-width:62ch;font-size:1rem;line-height:1.8}
+.step.active p{display:block}
+
+.quote-section{padding:clamp(76px,9vw,126px) 0}
+.quote-grid{grid-template-columns:minmax(230px,.28fr) minmax(0,.72fr);gap:clamp(34px,5vw,78px)}
+.quote-copy{max-width:340px}
+.quote-main{font-size:clamp(2rem,2.9vw,3.2rem)}
+.quote-assistant{
+  max-width:none;
+  min-height:600px;
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+  padding:clamp(30px,4vw,52px);
+  border-radius:42px;
+  background:
+    radial-gradient(circle at 88% 0,rgba(215,196,164,.15),transparent 27%),
+    rgba(255,255,255,.065);
+  box-shadow:0 44px 120px rgba(3,18,12,.28),inset 0 1px rgba(255,255,255,.12);
+}
+.quote-assistant .chat-messages{height:390px;padding:24px;border-radius:24px}
+.chat-message{max-width:74%;padding:14px 17px;font-size:14px}
+.chat-form{margin-top:16px}
+
+.contact{
+  padding:clamp(90px,10vw,140px) 0;
+  background:
+    radial-gradient(circle at 12% 8%,rgba(214,194,163,.13),transparent 27%),
+    #463f37;
+  color:#f8f2e8;
+}
+.contact-grid{display:block}
+.contact-info{
+  position:static;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:clamp(44px,8vw,120px);
+  align-items:end;
+  margin-bottom:56px;
+}
+.contact-info .section-title{max-width:12ch}
+.contact-card{margin:0;border-top-color:rgba(255,255,255,.3)}
+.contact-row{min-height:66px;border-bottom-color:rgba(255,255,255,.16)}
+.contact-row a,.contact-row span{color:#f5ede2}
+.contact-tools{
+  display:grid;
+  grid-template-columns:minmax(300px,.7fr) minmax(0,1.3fr);
+  gap:18px;
+  align-items:stretch;
+}
+.tool-card{
+  padding:clamp(28px,3.4vw,48px);
+  border-color:rgba(255,255,255,.14);
+  border-radius:32px;
+  background:#efe6d9;
+  color:var(--ink);
+  box-shadow:0 32px 90px rgba(20,15,10,.2),inset 0 1px rgba(255,255,255,.72);
+}
+.calendar-card{order:1}
+.form-card{order:2}
+.contact-form{gap:22px 18px}
+.field input{height:58px}
+.field textarea{min-height:142px}
+.contact-form .btn{min-height:58px;margin-top:14px}
+.month-calendar{width:100%;border-collapse:separate;border-spacing:7px;text-align:center}
+.month-calendar caption{
+  margin-bottom:18px;
+  font-family:"Italiana",serif;
+  font-size:25px;
+  text-align:left;
+}
+.month-calendar th{padding:4px;color:var(--muted);font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.month-calendar td{
+  width:14.28%;
+  height:42px;
+  border:1px solid rgba(26,29,26,.09);
+  border-radius:10px;
+  background:rgba(255,255,255,.45);
+  color:var(--ink);
+  font-size:12px;
+}
+.month-calendar td.muted{opacity:.28}
+.month-calendar td.available{border-color:rgba(32,53,44,.3);background:#fff}
+.month-calendar td.selected{background:var(--forest);color:#fff;box-shadow:0 8px 22px rgba(32,53,44,.22)}
+.calendar-legend{display:flex;align-items:center;gap:9px;margin:18px 0 0;color:var(--muted);font-size:11px}
+.calendar-legend::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--forest)}
+
+@media (max-width:980px){
+  .hero-photo{overflow:hidden;aspect-ratio:1}
+  .hero-photo::before{display:none}
+  .approach-grid{grid-template-columns:1fr}
+  .approach-photo{overflow:hidden}
+  .approach-photo::before{display:none}
+  .services,.process{min-height:auto}
+  .services-sticky,.process-sticky{min-height:auto;position:relative;padding:90px 0}
+  .service-list,.steps{min-height:0;display:grid;grid-template-columns:1fr 1fr}
+  .service,.service.open,.step,.step.active{min-height:300px;padding:0;border-radius:28px}
+  .service-toggle,.service.open .service-toggle{height:auto;grid-template-columns:1fr auto;grid-template-rows:auto 1fr;gap:18px;padding:28px}
+  .service-title,.service.open .service-title{grid-column:1/-1;writing-mode:horizontal-tb;transform:none;align-self:end;font-size:clamp(2.1rem,5vw,3.5rem)}
+  .service-status,.service.open .service-status{grid-column:2;grid-row:1;align-self:center}
+  .service-body,.service.open .service-body{display:grid}
+  .service-content{display:block;padding:0 28px 30px}
+  .step,.step.active{display:flex;padding:30px}
+  .step h3,.step.active h3{writing-mode:horizontal-tb;transform:none;align-self:auto;font-size:clamp(2rem,5vw,3.5rem)}
+  .step p,.step.active p{display:block}
+  .quote-grid{grid-template-columns:1fr}
+  .quote-copy{max-width:620px}
+  .quote-assistant{min-height:540px}
+  .contact-info,.contact-tools{grid-template-columns:1fr}
+  .calendar-card{order:2}
+  .form-card{order:1}
+}
+@media (max-width:640px){
+  .hero-actions{display:grid}
+  .hero-actions .btn{width:100%}
+  .hero-photo{border-radius:24px}
+  .hero-photo img{border-radius:24px}
+  .service-list,.steps{grid-template-columns:1fr}
+  .service,.service.open,.step,.step.active{min-height:285px}
+  .service-content{grid-template-columns:1fr}
+  .process-title{white-space:normal}
+  .quote-assistant{min-height:500px;padding:20px;border-radius:24px}
+  .quote-assistant .chat-messages{height:320px}
+  .contact-info{margin-bottom:38px}
+  .tool-card{padding:24px;border-radius:24px}
+  .month-calendar{border-spacing:4px}
+  .month-calendar td{height:36px}
+}
 </style>
 </head>
 <body>
@@ -529,6 +887,10 @@ h1,h2,h3,.serif{font-family:"Italiana",serif;font-weight:400}
       <div class="hero-copy">
         <p class="hero-location">Białystok i okolice</p>
         <h1>Nieruchomości prowadzone z uważnością.</h1>
+        <div class="hero-actions">
+          <a class="btn hero-action-primary" href="#kontakt">Porozmawiajmy</a>
+          <a class="btn hero-action-secondary" href="#wspolpraca">Poznaj zakres współpracy</a>
+        </div>
       </div>
       <figure class="hero-photo" aria-label="Elżbieta Śliwowska">
         <img src="assets/img/hero-elzbieta.jpg" alt="Elżbieta Śliwowska, pośredniczka nieruchomości" width="1024" height="1024" decoding="async" fetchpriority="high">
@@ -569,7 +931,7 @@ h1,h2,h3,.serif{font-family:"Italiana",serif;font-weight:400}
             <span class="service-title">Sprzedaż nieruchomości</span>
             <span class="service-status" aria-hidden="true"></span>
           </button>
-          <div class="service-body"><div><div class="service-content"><p>Od strategii i przygotowania prezentacji, przez selekcję zainteresowanych i negocjacje, aż po bezpieczną finalizację sprzedaży.</p></div></div></div>
+          <div class="service-body"><div><div class="service-content"><p>Najpierw wspólnie określamy realny cel, grupę kupujących i sposób prezentacji nieruchomości. Przygotowuję komunikację, porządkuję dokumenty, koordynuję zainteresowanych i prowadzę negocjacje tak, aby cały proces od pierwszej rozmowy do podpisania aktu był czytelny, spokojny i bezpieczny.</p></div></div></div>
         </article>
         <article class="service">
           <button class="service-toggle" type="button" aria-expanded="false">
@@ -577,7 +939,7 @@ h1,h2,h3,.serif{font-family:"Italiana",serif;font-weight:400}
             <span class="service-title">Zakup nieruchomości</span>
             <span class="service-status" aria-hidden="true"></span>
           </button>
-          <div class="service-body"><div><div class="service-content"><p>Pomagam zdefiniować potrzeby, znaleźć właściwe propozycje, ocenić ich potencjał i przejść przez formalności bez zbędnego ryzyka.</p></div></div></div>
+          <div class="service-body"><div><div class="service-content"><p>Pomagam przełożyć potrzeby i możliwości na konkretne kryteria, odsiewam przypadkowe propozycje i analizuję potencjał wybranych nieruchomości. Wspieram podczas oględzin, rozmów o cenie, weryfikacji stanu prawnego oraz kompletowania dokumentów potrzebnych do bezpiecznego zakupu.</p></div></div></div>
         </article>
         <article class="service">
           <button class="service-toggle" type="button" aria-expanded="false">
@@ -585,7 +947,7 @@ h1,h2,h3,.serif{font-family:"Italiana",serif;font-weight:400}
             <span class="service-title">Wynajem</span>
             <span class="service-status" aria-hidden="true"></span>
           </button>
-          <div class="service-body"><div><div class="service-content"><p>Wspieram właścicieli i najemców w prezentacji nieruchomości, weryfikacji warunków oraz uporządkowaniu całego procesu najmu.</p></div></div></div>
+          <div class="service-body"><div><div class="service-content"><p>Przygotowuję nieruchomość i ofertę do prezentacji, pomagam ustalić zasady najmu oraz porządkuję komunikację między stronami. Dbam o jasne warunki, właściwe dokumenty i sprawne przekazanie lokalu, aby właściciel i najemca od początku wiedzieli, czego mogą się spodziewać.</p></div></div></div>
         </article>
         <article class="service">
           <button class="service-toggle" type="button" aria-expanded="false">
@@ -593,7 +955,7 @@ h1,h2,h3,.serif{font-family:"Italiana",serif;font-weight:400}
             <span class="service-title">Analiza i negocjacje</span>
             <span class="service-status" aria-hidden="true"></span>
           </button>
-          <div class="service-body"><div><div class="service-content"><p>Sprawdzam stan prawny, porządkuję dokumentację i reprezentuję Twój interes w rozmowach, dbając o czytelne i bezpieczne warunki.</p></div></div></div>
+          <div class="service-body"><div><div class="service-content"><p>Analizuję dokumentację, księgę wieczystą i ważne uwarunkowania nieruchomości, a następnie przekładam je na zrozumiałe wnioski. Przygotowuję argumenty do rozmów, reprezentuję interes klienta i pilnuję, aby uzgodnienia cenowe, terminy oraz odpowiedzialność stron zostały jasno zapisane.</p></div></div></div>
         </article>
       </div>
     </div>
@@ -621,6 +983,7 @@ h1,h2,h3,.serif{font-family:"Italiana",serif;font-weight:400}
   </section>
 
   <section class="process" id="proces">
+    <div class="process-sticky">
     <div class="shell">
       <div class="process-head">
         <div class="eyebrow reveal">Jak pracuję</div>
@@ -628,11 +991,12 @@ h1,h2,h3,.serif{font-family:"Italiana",serif;font-weight:400}
         <p class="intro reveal">Przejrzysty plan ogranicza stres i pozwala podejmować lepsze decyzje.</p>
       </div>
       <div class="steps reveal">
-        <article class="step"><span class="step-number">01</span><h3>Poznaję Twój cel</h3><p>Rozmawiamy o sytuacji, potrzebach i oczekiwanym rezultacie.</p></article>
-        <article class="step"><span class="step-number">02</span><h3>Układam strategię</h3><p>Porządkuję dokumenty, rynek i kolejne działania.</p></article>
-        <article class="step"><span class="step-number">03</span><h3>Prowadzę proces</h3><p>Koordynuję prezentację, rozmowy i negocjacje.</p></article>
-        <article class="step"><span class="step-number">04</span><h3>Domykam szczegóły</h3><p>Czuwam nad formalnościami aż do przekazania kluczy.</p></article>
+        <article class="step active"><span class="step-number">01</span><h3>Poznaję Twój cel</h3><p>Zaczynamy od spokojnej rozmowy o Twojej sytuacji, priorytetach, terminie i oczekiwanym rezultacie. Dzięki temu od początku wiadomo, co naprawdę ma znaczenie i jakie decyzje będą prowadzić do właściwego finału.</p></article>
+        <article class="step"><span class="step-number">02</span><h3>Układam strategię</h3><p>Analizuję rynek, dokumenty i możliwe scenariusze. Ustalam kolejność działań, sposób prezentacji nieruchomości oraz zasady komunikacji, aby każdy kolejny krok miał jasny cel.</p></article>
+        <article class="step"><span class="step-number">03</span><h3>Prowadzę proces</h3><p>Koordynuję przygotowanie oferty, prezentacje, kontakt z zainteresowanymi oraz negocjacje. Na bieżąco wyjaśniam sytuację i dbam o to, aby nic ważnego nie zostało pominięte.</p></article>
+        <article class="step"><span class="step-number">04</span><h3>Domykam szczegóły</h3><p>Pilnuję uzgodnień, dokumentów, terminów i formalności prowadzących do podpisania umowy oraz przekazania nieruchomości. Finał ma być uporządkowany i przewidywalny dla obu stron.</p></article>
       </div>
+    </div>
     </div>
   </section>
 
@@ -673,33 +1037,37 @@ h1,h2,h3,.serif{font-family:"Italiana",serif;font-weight:400}
         </div>
       </div>
       <div class="contact-tools">
-        <section class="tool-card reveal" aria-labelledby="form-title">
+        <section class="tool-card form-card reveal" aria-labelledby="form-title">
           <div class="tool-head">
             <div><span class="tool-kicker">Napisz bezpośrednio</span><h3 id="form-title">Formularz kontaktowy</h3></div>
-            <span class="tool-number" aria-hidden="true">01</span>
+            <span class="tool-number" aria-hidden="true">02</span>
           </div>
           <form class="contact-form" id="contact-form">
             <div class="field"><label for="contact-name">Imię</label><input id="contact-name" name="name" autocomplete="name" required></div>
             <div class="field"><label for="contact-phone">Telefon</label><input id="contact-phone" name="phone" type="tel" autocomplete="tel" required></div>
             <div class="field field-wide"><label for="contact-topic">W czym mogę pomóc?</label><textarea id="contact-topic" name="topic" placeholder="Sprzedaż, zakup, wynajem lub inna sprawa…" required></textarea></div>
-            <input type="hidden" id="contact-date" name="date">
             <button class="btn btn-light" type="submit">Wyślij zapytanie bezpośrednio</button>
           </form>
         </section>
 
-        <section class="tool-card reveal" aria-labelledby="calendar-title">
+        <section class="tool-card calendar-card reveal" aria-labelledby="calendar-title">
           <div class="tool-head">
-            <div><span class="tool-kicker">Wybierz dogodny moment</span><h3 id="calendar-title">Umów rozmowę</h3></div>
-            <span class="tool-number" aria-hidden="true">02</span>
+            <div><span class="tool-kicker">Podgląd dostępności</span><h3 id="calendar-title">Umów rozmowę</h3></div>
+            <span class="tool-number" aria-hidden="true">01</span>
           </div>
-          <div class="calendar-days" id="calendar-days" aria-label="Dostępne dni"></div>
-          <div class="time-options" id="time-options" aria-label="Preferowana godzina">
-            <button class="time-option" type="button">09:00</button>
-            <button class="time-option" type="button">12:00</button>
-            <button class="time-option" type="button">15:00</button>
-            <button class="time-option" type="button">17:30</button>
-          </div>
-          <p class="calendar-note">Wybór terminu zostanie dołączony do formularza. Elżbieta potwierdzi dostępność telefonicznie.</p>
+          <table class="month-calendar" aria-label="Kalendarz rozmów na sierpień 2026">
+            <caption>Sierpień 2026</caption>
+            <thead><tr><th>Pn</th><th>Wt</th><th>Śr</th><th>Cz</th><th>Pt</th><th>So</th><th>Nd</th></tr></thead>
+            <tbody>
+              <tr><td class="muted">27</td><td class="muted">28</td><td class="muted">29</td><td class="muted">30</td><td class="muted">31</td><td>1</td><td>2</td></tr>
+              <tr><td class="available">3</td><td class="selected">4</td><td class="available">5</td><td>6</td><td class="available">7</td><td>8</td><td>9</td></tr>
+              <tr><td>10</td><td class="available">11</td><td>12</td><td class="available">13</td><td>14</td><td>15</td><td>16</td></tr>
+              <tr><td class="available">17</td><td>18</td><td class="available">19</td><td>20</td><td class="available">21</td><td>22</td><td>23</td></tr>
+              <tr><td>24</td><td class="available">25</td><td>26</td><td class="available">27</td><td>28</td><td>29</td><td>30</td></tr>
+              <tr><td>31</td><td class="muted">1</td><td class="muted">2</td><td class="muted">3</td><td class="muted">4</td><td class="muted">5</td><td class="muted">6</td></tr>
+            </tbody>
+          </table>
+          <p class="calendar-legend">Przykładowy wolny termin — właściwy termin potwierdzimy telefonicznie.</p>
         </section>
 
       </div>
@@ -719,9 +1087,15 @@ const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const isScreenshot = location.search.includes("screenshot");
 const nav = document.getElementById("nav");
 const progress = document.getElementById("progress");
+const immersiveSections = [...document.querySelectorAll(".services,.process")];
 
 const updateScroll = () => {
   nav.classList.toggle("visible", scrollY > Math.min(120, innerHeight * .12));
+  const immersive = immersiveSections.some(section => {
+    const rect = section.getBoundingClientRect();
+    return rect.top < innerHeight * .45 && rect.bottom > innerHeight * .55;
+  });
+  nav.classList.toggle("immersive", immersive);
   const max = document.documentElement.scrollHeight - innerHeight;
   progress.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
 };
@@ -788,6 +1162,54 @@ if (!reduceMotion && servicesSection && serviceCount) {
   requestServiceUpdate();
 }
 
+const processSteps = [...document.querySelectorAll(".step")];
+const processSection = document.querySelector(".process");
+const setActiveStep = activeIndex => {
+  processSteps.forEach((step,index) => step.classList.toggle("active",index === activeIndex));
+};
+if (!reduceMotion && processSection && processSteps.length) {
+  let processTicking = false;
+  const updateProcessFromScroll = () => {
+    processTicking = false;
+    const rect = processSection.getBoundingClientRect();
+    const scrollRange = Math.max(1,rect.height - innerHeight);
+    const progress = Math.min(1,Math.max(0,-rect.top / scrollRange));
+    setActiveStep(Math.round(progress * (processSteps.length - 1)));
+  };
+  const requestProcessUpdate = () => {
+    if (processTicking) return;
+    processTicking = true;
+    requestAnimationFrame(updateProcessFromScroll);
+  };
+  addEventListener("scroll",requestProcessUpdate,{passive:true});
+  addEventListener("resize",requestProcessUpdate);
+  requestProcessUpdate();
+}
+
+const snapImmersiveSection = section => {
+  if (!section || reduceMotion || innerWidth <= 980) return;
+  const rect = section.getBoundingClientRect();
+  if (rect.top > 0 || rect.bottom < innerHeight) return;
+  const range = section.offsetHeight - innerHeight;
+  const stepsCount = section.classList.contains("services") ? services.length : processSteps.length;
+  const progress = Math.min(1,Math.max(0,(scrollY - section.offsetTop) / Math.max(1,range)));
+  const stage = Math.round(progress * (stepsCount - 1));
+  const target = section.offsetTop + range * (stage / Math.max(1,stepsCount - 1));
+  if (Math.abs(target - scrollY) > 4) scrollTo({top:target,behavior:"smooth"});
+};
+addEventListener("scrollend",() => {
+  immersiveSections.forEach(snapImmersiveSection);
+});
+
+const heroPhoto = document.querySelector(".hero-photo");
+if (heroPhoto && !reduceMotion) {
+  heroPhoto.addEventListener("pointermove",event => {
+    const rect = heroPhoto.getBoundingClientRect();
+    heroPhoto.style.setProperty("--photo-x",`${((event.clientX - rect.left) / rect.width) * 100}%`);
+    heroPhoto.style.setProperty("--photo-y",`${((event.clientY - rect.top) / rect.height) * 100}%`);
+  });
+}
+
 const reveals = document.querySelectorAll(".reveal");
 if (reduceMotion || isScreenshot || !("IntersectionObserver" in window)) {
   reveals.forEach(element => element.classList.add("visible"));
@@ -802,42 +1224,6 @@ if (reduceMotion || isScreenshot || !("IntersectionObserver" in window)) {
   reveals.forEach(element => observer.observe(element));
 }
 
-const calendarDays = document.getElementById("calendar-days");
-const contactDate = document.getElementById("contact-date");
-const dayFormat = new Intl.DateTimeFormat("pl-PL",{weekday:"short"});
-const monthFormat = new Intl.DateTimeFormat("pl-PL",{day:"numeric",month:"short"});
-const availableDays = [];
-for (let offset=1; availableDays.length<6; offset++) {
-  const date = new Date();
-  date.setDate(date.getDate()+offset);
-  if (date.getDay() !== 0 && date.getDay() !== 6) availableDays.push(date);
-}
-availableDays.forEach(date => {
-  const button = document.createElement("button");
-  button.type = "button";
-  button.className = "day-option";
-  button.dataset.date = date.toLocaleDateString("pl-PL");
-  button.innerHTML = `<span>${dayFormat.format(date)}</span><strong>${monthFormat.format(date)}</strong>`;
-  button.addEventListener("click", () => {
-    document.querySelectorAll(".day-option").forEach(item => item.classList.remove("selected"));
-    button.classList.add("selected");
-    updateSelectedDate();
-  });
-  calendarDays.appendChild(button);
-});
-document.querySelectorAll(".time-option").forEach(button => {
-  button.addEventListener("click", () => {
-    document.querySelectorAll(".time-option").forEach(item => item.classList.remove("selected"));
-    button.classList.add("selected");
-    updateSelectedDate();
-  });
-});
-function updateSelectedDate(){
-  const day = document.querySelector(".day-option.selected")?.dataset.date || "";
-  const time = document.querySelector(".time-option.selected")?.textContent || "";
-  contactDate.value = [day,time].filter(Boolean).join(", ");
-}
-
 document.getElementById("contact-form").addEventListener("submit", event => {
   event.preventDefault();
   const data = new FormData(event.currentTarget);
@@ -845,8 +1231,7 @@ document.getElementById("contact-form").addEventListener("submit", event => {
     "Dzień dobry, chciałabym/chciałbym porozmawiać o nieruchomości.",
     `Imię: ${data.get("name")}`,
     `Telefon: ${data.get("phone")}`,
-    `Temat: ${data.get("topic")}`,
-    data.get("date") ? `Preferowany termin: ${data.get("date")}` : ""
+    `Temat: ${data.get("topic")}`
   ].filter(Boolean).join("\n");
   location.href = `sms:+48668887845?body=${encodeURIComponent(message)}`;
 });
