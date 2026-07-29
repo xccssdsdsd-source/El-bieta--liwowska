@@ -1748,6 +1748,122 @@ main>section:not(.hero){
   .quote-assistant{height:720px;min-height:620px}
 }
 @media (prefers-reduced-motion:reduce){.service,.service.open,.step,.step.active{transform:none!important}}
+
+/* Natural page flow: visible spacing, vertical collaboration, compact process */
+main>section:not(.hero){margin-top:clamp(28px,4vw,58px)}
+.services,.process{
+  min-height:auto;
+  padding:clamp(104px,11vw,154px) 0;
+  overflow:visible;
+}
+.services-sticky,.process-sticky{
+  min-height:auto;
+  height:auto;
+  position:relative;
+  top:auto;
+  display:block;
+  overflow:visible;
+  padding:0;
+}
+.services-head,.process-head{margin-bottom:clamp(52px,7vw,82px)}
+.service-list{
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.service,.service.open{
+  flex:none;
+  width:100%;
+  min-height:112px;
+  transform:none;
+  border-radius:22px;
+}
+.service.open{min-height:clamp(310px,36vw,430px);border-radius:30px}
+.service-toggle,.service.open .service-toggle{
+  min-height:112px;
+  display:grid;
+  grid-template-columns:72px minmax(0,1fr);
+  align-items:center;
+  gap:clamp(20px,3vw,42px);
+  padding:24px clamp(24px,3.4vw,48px);
+}
+.service.open .service-toggle{padding-bottom:12px}
+.service-index,.service.open .service-index{grid-column:1;font-size:clamp(1rem,1.3vw,1.3rem)}
+.service-title,.service.open .service-title{
+  grid-column:2;
+  width:100%;
+  max-width:none;
+  margin:0;
+  font-size:clamp(1.7rem,3vw,3.4rem);
+  line-height:1;
+}
+.service:not(.open){opacity:.86}
+.service:not(.open) .service-title{color:rgba(255,250,242,.82)}
+.service-body{width:100%}
+.service-content,.service.open .service-content{
+  padding:0 clamp(24px,3.4vw,48px) clamp(30px,4vw,52px) calc(clamp(24px,3.4vw,48px) + 72px + clamp(20px,3vw,42px));
+}
+.service.open .service-content{padding-top:8px}
+.service-content p{max-width:72ch}
+
+.steps{
+  min-height:0;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:clamp(12px,1.4vw,20px);
+}
+.step,.step:nth-child(2),.step:nth-child(4),.step.active{
+  min-height:clamp(420px,43vw,560px);
+  padding:clamp(28px,3vw,42px);
+  transform:none;
+  border-radius:26px;
+}
+.step.active{transform:translate3d(0,-7px,0);border-radius:30px}
+.step h3,.step.active h3{
+  width:100%;
+  max-width:10ch;
+  margin:auto 0 22px;
+  font-size:clamp(1.75rem,2.5vw,3rem);
+}
+.step p,.step.active p{
+  display:block;
+  opacity:1;
+  transform:none;
+  pointer-events:auto;
+  color:rgba(255,250,242,.72);
+  font-size:clamp(.92rem,1vw,1.03rem);
+  line-height:1.68;
+}
+.step.active p{color:var(--muted)}
+.assistant-intro{
+  max-width:62ch;
+  margin:-4px 0 20px;
+  color:rgba(255,250,242,.64);
+  font-size:clamp(.9rem,1vw,1rem);
+  line-height:1.65;
+}
+@media (hover:hover) and (pointer:fine){
+  .service:not(.open):hover{opacity:1;transform:translate3d(0,-2px,0)}
+  .step:not(.active):hover{transform:translate3d(0,-4px,0)}
+}
+@media (max-width:980px){
+  main>section:not(.hero){margin-top:24px}
+  .services,.process{padding:88px 0}
+  .steps{grid-template-columns:1fr 1fr}
+  .step,.step:nth-child(2),.step:nth-child(4),.step.active{min-height:360px}
+}
+@media (max-width:640px){
+  main>section:not(.hero){margin-top:18px}
+  .services,.process{padding:72px 0}
+  .service.open{min-height:0}
+  .service-toggle,.service.open .service-toggle{grid-template-columns:48px minmax(0,1fr);gap:14px;padding:22px}
+  .service-title,.service.open .service-title{font-size:clamp(1.75rem,8vw,2.5rem)}
+  .service-content,.service.open .service-content{padding:4px 22px 28px 84px}
+  .steps{grid-template-columns:1fr}
+  .step,.step:nth-child(2),.step:nth-child(4),.step.active{min-height:0;padding:28px 24px;transform:none}
+  .step h3,.step.active h3{margin:54px 0 18px}
+}
 </style>
 </head>
 <body>
@@ -1892,6 +2008,7 @@ main>section:not(.hero){
           <h3 id="assistant-title">Asystent AI</h3>
           <span class="ai-watermark" aria-hidden="true">AI</span>
         </div>
+        <p class="assistant-intro">Opisz krótko swoją sytuację. Asystent pomoże uporządkować pierwsze pytania dotyczące sprzedaży, zakupu lub wynajmu nieruchomości.</p>
         <div class="chat-messages" id="chat-messages" aria-live="polite">
           <div class="chat-message bot">Dzień dobry! Chętnie odpowiem na pierwsze pytanie dotyczące Twojego problemu.</div>
         </div>
@@ -1991,6 +2108,7 @@ addEventListener("scroll", updateScroll, {passive:true});
 const services = [...document.querySelectorAll(".service")];
 const servicesSection = document.querySelector(".services");
 const serviceCount = services.length;
+const enableScrollDrivenStories = false;
 let activeServiceIndex = services.findIndex(service => service.classList.contains("open"));
 services.forEach((service, index) => {
   service.style.setProperty("--service-offset", index);
@@ -2011,8 +2129,9 @@ services.forEach(service => {
   service.querySelector(".service-toggle").addEventListener("click", () => {
     setOpenService(service);
   });
+  service.addEventListener("pointerenter", () => setOpenService(service));
 });
-if (!reduceMotion && servicesSection && serviceCount) {
+if (enableScrollDrivenStories && !reduceMotion && servicesSection && serviceCount) {
   let serviceTicking = false;
   const updateServiceFromScroll = () => {
     serviceTicking = false;
@@ -2044,7 +2163,7 @@ const setActiveStep = activeIndex => {
 processSteps.forEach((step,index) => {
   step.addEventListener("click", () => setActiveStep(index));
 });
-if (!reduceMotion && processSection && processSteps.length) {
+if (enableScrollDrivenStories && !reduceMotion && processSection && processSteps.length) {
   let processTicking = false;
   const updateProcessFromScroll = () => {
     processTicking = false;
