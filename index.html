@@ -3,673 +3,465 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Elżbieta Śliwowska — Agentka nieruchomości w Białymstoku</title>
-<meta name="description" content="Elżbieta Śliwowska, licencjonowana agentka nieruchomości w Białymstoku. Spokojne i profesjonalne prowadzenie sprzedaży, zakupu oraz wynajmu nieruchomości.">
-<meta name="theme-color" content="#f3efe7">
+<title>Elżbieta Śliwowska — Nieruchomości prowadzone z uważnością</title>
+<meta name="description" content="Elżbieta Śliwowska, licencjonowana pośredniczka nieruchomości. Sprzedaż, zakup i wynajem nieruchomości w Białymstoku i okolicach.">
+<meta name="theme-color" content="#f8f6f1">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:title" content="Elżbieta Śliwowska — Nieruchomości prowadzone z uważnością">
-<meta property="og:description" content="Licencja PFRN 32560. Sprzedaż, zakup i wynajem nieruchomości w Białymstoku i okolicach.">
+<meta property="og:description" content="Licencja PFRN 32560. Białystok i okolice.">
 <meta property="og:image" content="assets/img/hero-elzbieta.jpg">
 <link rel="icon" href="assets/img/hero-elzbieta.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Italiana&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "RealEstateAgent",
-  "name": "Elżbieta Śliwowska",
-  "telephone": "+48 668 887 845",
-  "areaServed": "Białystok i okolice",
-  "sameAs": ["https://instagram.com/elasliwowska_"]
-}
+{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Elżbieta Śliwowska","telephone":"+48 668 887 845","areaServed":"Białystok i okolice","sameAs":["https://instagram.com/elasliwowska_"]}
 </script>
 <style>
 :root{
-  --paper:#f3efe7;
-  --paper-deep:#e9e2d6;
-  --white:#fbfaf7;
-  --ink:#171916;
-  --ink-soft:#555850;
-  --forest:#1d2a24;
-  --forest-light:#2b3c33;
+  --paper:#f8f6f1;
+  --paper-deep:#ece6dc;
+  --white:#fff;
+  --ink:#1a1d1a;
+  --muted:#62665f;
+  --forest:#20352c;
+  --forest-soft:#365448;
+  --sage:#dfe6dc;
+  --sand:#e9dfd1;
   --gold:#a6814f;
-  --gold-light:#cfb98f;
-  --line:rgba(23,25,22,.14);
-  --line-light:rgba(255,255,255,.16);
-  --ease-out:cubic-bezier(.23,1,.32,1);
-  --ease-in-out:cubic-bezier(.77,0,.175,1);
-  --shell:min(1320px,calc(100% - 48px));
-  --shadow:0 30px 80px rgba(34,27,17,.14),0 4px 16px rgba(34,27,17,.06);
+  --line:rgba(26,29,26,.13);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --shell:min(1320px,calc(100% - 64px));
+  --shadow:0 28px 70px rgba(36,31,22,.11);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;
+  overflow-x:hidden;
   color:var(--ink);
   background:var(--paper);
-  font-family:'DM Sans',sans-serif;
-  font-size:16px;
+  font-family:"DM Sans",sans-serif;
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
 }
 body::before{
-  content:'';
+  content:"";
   position:fixed;
   inset:0;
-  pointer-events:none;
   z-index:999;
-  opacity:.16;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+  pointer-events:none;
+  opacity:.1;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitchTiles'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
   mix-blend-mode:multiply;
 }
-::selection{color:var(--white);background:var(--gold)}
+::selection{color:var(--white);background:var(--forest)}
 a{color:inherit;text-decoration:none}
-button,input{font:inherit}
+button,input,textarea{font:inherit}
 button{color:inherit}
 img{display:block;width:100%;height:100%;object-fit:cover}
-h1,h2,h3,p{margin-top:0}
-h1,h2,h3,.serif{font-family:'Italiana',serif;font-weight:400}
+h1,h2,h3,p,figure,blockquote{margin-top:0}
+h1,h2,h3,.serif{font-family:"Italiana",serif;font-weight:400}
 .shell{width:var(--shell);margin-inline:auto}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .eyebrow{
   display:flex;
   align-items:center;
-  gap:14px;
-  margin-bottom:24px;
+  gap:13px;
+  margin-bottom:22px;
   color:var(--gold);
-  font-size:11px;
+  font-size:10px;
   font-weight:600;
-  letter-spacing:.24em;
+  letter-spacing:.23em;
   text-transform:uppercase;
 }
-.eyebrow::before{content:'';width:32px;height:1px;background:currentColor}
-.display{
-  margin-bottom:0;
-  font-size:clamp(3.1rem,7vw,7.2rem);
-  line-height:.95;
-  letter-spacing:-.045em;
-}
+.eyebrow::before{content:"";width:30px;height:1px;background:currentColor}
 .section-title{
   margin-bottom:0;
-  font-size:clamp(2.7rem,5.2vw,5.4rem);
+  font-size:clamp(2.7rem,5.25vw,5.5rem);
   line-height:.98;
-  letter-spacing:-.04em;
+  letter-spacing:-.045em;
 }
-.intro{
-  max-width:52ch;
-  color:var(--ink-soft);
-  font-size:clamp(1rem,1.3vw,1.2rem);
-  line-height:1.75;
-}
+.intro{max-width:54ch;color:var(--muted);font-size:clamp(1rem,1.25vw,1.16rem);line-height:1.8}
 .btn{
+  min-height:52px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:22px;
-  min-height:58px;
-  padding:0 26px;
+  gap:18px;
+  padding:0 22px;
   border:1px solid var(--ink);
+  border-radius:999px;
   background:var(--ink);
   color:var(--white);
-  font-size:11px;
+  font-size:10px;
   font-weight:600;
-  letter-spacing:.16em;
+  letter-spacing:.14em;
   text-transform:uppercase;
   cursor:pointer;
-  transition:transform 160ms var(--ease-out),background-color 200ms ease,color 200ms ease,box-shadow 200ms ease;
+  transition:transform 180ms var(--ease),background-color 180ms ease,border-color 180ms ease;
 }
-.btn .arrow{font-size:17px;transition:transform 200ms var(--ease-out)}
 .btn:active{transform:scale(.97)}
-.btn:focus-visible,.nav a:focus-visible,.service-toggle:focus-visible,.chat-launcher:focus-visible,.chat-close:focus-visible,.chat-send:focus-visible,.chat-input:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
-.btn-light{border-color:var(--white);background:var(--white);color:var(--ink)}
+.btn-light{border-color:var(--forest);background:var(--forest)}
 .btn-line{background:transparent;color:var(--ink)}
+.btn:focus-visible,a:focus-visible,.service-toggle:focus-visible,input:focus-visible,textarea:focus-visible,.time-option:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 @media (hover:hover) and (pointer:fine){
-  .btn:hover{transform:translateY(-2px);background:var(--gold);border-color:var(--gold);box-shadow:0 14px 28px rgba(48,37,20,.16)}
-  .btn:hover .arrow{transform:translateX(5px)}
-  .btn-line:hover{color:var(--white)}
+  .btn:hover{transform:translateY(-2px);background:var(--gold);border-color:var(--gold)}
 }
-.progress{
-  position:fixed;
-  inset:0 auto auto 0;
-  z-index:300;
-  width:100%;
-  height:2px;
-  background:var(--gold);
-  transform:scaleX(0);
-  transform-origin:left;
-}
+.progress{position:fixed;inset:0 auto auto 0;z-index:400;width:100%;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left}
 .nav{
   position:fixed;
   inset:0 0 auto;
-  z-index:200;
-  padding:18px 0;
-  color:var(--white);
-  transition:padding 200ms ease,background-color 200ms ease,color 200ms ease,box-shadow 200ms ease,backdrop-filter 200ms ease;
-}
-.nav.scrolled{
+  z-index:300;
   padding:12px 0;
   color:var(--ink);
-  background:rgba(243,239,231,.88);
-  box-shadow:0 1px 0 var(--line);
-  backdrop-filter:blur(18px);
-}
-.nav-row{display:flex;align-items:center;justify-content:space-between;gap:32px}
-.brand{
-  display:flex;
-  align-items:baseline;
-  gap:8px;
-  font-family:'Italiana',serif;
-  font-size:21px;
-  line-height:1;
-  white-space:nowrap;
-}
-.brand i{
-  width:5px;
-  height:5px;
-  border-radius:50%;
-  background:var(--gold-light);
-}
-.nav-links{display:flex;align-items:center;gap:34px}
-.nav-links a{
-  position:relative;
-  padding:8px 0;
-  font-size:11px;
-  font-weight:500;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-}
-.nav-links a::after{
-  content:'';
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:3px;
-  height:1px;
-  background:currentColor;
-  transform:scaleX(0);
-  transform-origin:right;
-  transition:transform 240ms var(--ease-out);
-}
-@media (hover:hover) and (pointer:fine){.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}}
-.nav-phone{font-variant-numeric:tabular-nums}
-.hero{
-  position:relative;
-  min-height:100svh;
-  color:var(--white);
-  background:var(--forest);
-  overflow:hidden;
-}
-.hero-photo{position:absolute;inset:0 0 0 43%;overflow:hidden}
-.hero-photo img{object-position:50% 45%;transform:scale(1.025)}
-.hero-photo::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg,var(--forest) 0%,rgba(29,42,36,.84) 11%,rgba(29,42,36,.1) 55%),linear-gradient(0deg,rgba(12,17,14,.35),transparent 45%);
-}
-.hero::before{
-  content:'';
-  position:absolute;
-  z-index:1;
-  width:720px;
-  height:720px;
-  left:-360px;
-  bottom:-360px;
-  border:1px solid rgba(207,185,143,.2);
-  border-radius:50%;
-  box-shadow:0 0 0 110px rgba(207,185,143,.025),0 0 0 220px rgba(207,185,143,.02);
-}
-.hero-content{
-  position:relative;
-  z-index:2;
-  min-height:100svh;
-  display:grid;
-  grid-template-columns:53% 47%;
-  align-items:end;
-  padding-top:120px;
-  padding-bottom:clamp(64px,9vh,104px);
-}
-.hero-copy{max-width:810px}
-.hero-copy .eyebrow{color:var(--gold-light)}
-.hero h1{max-width:9ch}
-.hero h1 em{display:block;color:var(--gold-light);font-style:normal}
-.hero-lead{
-  max-width:49ch;
-  margin:34px 0;
-  color:rgba(255,255,255,.72);
-  font-size:clamp(.98rem,1.25vw,1.16rem);
-  line-height:1.72;
-}
-.hero-actions{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
-.hero-license{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:rgba(255,255,255,.62);
-  font-size:10px;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-}
-.hero-license span{color:var(--gold-light);font-family:'Italiana',serif;font-size:26px;letter-spacing:0}
-.hero-side{
-  align-self:end;
-  justify-self:end;
-  width:220px;
-  padding:22px;
-  border-top:1px solid rgba(255,255,255,.42);
-  color:rgba(255,255,255,.78);
-}
-.hero-side b{display:block;margin-bottom:9px;color:var(--white);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
-.hero-side p{margin:0;font-size:13px;line-height:1.6}
-.hero-scroll{
-  position:absolute;
-  z-index:3;
-  right:25px;
-  bottom:30px;
-  display:flex;
-  align-items:center;
-  gap:14px;
-  color:rgba(255,255,255,.55);
-  font-size:9px;
-  letter-spacing:.24em;
-  text-transform:uppercase;
-  writing-mode:vertical-rl;
-}
-.hero-scroll::after{content:'';width:1px;height:46px;background:rgba(255,255,255,.34)}
-.trust{
+  background:rgba(248,246,241,.9);
   border-bottom:1px solid var(--line);
+  backdrop-filter:blur(18px);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(-100%);
+  transition:opacity 320ms ease,transform 450ms var(--ease),visibility 320ms;
+}
+.nav.visible{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-row{display:flex;align-items:center;justify-content:space-between;gap:28px}
+.brand{font-family:"Italiana",serif;font-size:21px;white-space:nowrap}
+.brand i{display:inline-block;width:5px;height:5px;margin-left:8px;border-radius:50%;background:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links>a:not(.nav-contact){font-size:10px;font-weight:600;letter-spacing:.11em;text-transform:uppercase}
+.nav-contact{min-height:42px;padding-inline:18px}
+.hero{
+  min-height:100svh;
+  display:grid;
+  place-items:center;
   background:var(--white);
+  text-align:center;
 }
-.trust-row{
-  min-height:98px;
-  display:grid;
-  grid-template-columns:1.2fr repeat(3,1fr);
-  align-items:center;
+.hero-inner{width:min(1120px,calc(100% - 36px))}
+.hero-location{
+  margin:0 0 clamp(26px,4vw,50px);
+  color:var(--gold);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.28em;
+  text-transform:uppercase;
 }
-.trust-label{font-family:'Italiana',serif;font-size:24px}
-.trust-item{padding:8px 28px;border-left:1px solid var(--line)}
-.trust-item small{display:block;margin-bottom:4px;color:var(--gold);font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
-.trust-item span{font-size:13px}
-.manifesto{padding:clamp(100px,13vw,190px) 0}
-.manifesto-grid{display:grid;grid-template-columns:.8fr 1.6fr;gap:8vw;align-items:start}
-.manifesto-number{color:var(--gold);font-family:'Italiana',serif;font-size:clamp(5rem,10vw,10rem);line-height:.75}
-.manifesto-copy .section-title{max-width:12ch}
-.manifesto-copy .section-title em{color:var(--gold);font-style:normal}
-.manifesto-bottom{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:6vw;
-  margin-top:56px;
-  padding-top:32px;
-  border-top:1px solid var(--line);
+.hero h1{
+  max-width:12ch;
+  margin:0 auto;
+  font-size:clamp(4rem,9.8vw,9.7rem);
+  line-height:.9;
+  letter-spacing:-.055em;
 }
-.manifesto-sign{font-family:'Italiana',serif;font-size:25px}
-.services{
-  padding:clamp(96px,12vw,168px) 0;
-  color:var(--white);
-  background:var(--forest);
-}
-.services-head{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:7vw;
-  align-items:end;
-  margin-bottom:72px;
-}
-.services-head .eyebrow{color:var(--gold-light)}
-.services-head .intro{color:rgba(255,255,255,.62)}
-.service-list{border-top:1px solid var(--line-light)}
+.approach{padding:clamp(100px,13vw,190px) 0;background:var(--paper)}
+.approach-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:clamp(54px,9vw,138px);align-items:center}
+.approach-photo{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:180px 180px 18px 18px;box-shadow:var(--shadow)}
+.approach-photo img{object-position:50% 42%}
+.approach-copy .section-title{max-width:10.5ch}
+.approach-copy .intro{margin:34px 0 0}
+.approach-detail{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:42px;padding-top:28px;border-top:1px solid var(--line)}
+.approach-detail strong{display:block;margin-bottom:8px;font-family:"Italiana",serif;font-size:22px;font-weight:400}
+.approach-detail span{color:var(--muted);font-size:13px}
+.services{padding:clamp(100px,12vw,170px) 0;background:var(--forest);color:var(--white)}
+.services-head{display:grid;grid-template-columns:1.25fr .75fr;gap:8vw;align-items:end;margin-bottom:64px}
+.services-head .eyebrow{color:#d7c4a4}
+.services-head .intro{margin:0;color:rgba(255,255,255,.62)}
+.service-list{display:grid;gap:16px}
 .service{
-  border-bottom:1px solid var(--line-light);
-  transition:background-color 220ms ease;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:24px;
+  background:rgba(255,255,255,.035);
+  transform:scale(.985);
+  transition:transform 550ms var(--ease),background-color 450ms ease,color 450ms ease,border-radius 450ms var(--ease),box-shadow 450ms ease;
 }
+.service.open{
+  color:var(--ink);
+  background:var(--sand);
+  border-radius:36px;
+  transform:scale(1);
+  box-shadow:0 26px 60px rgba(8,16,12,.22);
+}
+.service:nth-child(even).open{background:#f3f0e9}
 .service-toggle{
   width:100%;
   display:grid;
-  grid-template-columns:100px 1fr 52px;
+  grid-template-columns:92px 1fr auto;
   align-items:center;
-  gap:20px;
-  padding:34px 0;
+  gap:24px;
+  padding:27px 34px;
   border:0;
   background:transparent;
   text-align:left;
   cursor:pointer;
 }
-.service-index{color:var(--gold-light);font-family:'Italiana',serif;font-size:18px}
-.service-title{font-family:'Italiana',serif;font-size:clamp(1.75rem,3vw,3.1rem);line-height:1.1}
-.service-icon{
-  width:42px;
-  height:42px;
+.service-index{color:#d7c4a4;font-family:"Italiana",serif;font-size:20px;transition:font-size 450ms var(--ease),color 450ms ease}
+.service.open .service-index{color:var(--gold);font-size:31px}
+.service-title{font-family:"Italiana",serif;font-size:clamp(1.8rem,3.15vw,3.3rem);line-height:1.05;transition:font-size 450ms var(--ease)}
+.service-status{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.25);transition:transform 450ms var(--ease),background-color 450ms ease}
+.service.open .service-status{background:var(--forest);transform:scale(1.35)}
+.service-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows 500ms var(--ease)}
+.service-body>div{overflow:hidden}
+.service-content{
   display:grid;
-  place-items:center;
-  justify-self:end;
-  border:1px solid rgba(255,255,255,.28);
-  border-radius:50%;
-  font-size:21px;
-  transition:transform 240ms var(--ease-out),background-color 200ms ease,color 200ms ease;
+  grid-template-columns:92px 1fr;
+  gap:24px;
+  padding:0 34px 34px;
 }
-.service-body{
-  display:grid;
-  grid-template-rows:0fr;
-  transition:grid-template-rows 360ms var(--ease-in-out);
-}
-.service-body > div{overflow:hidden}
-.service-body p{max-width:62ch;margin:0 0 38px 120px;color:rgba(255,255,255,.64)}
-.service.open{background:rgba(255,255,255,.025)}
-.service.open .service-body{grid-template-rows:1fr}
-.service.open .service-icon{transform:rotate(45deg);background:var(--gold-light);color:var(--forest)}
-@media (hover:hover) and (pointer:fine){.service:hover{background:rgba(255,255,255,.025)}}
-.portrait{padding:clamp(96px,12vw,180px) 0;background:var(--white)}
-.portrait-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(48px,9vw,130px);align-items:center}
-.portrait-photo{position:relative;aspect-ratio:4/5}
-.portrait-photo::before{
-  content:'';
-  position:absolute;
-  z-index:0;
-  inset:-18px 18px 18px -18px;
-  border:1px solid var(--gold-light);
-}
-.portrait-photo img{position:relative;z-index:1;object-position:50% 40%;box-shadow:var(--shadow)}
+.service-content p{grid-column:2;max-width:63ch;margin:0;color:var(--muted);font-size:15px}
+.portrait{padding:clamp(100px,13vw,185px) 0;background:var(--white)}
+.portrait-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(50px,9vw,130px);align-items:center}
+.portrait-photo{aspect-ratio:4/5;overflow:hidden;border-radius:20px 190px 20px 20px}
+.portrait-photo img{object-position:50% 38%}
 .portrait-copy .section-title{max-width:10ch}
-.portrait-copy .intro{margin:34px 0 38px}
-.signature{
-  margin-top:38px;
-  padding-top:28px;
-  border-top:1px solid var(--line);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
+.portrait-copy .intro{margin:34px 0}
+.signature{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:28px;border-top:1px solid var(--line)}
+.signature-name{font-family:"Italiana",serif;font-size:25px}
+.signature-role{color:var(--muted);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.process{padding:clamp(95px,11vw,155px) 0;background:var(--paper-deep)}
+.process-head{margin-bottom:54px}
+.process-title{
+  max-width:none;
+  white-space:nowrap;
+  font-size:clamp(2.3rem,4.7vw,5rem);
 }
-.signature-name{font-family:'Italiana',serif;font-size:25px}
-.signature-role{color:var(--ink-soft);font-size:10px;letter-spacing:.17em;text-transform:uppercase}
-.process{padding:clamp(96px,11vw,154px) 0;background:var(--paper-deep)}
-.process-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:64px}
-.process-head .section-title{max-width:10ch}
-.process-head .intro{margin-bottom:4px}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.process-head .intro{margin:18px 0 0}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .step{
-  min-height:300px;
-  padding:32px 30px;
-  border-left:1px solid var(--line);
+  min-height:330px;
   display:flex;
   flex-direction:column;
-}
-.step:first-child{border-left:0}
-.step-number{color:var(--gold);font-family:'Italiana',serif;font-size:16px}
-.step h3{margin:auto 0 16px;font-size:clamp(1.45rem,2.1vw,2rem);line-height:1.15}
-.step p{margin-bottom:0;color:var(--ink-soft);font-size:13px}
-.editorial{
-  position:relative;
-  min-height:720px;
-  display:grid;
-  place-items:center;
+  padding:28px;
   overflow:hidden;
-  color:var(--white);
-  background:var(--forest);
+  border:1px solid rgba(26,29,26,.08);
+  border-radius:22px;
+  background:rgba(255,255,255,.52);
+  transition:transform 350ms var(--ease),background-color 350ms ease,border-radius 350ms var(--ease);
 }
-.editorial img{position:absolute;inset:0;object-position:50% 36%}
-.editorial::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,20,16,.9),rgba(13,20,16,.54) 48%,rgba(13,20,16,.1)),linear-gradient(0deg,rgba(13,20,16,.35),transparent)}
-.editorial-content{position:relative;z-index:1}
-.editorial-quote{max-width:11ch;margin:0;font-family:'Italiana',serif;font-size:clamp(3rem,6.5vw,6.8rem);line-height:.98;letter-spacing:-.04em}
-.editorial-quote em{color:var(--gold-light);font-style:normal}
-.editorial-note{max-width:40ch;margin:38px 0 0 9vw;color:rgba(255,255,255,.72)}
-.contact{padding:clamp(96px,12vw,170px) 0;background:var(--white)}
-.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:9vw;align-items:start}
-.contact .section-title{max-width:9ch}
-.contact-copy .intro{margin:34px 0}
-.contact-actions{display:flex;gap:14px;flex-wrap:wrap}
-.contact-card{border-top:1px solid var(--ink)}
-.contact-row{
-  display:grid;
-  grid-template-columns:130px 1fr;
-  gap:20px;
-  align-items:center;
-  min-height:110px;
+.step:nth-child(2),.step:nth-child(4){margin-top:28px}
+.step-number{color:var(--gold);font-family:"Italiana",serif;font-size:17px}
+.step h3{margin:auto 0 16px;font-size:clamp(1.45rem,2vw,2rem);line-height:1.12}
+.step p{margin:0;color:var(--muted);font-size:13px;filter:blur(5px);opacity:.52;user-select:none}
+@media (hover:hover) and (pointer:fine){.step:hover{transform:translateY(-7px);background:var(--white);border-radius:38px}}
+.quote-section{padding:clamp(100px,13vw,180px) 0;background:var(--forest);color:var(--white)}
+.quote-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:8vw;align-items:end}
+.quote-main{margin:0;color:#dce8df;font-family:"Italiana",serif;font-size:clamp(3rem,6vw,6.4rem);line-height:.98;letter-spacing:-.04em}
+.quote-main em{color:#a8c4b1;font-style:normal}
+.quote-note{
+  margin:0 0 10px;
+  padding:28px 0 0 28px;
+  border-top:1px solid rgba(255,255,255,.26);
+  border-left:1px solid rgba(255,255,255,.26);
+  color:#e8d6bc;
+  font-family:"Italiana",serif;
+  font-size:clamp(1.45rem,2.4vw,2.25rem);
+  line-height:1.3;
+}
+.contact{padding:clamp(100px,12vw,170px) 0;background:var(--white)}
+.contact-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(50px,8vw,120px);align-items:start}
+.contact-info{position:sticky;top:105px}
+.contact-info .section-title{max-width:8ch}
+.contact-card{margin-top:44px;border-top:1px solid var(--ink)}
+.contact-row{display:grid;grid-template-columns:94px 1fr;gap:18px;align-items:center;min-height:82px;border-bottom:1px solid var(--line)}
+.contact-row small{color:var(--gold);font-size:9px;font-weight:600;letter-spacing:.17em;text-transform:uppercase}
+.contact-row a,.contact-row span{font-family:"Italiana",serif;font-size:clamp(1.08rem,1.7vw,1.55rem)}
+.contact-tools{display:grid;gap:22px}
+.tool-card{padding:clamp(24px,3vw,40px);border:1px solid var(--line);border-radius:28px;background:var(--paper)}
+.tool-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:28px}
+.tool-kicker{color:var(--gold);font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+.tool-head h3{margin:4px 0 0;font-size:clamp(1.7rem,2.7vw,2.5rem);line-height:1.1}
+.tool-number{color:rgba(26,29,26,.2);font-family:"Italiana",serif;font-size:28px}
+.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field{display:grid;gap:7px}
+.field-wide{grid-column:1/-1}
+.field label{font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.field input,.field textarea{
+  width:100%;
+  border:0;
   border-bottom:1px solid var(--line);
+  border-radius:0;
+  background:transparent;
+  color:var(--ink);
+  outline:0;
 }
-.contact-row small{color:var(--gold);font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
-.contact-row a,.contact-row span{font-family:'Italiana',serif;font-size:clamp(1.25rem,2.2vw,2rem)}
-.contact-row a{transition:color 180ms ease}
-@media (hover:hover) and (pointer:fine){.contact-row a:hover{color:var(--gold)}}
-.footer{padding:44px 0;background:var(--ink);color:var(--white)}
-.footer-row{display:flex;align-items:end;justify-content:space-between;gap:40px}
-.footer .brand{font-size:27px}
-.footer p{margin:10px 0 0;color:rgba(255,255,255,.48);font-size:11px}
-.footer-links{display:flex;align-items:center;gap:28px;font-size:10px;letter-spacing:.13em;text-transform:uppercase}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity 700ms var(--ease-out),transform 700ms var(--ease-out)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-delay{transition-delay:90ms}
-.chat-launcher{
-  position:fixed;
-  z-index:220;
-  right:24px;
-  bottom:24px;
-  min-height:52px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:0 18px;
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:999px;
-  background:var(--ink);
-  color:var(--white);
-  box-shadow:0 16px 50px rgba(20,19,16,.24);
+.field input{height:48px}
+.field textarea{min-height:92px;padding:12px 0;resize:vertical}
+.field input:focus,.field textarea:focus{border-color:var(--forest)}
+.contact-form .btn{grid-column:1/-1;margin-top:8px}
+.calendar-days{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:20px}
+.day-option,.time-option{
+  min-height:65px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--white);
   cursor:pointer;
-  font-size:10px;
-  font-weight:600;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  transition:transform 160ms var(--ease-out),background-color 200ms ease;
+  transition:background-color 180ms ease,color 180ms ease,border-color 180ms ease,transform 180ms var(--ease);
 }
-.chat-launcher::before{content:'';width:8px;height:8px;border-radius:50%;background:#9fb39f;box-shadow:0 0 0 4px rgba(159,179,159,.14)}
-.chat-launcher:active{transform:scale(.97)}
-@media (hover:hover) and (pointer:fine){.chat-launcher:hover{transform:translateY(-2px);background:var(--forest)}}
-.chat-panel{
-  position:fixed;
-  z-index:230;
-  right:24px;
-  bottom:88px;
-  width:min(390px,calc(100vw - 32px));
-  height:min(570px,calc(100svh - 120px));
+.day-option{display:grid;place-items:center;padding:8px}
+.day-option strong{font-family:"Italiana",serif;font-size:22px;font-weight:400;line-height:1}
+.day-option span{color:var(--muted);font-size:9px;text-transform:uppercase}
+.day-option.selected,.time-option.selected{border-color:var(--forest);background:var(--forest);color:var(--white)}
+.day-option.selected span{color:rgba(255,255,255,.62)}
+.time-options{display:flex;gap:8px;flex-wrap:wrap}
+.time-option{min-height:38px;padding:0 15px;border-radius:999px;font-size:12px}
+.calendar-note{margin:18px 0 0;color:var(--muted);font-size:12px}
+.assistant-card{background:var(--forest);color:var(--white)}
+.assistant-card .tool-kicker{color:#d7c4a4}
+.assistant-card .tool-number{color:rgba(255,255,255,.22)}
+.chat-messages{
+  height:300px;
+  overflow:auto;
   display:flex;
   flex-direction:column;
-  overflow:hidden;
-  border:1px solid var(--line);
-  background:var(--white);
-  box-shadow:0 30px 90px rgba(22,20,16,.25);
-  opacity:0;
-  visibility:hidden;
-  transform:translateY(12px) scale(.97);
-  transform-origin:bottom right;
-  transition:opacity 180ms var(--ease-out),transform 180ms var(--ease-out),visibility 180ms;
+  gap:10px;
+  padding:18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.07);
 }
-.chat-panel.open{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
-.chat-head{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;background:var(--forest);color:var(--white)}
-.chat-title{font-family:'Italiana',serif;font-size:21px}
-.chat-subtitle{color:rgba(255,255,255,.55);font-size:10px}
-.chat-close{width:36px;height:36px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:transparent;color:var(--white);cursor:pointer;font-size:20px}
-.chat-messages{flex:1;overflow:auto;padding:22px;display:flex;flex-direction:column;gap:12px}
-.chat-message{max-width:87%;padding:12px 14px;font-size:13px;line-height:1.55}
-.chat-message.bot{align-self:flex-start;background:var(--paper)}
-.chat-message.user{align-self:flex-end;background:var(--forest);color:var(--white)}
-.chat-message.error{color:#8c3c32}
-.chat-message.typing{color:var(--ink-soft)}
-.chat-form{display:grid;grid-template-columns:1fr auto;gap:8px;padding:14px;border-top:1px solid var(--line)}
-.chat-input{min-width:0;height:46px;padding:0 14px;border:1px solid var(--line);border-radius:0;background:var(--white);outline:0}
-.chat-send{padding:0 15px;border:0;background:var(--gold);color:var(--white);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
-@media (max-width:900px){
-  :root{--shell:min(100% - 34px,700px)}
-  .nav-links a:not(.nav-phone){display:none}
-  .hero-photo{inset:0}
-  .hero-photo img{object-position:57% center}
-  .hero-photo::after{background:linear-gradient(90deg,rgba(19,29,24,.97),rgba(19,29,24,.78) 58%,rgba(19,29,24,.25)),linear-gradient(0deg,rgba(13,20,16,.52),transparent)}
-  .hero-content{grid-template-columns:1fr}
-  .hero-copy{align-self:end}
-  .hero-side{display:none}
-  .trust-row{grid-template-columns:1fr 1fr}
-  .trust-label{grid-column:1/-1;padding:24px 0;border-bottom:1px solid var(--line)}
-  .trust-item{padding:18px 0;border-left:0}
-  .trust-item:nth-child(3){border-left:1px solid var(--line);padding-left:20px}
-  .trust-item:last-child{display:none}
-  .manifesto-grid{grid-template-columns:1fr}
-  .manifesto-number{font-size:6rem}
-  .services-head,.portrait-grid,.contact-grid{grid-template-columns:1fr}
-  .portrait-photo{max-width:620px}
-  .process-head{display:grid}
+.chat-message{max-width:86%;padding:11px 14px;border-radius:16px;font-size:13px;line-height:1.5}
+.chat-message.bot{align-self:flex-start;background:rgba(255,255,255,.12)}
+.chat-message.user{align-self:flex-end;background:var(--sand);color:var(--ink)}
+.chat-message.error{color:#ffd4cd}
+.chat-message.typing{opacity:.6}
+.chat-form{display:grid;grid-template-columns:1fr auto;gap:9px;margin-top:12px}
+.chat-input{min-width:0;height:48px;padding:0 16px;border:1px solid rgba(255,255,255,.16);border-radius:999px;background:rgba(255,255,255,.08);color:var(--white);outline:0}
+.chat-input::placeholder{color:rgba(255,255,255,.5)}
+.chat-send{min-width:94px;border-color:var(--sand);background:var(--sand);color:var(--ink)}
+.footer{padding:42px 0;background:var(--ink);color:var(--white)}
+.footer-row{display:flex;align-items:end;justify-content:space-between;gap:32px}
+.footer p{margin:8px 0 0;color:rgba(255,255,255,.48);font-size:11px}
+.footer-links{display:flex;gap:24px;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 700ms var(--ease),transform 700ms var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media (max-width:980px){
+  :root{--shell:min(100% - 36px,760px)}
+  .nav-links>a:not(.nav-contact):not(.nav-phone){display:none}
+  .approach-grid,.services-head,.portrait-grid,.quote-grid,.contact-grid{grid-template-columns:1fr}
+  .approach-photo,.portrait-photo{max-width:620px}
+  .services-head{align-items:start}
+  .quote-note{max-width:520px;margin-left:auto}
   .steps{grid-template-columns:1fr 1fr}
-  .step:nth-child(3){border-left:0;border-top:1px solid var(--line)}
-  .step:nth-child(4){border-top:1px solid var(--line)}
+  .contact-info{position:static}
+  .contact-info .section-title{max-width:10ch}
 }
-@media (max-width:600px){
-  :root{--shell:calc(100% - 30px)}
-  .nav{padding:14px 0}
-  .brand{font-size:18px}
-  .nav-phone{font-size:10px!important}
-  .hero-content{padding-top:100px;padding-bottom:70px}
-  .hero h1{font-size:clamp(3.45rem,17vw,5.6rem);max-width:7.8ch}
-  .hero-lead{max-width:33ch;margin:26px 0}
-  .hero-actions{align-items:flex-start;flex-direction:column}
-  .hero-scroll{display:none}
-  .trust-row{min-height:0}
-  .trust-label{font-size:21px}
-  .manifesto-bottom{grid-template-columns:1fr;gap:24px}
-  .services-head{margin-bottom:42px}
-  .service-toggle{grid-template-columns:42px 1fr 42px;padding:26px 0}
-  .service-title{font-size:1.65rem}
-  .service-body p{margin-left:62px}
-  .portrait-photo::before{inset:-10px 10px 10px -10px}
-  .signature{align-items:flex-start;flex-direction:column}
+@media (max-width:640px){
+  :root{--shell:calc(100% - 28px)}
+  .brand{font-size:17px}
+  .nav-phone{display:none}
+  .nav-contact{min-height:38px;padding-inline:14px;font-size:8px}
+  .hero h1{font-size:clamp(3.8rem,20vw,6rem)}
+  .hero-location{font-size:9px}
+  .approach-detail{grid-template-columns:1fr}
+  .service-list{gap:11px}
+  .service{border-radius:18px}
+  .service.open{border-radius:26px}
+  .service-toggle{grid-template-columns:42px 1fr auto;gap:12px;padding:22px 18px}
+  .service-index{font-size:16px}
+  .service.open .service-index{font-size:22px}
+  .service-title{font-size:1.6rem}
+  .service-content{grid-template-columns:42px 1fr;gap:12px;padding:0 18px 24px}
+  .service-content p{font-size:13px}
+  .process-title{white-space:normal}
   .steps{grid-template-columns:1fr}
-  .step{min-height:230px;border-left:0;border-top:1px solid var(--line)}
-  .step:first-child{border-top:0}
-  .editorial{min-height:650px}
-  .editorial img{object-position:58% center}
-  .editorial::after{background:linear-gradient(90deg,rgba(13,20,16,.94),rgba(13,20,16,.56)),linear-gradient(0deg,rgba(13,20,16,.38),transparent)}
-  .editorial-note{margin-left:0}
-  .contact-row{grid-template-columns:90px 1fr;min-height:96px}
+  .step,.step:nth-child(2),.step:nth-child(4){min-height:245px;margin-top:0}
+  .quote-note{margin-top:20px}
+  .contact-form{grid-template-columns:1fr}
+  .field-wide,.contact-form .btn{grid-column:1}
+  .calendar-days{grid-template-columns:repeat(2,1fr)}
+  .tool-card{border-radius:22px}
+  .chat-messages{height:270px}
+  .chat-send{min-width:76px;padding-inline:12px}
   .footer-row{align-items:flex-start;flex-direction:column}
-  .footer-links{flex-wrap:wrap}
-  .chat-launcher{right:15px;bottom:15px}
-  .chat-launcher span{display:none}
-  .chat-panel{right:16px;bottom:78px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .reveal{opacity:1;transform:none;transition:none}
-  .hero-photo img{transform:none}
-  .service-body{transition:none}
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important}
+  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+  .reveal{opacity:1;transform:none}
 }
 </style>
 </head>
 <body>
-<div class="progress" id="progress"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
 <header class="nav" id="nav">
   <div class="shell nav-row">
     <a class="brand" href="#start" aria-label="Elżbieta Śliwowska — strona główna">Elżbieta Śliwowska<i aria-hidden="true"></i></a>
     <nav class="nav-links" aria-label="Główna nawigacja">
       <a href="#o-mnie">O mnie</a>
-      <a href="#uslugi">Usługi</a>
-      <a href="#proces">Proces</a>
+      <a href="#wspolpraca">Współpraca</a>
+      <a href="#proces">Jak pracuję</a>
       <a class="nav-phone" href="tel:+48668887845">668 887 845</a>
+      <a class="btn nav-contact" href="#kontakt">Bezpośredni kontakt</a>
     </nav>
   </div>
 </header>
 
 <main>
   <section class="hero" id="start">
-    <div class="hero-photo" aria-hidden="true">
-      <img src="assets/img/hero-elzbieta.jpg" alt="" width="1024" height="1024" fetchpriority="high">
-    </div>
-    <div class="shell hero-content">
-      <div class="hero-copy">
-        <div class="eyebrow">Białystok i okolice</div>
-        <h1 class="display">Nieruchomości <em>prowadzone</em> z uważnością.</h1>
-        <p class="hero-lead">Pomagam sprzedawać, kupować i wynajmować nieruchomości bez chaosu. Z jasnym planem, spokojną komunikacją i pełnym zaangażowaniem na każdym etapie.</p>
-        <div class="hero-actions">
-          <a class="btn btn-light" href="tel:+48668887845"><span>Umówmy rozmowę</span><span class="arrow" aria-hidden="true">→</span></a>
-          <div class="hero-license"><span>32560</span> Licencja PFRN</div>
-        </div>
-      </div>
-      <aside class="hero-side">
-        <b>Elżbieta Śliwowska</b>
-        <p>Licencjonowana pośredniczka w obrocie nieruchomościami.</p>
-      </aside>
-    </div>
-    <div class="hero-scroll" aria-hidden="true">Poznajmy się</div>
-  </section>
-
-  <section class="trust" aria-label="Zakres działalności">
-    <div class="shell trust-row">
-      <div class="trust-label">Pewność w ważnych decyzjach.</div>
-      <div class="trust-item"><small>Obszar</small><span>Białystok i okolice</span></div>
-      <div class="trust-item"><small>Specjalizacja</small><span>Sprzedaż · zakup · wynajem</span></div>
-      <div class="trust-item"><small>Standard</small><span>Opieka od planu do kluczy</span></div>
+    <div class="hero-inner">
+      <p class="hero-location">Białystok i okolice</p>
+      <h1>Nieruchomości prowadzone z uważnością.</h1>
     </div>
   </section>
 
-  <section class="manifesto" id="o-mnie">
-    <div class="shell manifesto-grid">
-      <div class="manifesto-number reveal" aria-hidden="true">01</div>
-      <div class="manifesto-copy">
+  <section class="approach" id="o-mnie">
+    <div class="shell approach-grid">
+      <figure class="approach-photo reveal">
+        <img src="assets/img/extra-elzbieta.jpg" alt="Elżbieta Śliwowska podczas pracy z klientem" width="1024" height="1024" decoding="async">
+      </figure>
+      <div class="approach-copy">
         <div class="eyebrow reveal">Moje podejście</div>
-        <h2 class="section-title reveal">To nie jest tylko transakcja. To <em>ważny moment</em> w Twoim życiu.</h2>
-        <div class="manifesto-bottom">
-          <p class="intro reveal">Dlatego najpierw słucham. Poznaję sytuację, porządkuję możliwości i tworzę strategię dopasowaną do realnego celu — nie do gotowego schematu.</p>
-          <div class="reveal reveal-delay">
-            <p class="intro">Biorę odpowiedzialność za proces: dokumenty, prezentację, rozmowy, negocjacje i bezpieczne doprowadzenie sprawy do finału.</p>
-            <div class="manifesto-sign">Elżbieta Śliwowska</div>
-          </div>
+        <h2 class="section-title reveal">To nie tylko transakcje. To ważne życiowe decyzje.</h2>
+        <p class="intro reveal">Dlatego łączę znajomość rynku, porządek w dokumentach i spokojną komunikację. Prowadzę Cię przez cały proces tak, żeby każdy kolejny krok był zrozumiały.</p>
+        <div class="approach-detail reveal">
+          <div><strong>Uważność</strong><span>Najpierw słucham, później układam rozwiązanie dopasowane do Twojej sytuacji.</span></div>
+          <div><strong>Odpowiedzialność</strong><span>Czuwam nad detalami, terminami i interesem klienta od początku do finału.</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="services" id="uslugi">
+  <section class="services" id="wspolpraca">
     <div class="shell">
       <div class="services-head">
         <div>
           <div class="eyebrow reveal">Zakres współpracy</div>
-          <h2 class="section-title reveal">Kompleksowe wsparcie. Jeden spokojny proces.</h2>
+          <h2 class="section-title reveal">Wsparcie dokładnie tam, gdzie go potrzebujesz.</h2>
         </div>
-        <p class="intro reveal">Każda nieruchomość i każda decyzja wymagają innego podejścia. Zakres działań dopasowuję do Twojej sytuacji.</p>
+        <p class="intro reveal">Każdy proces ma inną dynamikę. Zobacz, jak mogę poprowadzić Twój — karta rozwinie się naturalnie podczas przewijania.</p>
       </div>
-      <div class="service-list reveal">
+      <div class="service-list">
         <article class="service open">
           <button class="service-toggle" type="button" aria-expanded="true">
             <span class="service-index">01</span>
             <span class="service-title">Sprzedaż nieruchomości</span>
-            <span class="service-icon" aria-hidden="true">+</span>
+            <span class="service-status" aria-hidden="true"></span>
           </button>
-          <div class="service-body"><div><p>Od przygotowania strategii i prezentacji oferty, przez selekcję zainteresowanych i negocjacje, aż po bezpieczną finalizację sprzedaży.</p></div></div>
+          <div class="service-body"><div><div class="service-content"><p>Od strategii i przygotowania prezentacji, przez selekcję zainteresowanych i negocjacje, aż po bezpieczną finalizację sprzedaży.</p></div></div></div>
         </article>
         <article class="service">
           <button class="service-toggle" type="button" aria-expanded="false">
             <span class="service-index">02</span>
             <span class="service-title">Zakup nieruchomości</span>
-            <span class="service-icon" aria-hidden="true">+</span>
+            <span class="service-status" aria-hidden="true"></span>
           </button>
-          <div class="service-body"><div><p>Pomagam zdefiniować potrzeby, znaleźć właściwe propozycje, ocenić ich potencjał i przejść przez formalności bez zbędnego ryzyka.</p></div></div>
+          <div class="service-body"><div><div class="service-content"><p>Pomagam zdefiniować potrzeby, znaleźć właściwe propozycje, ocenić ich potencjał i przejść przez formalności bez zbędnego ryzyka.</p></div></div></div>
         </article>
         <article class="service">
           <button class="service-toggle" type="button" aria-expanded="false">
             <span class="service-index">03</span>
             <span class="service-title">Wynajem</span>
-            <span class="service-icon" aria-hidden="true">+</span>
+            <span class="service-status" aria-hidden="true"></span>
           </button>
-          <div class="service-body"><div><p>Wspieram właścicieli i najemców w prezentacji nieruchomości, weryfikacji warunków oraz uporządkowaniu całego procesu najmu.</p></div></div>
+          <div class="service-body"><div><div class="service-content"><p>Wspieram właścicieli i najemców w prezentacji nieruchomości, weryfikacji warunków oraz uporządkowaniu całego procesu najmu.</p></div></div></div>
         </article>
         <article class="service">
           <button class="service-toggle" type="button" aria-expanded="false">
             <span class="service-index">04</span>
             <span class="service-title">Analiza i negocjacje</span>
-            <span class="service-icon" aria-hidden="true">+</span>
+            <span class="service-status" aria-hidden="true"></span>
           </button>
-          <div class="service-body"><div><p>Sprawdzam stan prawny, porządkuję dokumentację i reprezentuję Twój interes w rozmowach, dbając o czytelne i bezpieczne warunki.</p></div></div>
+          <div class="service-body"><div><div class="service-content"><p>Sprawdzam stan prawny, porządkuję dokumentację i reprezentuję Twój interes w rozmowach, dbając o czytelne i bezpieczne warunki.</p></div></div></div>
         </article>
       </div>
     </div>
@@ -678,18 +470,18 @@ h1,h2,h3,.serif{font-family:'Italiana',serif;font-weight:400}
   <section class="portrait">
     <div class="shell portrait-grid">
       <figure class="portrait-photo reveal">
-        <img src="assets/img/about-elzbieta.jpg" alt="Elżbieta Śliwowska, agentka nieruchomości" width="1024" height="1536" decoding="async">
+        <img src="assets/img/about-elzbieta.jpg" alt="Elżbieta Śliwowska, licencjonowana pośredniczka nieruchomości" width="1024" height="1536" decoding="async">
       </figure>
       <div class="portrait-copy">
         <div class="eyebrow reveal">Po drugiej stronie</div>
-        <h2 class="section-title reveal">Profesjonalizm, który daje Ci <span style="color:var(--gold)">spokój.</span></h2>
+        <h2 class="section-title reveal">Profesjonalizm, który daje Ci spokój.</h2>
         <p class="intro reveal">W dobrej współpracy liczy się nie tylko rezultat, ale też sposób, w jaki do niego dochodzimy. Dbam o jasną komunikację, dostępność i poczucie, że wiesz, co dzieje się na każdym etapie.</p>
         <div class="signature reveal">
           <div>
             <div class="signature-name">Elżbieta Śliwowska</div>
             <div class="signature-role">Pośredniczka w obrocie nieruchomościami</div>
           </div>
-          <a class="btn btn-line" href="#kontakt"><span>Porozmawiajmy</span><span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-line" href="#kontakt">Porozmawiajmy</a>
         </div>
       </div>
     </div>
@@ -698,61 +490,82 @@ h1,h2,h3,.serif{font-family:'Italiana',serif;font-weight:400}
   <section class="process" id="proces">
     <div class="shell">
       <div class="process-head">
-        <div>
-          <div class="eyebrow reveal">Jak pracuję</div>
-          <h2 class="section-title reveal">Od pierwszej rozmowy do dobrego finału.</h2>
-        </div>
+        <div class="eyebrow reveal">Jak pracuję</div>
+        <h2 class="section-title process-title reveal">Od pierwszej rozmowy do dobrego finału.</h2>
         <p class="intro reveal">Przejrzysty plan ogranicza stres i pozwala podejmować lepsze decyzje.</p>
       </div>
       <div class="steps reveal">
-        <article class="step">
-          <span class="step-number">01</span>
-          <h3>Poznaję Twój cel</h3>
-          <p>Rozmawiamy o sytuacji, potrzebach i oczekiwanym rezultacie.</p>
-        </article>
-        <article class="step">
-          <span class="step-number">02</span>
-          <h3>Układam strategię</h3>
-          <p>Porządkuję dokumenty, rynek i kolejne działania.</p>
-        </article>
-        <article class="step">
-          <span class="step-number">03</span>
-          <h3>Prowadzę proces</h3>
-          <p>Koordynuję prezentację, rozmowy i negocjacje.</p>
-        </article>
-        <article class="step">
-          <span class="step-number">04</span>
-          <h3>Domykam szczegóły</h3>
-          <p>Czuwam nad formalnościami aż do przekazania kluczy.</p>
-        </article>
+        <article class="step"><span class="step-number">01</span><h3>Poznaję Twój cel</h3><p>Rozmawiamy o sytuacji, potrzebach i oczekiwanym rezultacie.</p></article>
+        <article class="step"><span class="step-number">02</span><h3>Układam strategię</h3><p>Porządkuję dokumenty, rynek i kolejne działania.</p></article>
+        <article class="step"><span class="step-number">03</span><h3>Prowadzę proces</h3><p>Koordynuję prezentację, rozmowy i negocjacje.</p></article>
+        <article class="step"><span class="step-number">04</span><h3>Domykam szczegóły</h3><p>Czuwam nad formalnościami aż do przekazania kluczy.</p></article>
       </div>
     </div>
   </section>
 
-  <section class="editorial" aria-label="Filozofia współpracy">
-    <img src="assets/img/extra-elzbieta.jpg" alt="" width="1024" height="1024" decoding="async">
-    <div class="shell editorial-content">
-      <blockquote class="editorial-quote reveal">„Najlepsza decyzja to taka, którą podejmujesz z <em>pewnością.</em>”</blockquote>
-      <p class="editorial-note reveal reveal-delay">Moją rolą jest dać Ci wiedzę, perspektywę i wsparcie potrzebne, by właśnie tak się stało.</p>
+  <section class="quote-section" aria-label="Filozofia współpracy">
+    <div class="shell quote-grid">
+      <blockquote class="quote-main reveal">Najlepsza decyzja to taka, którą podejmujesz <em>z pewnością.</em></blockquote>
+      <p class="quote-note reveal">Moją rolą jest dać Ci wiedzę, perspektywę i wsparcie potrzebne, by właśnie tak się stało.</p>
     </div>
   </section>
 
   <section class="contact" id="kontakt">
     <div class="shell contact-grid">
-      <div class="contact-copy">
+      <div class="contact-info">
         <div class="eyebrow reveal">Pierwszy krok</div>
         <h2 class="section-title reveal">Porozmawiajmy o Twojej nieruchomości.</h2>
-        <p class="intro reveal">Krótka rozmowa wystarczy, by uporządkować sytuację i wskazać najlepszy kolejny krok. Bez zobowiązań, konkretnie i po ludzku.</p>
-        <div class="contact-actions reveal">
-          <a class="btn" href="tel:+48668887845"><span>Zadzwoń teraz</span><span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn btn-line" href="https://instagram.com/elasliwowska_" target="_blank" rel="noopener"><span>Instagram</span><span class="arrow" aria-hidden="true">↗</span></a>
+        <div class="contact-card reveal">
+          <div class="contact-row"><small>Telefon</small><a href="tel:+48668887845">668 887 845</a></div>
+          <div class="contact-row"><small>Instagram</small><a href="https://instagram.com/elasliwowska_" target="_blank" rel="noopener">@elasliwowska_</a></div>
+          <div class="contact-row"><small>Obszar</small><span>Białystok i okolice</span></div>
+          <div class="contact-row"><small>Licencja</small><span>PFRN 32560</span></div>
         </div>
       </div>
-      <div class="contact-card reveal reveal-delay">
-        <div class="contact-row"><small>Telefon</small><a href="tel:+48668887845">668 887 845</a></div>
-        <div class="contact-row"><small>Instagram</small><a href="https://instagram.com/elasliwowska_" target="_blank" rel="noopener">@elasliwowska_</a></div>
-        <div class="contact-row"><small>Obszar</small><span>Białystok i okolice</span></div>
-        <div class="contact-row"><small>Licencja</small><span>PFRN 32560</span></div>
+      <div class="contact-tools">
+        <section class="tool-card reveal" aria-labelledby="form-title">
+          <div class="tool-head">
+            <div><span class="tool-kicker">Napisz bezpośrednio</span><h3 id="form-title">Formularz kontaktowy</h3></div>
+            <span class="tool-number" aria-hidden="true">01</span>
+          </div>
+          <form class="contact-form" id="contact-form">
+            <div class="field"><label for="contact-name">Imię</label><input id="contact-name" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="contact-phone">Telefon</label><input id="contact-phone" name="phone" type="tel" autocomplete="tel" required></div>
+            <div class="field field-wide"><label for="contact-topic">W czym mogę pomóc?</label><textarea id="contact-topic" name="topic" placeholder="Sprzedaż, zakup, wynajem lub inna sprawa…" required></textarea></div>
+            <input type="hidden" id="contact-date" name="date">
+            <button class="btn btn-light" type="submit">Wyślij zapytanie bezpośrednio</button>
+          </form>
+        </section>
+
+        <section class="tool-card reveal" aria-labelledby="calendar-title">
+          <div class="tool-head">
+            <div><span class="tool-kicker">Wybierz dogodny moment</span><h3 id="calendar-title">Umów rozmowę</h3></div>
+            <span class="tool-number" aria-hidden="true">02</span>
+          </div>
+          <div class="calendar-days" id="calendar-days" aria-label="Dostępne dni"></div>
+          <div class="time-options" id="time-options" aria-label="Preferowana godzina">
+            <button class="time-option" type="button">09:00</button>
+            <button class="time-option" type="button">12:00</button>
+            <button class="time-option" type="button">15:00</button>
+            <button class="time-option" type="button">17:30</button>
+          </div>
+          <p class="calendar-note">Wybór terminu zostanie dołączony do formularza. Elżbieta potwierdzi dostępność telefonicznie.</p>
+        </section>
+
+        <section class="tool-card assistant-card reveal" aria-labelledby="assistant-title">
+          <div class="tool-head">
+            <div><span class="tool-kicker">Dostępny bezpośrednio na stronie</span><h3 id="assistant-title">Asystent Elżbiety</h3></div>
+            <span class="tool-number" aria-hidden="true">03</span>
+          </div>
+          <div class="chat-messages" id="chat-messages" aria-live="polite">
+            <div class="chat-message bot">Dzień dobry! Chętnie odpowiem na pierwsze pytania dotyczące sprzedaży, zakupu lub wynajmu nieruchomości.</div>
+          </div>
+          <form class="chat-form" id="chat-form">
+            <label class="sr-only" for="chat-input">Wiadomość do asystenta</label>
+            <input class="chat-input" id="chat-input" type="text" maxlength="1200" autocomplete="off" placeholder="Napisz wiadomość…">
+            <button class="btn chat-send" type="submit">Wyślij</button>
+          </form>
+        </section>
       </div>
     </div>
   </section>
@@ -760,151 +573,150 @@ h1,h2,h3,.serif{font-family:'Italiana',serif;font-weight:400}
 
 <footer class="footer">
   <div class="shell footer-row">
-    <div>
-      <div class="brand">Elżbieta Śliwowska<i aria-hidden="true"></i></div>
-      <p>Licencjonowana pośredniczka w obrocie nieruchomościami.</p>
-    </div>
-    <div class="footer-links">
-      <a href="tel:+48668887845">668 887 845</a>
-      <a href="#start">Do góry ↑</a>
-    </div>
+    <div><div class="brand">Elżbieta Śliwowska<i aria-hidden="true"></i></div><p>Licencjonowana pośredniczka w obrocie nieruchomościami.</p></div>
+    <div class="footer-links"><a href="tel:+48668887845">668 887 845</a><a href="#start">Do góry ↑</a></div>
   </div>
 </footer>
 
-<button class="chat-launcher" id="chat-launcher" type="button" aria-controls="chat-panel" aria-expanded="false">
-  <span>Zapytaj asystenta</span>
-</button>
-<section class="chat-panel" id="chat-panel" aria-label="Asystent nieruchomości" aria-hidden="true">
-  <div class="chat-head">
-    <div>
-      <div class="chat-title">Asystent Elżbiety</div>
-      <span class="chat-subtitle">Odpowiem na pierwsze pytania</span>
-    </div>
-    <button class="chat-close" id="chat-close" type="button" aria-label="Zamknij czat">×</button>
-  </div>
-  <div class="chat-messages" id="chat-messages" aria-live="polite">
-    <div class="chat-message bot">Dzień dobry! Chętnie odpowiem na wstępne pytania dotyczące sprzedaży, zakupu lub wynajmu nieruchomości.</div>
-  </div>
-  <form class="chat-form" id="chat-form">
-    <label class="sr-only" for="chat-input">Wiadomość</label>
-    <input class="chat-input" id="chat-input" type="text" maxlength="1200" autocomplete="off" placeholder="Napisz wiadomość…">
-    <button class="chat-send" type="submit">Wyślij</button>
-  </form>
-</section>
-
 <script>
-const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
-const isScreenshot = location.search.includes('screenshot')
-const nav = document.getElementById('nav')
-const progress = document.getElementById('progress')
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const isScreenshot = location.search.includes("screenshot");
+const nav = document.getElementById("nav");
+const progress = document.getElementById("progress");
 
 const updateScroll = () => {
-  nav.classList.toggle('scrolled', scrollY > 40)
-  const max = document.documentElement.scrollHeight - innerHeight
-  progress.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`
+  nav.classList.toggle("visible", scrollY > Math.min(120, innerHeight * .12));
+  const max = document.documentElement.scrollHeight - innerHeight;
+  progress.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+};
+updateScroll();
+addEventListener("scroll", updateScroll, {passive:true});
+
+const services = [...document.querySelectorAll(".service")];
+const setOpenService = service => {
+  services.forEach(item => {
+    const open = item === service;
+    item.classList.toggle("open", open);
+    item.querySelector(".service-toggle").setAttribute("aria-expanded", String(open));
+  });
+};
+services.forEach(service => {
+  service.querySelector(".service-toggle").addEventListener("click", () => setOpenService(service));
+});
+if (!reduceMotion && "IntersectionObserver" in window) {
+  const serviceObserver = new IntersectionObserver(entries => {
+    const visible = entries.filter(entry => entry.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible && visible.intersectionRatio > .42) setOpenService(visible.target);
+  }, {rootMargin:"-22% 0px -22% 0px",threshold:[.42,.55,.7]});
+  services.forEach(service => serviceObserver.observe(service));
 }
 
-updateScroll()
-addEventListener('scroll', updateScroll, {passive:true})
-
-document.querySelectorAll('.service-toggle').forEach(toggle => {
-  toggle.addEventListener('click', () => {
-    const service = toggle.closest('.service')
-    const open = !service.classList.contains('open')
-    document.querySelectorAll('.service').forEach(item => {
-      item.classList.remove('open')
-      item.querySelector('.service-toggle').setAttribute('aria-expanded', 'false')
-    })
-    if (open) {
-      service.classList.add('open')
-      toggle.setAttribute('aria-expanded', 'true')
-    }
-  })
-})
-
-const reveals = document.querySelectorAll('.reveal')
-if (reduceMotion || isScreenshot || !('IntersectionObserver' in window)) {
-  reveals.forEach(element => element.classList.add('visible'))
+const reveals = document.querySelectorAll(".reveal");
+if (reduceMotion || isScreenshot || !("IntersectionObserver" in window)) {
+  reveals.forEach(element => element.classList.add("visible"));
 } else {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) return
-      entry.target.classList.add('visible')
-      observer.unobserve(entry.target)
-    })
-  }, {rootMargin:'0px 0px -8% 0px',threshold:.08})
-  reveals.forEach(element => observer.observe(element))
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    });
+  }, {rootMargin:"0px 0px -8% 0px",threshold:.08});
+  reveals.forEach(element => observer.observe(element));
 }
 
-const chatLauncher = document.getElementById('chat-launcher')
-const chatPanel = document.getElementById('chat-panel')
-const chatClose = document.getElementById('chat-close')
-const chatForm = document.getElementById('chat-form')
-const chatInput = document.getElementById('chat-input')
-const chatMessages = document.getElementById('chat-messages')
-const chatSend = chatForm.querySelector('button')
-const chatHistory = []
-
-const setChatOpen = open => {
-  chatPanel.classList.toggle('open', open)
-  chatPanel.setAttribute('aria-hidden', String(!open))
-  chatLauncher.setAttribute('aria-expanded', String(open))
-  if (open) setTimeout(() => chatInput.focus(), 180)
+const calendarDays = document.getElementById("calendar-days");
+const contactDate = document.getElementById("contact-date");
+const dayFormat = new Intl.DateTimeFormat("pl-PL",{weekday:"short"});
+const monthFormat = new Intl.DateTimeFormat("pl-PL",{day:"numeric",month:"short"});
+const availableDays = [];
+for (let offset=1; availableDays.length<6; offset++) {
+  const date = new Date();
+  date.setDate(date.getDate()+offset);
+  if (date.getDay() !== 0 && date.getDay() !== 6) availableDays.push(date);
+}
+availableDays.forEach(date => {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "day-option";
+  button.dataset.date = date.toLocaleDateString("pl-PL");
+  button.innerHTML = `<span>${dayFormat.format(date)}</span><strong>${monthFormat.format(date)}</strong>`;
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".day-option").forEach(item => item.classList.remove("selected"));
+    button.classList.add("selected");
+    updateSelectedDate();
+  });
+  calendarDays.appendChild(button);
+});
+document.querySelectorAll(".time-option").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".time-option").forEach(item => item.classList.remove("selected"));
+    button.classList.add("selected");
+    updateSelectedDate();
+  });
+});
+function updateSelectedDate(){
+  const day = document.querySelector(".day-option.selected")?.dataset.date || "";
+  const time = document.querySelector(".time-option.selected")?.textContent || "";
+  contactDate.value = [day,time].filter(Boolean).join(", ");
 }
 
-chatLauncher.addEventListener('click', () => setChatOpen(!chatPanel.classList.contains('open')))
-chatClose.addEventListener('click', () => {
-  setChatOpen(false)
-  chatLauncher.focus()
-})
+document.getElementById("contact-form").addEventListener("submit", event => {
+  event.preventDefault();
+  const data = new FormData(event.currentTarget);
+  const message = [
+    "Dzień dobry, chciałabym/chciałbym porozmawiać o nieruchomości.",
+    `Imię: ${data.get("name")}`,
+    `Telefon: ${data.get("phone")}`,
+    `Temat: ${data.get("topic")}`,
+    data.get("date") ? `Preferowany termin: ${data.get("date")}` : ""
+  ].filter(Boolean).join("\n");
+  location.href = `sms:+48668887845?body=${encodeURIComponent(message)}`;
+});
 
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && chatPanel.classList.contains('open')) {
-    setChatOpen(false)
-    chatLauncher.focus()
-  }
-})
-
-const addChatMessage = (text, type) => {
-  const message = document.createElement('div')
-  message.className = `chat-message ${type}`
-  message.textContent = text
-  chatMessages.appendChild(message)
-  chatMessages.scrollTop = chatMessages.scrollHeight
-  return message
-}
-
-chatForm.addEventListener('submit', async event => {
-  event.preventDefault()
-  const text = chatInput.value.trim()
-  if (!text || chatInput.disabled) return
-  addChatMessage(text, 'user')
-  chatInput.value = ''
-  chatInput.disabled = true
-  chatSend.disabled = true
-  const typing = addChatMessage('Piszę odpowiedź…', 'bot typing')
-
+const chatForm = document.getElementById("chat-form");
+const chatInput = document.getElementById("chat-input");
+const chatMessages = document.getElementById("chat-messages");
+const chatSend = chatForm.querySelector("button");
+const chatHistory = [];
+const addChatMessage = (text,type) => {
+  const message = document.createElement("div");
+  message.className = `chat-message ${type}`;
+  message.textContent = text;
+  chatMessages.appendChild(message);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  return message;
+};
+chatForm.addEventListener("submit", async event => {
+  event.preventDefault();
+  const text = chatInput.value.trim();
+  if (!text || chatInput.disabled) return;
+  addChatMessage(text,"user");
+  chatInput.value = "";
+  chatInput.disabled = true;
+  chatSend.disabled = true;
+  const typing = addChatMessage("Piszę odpowiedź…","bot typing");
   try {
-    const response = await fetch('/api/chat', {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
+    const response = await fetch("/api/chat",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
       body:JSON.stringify({message:text,history:chatHistory})
-    })
-    const data = await response.json()
-    if (!response.ok) throw new Error(data.error || 'Nie udało się uzyskać odpowiedzi.')
-    typing.remove()
-    addChatMessage(data.reply, 'bot')
-    chatHistory.push({role:'user',text},{role:'model',text:data.reply})
-    if (chatHistory.length > 10) chatHistory.splice(0,chatHistory.length - 10)
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || "Nie udało się uzyskać odpowiedzi.");
+    typing.remove();
+    addChatMessage(data.reply,"bot");
+    chatHistory.push({role:"user",text},{role:"model",text:data.reply});
+    if (chatHistory.length>10) chatHistory.splice(0,chatHistory.length-10);
   } catch (error) {
-    typing.remove()
-    addChatMessage(error.message || 'Asystent jest chwilowo niedostępny. Spróbuj ponownie.', 'bot error')
+    typing.remove();
+    addChatMessage(error.message || "Asystent jest chwilowo niedostępny. Spróbuj ponownie.","bot error");
   } finally {
-    chatInput.disabled = false
-    chatSend.disabled = false
-    chatInput.focus()
+    chatInput.disabled = false;
+    chatSend.disabled = false;
+    chatInput.focus();
   }
-})
+});
 </script>
 </body>
 </html>

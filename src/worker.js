@@ -148,6 +148,12 @@ export default {
       return json({ error: "Nie znaleziono endpointu." }, 404);
     }
 
-    return env.ASSETS.fetch(request);
+    const asset = await env.ASSETS.fetch(request);
+    const contentType = asset.headers.get("Content-Type") || "";
+    if (!contentType.includes("text/html")) return asset;
+
+    const response = new Response(asset.body, asset);
+    response.headers.set("Cache-Control", "no-cache, no-store, must-revalidate");
+    return response;
   },
 };
