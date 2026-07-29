@@ -1864,6 +1864,83 @@ main>section:not(.hero){margin-top:clamp(28px,4vw,58px)}
   .step,.step:nth-child(2),.step:nth-child(4),.step.active{min-height:0;padding:28px 24px;transform:none}
   .step h3,.step.active h3{margin:54px 0 18px}
 }
+
+/* Clear section rhythm and a single-surface assistant */
+main>section:not(.hero){
+  margin-top:0;
+  border-top:clamp(30px,4vw,58px) solid #fffdf9 !important;
+}
+.service,.service.open{
+  transition:min-height 360ms cubic-bezier(.23,1,.32,1),background-color 220ms ease,
+    border-color 220ms ease,box-shadow 300ms ease,opacity 220ms ease;
+}
+.step,.step:nth-child(2),.step:nth-child(4),.step.active{
+  transition:transform 220ms cubic-bezier(.23,1,.32,1),background-color 220ms ease,
+    border-color 220ms ease,box-shadow 300ms ease;
+}
+.quote-section{padding:clamp(82px,9vw,124px) 0}
+.quote-assistant{
+  height:min(760px,76svh);
+  min-height:650px;
+  grid-template-rows:auto auto minmax(0,1fr) auto auto;
+  gap:0;
+  border:0;
+  background:
+    radial-gradient(circle at 92% 0,rgba(213,184,120,.12),transparent 30%),
+    linear-gradient(145deg,#654331,#4b2e20);
+  box-shadow:0 40px 100px rgba(31,14,7,.3);
+}
+.quote-assistant .tool-head{margin:0 0 12px}
+.quote-assistant .tool-head h3{
+  max-width:18ch;
+  font-size:clamp(2.4rem,5vw,5.4rem);
+  line-height:.94;
+  letter-spacing:-.045em;
+}
+.quote-assistant .ai-watermark{margin-left:auto}
+.assistant-intro{
+  max-width:58ch;
+  margin:0 0 clamp(30px,4vh,48px);
+  color:rgba(255,250,242,.7);
+  font-size:clamp(1rem,1.2vw,1.18rem);
+}
+.quote-assistant .chat-messages{
+  width:100%;
+  min-height:0;
+  height:100%;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  scrollbar-gutter:auto;
+}
+.quote-assistant .chat-message{
+  max-width:min(860px,92%);
+  padding:0;
+  border-radius:0;
+  font-size:clamp(1.15rem,1.6vw,1.7rem);
+  line-height:1.55;
+}
+.quote-assistant .chat-message.bot{
+  color:#fffaf2;
+  background:transparent;
+}
+.quote-assistant .chat-message.user{
+  padding:13px 17px;
+  border-radius:18px;
+}
+.quote-assistant .faq-prompts{
+  padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+@media (max-width:640px){
+  main>section:not(.hero){border-top-width:24px !important}
+  .quote-assistant{height:700px;min-height:640px;padding:26px 22px}
+  .quote-assistant .tool-head h3{font-size:clamp(2.6rem,13vw,4rem)}
+  .assistant-intro{margin-bottom:28px}
+  .quote-assistant .chat-message{font-size:1.08rem}
+}
 </style>
 </head>
 <body>
@@ -2005,12 +2082,12 @@ main>section:not(.hero){margin-top:clamp(28px,4vw,58px)}
       </div>
       <section class="assistant-card quote-assistant reveal" aria-labelledby="assistant-title">
         <div class="tool-head">
-          <h3 id="assistant-title">Asystent AI</h3>
+          <h3 id="assistant-title">Zadaj mi jakiekolwiek pytanie</h3>
           <span class="ai-watermark" aria-hidden="true">AI</span>
         </div>
-        <p class="assistant-intro">Opisz krótko swoją sytuację. Asystent pomoże uporządkować pierwsze pytania dotyczące sprzedaży, zakupu lub wynajmu nieruchomości.</p>
+        <p class="assistant-intro">Asystent AI pomoże Ci uporządkować pierwsze pytania dotyczące sprzedaży, zakupu lub wynajmu nieruchomości.</p>
         <div class="chat-messages" id="chat-messages" aria-live="polite">
-          <div class="chat-message bot">Dzień dobry! Chętnie odpowiem na pierwsze pytanie dotyczące Twojego problemu.</div>
+          <div class="chat-message bot">Dzień dobry, chętnie odpowiem i wysłucham Twojego problemu.</div>
         </div>
         <div class="faq-prompts" aria-label="Najczęściej zadawane pytania">
           <button type="button" data-question="Jak przygotować mieszkanie do sprzedaży?">Jak przygotować mieszkanie?</button>
