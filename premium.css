@@ -95,9 +95,9 @@ textarea,
   min-height: 50px;
   padding-inline: 24px;
   border-color: rgba(200, 171, 120, .55);
-  background: linear-gradient(135deg, #34241e 0%, #8b623e 58%, #d0b17d 100%);
+  background: #34241e;
   color: var(--white);
-  box-shadow: 0 16px 34px rgba(43, 33, 28, .16), inset 0 1px 0 rgba(255, 253, 248, .24);
+  box-shadow: none;
   transition: color 180ms ease, background 220ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
@@ -140,11 +140,19 @@ textarea,
 }
 
 .hero h1 {
-  max-width: 10.4ch;
-  font-size: clamp(4rem, 7vw, 6rem);
-  line-height: .91;
+  max-width: 9.8ch;
+  font-size: clamp(3.2rem, 6.1vw, 5.35rem);
+  line-height: .94;
   letter-spacing: -.035em;
   text-shadow: none;
+}
+
+.hero-agent {
+  margin: clamp(24px, 3.2vw, 38px) 0 0;
+  color: #eadbc1;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.45rem, 2.1vw, 2.05rem);
+  line-height: 1.08;
 }
 
 .hero-photo {
@@ -231,7 +239,7 @@ textarea,
 
 /* Zakres współpracy: duży, zwarty pierwszy temat bez pustego „ekranu przejściowego”. */
 .services {
-  height: 190svh !important;
+  height: 260svh !important;
   padding: 0 !important;
   color: var(--ink);
   background: var(--paper);
@@ -301,7 +309,7 @@ textarea,
   background: linear-gradient(135deg, rgba(255, 253, 248, .62), rgba(240, 231, 216, .46)) !important;
   box-shadow: 0 18px 42px rgba(43, 33, 28, .1) !important;
   overflow: hidden !important;
-  transition: border-color 300ms ease, background 420ms ease, box-shadow 420ms var(--ease), transform 420ms var(--ease) !important;
+  transition: border-color 520ms ease, background 720ms ease, box-shadow 720ms var(--ease), transform 720ms var(--ease) !important;
 }
 
 .service.open {
@@ -380,7 +388,7 @@ textarea,
 .service-body {
   display: grid !important;
   grid-template-rows: 0fr !important;
-  transition: grid-template-rows 420ms var(--ease);
+  transition: grid-template-rows 720ms var(--ease);
 }
 
 .service.open .service-body {
@@ -394,7 +402,7 @@ textarea,
 .service-content {
   padding: 0 20px 0 92px !important;
   opacity: 0;
-  transition: padding 420ms var(--ease), opacity 240ms ease;
+  transition: padding 720ms var(--ease), opacity 420ms ease 80ms;
 }
 
 .service.open .service-content {
@@ -620,24 +628,41 @@ textarea,
 .quote-assistant {
   --mx: 50%;
   --my: 20%;
-  width: min(1040px, 100%);
-  padding: clamp(22px, 2.6vw, 34px) !important;
+  position: relative;
+  isolation: isolate;
+  width: min(1180px, 100%);
+  padding: clamp(24px, 2.8vw, 38px) !important;
   border: 1px solid rgba(43, 33, 28, .1) !important;
   border-radius: 24px !important;
   color: var(--ink) !important;
-  background:
-    radial-gradient(circle at var(--mx) var(--my), rgba(200, 171, 120, .34), transparent 34%),
-    linear-gradient(135deg, #f5efe5 0%, #e9dcc8 100%) !important;
-  box-shadow: 0 42px 104px rgba(43, 33, 28, .24), 0 0 0 1px rgba(255, 253, 248, .46) inset !important;
+  background: linear-gradient(135deg, #f8f2e8 0%, #efe3d0 100%) !important;
+  box-shadow: 0 30px 78px rgba(43, 33, 28, .16), 0 0 0 1px rgba(255, 253, 248, .46) inset !important;
   transition: box-shadow 220ms ease, transform 220ms ease;
 }
 
+.quote-assistant::before {
+  content: "";
+  position: absolute;
+  inset: -28px;
+  z-index: -1;
+  border-radius: 34px;
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--mx) var(--my), rgba(200, 171, 120, .46), transparent 36%);
+  filter: blur(18px);
+  transition: opacity 220ms ease;
+}
+
 .quote-assistant:hover {
-  box-shadow: 0 52px 124px rgba(43, 33, 28, .3), 0 18px 40px rgba(139, 98, 62, .16), 0 0 0 1px rgba(255, 253, 248, .58) inset !important;
+  box-shadow: 0 34px 86px rgba(43, 33, 28, .18), 0 0 0 1px rgba(255, 253, 248, .58) inset !important;
+}
+
+.quote-assistant:hover::before {
+  opacity: 1;
 }
 
 .assistant-section-label {
-  width: min(1040px, 100%);
+  width: min(1180px, 100%);
   margin-bottom: 10px;
   color: #8b623e;
   font-size: 9px;
@@ -654,8 +679,8 @@ textarea,
 .quote-assistant .tool-head h3 {
   margin: 0;
   color: var(--ink);
-  font-size: 2.1rem !important;
-  line-height: 1;
+  font-size: clamp(1.85rem, 2.6vw, 2.8rem) !important;
+  line-height: 1.05;
 }
 
 .ai-watermark {
@@ -679,8 +704,8 @@ textarea,
 }
 
 .chat-messages {
-  max-height: 36vh !important;
-  min-height: 260px !important;
+  max-height: 54vh !important;
+  min-height: clamp(360px, 46vh, 540px) !important;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -733,18 +758,27 @@ textarea,
 .faq-prompts {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 10px;
+  gap: 10px;
+  margin-top: 14px;
+  transition: opacity 180ms ease, max-height 240ms ease, margin 240ms ease;
+}
+
+.faq-prompts.hidden {
+  max-height: 0;
+  margin-top: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .faq-prompts button {
-  min-height: 34px;
-  padding: 0 12px;
+  min-height: 44px;
+  padding: 0 16px;
   border: 1px solid rgba(139, 98, 62, .18);
   color: rgba(43, 33, 28, .76);
   background: linear-gradient(135deg, rgba(255, 253, 248, .82), rgba(231, 217, 194, .58));
   box-shadow: 0 8px 18px rgba(43, 33, 28, .08);
-  font-size: 9px;
+  font-size: 11px;
   cursor: pointer;
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, color 180ms ease;
 }
@@ -760,18 +794,18 @@ textarea,
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 6px;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .chat-input {
   min-width: 0;
-  height: 42px;
-  padding: 0 12px;
+  height: 50px;
+  padding: 0 15px;
   border: 1px solid rgba(34, 29, 24, .16);
   border-radius: 999px !important;
   background: rgba(255, 253, 248, .72);
   color: var(--ink);
-  font-size: .9rem;
+  font-size: .98rem;
 }
 
 .chat-input::placeholder {
@@ -809,10 +843,11 @@ textarea,
 
 .contact {
   color: var(--white);
-  min-height: 100svh;
+  min-height: auto;
   display: grid;
   align-items: center;
-  padding-bottom: clamp(48px, 5vw, 78px) !important;
+  padding-top: clamp(70px, 7vw, 110px) !important;
+  padding-bottom: clamp(28px, 3vw, 46px) !important;
   background: var(--brown-deep);
 }
 

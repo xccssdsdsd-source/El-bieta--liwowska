@@ -15,8 +15,7 @@
   const services = [...document.querySelectorAll('.service')]
   const serviceSection = document.querySelector('.services')
   let activeServiceIndex = -1
-  const serviceThresholds = [0.16, 0.38, 0.6, 0.82]
-  let serviceWheelLocked = false
+  const serviceThresholds = [0.1, 0.36, 0.62, 0.88]
 
   const setOpenService = selected => {
     activeServiceIndex = services.indexOf(selected)
@@ -49,7 +48,7 @@
 
     const rect = serviceSection.getBoundingClientRect()
     const scrollRange = Math.max(1, serviceSection.offsetHeight - innerHeight)
-    const progress = Math.max(0, Math.min(0.9999, -rect.top / scrollRange))
+    const progress = Math.max(0, Math.min(1, -rect.top / scrollRange))
     let nextIndex = -1
     serviceThresholds.forEach((threshold, index) => {
       if (progress >= threshold) nextIndex = index
@@ -57,45 +56,9 @@
     if (nextIndex !== activeServiceIndex) setOpenServiceIndex(nextIndex)
   }
 
-  const scrollToServiceIndex = index => {
-    if (!serviceSection) return
-    const scrollRange = Math.max(1, serviceSection.offsetHeight - innerHeight)
-    const progress = index < 0 ? 0 : serviceThresholds[Math.min(index, serviceThresholds.length - 1)]
-    scrollTo({
-      top: serviceSection.offsetTop + (scrollRange * progress),
-      behavior: reduceMotion ? 'auto' : 'smooth'
-    })
-  }
-
-  const handleServicesWheel = event => {
-    if (!serviceSection || !services.length || innerWidth <= 980 || reduceMotion) return
-
-    const rect = serviceSection.getBoundingClientRect()
-    const inPinnedRange = rect.top <= 2 && rect.bottom >= innerHeight - 2
-    if (!inPinnedRange || Math.abs(event.deltaY) < 8) return
-
-    const direction = event.deltaY > 0 ? 1 : -1
-    const canMoveDown = direction > 0 && activeServiceIndex < services.length - 1
-    const canMoveUp = direction < 0 && activeServiceIndex > -1
-    if (!canMoveDown && !canMoveUp) return
-
-    event.preventDefault()
-    if (serviceWheelLocked) return
-
-    const step = Math.abs(event.deltaY) > 900 ? 2 : 1
-    const nextIndex = Math.max(-1, Math.min(services.length - 1, activeServiceIndex + (direction * step)))
-    serviceWheelLocked = true
-    setOpenServiceIndex(nextIndex)
-    scrollToServiceIndex(nextIndex)
-    setTimeout(() => {
-      serviceWheelLocked = false
-    }, reduceMotion ? 80 : 560)
-  }
-
   setOpenServiceIndex(innerWidth <= 980 ? 0 : -1)
   updateServices()
   addEventListener('scroll', updateServices, { passive: true })
-  addEventListener('wheel', handleServicesWheel, { passive: false })
   addEventListener('resize', updateServices)
 
   const steps = [...document.querySelectorAll('.step')]
@@ -181,6 +144,7 @@
   const chatMessages = document.getElementById('chat-messages')
   const chatSend = chatForm?.querySelector('button[type="submit"]')
   const assistant = document.querySelector('.quote-assistant')
+  const faqPrompts = document.querySelector('.faq-prompts')
   const chatHistory = []
 
   assistant?.addEventListener('pointermove', event => {
@@ -273,6 +237,7 @@
     const text = chatInput.value.trim()
     if (!text || chatInput.disabled) return
 
+    faqPrompts?.classList.add('hidden')
     addChatMessage(text, 'user')
     chatInput.value = ''
     chatInput.disabled = true
