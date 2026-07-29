@@ -40,7 +40,12 @@
   --sh-4:0 8px 18px rgba(74,58,36,.07),0 44px 84px -34px rgba(74,58,36,.32);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:auto;
+  overflow-y:auto;
+  overscroll-behavior-y:auto;
+}
 body{
   font-family:'Karla',system-ui,sans-serif;
   color:var(--ink);
@@ -363,8 +368,8 @@ body.no-anim .reveal>*{opacity:1;transform:none}
   .section-intro{grid-template-columns:minmax(0,1.05fr) minmax(18rem,.78fr)}
 }
 @media(max-width:899px){
-  .availability{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:1.25rem;margin-inline:-1.25rem;padding:0 1.25rem 1rem;overscroll-behavior-inline:contain;scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
-  .availability-card{flex:0 0 min(86vw,28rem);scroll-snap-align:start}
+  .availability{display:grid;grid-template-columns:1fr;overflow:visible;margin-inline:0;padding:0}
+  .availability-card{min-width:0}
 }
 @media(max-width:599px){
   .hero-actions .btn{width:100%}
@@ -698,8 +703,6 @@ body.no-anim .reveal>*{opacity:1;transform:none}
 <script>
 const isScreenshot = location.search.includes('screenshot')
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
-const isMobile = matchMedia('(max-width: 768px)').matches
-
 const nav = document.getElementById('nav')
 const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60)
 onScroll()
@@ -786,11 +789,6 @@ if (!reduceMotion && !isScreenshot && window.gsap) {
     .from('.hero-media .frame', {y:46, opacity:0, scale:0.96, duration:1.6}, 0.25)
     .from('.hero-scroll', {opacity:0, duration:1}, 0.9)
 
-  gsap.to('.hero-media .frame', {
-    yPercent: -9, ease: 'none',
-    scrollTrigger: {trigger:'.hero', start:'top top', end:'bottom top', scrub:0.6}
-  })
-
   gsap.utils.toArray('.rule').forEach(r => {
     ScrollTrigger.create({trigger:r, start:'top 88%', onEnter:() => r.classList.add('on')})
   })
@@ -827,14 +825,6 @@ if (!reduceMotion && !isScreenshot && window.gsap) {
     gsap.from(m, {
       clipPath: 'inset(0% 0% 100% 0%)', duration: 1.2, ease: 'power4.out',
       scrollTrigger: {trigger: m, start: 'top 92%', once: true}
-    })
-  })
-
-  gsap.utils.toArray('.prop .media img').forEach(img => {
-    gsap.set(img, {scale: 1.12})
-    gsap.to(img, {
-      yPercent: -5, ease: 'none',
-      scrollTrigger: {trigger: img, start: 'top bottom', end: 'bottom top', scrub: 0.8}
     })
   })
 
