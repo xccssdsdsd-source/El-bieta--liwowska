@@ -15,6 +15,8 @@
   const services = [...document.querySelectorAll('.service')]
   const serviceSection = document.querySelector('.services')
   let activeServiceIndex = -1
+  const serviceThresholds = [0.16, 0.38, 0.6, 0.82]
+  let serviceWheelLocked = false
 
   const setOpenService = selected => {
     activeServiceIndex = services.indexOf(selected)
@@ -48,17 +50,52 @@
     const rect = serviceSection.getBoundingClientRect()
     const scrollRange = Math.max(1, serviceSection.offsetHeight - innerHeight)
     const progress = Math.max(0, Math.min(0.9999, -rect.top / scrollRange))
-    const thresholds = [0.16, 0.38, 0.6, 0.82]
     let nextIndex = -1
-    thresholds.forEach((threshold, index) => {
+    serviceThresholds.forEach((threshold, index) => {
       if (progress >= threshold) nextIndex = index
     })
     if (nextIndex !== activeServiceIndex) setOpenServiceIndex(nextIndex)
   }
 
+  const scrollToServiceIndex = index => {
+    if (!serviceSection) return
+    const scrollRange = Math.max(1, serviceSection.offsetHeight - innerHeight)
+    const progress = index < 0 ? 0 : serviceThresholds[Math.min(index, serviceThresholds.length - 1)]
+    scrollTo({
+      top: serviceSection.offsetTop + (scrollRange * progress),
+      behavior: reduceMotion ? 'auto' : 'smooth'
+    })
+  }
+
+  const handleServicesWheel = event => {
+    if (!serviceSection || !services.length || innerWidth <= 980 || reduceMotion) return
+
+    const rect = serviceSection.getBoundingClientRect()
+    const inPinnedRange = rect.top <= 2 && rect.bottom >= innerHeight - 2
+    if (!inPinnedRange || Math.abs(event.deltaY) < 8) return
+
+    const direction = event.deltaY > 0 ? 1 : -1
+    const canMoveDown = direction > 0 && activeServiceIndex < services.length - 1
+    const canMoveUp = direction < 0 && activeServiceIndex > -1
+    if (!canMoveDown && !canMoveUp) return
+
+    event.preventDefault()
+    if (serviceWheelLocked) return
+
+    const step = Math.abs(event.deltaY) > 900 ? 2 : 1
+    const nextIndex = Math.max(-1, Math.min(services.length - 1, activeServiceIndex + (direction * step)))
+    serviceWheelLocked = true
+    setOpenServiceIndex(nextIndex)
+    scrollToServiceIndex(nextIndex)
+    setTimeout(() => {
+      serviceWheelLocked = false
+    }, reduceMotion ? 80 : 560)
+  }
+
   setOpenServiceIndex(innerWidth <= 980 ? 0 : -1)
   updateServices()
   addEventListener('scroll', updateServices, { passive: true })
+  addEventListener('wheel', handleServicesWheel, { passive: false })
   addEventListener('resize', updateServices)
 
   const steps = [...document.querySelectorAll('.step')]
@@ -145,6 +182,12 @@
   const chatSend = chatForm?.querySelector('button[type="submit"]')
   const assistant = document.querySelector('.quote-assistant')
   const chatHistory = []
+
+  assistant?.addEventListener('pointermove', event => {
+    const rect = assistant.getBoundingClientRect()
+    assistant.style.setProperty('--mx', `${((event.clientX - rect.left) / rect.width) * 100}%`)
+    assistant.style.setProperty('--my', `${((event.clientY - rect.top) / rect.height) * 100}%`)
+  })
 
   const appendInline = (parent, text) => {
     const parts = text.split(/(\*\*.+?\*\*)/g)
