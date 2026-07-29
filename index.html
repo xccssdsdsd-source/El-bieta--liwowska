@@ -260,7 +260,7 @@ h1,h2,h3,.serif{font-family:"Italiana",serif;font-weight:400}
 .service-index{color:#d7c4a4;font-family:"Italiana",serif;font-size:28px;transition:font-size 450ms var(--ease),color 450ms ease}
 .service.open .service-toggle{padding:58px 64px 26px}
 .service.open .service-index{color:var(--gold);font-size:38px}
-.service-title{font-family:"Italiana",serif;font-size:3.35rem;line-height:1.02;transition:font-size 450ms var(--ease),color 450ms ease}
+.service-title{min-width:0;font-family:"Italiana",serif;font-size:3.35rem;line-height:1.02;overflow-wrap:break-word;transition:font-size 450ms var(--ease),color 450ms ease}
 .service.open .service-title{font-size:5.7rem}
 .service-status{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.28);transition:transform 450ms var(--ease),background-color 450ms ease}
 .service.open .service-status{background:var(--forest);transform:scale(1.55)}
@@ -446,13 +446,14 @@ h1,h2,h3,.serif{font-family:"Italiana",serif;font-weight:400}
   .service-list{min-height:500px}
   .service{border-radius:24px}
   .service.open{border-radius:30px}
-  .service-toggle{grid-template-columns:44px 1fr auto;gap:14px;padding:34px 22px 18px}
-  .service.open .service-toggle{padding:38px 24px 20px}
+  .service-toggle{display:block;position:relative;padding:34px 24px 18px}
+  .service.open .service-toggle{padding:42px 28px 22px}
   .service-index{font-size:18px}
   .service.open .service-index{font-size:25px}
-  .service-title{font-size:2rem}
-  .service.open .service-title{font-size:3rem}
-  .service-content{grid-template-columns:44px 1fr;gap:14px;padding:0 24px 34px}
+  .service-title{display:block;margin-top:26px;font-size:1.85rem;overflow-wrap:normal}
+  .service.open .service-title{font-size:2.66rem}
+  .service-status{position:absolute;top:50%;right:28px;width:8px;height:8px}
+  .service-content{grid-template-columns:36px 1fr;gap:12px;padding:0 24px 34px}
   .service-content p{font-size:.95rem;line-height:1.75}
   .process-title{white-space:normal}
   .steps{grid-template-columns:1fr}
