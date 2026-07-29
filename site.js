@@ -13,9 +13,22 @@
   addEventListener('scroll', updateScroll, { passive: true })
 
   const services = [...document.querySelectorAll('.service')]
+  const serviceSection = document.querySelector('.services')
+  let activeServiceIndex = -1
+
   const setOpenService = selected => {
+    activeServiceIndex = services.indexOf(selected)
     services.forEach(service => {
       const open = service === selected
+      service.classList.toggle('open', open)
+      service.querySelector('.service-toggle')?.setAttribute('aria-expanded', String(open))
+    })
+  }
+
+  const setOpenServiceIndex = index => {
+    activeServiceIndex = Math.max(-1, Math.min(services.length - 1, index))
+    services.forEach((service, serviceIndex) => {
+      const open = serviceIndex === activeServiceIndex
       service.classList.toggle('open', open)
       service.querySelector('.service-toggle')?.setAttribute('aria-expanded', String(open))
     })
@@ -24,6 +37,29 @@
   services.forEach(service => {
     service.querySelector('.service-toggle')?.addEventListener('click', () => setOpenService(service))
   })
+
+  const updateServices = () => {
+    if (!serviceSection || !services.length) return
+    if (innerWidth <= 980 || reduceMotion) {
+      if (activeServiceIndex < 0) setOpenServiceIndex(0)
+      return
+    }
+
+    const rect = serviceSection.getBoundingClientRect()
+    const scrollRange = Math.max(1, serviceSection.offsetHeight - innerHeight)
+    const progress = Math.max(0, Math.min(0.9999, -rect.top / scrollRange))
+    const thresholds = [0.16, 0.38, 0.6, 0.82]
+    let nextIndex = -1
+    thresholds.forEach((threshold, index) => {
+      if (progress >= threshold) nextIndex = index
+    })
+    if (nextIndex !== activeServiceIndex) setOpenServiceIndex(nextIndex)
+  }
+
+  setOpenServiceIndex(innerWidth <= 980 ? 0 : -1)
+  updateServices()
+  addEventListener('scroll', updateServices, { passive: true })
+  addEventListener('resize', updateServices)
 
   const steps = [...document.querySelectorAll('.step')]
   const process = document.querySelector('.process')
@@ -172,7 +208,10 @@
 
     message.append(avatar, content)
     chatMessages?.append(message)
-    requestAnimationFrame(() => message.scrollIntoView({ block: 'nearest', behavior: reduceMotion ? 'auto' : 'smooth' }))
+    requestAnimationFrame(() => {
+      if (!chatMessages) return
+      chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: reduceMotion ? 'auto' : 'smooth' })
+    })
     return message
   }
 

@@ -7,6 +7,9 @@ await mkdir("dist/.openai", { recursive: true });
 
 await Promise.all([
   cp("index.html", "dist/index.html"),
+  cp("base.css", "dist/base.css"),
+  cp("premium.css", "dist/premium.css"),
+  cp("site.js", "dist/site.js"),
   cp("src/worker.js", "dist/server/index.js"),
   cp(".openai/hosting.json", "dist/.openai/hosting.json"),
   cp("assets/img/hero-elzbieta.jpg", "dist/assets/img/hero-elzbieta.jpg"),

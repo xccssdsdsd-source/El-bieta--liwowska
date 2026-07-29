@@ -1,18 +1,20 @@
 :root {
-  --paper: #f7f4ee;
-  --paper-warm: #ede6db;
-  --white: #fffdf9;
-  --ink: #2b211c;
-  --brown: #4b3024;
-  --brown-deep: #302019;
-  --sand: #d6b98e;
+  --paper: #f5f2ec;
+  --paper-warm: #f5f2ec;
+  --white: #fffdf8;
+  --ink: #221d18;
+  --brown: #2d241f;
+  --brown-deep: #181513;
+  --sand: #c8ab78;
+  --stone: #8e877b;
   --line: rgba(43, 33, 28, .14);
   --shell: min(1320px, calc(100% - 64px));
   --ease: cubic-bezier(.16, 1, .3, 1);
 }
 
 html {
-  scroll-padding-top: 72px;
+  scroll-padding-top: 0;
+  scroll-snap-type: y proximity;
 }
 
 body {
@@ -23,6 +25,10 @@ body {
 }
 
 body::before {
+  display: none;
+}
+
+.progress {
   display: none;
 }
 
@@ -98,6 +104,7 @@ textarea,
 }
 
 .nav {
+  display: none !important;
   padding: 10px 0;
   border-bottom: 1px solid rgba(43, 33, 28, .1);
   background: rgba(247, 244, 238, .96);
@@ -158,6 +165,7 @@ textarea,
 .quote-section,
 .contact {
   position: relative;
+  scroll-snap-align: start;
 }
 
 .approach::before,
@@ -166,7 +174,7 @@ textarea,
 .process::before,
 .quote-section::before,
 .contact::before {
-  content: "";
+  content: none;
   position: absolute;
   inset: 0 0 auto;
   height: 1px;
@@ -178,7 +186,7 @@ textarea,
 }
 
 .portrait {
-  background: var(--white);
+  background: var(--paper);
 }
 
 .approach-grid,
@@ -203,46 +211,57 @@ textarea,
 
 /* Zakres współpracy: duży, zwarty pierwszy temat bez pustego „ekranu przejściowego”. */
 .services {
-  padding: clamp(86px, 9vw, 126px) 0 !important;
+  height: 360svh !important;
+  padding: 0 !important;
   color: var(--ink);
-  background: var(--paper-warm);
+  background: var(--paper);
 }
 
 .services-sticky {
-  position: static !important;
-  height: auto !important;
-  min-height: 0 !important;
-  padding: 0 !important;
+  position: sticky !important;
+  top: 0 !important;
+  height: 100svh !important;
+  min-height: 650px;
+  display: grid !important;
+  align-items: center;
+  overflow: hidden !important;
+  padding: clamp(42px, 6vh, 70px) 0 clamp(34px, 5vh, 58px) !important;
+  background: var(--paper) !important;
+}
+
+.services-sticky > .shell {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: clamp(20px, 3vh, 30px);
 }
 
 .services-head {
-  margin-bottom: clamp(30px, 4vw, 52px) !important;
+  margin: 0 !important;
 }
 
 .services-head > div {
   display: grid;
-  grid-template-columns: minmax(0, .9fr) minmax(320px, .7fr);
-  gap: clamp(24px, 5vw, 90px);
-  align-items: end;
+  gap: 8px;
 }
 
 .services-head .section-title {
-  max-width: 10ch;
+  max-width: none;
+  font-size: 3.05rem;
+  line-height: 1.02;
+  white-space: nowrap;
 }
 
 .services-head::after {
-  content: "Sprzedaż otwiera proces, dlatego startuje szerzej i bliżej treści.";
-  max-width: 34ch;
-  color: rgba(43, 33, 28, .56);
-  font-size: .92rem;
-  line-height: 1.55;
+  content: none;
 }
 
 .service-list {
   display: block !important;
-  height: auto !important;
+  height: 100% !important;
   min-height: 0 !important;
   border-top: 1px solid rgba(43, 33, 28, .25);
+  align-self: stretch;
 }
 
 .service,
@@ -265,12 +284,12 @@ textarea,
 .service-toggle,
 .service.open .service-toggle {
   width: 100% !important;
-  min-height: 84px !important;
+  min-height: 70px !important;
   display: grid !important;
   grid-template-columns: 54px minmax(0, 1fr) 28px !important;
   align-items: center !important;
   gap: 18px !important;
-  padding: 20px 0 !important;
+  padding: 14px 0 !important;
   border: 0 !important;
   background: transparent !important;
   cursor: pointer;
@@ -291,10 +310,10 @@ textarea,
 .service.open .service-title {
   margin: 0 !important;
   color: var(--ink) !important;
-  font-size: clamp(2.1rem, 4.4vw, 5.1rem) !important;
-  line-height: 1 !important;
-  letter-spacing: -.03em !important;
-  transition: color 240ms ease;
+  font-size: 2.6rem !important;
+  line-height: .98 !important;
+  letter-spacing: -.025em !important;
+  transition: color 240ms ease, transform 360ms var(--ease);
 }
 
 .service-status {
@@ -343,25 +362,26 @@ textarea,
 }
 
 .service.open .service-content {
-  padding-bottom: 24px !important;
+  padding-bottom: 18px !important;
   opacity: 1;
 }
 
 .service-content p {
-  max-width: 70ch !important;
+  max-width: 72ch !important;
   margin: 0 !important;
   color: rgba(43, 33, 28, .7) !important;
-  font-size: 1.05rem !important;
-  line-height: 1.7 !important;
+  font-size: .98rem !important;
+  line-height: 1.55 !important;
 }
 
 .service.open .service-title {
   color: var(--brown) !important;
+  transform: translateX(10px);
 }
 
 /* Focal moment: cztery etapy przejmują kadr wraz z kolejnymi porcjami scrolla. */
 .process {
-  height: 380svh !important;
+  height: 330svh !important;
   padding: 0 !important;
   background: var(--brown-deep);
 }
@@ -374,7 +394,7 @@ textarea,
   display: grid !important;
   align-items: center;
   overflow: hidden !important;
-  padding: clamp(62px, 8vh, 92px) 0 clamp(24px, 4vh, 44px) !important;
+  padding: clamp(44px, 6vh, 68px) 0 clamp(24px, 4vh, 40px) !important;
   background: var(--brown-deep) !important;
 }
 
@@ -382,29 +402,35 @@ textarea,
   height: 100%;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
-  gap: clamp(20px, 3vh, 36px);
+  gap: clamp(16px, 2.4vh, 26px);
 }
 
 .process-head {
   margin: 0 !important;
   display: grid !important;
-  grid-template-columns: minmax(0, 1.05fr) minmax(280px, .55fr);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, .45fr);
+  grid-template-areas:
+    "eyebrow intro"
+    "title intro";
   gap: clamp(20px, 4vw, 72px);
   align-items: end;
 }
 
 .process-head .eyebrow {
+  grid-area: eyebrow;
   margin-bottom: 10px;
   color: var(--sand);
 }
 
 .process-title {
+  grid-area: title;
   max-width: none !important;
   color: var(--white);
-  font-size: clamp(2.5rem, 4.1vw, 4.8rem);
+  font-size: 3.2rem;
 }
 
 .process-head .intro {
+  grid-area: intro;
   display: block;
   max-width: 30ch;
   justify-self: end;
@@ -433,12 +459,12 @@ textarea,
   min-width: 0 !important;
   min-height: 0 !important;
   height: 100% !important;
-  flex: .44 1 0 !important;
+  flex: .64 1 0 !important;
   display: flex !important;
   flex-direction: column;
   justify-content: flex-end;
   margin: 0 !important;
-  padding: clamp(20px, 2.3vw, 34px) !important;
+  padding: clamp(20px, 2.2vw, 30px) !important;
   overflow: hidden !important;
   opacity: 1 !important;
   visibility: visible !important;
@@ -452,7 +478,7 @@ textarea,
 }
 
 .step.active {
-  flex: 6.3 1 0 !important;
+  flex: 4.8 1 0 !important;
   color: var(--brown-deep) !important;
   background: linear-gradient(180deg, #dcc197 0%, #cfaf7b 100%) !important;
 }
@@ -469,21 +495,28 @@ textarea,
 .step.active h3 {
   max-width: 8ch;
   margin: 0 !important;
-  font-size: clamp(1.9rem, 3.8vw, 4.7rem) !important;
+  font-size: 3.25rem !important;
   line-height: .94 !important;
-  letter-spacing: -.035em !important;
+  letter-spacing: -.03em !important;
+}
+
+.step:not(.active) h3 {
+  max-width: 5.5ch;
+  font-size: 1.55rem !important;
+  line-height: 1.02 !important;
+  color: rgba(255, 253, 249, .52);
 }
 
 .step p,
 .step.active p {
-  width: min(54ch, 90%);
+  width: min(52ch, 92%);
   max-height: 0;
   margin: 0 !important;
   overflow: hidden;
   opacity: 0;
   color: rgba(48, 32, 25, .72) !important;
-  font-size: .98rem !important;
-  line-height: 1.65 !important;
+  font-size: .93rem !important;
+  line-height: 1.55 !important;
   transform: translateY(14px);
   transition: max-height 500ms var(--ease), margin 500ms var(--ease), opacity 260ms ease 100ms, transform 500ms var(--ease);
 }
@@ -496,7 +529,19 @@ textarea,
 }
 
 .quote-section {
-  background: var(--paper);
+  background: var(--brown-deep);
+}
+
+.chat-section {
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding-block: clamp(64px, 8vh, 92px) !important;
+}
+
+.chat-shell {
+  display: grid;
+  justify-items: center;
 }
 
 .quote-grid {
@@ -530,11 +575,12 @@ textarea,
 
 /* Chatbot: mniejsza typografia, czytelna rama rozmowy, jeden mocny kontrast. */
 .quote-assistant {
+  width: min(920px, 100%);
   padding: clamp(22px, 2.6vw, 34px) !important;
-  border: 0 !important;
-  color: var(--white) !important;
-  background: var(--brown-deep) !important;
-  box-shadow: 20px 20px 0 rgba(75, 48, 36, .12) !important;
+  border: 1px solid rgba(255, 253, 248, .16) !important;
+  color: var(--ink) !important;
+  background: var(--white) !important;
+  box-shadow: none !important;
 }
 
 .assistant-label {
@@ -548,13 +594,13 @@ textarea,
 
 .quote-assistant .tool-head {
   align-items: center;
-  margin-bottom: 8px !important;
+  margin-bottom: 18px !important;
 }
 
 .quote-assistant .tool-head h3 {
   margin: 0;
-  color: var(--white);
-  font-size: clamp(1.35rem, 2.2vw, 2.2rem) !important;
+  color: var(--ink);
+  font-size: 2.1rem !important;
   line-height: 1;
 }
 
@@ -563,8 +609,8 @@ textarea,
   height: 42px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(214, 185, 142, .4);
-  color: var(--sand);
+  border: 1px solid rgba(34, 29, 24, .22);
+  color: var(--brown);
   font-size: 9px;
   font-weight: 600;
   letter-spacing: .12em;
@@ -579,15 +625,15 @@ textarea,
 }
 
 .chat-messages {
-  max-height: 236px !important;
-  min-height: 126px !important;
+  max-height: 36vh !important;
+  min-height: 260px !important;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 12px !important;
-  border: 1px solid rgba(255, 255, 255, .12) !important;
-  background: #241713 !important;
+  border: 1px solid rgba(34, 29, 24, .12) !important;
+  background: #f0ece3 !important;
 }
 
 .chat-message {
@@ -596,16 +642,16 @@ textarea,
   display: flex;
   gap: 8px;
   padding: 8px 10px !important;
-  color: rgba(255, 253, 249, .9);
-  background: rgba(255, 255, 255, .08);
-  font-size: .76rem !important;
+  color: rgba(34, 29, 24, .9);
+  background: var(--white);
+  font-size: .86rem !important;
   line-height: 1.5 !important;
 }
 
 .chat-message.user {
   align-self: flex-end;
-  background: var(--sand);
-  color: var(--brown-deep);
+  background: var(--brown);
+  color: var(--white);
 }
 
 .message-avatar {
@@ -659,21 +705,21 @@ textarea,
   min-width: 0;
   height: 42px;
   padding: 0 12px;
-  border: 1px solid rgba(255, 255, 255, .18);
-  background: rgba(255, 255, 255, .06);
-  color: var(--white);
-  font-size: .78rem;
+  border: 1px solid rgba(34, 29, 24, .16);
+  background: transparent;
+  color: var(--ink);
+  font-size: .9rem;
 }
 
 .chat-input::placeholder {
-  color: rgba(255, 253, 249, .55);
+  color: rgba(34, 29, 24, .48);
 }
 
 .chat-send {
   min-width: 82px;
-  border-color: var(--sand);
-  background: var(--sand);
-  color: var(--brown-deep);
+  border-color: var(--brown);
+  background: var(--brown);
+  color: var(--white);
 }
 
 .assistant-footer {
@@ -700,7 +746,10 @@ textarea,
 
 .contact {
   color: var(--white);
-  background: var(--brown);
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  background: var(--brown-deep);
 }
 
 .contact-grid {
@@ -750,6 +799,66 @@ textarea,
   color: var(--ink) !important;
   background: var(--paper) !important;
   box-shadow: none !important;
+}
+
+.contact .tool-card {
+  border: 1px solid rgba(255, 253, 248, .14) !important;
+  color: var(--white) !important;
+  background: transparent !important;
+}
+
+.contact .tool-kicker,
+.contact .field label,
+.contact .month-calendar th {
+  color: var(--sand);
+}
+
+.contact .tool-number {
+  color: rgba(255, 253, 248, .18);
+}
+
+.contact .field input,
+.contact .field textarea {
+  border-bottom-color: rgba(255, 253, 248, .2);
+  color: var(--white);
+}
+
+.contact .field textarea::placeholder {
+  color: rgba(255, 253, 248, .56);
+}
+
+.contact .contact-form .btn {
+  border-color: var(--sand);
+  background: var(--sand);
+  color: var(--brown-deep);
+}
+
+.contact .month-calendar caption {
+  color: var(--white);
+}
+
+.contact .month-calendar td {
+  border-color: rgba(255, 253, 248, .16);
+  background: transparent;
+  color: var(--white);
+}
+
+.contact .month-calendar td.available {
+  border-color: rgba(200, 171, 120, .55);
+  background: rgba(255, 253, 248, .05);
+}
+
+.contact .month-calendar td.selected {
+  background: var(--sand);
+  color: var(--brown-deep);
+}
+
+.contact .calendar-legend {
+  color: rgba(255, 253, 248, .62);
+}
+
+.contact .calendar-legend::before {
+  background: var(--sand);
 }
 
 .tool-head {
@@ -812,6 +921,13 @@ textarea,
     grid-template-columns: 1fr;
   }
 
+  .process-head {
+    grid-template-areas:
+      "eyebrow"
+      "title"
+      "intro";
+  }
+
   .services-head::after,
   .quote-copy {
     max-width: 720px;
@@ -834,6 +950,32 @@ textarea,
 
   .hero-photo {
     box-shadow: 12px 12px 0 rgba(255, 255, 255, .08);
+  }
+
+  .services {
+    height: auto !important;
+    padding-block: 86px !important;
+  }
+
+  .services-sticky {
+    position: relative !important;
+    height: auto !important;
+    min-height: 0;
+    padding: 0 !important;
+  }
+
+  .services-sticky > .shell {
+    height: auto;
+    display: block;
+  }
+
+  .services-head .section-title {
+    white-space: normal;
+  }
+
+  .service-list {
+    height: auto !important;
+    margin-top: 34px;
   }
 
   .process {
@@ -915,7 +1057,8 @@ textarea,
   }
 
   .hero h1 {
-    font-size: clamp(3.25rem, 16vw, 4.8rem);
+    max-width: 100%;
+    font-size: 2.9rem;
   }
 
   .approach,
@@ -967,7 +1110,7 @@ textarea,
 
   .quote-assistant {
     padding: 18px !important;
-    box-shadow: 10px 10px 0 rgba(75, 48, 36, .14) !important;
+    box-shadow: none !important;
   }
 
   .quote-assistant .tool-head h3 {

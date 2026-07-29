@@ -76,8 +76,8 @@
         </div>
       </div>
       <div class="service-list">
-        <article class="service open">
-          <button class="service-toggle" type="button" aria-expanded="true">
+        <article class="service">
+          <button class="service-toggle" type="button" aria-expanded="false">
             <span class="service-index">01</span>
             <span class="service-title">Sprzedaż nieruchomości</span>
             <span class="service-status" aria-hidden="true"></span>
@@ -151,40 +151,19 @@
     </div>
   </section>
 
-  <section class="quote-section" aria-label="Filozofia współpracy">
-    <div class="shell quote-grid">
-      <div class="quote-copy">
-        <div class="eyebrow reveal">Spokojny pierwszy krok</div>
-        <blockquote class="quote-main reveal">Najlepsza decyzja to taka, którą podejmujesz <em>z pewnością.</em></blockquote>
-        <p class="quote-note reveal">Moją rolą jest dać Ci wiedzę, perspektywę i wsparcie potrzebne, by właśnie tak się stało.</p>
-      </div>
+  <section class="quote-section chat-section" aria-label="Chat AI">
+    <div class="shell chat-shell">
       <section class="assistant-card quote-assistant reveal" aria-labelledby="assistant-title">
-        <div class="assistant-label">Asystent nieruchomości</div>
         <div class="tool-head">
-          <h3 id="assistant-title">Zapytaj o swoją nieruchomość</h3>
+          <h3 id="assistant-title">Zadaj mi jakiekolwiek pytanie</h3>
           <span class="ai-watermark" aria-hidden="true">AI</span>
         </div>
-        <p class="assistant-intro">Odpowiem na pierwsze pytania dotyczące sprzedaży, zakupu, wynajmu, dokumentów, przygotowania nieruchomości i przebiegu współpracy.</p>
-        <div class="chat-messages" id="chat-messages" aria-live="polite">
-          <div class="chat-message bot"><span class="message-avatar" aria-hidden="true">EŚ</span><div class="message-content">Dzień dobry. Napisz, czy chodzi o sprzedaż, zakup czy wynajem. Odpowiem konkretnie i wskażę następny krok.</div></div>
-        </div>
-        <div class="faq-prompts" aria-label="Najczęściej zadawane pytania">
-          <button type="button" data-question="Jak przygotować mieszkanie do sprzedaży?">Jak przygotować mieszkanie?</button>
-          <button type="button" data-question="Jakie dokumenty będą potrzebne?">Jakie dokumenty będą potrzebne?</button>
-          <button type="button" data-question="Jak ustalić cenę ofertową?">Jak ustalić cenę ofertową?</button>
-          <button type="button" data-question="Jak wygląda pierwsza rozmowa?">Jak wygląda pierwsza rozmowa?</button>
-          <button type="button" data-question="Czy pomaga Pani w negocjacjach?">Czy pomaga Pani w negocjacjach?</button>
-          <button type="button" data-question="Czy obsługuje Pani Białystok i okolice?">Białystok i okolice?</button>
-        </div>
+        <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
         <form class="chat-form" id="chat-form">
           <label class="sr-only" for="chat-input">Wiadomość do asystenta</label>
           <input class="chat-input" id="chat-input" type="text" maxlength="1200" autocomplete="off" placeholder="Np. Jak przygotować mieszkanie do sprzedaży?">
           <button class="btn chat-send" type="submit">Wyślij</button>
         </form>
-        <div class="assistant-footer">
-          <p>Odpowiedzi mają charakter informacyjny. W sprawach dotyczących konkretnej nieruchomości najlepiej umówić bezpośrednią rozmowę.</p>
-          <a href="#kontakt">Umów rozmowę z Elżbietą</a>
-        </div>
       </section>
     </div>
   </section>
@@ -248,6 +227,5 @@
 </footer>
 
 <script src="site.js" defer></script>
-<script src="premium.js" defer></script>
 </body>
 </html>
