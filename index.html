@@ -36,7 +36,7 @@
   --shadow:0 28px 70px rgba(36,31,22,.11);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:auto}
 body{
   margin:0;
   overflow-x:hidden;
@@ -1633,6 +1633,121 @@ main>section:not(.hero){
   }
   .service-content p{font-size:.95rem;line-height:1.7}
 }
+/* Final interaction pass: two horizontal, scroll-led stories */
+.services,.process{min-height:320svh;padding:0;overflow:visible}
+.services-sticky,.process-sticky{
+  min-height:100svh;height:100svh;position:sticky;top:0;display:grid;align-items:center;
+  overflow:hidden;padding:clamp(72px,9vh,104px) 0 clamp(42px,6vh,72px)
+}
+.services-head,.process-head{margin-bottom:clamp(44px,6vh,72px)}
+.services-head .section-title,.process-head .section-title{margin-bottom:0}
+.process-head .intro{margin-top:clamp(18px,2.6vh,28px)}
+.service-list,.steps{
+  width:100%;min-height:clamp(390px,54svh,590px);display:flex;align-items:stretch;
+  flex-direction:row;gap:clamp(10px,1.2vw,18px)
+}
+.service,.service.open,.step,.step:nth-child(2),.step:nth-child(4),.step.active{
+  position:relative;inset:auto;flex:1 1 0;min-width:0;min-height:0;margin:0;opacity:1;
+  visibility:visible;transform:none;filter:none;pointer-events:auto;overflow:hidden;border-radius:24px;
+  transition:flex-grow 720ms cubic-bezier(.23,1,.32,1),transform 220ms cubic-bezier(.23,1,.32,1),
+    background-color 260ms ease,border-color 260ms ease,box-shadow 420ms ease
+}
+.service.open,.step.active{flex-grow:5.8;transform:translate3d(0,-5px,0);border-radius:34px}
+.service,.service.open{
+  display:flex;flex-direction:column;align-content:initial;color:rgba(255,253,249,.68);
+  border:1px solid rgba(234,216,173,.22);
+  background:linear-gradient(155deg,rgba(128,79,50,.98),rgba(72,38,24,.98));
+  box-shadow:0 20px 50px rgba(36,17,9,.2),inset 0 1px rgba(255,255,255,.08)
+}
+.service.open,.service:nth-child(even).open{
+  color:var(--ink);border-color:rgba(255,255,255,.76);
+  background:radial-gradient(circle at 92% 6%,rgba(213,184,120,.28),transparent 30%),linear-gradient(145deg,#fffefb,#eee3d4);
+  box-shadow:0 40px 96px rgba(43,22,12,.28),0 0 54px rgba(213,184,120,.12)
+}
+.service-toggle,.service.open .service-toggle{
+  width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:clamp(22px,4vh,38px);
+  padding:clamp(24px,2.8vw,38px);cursor:pointer
+}
+.service-index,.service.open .service-index{
+  width:auto;height:auto;display:block;padding:0;border:0;border-radius:0;color:#d5b878;
+  background:none;box-shadow:none;font-size:clamp(1.1rem,1.5vw,1.5rem)
+}
+.service.open .service-index{color:#9d6d38}
+.service-title,.service.open .service-title{
+  width:100%;max-width:100%;margin-top:auto;writing-mode:horizontal-tb;
+  transform:none;color:inherit;font-size:clamp(1.25rem,1.65vw,1.85rem);line-height:1.02;
+  letter-spacing:-.035em;overflow-wrap:break-word
+}
+.service.open .service-title{max-width:12ch;font-size:clamp(3rem,5vw,5.8rem)}
+.service-body{display:grid;grid-template-rows:0fr;margin-top:auto;transition:grid-template-rows 440ms cubic-bezier(.23,1,.32,1)}
+.service.open .service-body{display:grid;grid-template-rows:1fr}
+.service-body>div{overflow:hidden}
+.service-content,.service.open .service-content{
+  display:block;padding:0 clamp(24px,2.8vw,38px) clamp(28px,3vw,42px);opacity:0;
+  transform:translateY(8px);transition:opacity 240ms ease,transform 420ms cubic-bezier(.23,1,.32,1)
+}
+.service.open .service-content{opacity:1;transform:none}
+.service-content p{max-width:70ch;margin:0;color:var(--muted);font-size:clamp(.96rem,1.1vw,1.08rem);line-height:1.72}
+.service-status{display:none}
+.step,.step:nth-child(2),.step:nth-child(4){
+  display:flex;flex-direction:column;padding:clamp(22px,2.4vw,34px);color:#6d4935;
+  border:1px solid rgba(75,44,29,.15);background:linear-gradient(155deg,#9a684a,#68432f);
+  box-shadow:0 18px 46px rgba(75,44,29,.16),inset 0 1px rgba(255,255,255,.12)
+}
+.step.active{
+  padding:clamp(30px,3.6vw,52px);color:var(--ink);border-color:rgba(176,122,80,.25);
+  background:linear-gradient(145deg,#fffefb,#eadbc5);
+  box-shadow:0 38px 92px rgba(75,44,29,.2),0 0 48px rgba(176,122,80,.1)
+}
+.step-number,.step.active .step-number{
+  width:max-content;padding:0;border:0;border-radius:0;color:#f1d6a0;background:none;
+  box-shadow:none;font-size:clamp(1.1rem,1.5vw,1.5rem)
+}
+.step.active .step-number{color:#9d6d38}
+.step h3,.step.active h3{
+  width:100%;max-width:100%;margin:auto 0 20px;writing-mode:horizontal-tb;
+  transform:none;align-self:auto;color:#fffaf2;font-size:clamp(1.2rem,1.55vw,1.75rem);
+  line-height:1.02;letter-spacing:-.03em;overflow-wrap:break-word
+}
+.step.active h3{max-width:10ch;color:var(--ink);font-size:clamp(3rem,5vw,5.8rem)}
+.step p,.step.active p{
+  display:block;max-width:68ch;margin:0;color:var(--muted);font-size:clamp(.96rem,1.1vw,1.08rem);
+  line-height:1.72;opacity:0;filter:none;transform:translateY(8px);pointer-events:none;
+  transition:opacity 220ms ease,transform 420ms cubic-bezier(.23,1,.32,1)
+}
+.step.active p{opacity:1;transform:none;pointer-events:auto}
+.quote-assistant{height:min(840px,86svh);min-height:700px}
+.quote-assistant .tool-head{justify-content:flex-start;gap:14px}
+.quote-assistant .tool-head h3{
+  position:static;width:auto;height:auto;padding:0;margin:0;overflow:visible;clip:auto;
+  white-space:normal;color:#fffaf2;font-size:clamp(1.35rem,2vw,2rem)
+}
+.quote-assistant .chat-messages{min-height:390px;padding:clamp(22px,3vw,38px)}
+.quote-assistant .chat-message{max-width:min(760px,92%);padding:14px 18px;font-size:clamp(.9rem,1vw,1rem)}
+@media (hover:hover) and (pointer:fine){
+  .service:not(.open):hover,.step:not(.active):hover{transform:translate3d(0,-3px,0);border-color:rgba(241,214,160,.48)}
+}
+@media (max-width:980px){
+  .services,.process{min-height:auto;padding:clamp(82px,11vw,118px) 0}
+  .services-sticky,.process-sticky{min-height:auto;height:auto;position:relative;padding:0;overflow:visible}
+  .service-list,.steps{display:grid;grid-template-columns:1fr 1fr;min-height:0}
+  .service,.service.open,.step,.step.active{min-height:320px;transform:none}
+  .service-title,.service.open .service-title,.step h3,.step.active h3{font-size:clamp(2rem,5vw,3.5rem)}
+  .service-content,.service.open .service-content,.step p,.step.active p{opacity:1;transform:none}
+  .service-body,.service.open .service-body{grid-template-rows:1fr}
+  .quote-assistant{height:760px;min-height:640px}
+}
+@media (max-width:640px){
+  .service-list,.steps{grid-template-columns:1fr}
+  .service,.service.open,.step,.step.active{min-height:0;border-radius:24px}
+  .service-toggle,.service.open .service-toggle{padding:26px 24px 16px}
+  .service-title,.service.open .service-title,.step h3,.step.active h3{font-size:clamp(2rem,10vw,3rem)}
+  .service-content,.service.open .service-content{padding:0 24px 28px}
+  .step,.step.active{padding:26px 24px}
+  .step h3,.step.active h3{margin:32px 0 18px}
+  .quote-assistant{height:720px;min-height:620px}
+}
+@media (prefers-reduced-motion:reduce){.service,.service.open,.step,.step.active{transform:none!important}}
 </style>
 </head>
 <body>
@@ -1774,11 +1889,11 @@ main>section:not(.hero){
       </div>
       <section class="assistant-card quote-assistant reveal" aria-labelledby="assistant-title">
         <div class="tool-head">
-          <h3 class="sr-only" id="assistant-title">Chat AI</h3>
+          <h3 id="assistant-title">Asystent AI</h3>
           <span class="ai-watermark" aria-hidden="true">AI</span>
         </div>
         <div class="chat-messages" id="chat-messages" aria-live="polite">
-          <div class="chat-message bot">Dzień dobry! Chętnie odpowiem na pierwsze pytania dotyczące sprzedaży, zakupu lub wynajmu nieruchomości.</div>
+          <div class="chat-message bot">Dzień dobry! Chętnie odpowiem na pierwsze pytanie dotyczące Twojego problemu.</div>
         </div>
         <div class="faq-prompts" aria-label="Najczęściej zadawane pytania">
           <button type="button" data-question="Jak przygotować mieszkanie do sprzedaży?">Jak przygotować mieszkanie?</button>
@@ -1926,6 +2041,9 @@ const setActiveStep = activeIndex => {
   activeProcessIndex = activeIndex;
   processSteps.forEach((step,index) => step.classList.toggle("active",index === activeIndex));
 };
+processSteps.forEach((step,index) => {
+  step.addEventListener("click", () => setActiveStep(index));
+});
 if (!reduceMotion && processSection && processSteps.length) {
   let processTicking = false;
   const updateProcessFromScroll = () => {
