@@ -695,7 +695,6 @@ body.no-anim .reveal>*{opacity:1;transform:none}
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script>
 const isScreenshot = location.search.includes('screenshot')
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -774,12 +773,6 @@ form.querySelectorAll('input,textarea').forEach(el => el.addEventListener('input
 
 if (!reduceMotion && !isScreenshot && window.gsap) {
   gsap.registerPlugin(ScrollTrigger)
-  if (!isMobile && window.Lenis) {
-    const lenis = new Lenis({lerp:0.1})
-    lenis.on('scroll', ScrollTrigger.update)
-    gsap.ticker.add(t => lenis.raf(t * 1000))
-    gsap.ticker.lagSmoothing(0)
-  }
   gsap.utils.toArray('.reveal').forEach(box => {
     gsap.to(box.children, {
       opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger: 0.09,
