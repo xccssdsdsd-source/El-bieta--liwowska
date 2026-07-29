@@ -513,11 +513,33 @@ h1,h2,h3,.serif{font-family:"Italiana",serif;font-weight:400}
   transform:translateY(-110%);
 }
 .hero{
-  background:linear-gradient(105deg,#203d31 0 52%,#f0ebe3 52% 100%);
+  background:#172d3d;
 }
 .hero-copy::after,.hero-actions{display:none}
+.hero::before,.hero::after{display:none}
+.hero-layout{
+  width:100%;
+  min-height:100svh;
+  grid-template-columns:47% 53%;
+  gap:0;
+  align-items:stretch;
+}
+.hero-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:clamp(72px,10vh,120px) clamp(32px,7vw,120px);
+}
+.hero h1{
+  max-width:8.8ch;
+  font-size:clamp(3.45rem,5.8vw,6.6rem);
+  line-height:.92;
+}
 .hero-photo{
-  aspect-ratio:1/1;
+  width:100%;
+  height:100%;
+  min-height:100svh;
+  aspect-ratio:auto;
   overflow:hidden;
   isolation:auto;
   border-radius:0;
@@ -795,7 +817,9 @@ h1,h2,h3,.serif{font-family:"Italiana",serif;font-weight:400}
 .calendar-legend::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--forest)}
 
 @media (max-width:980px){
-  .hero-photo{overflow:hidden;aspect-ratio:1}
+  .hero-layout{width:var(--shell);min-height:auto;grid-template-columns:1fr;gap:34px}
+  .hero-copy{padding:0}
+  .hero-photo{overflow:hidden;min-height:auto;aspect-ratio:1}
   .hero-photo::before{display:none}
   .approach-grid{grid-template-columns:1fr}
   .approach-photo{overflow:hidden}
