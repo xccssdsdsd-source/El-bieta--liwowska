@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "scripts": {
     "build": "node scripts/build-static.mjs",
     "deploy": "npm run build && wrangler deploy",
