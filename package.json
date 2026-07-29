@@ -1,5 +1,13 @@
 {
+  "scripts": {
+    "build": "node scripts/build-static.mjs",
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:check": "npm run build && wrangler deploy --dry-run"
+  },
   "dependencies": {
     "puppeteer": "^25.3.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.115.0"
   }
 }
