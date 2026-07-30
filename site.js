@@ -5,14 +5,15 @@
   const navHiddenSections = [...document.querySelectorAll('#wspolpraca, #proces')]
 
   const updateScroll = () => {
+    const hasScrolled = scrollY > 8
     const navProbeY = Math.min(innerHeight - 1, 12)
     const navInHiddenSection = navHiddenSections.some(section => {
       const rect = section.getBoundingClientRect()
       return rect.top <= navProbeY && rect.bottom > navProbeY
     })
 
-    nav?.classList.toggle('visible', !navInHiddenSection)
-    nav?.classList.toggle('hidden-zone', navInHiddenSection)
+    nav?.classList.toggle('visible', hasScrolled && !navInHiddenSection)
+    nav?.classList.toggle('hidden-zone', hasScrolled && navInHiddenSection)
     const max = document.documentElement.scrollHeight - innerHeight
     if (progress) progress.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`
   }
