@@ -24,19 +24,16 @@
   const services = [...document.querySelectorAll('.service')]
   const serviceSection = document.querySelector('.services')
   let activeServiceIndex = -1
-  const serviceThresholds = [0.1, 0.36, 0.62, 0.88]
 
   const setOpenService = selected => {
-    activeServiceIndex = services.indexOf(selected)
-    services.forEach(service => {
-      const open = service === selected
-      service.classList.toggle('open', open)
-      service.querySelector('.service-toggle')?.setAttribute('aria-expanded', String(open))
-    })
+    setOpenServiceIndex(services.indexOf(selected))
   }
 
   const setOpenServiceIndex = index => {
     activeServiceIndex = Math.max(-1, Math.min(services.length - 1, index))
+    if (services.length > 1) {
+      serviceSection?.style.setProperty('--service-progress', (activeServiceIndex / (services.length - 1)).toFixed(3))
+    }
     services.forEach((service, serviceIndex) => {
       const open = serviceIndex === activeServiceIndex
       service.classList.toggle('open', open)
@@ -58,14 +55,12 @@
     const rect = serviceSection.getBoundingClientRect()
     const scrollRange = Math.max(1, serviceSection.offsetHeight - innerHeight)
     const progress = Math.max(0, Math.min(1, -rect.top / scrollRange))
-    let nextIndex = -1
-    serviceThresholds.forEach((threshold, index) => {
-      if (progress >= threshold) nextIndex = index
-    })
+    serviceSection.style.setProperty('--service-progress', progress.toFixed(3))
+    const nextIndex = Math.min(services.length - 1, Math.floor(progress * services.length))
     if (nextIndex !== activeServiceIndex) setOpenServiceIndex(nextIndex)
   }
 
-  setOpenServiceIndex(innerWidth <= 980 ? 0 : -1)
+  setOpenServiceIndex(0)
   updateServices()
   addEventListener('scroll', updateServices, { passive: true })
   addEventListener('resize', updateServices)
@@ -146,7 +141,7 @@
 
     const smsLink = document.createElement('a')
     smsLink.href = smsHref
-    smsLink.textContent = 'Otwórz SMS'
+    smsLink.textContent = 'Wyślij wiadomość'
 
     const separator = document.createTextNode(' · ')
 
@@ -176,7 +171,7 @@
     ].filter(Boolean).join('\n')
 
     const smsHref = `sms:+48668887845?body=${encodeURIComponent(message)}`
-    setContactStatus('Wiadomość jest gotowa.', smsHref, message)
+    setContactStatus('Formularz jest gotowy do wysłania.', smsHref, message)
   })
 
   const monthCalendar = document.getElementById('month-calendar')
