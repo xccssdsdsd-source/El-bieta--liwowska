@@ -110,11 +110,16 @@ textarea,
 }
 
 .nav {
-  display: none !important;
   padding: 10px 0;
   border-bottom: 1px solid rgba(43, 33, 28, .1);
   background: rgba(247, 244, 238, .96);
   backdrop-filter: blur(14px);
+}
+
+.nav.hidden-zone {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-100%);
 }
 
 .brand {

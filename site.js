@@ -2,9 +2,17 @@
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
   const nav = document.getElementById('nav')
   const progress = document.getElementById('progress')
+  const navHiddenSections = [...document.querySelectorAll('#wspolpraca, #proces')]
 
   const updateScroll = () => {
-    nav?.classList.toggle('visible', scrollY > Math.min(120, innerHeight * 0.12))
+    const navProbeY = Math.min(innerHeight - 1, 12)
+    const navInHiddenSection = navHiddenSections.some(section => {
+      const rect = section.getBoundingClientRect()
+      return rect.top <= navProbeY && rect.bottom > navProbeY
+    })
+
+    nav?.classList.toggle('visible', !navInHiddenSection)
+    nav?.classList.toggle('hidden-zone', navInHiddenSection)
     const max = document.documentElement.scrollHeight - innerHeight
     if (progress) progress.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`
   }
