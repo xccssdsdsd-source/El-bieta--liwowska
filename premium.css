@@ -68,6 +68,12 @@ p {
   line-height: 1.75;
 }
 
+.projects-head .blurred-copy {
+  opacity: .62;
+  filter: blur(4px);
+  user-select: none;
+}
+
 .eyebrow {
   gap: 12px;
   margin-bottom: 18px;
