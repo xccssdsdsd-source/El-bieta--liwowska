@@ -194,7 +194,8 @@
             <div class="field"><label for="contact-name">Imię</label><input id="contact-name" name="name" autocomplete="name" required></div>
             <div class="field"><label for="contact-phone">Telefon</label><input id="contact-phone" name="phone" type="tel" autocomplete="tel" required></div>
             <div class="field field-wide"><label for="contact-topic">W czym mogę pomóc?</label><textarea id="contact-topic" name="topic" placeholder="Sprzedaż, zakup, wynajem lub inna sprawa…" required></textarea></div>
-            <button class="btn btn-light" type="submit">Wyślij zapytanie bezpośrednio</button>
+            <button class="btn btn-light" type="submit">Przygotuj wiadomość SMS</button>
+            <p class="form-status" id="contact-status" aria-live="polite"></p>
           </form>
         </section>
 
@@ -203,19 +204,12 @@
             <div><span class="tool-kicker">Podgląd dostępności</span><h3 id="calendar-title">Umów rozmowę</h3></div>
             <span class="tool-number" aria-hidden="true">01</span>
           </div>
-          <table class="month-calendar" aria-label="Kalendarz rozmów na sierpień 2026">
-            <caption>Sierpień 2026</caption>
+          <table class="month-calendar" id="month-calendar" aria-label="Kalendarz rozmów">
+            <caption>Najbliższe terminy</caption>
             <thead><tr><th>Pn</th><th>Wt</th><th>Śr</th><th>Cz</th><th>Pt</th><th>So</th><th>Nd</th></tr></thead>
-            <tbody>
-              <tr><td class="muted">27</td><td class="muted">28</td><td class="muted">29</td><td class="muted">30</td><td class="muted">31</td><td>1</td><td>2</td></tr>
-              <tr><td class="available">3</td><td class="selected">4</td><td class="available">5</td><td>6</td><td class="available">7</td><td>8</td><td>9</td></tr>
-              <tr><td>10</td><td class="available">11</td><td>12</td><td class="available">13</td><td>14</td><td>15</td><td>16</td></tr>
-              <tr><td class="available">17</td><td>18</td><td class="available">19</td><td>20</td><td class="available">21</td><td>22</td><td>23</td></tr>
-              <tr><td>24</td><td class="available">25</td><td>26</td><td class="available">27</td><td>28</td><td>29</td><td>30</td></tr>
-              <tr><td>31</td><td class="muted">1</td><td class="muted">2</td><td class="muted">3</td><td class="muted">4</td><td class="muted">5</td><td class="muted">6</td></tr>
-            </tbody>
+            <tbody></tbody>
           </table>
-          <p class="calendar-legend">Przykładowy wolny termin — właściwy termin potwierdzimy telefonicznie.</p>
+          <p class="calendar-legend">Orientacyjne dni do rozmowy - właściwy termin potwierdzimy telefonicznie.</p>
         </section>
 
       </div>

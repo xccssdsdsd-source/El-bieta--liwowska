@@ -952,6 +952,15 @@ textarea,
   color: var(--white);
 }
 
+.contact .form-status {
+  color: rgba(255, 253, 248, .68);
+}
+
+.contact .form-status a,
+.contact .form-status button {
+  color: var(--sand);
+}
+
 .contact .month-calendar caption {
   color: var(--white);
 }
@@ -971,6 +980,11 @@ textarea,
   background: linear-gradient(135deg, #c8ab78 0%, #91643d 100%);
   color: var(--white);
   box-shadow: 0 10px 22px rgba(200, 171, 120, .18);
+}
+
+.contact .month-calendar td.today {
+  border-color: var(--sand);
+  box-shadow: 0 0 0 1px rgba(200, 171, 120, .34) inset;
 }
 
 .contact .calendar-legend {

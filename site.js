@@ -134,6 +134,36 @@
   }
 
   const contactForm = document.getElementById('contact-form')
+  const contactStatus = document.getElementById('contact-status')
+
+  const setContactStatus = (message, smsHref, smsText) => {
+    if (!contactStatus) return
+    contactStatus.textContent = ''
+
+    const text = document.createElement('span')
+    text.textContent = message
+
+    const smsLink = document.createElement('a')
+    smsLink.href = smsHref
+    smsLink.textContent = 'Otwórz SMS'
+
+    const separator = document.createTextNode(' · ')
+
+    const copyButton = document.createElement('button')
+    copyButton.type = 'button'
+    copyButton.textContent = 'Kopiuj treść'
+    copyButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(smsText)
+        copyButton.textContent = 'Skopiowano'
+      } catch {
+        copyButton.textContent = 'Nie udało się skopiować'
+      }
+    })
+
+    contactStatus.append(text, document.createTextNode(' '), smsLink, separator, copyButton)
+  }
+
   contactForm?.addEventListener('submit', event => {
     event.preventDefault()
     const data = new FormData(contactForm)
@@ -144,8 +174,68 @@
       `Temat: ${data.get('topic')}`
     ].filter(Boolean).join('\n')
 
-    location.href = `sms:+48668887845?body=${encodeURIComponent(message)}`
+    const smsHref = `sms:+48668887845?body=${encodeURIComponent(message)}`
+    setContactStatus('Wiadomość jest gotowa.', smsHref, message)
   })
+
+  const monthCalendar = document.getElementById('month-calendar')
+  const renderCalendar = () => {
+    if (!monthCalendar) return
+
+    const caption = monthCalendar.querySelector('caption')
+    const body = monthCalendar.querySelector('tbody')
+    if (!body) return
+
+    const today = new Date()
+    const year = today.getFullYear()
+    const month = today.getMonth()
+    const monthNames = [
+      'Styczeń',
+      'Luty',
+      'Marzec',
+      'Kwiecień',
+      'Maj',
+      'Czerwiec',
+      'Lipiec',
+      'Sierpień',
+      'Wrzesień',
+      'Październik',
+      'Listopad',
+      'Grudzień'
+    ]
+    const firstDay = new Date(year, month, 1)
+    const startOffset = (firstDay.getDay() + 6) % 7
+    const gridStart = new Date(year, month, 1 - startOffset)
+
+    if (caption) caption.textContent = `${monthNames[month]} ${year}`
+    monthCalendar.setAttribute('aria-label', `Kalendarz rozmów na ${monthNames[month].toLowerCase()} ${year}`)
+    body.textContent = ''
+
+    for (let week = 0; week < 6; week += 1) {
+      const row = document.createElement('tr')
+
+      for (let dayIndex = 0; dayIndex < 7; dayIndex += 1) {
+        const date = new Date(gridStart)
+        date.setDate(gridStart.getDate() + week * 7 + dayIndex)
+
+        const cell = document.createElement('td')
+        const isCurrentMonth = date.getMonth() === month
+        const isToday = date.toDateString() === today.toDateString()
+        const isFutureWeekday = isCurrentMonth && date > today && date.getDay() >= 1 && date.getDay() <= 5
+        const isSuggested = isFutureWeekday
+
+        cell.textContent = String(date.getDate())
+        if (!isCurrentMonth) cell.classList.add('muted')
+        if (isSuggested) cell.classList.add('available')
+        if (isToday) cell.classList.add('selected', 'today')
+        row.append(cell)
+      }
+
+      body.append(row)
+    }
+  }
+
+  renderCalendar()
 
   const chatForm = document.getElementById('chat-form')
   const chatInput = document.getElementById('chat-input')
