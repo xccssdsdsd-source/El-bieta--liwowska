@@ -1135,16 +1135,18 @@ body.scrolled .hero::after {
   position: absolute;
   z-index: 1;
   inset: clamp(20px, 2.2vw, 32px) auto auto clamp(20px, 2.1vw, 30px);
-  width: 50px;
-  height: 50px;
-  border: 1px solid rgba(205, 172, 116, .26);
-  background: linear-gradient(158deg, rgba(242, 221, 176, .12) 0%, rgba(255, 253, 248, .02) 100%);
-  box-shadow: var(--sheen-dark), var(--d1);
-  transition: border-color 460ms ease, background 520ms ease, box-shadow 520ms var(--ease-out);
+  width: auto;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: filter 520ms var(--ease-out), transform 520ms var(--ease-out);
 }
 
 .step-number i {
-  font-size: 17px;
+  font-size: 22px;
+  text-shadow: 0 8px 18px rgba(0, 0, 0, .42), 0 2px 5px rgba(0, 0, 0, .3);
 }
 
 .step-number::after {
@@ -1161,9 +1163,10 @@ body.scrolled .hero::after {
 }
 
 .steps .step.active .step-number {
-  border-color: rgba(30, 20, 12, .55);
-  background: linear-gradient(158deg, #3a2a20 0%, #221913 100%);
-  box-shadow: var(--sheen-dark), 0 14px 26px -14px rgba(58, 36, 12, .9);
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  filter: drop-shadow(0 10px 12px rgba(58, 36, 12, .3));
 }
 
 .steps .step.active .step-number::after {
