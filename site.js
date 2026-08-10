@@ -12,6 +12,7 @@
       return rect.top <= navProbeY && rect.bottom > navProbeY
     })
 
+    document.body.classList.toggle('scrolled', hasScrolled)
     nav?.classList.toggle('visible', hasScrolled && !navInHiddenSection)
     nav?.classList.toggle('hidden-zone', hasScrolled && navInHiddenSection)
     const max = document.documentElement.scrollHeight - innerHeight
@@ -89,8 +90,10 @@
     const rect = process.getBoundingClientRect()
     const scrollRange = Math.max(1, process.offsetHeight - innerHeight)
     const progress = Math.max(0, Math.min(0.9999, -rect.top / scrollRange))
-    const nextIndex = Math.floor(progress * steps.length)
+    const scaled = progress * steps.length
+    const nextIndex = Math.floor(scaled)
     if (nextIndex !== activeStepIndex) setActiveStep(nextIndex)
+    steps[activeStepIndex]?.style.setProperty('--step-progress', (scaled - nextIndex).toFixed(3))
   }
 
   setActiveStep(0)
@@ -111,8 +114,9 @@
   }
 
   const reveals = document.querySelectorAll('.reveal')
-  reveals.forEach((element, index) => {
-    element.style.setProperty('--reveal-delay', `${Math.min(index % 5, 4) * 55}ms`)
+  reveals.forEach(element => {
+    const siblings = [...element.parentElement.children].filter(child => child.classList.contains('reveal'))
+    element.style.setProperty('--reveal-delay', `${Math.min(siblings.indexOf(element), 4) * 80}ms`)
   })
 
   if (reduceMotion || !('IntersectionObserver' in window)) {
