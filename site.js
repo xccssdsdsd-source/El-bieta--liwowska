@@ -270,9 +270,19 @@
     return chatMessages.scrollHeight - chatMessages.scrollTop - chatMessages.clientHeight < 96
   }
 
-  const scrollChatToBottom = (behavior = reduceMotion ? 'auto' : 'smooth') => {
+  const scrollChatToBottom = (behavior = 'auto') => {
     if (!chatMessages) return
     chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior })
+  }
+
+  const scrollChatToBottomAfterLayout = () => {
+    requestAnimationFrame(() => {
+      scrollChatToBottom()
+      requestAnimationFrame(() => {
+        scrollChatToBottom('auto')
+        setTimeout(() => scrollChatToBottom('auto'), 80)
+      })
+    })
   }
 
   chatMessages?.addEventListener('scroll', () => {
@@ -365,10 +375,7 @@
     message.append(avatar, content)
     chatMessages?.append(message)
     chatShouldStickToBottom = true
-    requestAnimationFrame(() => {
-      scrollChatToBottom()
-      requestAnimationFrame(() => scrollChatToBottom('auto'))
-    })
+    scrollChatToBottomAfterLayout()
     return message
   }
 
