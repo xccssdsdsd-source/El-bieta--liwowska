@@ -150,13 +150,16 @@
 
   <section class="quote-section chat-section" aria-label="Chat AI">
     <div class="shell chat-shell">
-      <div class="assistant-section-label reveal">Asystent AI</div>
       <section class="assistant-card quote-assistant reveal" aria-labelledby="assistant-title">
-        <div class="tool-head">
-          <h3 id="assistant-title">Zadaj mi jakiekolwiek pytanie, postaram się odpowiedzieć.</h3>
+        <header class="chat-head">
+          <span class="chat-avatar" aria-hidden="true">EŚ</span>
+          <span class="assistant-section-label">Asystent AI</span>
           <span class="ai-watermark" aria-hidden="true">AI</span>
+        </header>
+        <div class="chat-body">
+          <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+          <div class="chat-intro"><h3 id="assistant-title">Zadaj mi jakiekolwiek pytanie, postaram się odpowiedzieć.</h3></div>
         </div>
-        <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
         <div class="faq-prompts" aria-label="Popularne pytania">
           <button type="button" data-question="Jak przygotować mieszkanie do sprzedaży?">Jak przygotować mieszkanie?</button>
           <button type="button" data-question="Ile trwa sprzedaż nieruchomości?">Ile trwa sprzedaż?</button>
@@ -166,7 +169,7 @@
         <form class="chat-form" id="chat-form">
           <label class="sr-only" for="chat-input">Wiadomość do asystenta</label>
           <input class="chat-input" id="chat-input" type="text" maxlength="1200" autocomplete="off" placeholder="Np. Jak przygotować mieszkanie do sprzedaży?">
-          <button class="btn chat-send" type="submit">Wyślij</button>
+          <button class="btn chat-send" type="submit" aria-label="Wyślij wiadomość"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0-6.5 6.5M12 5l6.5 6.5"/></svg></button>
         </form>
       </section>
     </div>

@@ -350,8 +350,8 @@
         body: JSON.stringify({ message: text, history: chatHistory })
       })
 
-      const data = await response.json()
-      if (!response.ok) throw new Error(data.error || 'Nie udało się uzyskać odpowiedzi.')
+      const data = await response.json().catch(() => ({}))
+      if (!response.ok || !data.reply) throw new Error(data.error || 'Asystent jest chwilowo niedostępny. Spróbuj ponownie za chwilę.')
 
       typing.remove()
       addChatMessage(data.reply, 'bot')
