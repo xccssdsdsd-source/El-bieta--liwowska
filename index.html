@@ -26,13 +26,14 @@
 <header class="nav" id="nav">
   <div class="shell nav-row">
     <a class="brand" href="#start" aria-label="Elżbieta Śliwowska — strona główna">Elżbieta Śliwowska<i aria-hidden="true"></i></a>
-    <nav class="nav-links" aria-label="Główna nawigacja">
+    <nav class="nav-links" id="nav-menu" aria-label="Główna nawigacja">
       <a href="#o-mnie">O mnie</a>
       <a href="#wspolpraca">Współpraca</a>
       <a href="#proces">Jak pracuję</a>
       <a class="nav-phone" href="tel:+48668887845">668 887 845</a>
       <a class="btn nav-contact" href="#kontakt">Bezpośredni kontakt</a>
     </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Otwórz menu"><span class="nav-toggle-bars" aria-hidden="true"><i></i><i></i></span></button>
   </div>
 </header>
 
@@ -75,7 +76,7 @@
       <div class="service-list reveal">
         <article class="service">
           <button class="service-toggle" type="button" aria-expanded="false">
-            <span class="service-index">01</span>
+            <span class="service-index"><i>01</i></span>
             <span class="service-title">Sprzedaż nieruchomości</span>
             <span class="service-status" aria-hidden="true"></span>
           </button>
@@ -83,7 +84,7 @@
         </article>
         <article class="service">
           <button class="service-toggle" type="button" aria-expanded="false">
-            <span class="service-index">02</span>
+            <span class="service-index"><i>02</i></span>
             <span class="service-title">Zakup nieruchomości</span>
             <span class="service-status" aria-hidden="true"></span>
           </button>
@@ -91,7 +92,7 @@
         </article>
         <article class="service">
           <button class="service-toggle" type="button" aria-expanded="false">
-            <span class="service-index">03</span>
+            <span class="service-index"><i>03</i></span>
             <span class="service-title">Wynajem</span>
             <span class="service-status" aria-hidden="true"></span>
           </button>
@@ -99,7 +100,7 @@
         </article>
         <article class="service">
           <button class="service-toggle" type="button" aria-expanded="false">
-            <span class="service-index">04</span>
+            <span class="service-index"><i>04</i></span>
             <span class="service-title">Analiza i negocjacje</span>
             <span class="service-status" aria-hidden="true"></span>
           </button>
@@ -139,10 +140,10 @@
         <p class="intro reveal">Przejrzysty plan ogranicza stres i pozwala podejmować lepsze decyzje.</p>
       </div>
       <div class="steps reveal">
-        <article class="step active"><span class="step-number">01</span><h3>Poznaję Twój cel</h3><p>Zaczynamy od spokojnej rozmowy o Twojej sytuacji, priorytetach, terminie i oczekiwanym rezultacie. Dzięki temu od początku wiadomo, co naprawdę ma znaczenie i jakie decyzje będą prowadzić do właściwego finału.</p></article>
-        <article class="step"><span class="step-number">02</span><h3>Układam strategię</h3><p>Analizuję rynek, dokumenty i możliwe scenariusze. Ustalam kolejność działań, sposób prezentacji nieruchomości oraz zasady komunikacji, aby każdy kolejny krok miał jasny cel.</p></article>
-        <article class="step"><span class="step-number">03</span><h3>Prowadzę proces</h3><p>Koordynuję przygotowanie oferty, prezentacje, kontakt z zainteresowanymi oraz negocjacje. Na bieżąco wyjaśniam sytuację i dbam o to, aby nic ważnego nie zostało pominięte.</p></article>
-        <article class="step"><span class="step-number">04</span><h3>Domykam szczegóły</h3><p>Pilnuję uzgodnień, dokumentów, terminów i formalności prowadzących do podpisania umowy oraz przekazania nieruchomości. Finał ma być uporządkowany i przewidywalny dla obu stron.</p></article>
+        <article class="step active"><span class="step-number"><i>01</i></span><h3>Poznaję Twój cel</h3><p>Zaczynamy od spokojnej rozmowy o Twojej sytuacji, priorytetach, terminie i oczekiwanym rezultacie. Dzięki temu od początku wiadomo, co naprawdę ma znaczenie i jakie decyzje będą prowadzić do właściwego finału.</p></article>
+        <article class="step"><span class="step-number"><i>02</i></span><h3>Układam strategię</h3><p>Analizuję rynek, dokumenty i możliwe scenariusze. Ustalam kolejność działań, sposób prezentacji nieruchomości oraz zasady komunikacji, aby każdy kolejny krok miał jasny cel.</p></article>
+        <article class="step"><span class="step-number"><i>03</i></span><h3>Prowadzę proces</h3><p>Koordynuję przygotowanie oferty, prezentacje, kontakt z zainteresowanymi oraz negocjacje. Na bieżąco wyjaśniam sytuację i dbam o to, aby nic ważnego nie zostało pominięte.</p></article>
+        <article class="step"><span class="step-number"><i>04</i></span><h3>Domykam szczegóły</h3><p>Pilnuję uzgodnień, dokumentów, terminów i formalności prowadzących do podpisania umowy oraz przekazania nieruchomości. Finał ma być uporządkowany i przewidywalny dla obu stron.</p></article>
       </div>
     </div>
     </div>
@@ -152,8 +153,8 @@
     <div class="shell chat-shell">
       <section class="assistant-card quote-assistant reveal" aria-labelledby="assistant-title">
         <header class="chat-head">
-          <span class="chat-avatar" aria-hidden="true">EŚ</span>
-          <span class="assistant-section-label">Asystent AI</span>
+          <span class="chat-avatar" aria-hidden="true"><img src="assets/img/hero-elzbieta.jpg" role="presentation" width="88" height="88" loading="lazy" decoding="async"></span>
+          <span class="chat-identity"><span class="chat-name">Elżbieta Śliwowska</span><span class="assistant-section-label">Asystent AI</span></span>
           <span class="ai-watermark" aria-hidden="true">AI</span>
         </header>
         <div class="chat-body">
@@ -235,7 +236,7 @@
         <section class="tool-card form-card reveal" aria-labelledby="form-title">
           <div class="tool-head">
             <div><span class="tool-kicker">Napisz bezpośrednio</span><h3 id="form-title">Formularz kontaktowy</h3></div>
-            <span class="tool-number" aria-hidden="true">01</span>
+            <span class="tool-number" aria-hidden="true"><i>01</i></span>
           </div>
           <form class="contact-form" id="contact-form">
             <div class="field"><label for="contact-name">Imię</label><input id="contact-name" name="name" autocomplete="name" required></div>
@@ -249,7 +250,7 @@
         <section class="tool-card calendar-card reveal" aria-labelledby="calendar-title">
           <div class="tool-head">
             <div><span class="tool-kicker">Podgląd dostępności</span><h3 id="calendar-title">Umów rozmowę</h3></div>
-            <span class="tool-number" aria-hidden="true">02</span>
+            <span class="tool-number" aria-hidden="true"><i>02</i></span>
           </div>
           <table class="month-calendar" id="month-calendar" aria-label="Kalendarz rozmów">
             <caption>Najbliższe terminy</caption>

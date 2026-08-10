@@ -3,11 +3,28 @@
   const nav = document.getElementById('nav')
   const progress = document.getElementById('progress')
   const navHiddenSections = [...document.querySelectorAll('#wspolpraca, #proces')]
+  const navToggle = document.getElementById('nav-toggle')
+  const navMenu = document.getElementById('nav-menu')
+
+  const setMenu = open => {
+    document.body.classList.toggle('menu-open', open)
+    navToggle?.setAttribute('aria-expanded', String(open))
+    navToggle?.setAttribute('aria-label', open ? 'Zamknij menu' : 'Otwórz menu')
+  }
+
+  navToggle?.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')))
+  navMenu?.addEventListener('click', event => {
+    if (event.target.closest('a')) setMenu(false)
+  })
+  addEventListener('keydown', event => {
+    if (event.key === 'Escape') setMenu(false)
+  })
 
   const updateScroll = () => {
     const hasScrolled = scrollY > 8
+    const compact = innerWidth <= 980
     const navProbeY = Math.min(innerHeight - 1, 12)
-    const navInHiddenSection = navHiddenSections.some(section => {
+    const navInHiddenSection = !compact && navHiddenSections.some(section => {
       const rect = section.getBoundingClientRect()
       return rect.top <= navProbeY && rect.bottom > navProbeY
     })
@@ -15,12 +32,14 @@
     document.body.classList.toggle('scrolled', hasScrolled)
     nav?.classList.toggle('visible', hasScrolled && !navInHiddenSection)
     nav?.classList.toggle('hidden-zone', hasScrolled && navInHiddenSection)
+    if (navInHiddenSection || !hasScrolled) setMenu(false)
     const max = document.documentElement.scrollHeight - innerHeight
     if (progress) progress.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`
   }
 
   updateScroll()
   addEventListener('scroll', updateScroll, { passive: true })
+  addEventListener('resize', updateScroll)
 
   const services = [...document.querySelectorAll('.service')]
   const serviceSection = document.querySelector('.services')
@@ -244,6 +263,28 @@
   const assistant = document.querySelector('.quote-assistant')
   const faqPrompts = document.querySelector('.faq-prompts')
   const chatHistory = []
+  let chatShouldStickToBottom = true
+
+  const isChatNearBottom = () => {
+    if (!chatMessages) return true
+    return chatMessages.scrollHeight - chatMessages.scrollTop - chatMessages.clientHeight < 96
+  }
+
+  const scrollChatToBottom = (behavior = reduceMotion ? 'auto' : 'smooth') => {
+    if (!chatMessages) return
+    chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior })
+  }
+
+  chatMessages?.addEventListener('scroll', () => {
+    chatShouldStickToBottom = isChatNearBottom()
+  }, { passive: true })
+
+  if ('ResizeObserver' in window && chatMessages) {
+    const chatResizeObserver = new ResizeObserver(() => {
+      if (chatShouldStickToBottom) scrollChatToBottom('auto')
+    })
+    chatResizeObserver.observe(chatMessages)
+  }
 
   assistant?.addEventListener('pointermove', event => {
     const rect = assistant.getBoundingClientRect()
@@ -301,7 +342,17 @@
     const avatar = document.createElement('span')
     avatar.className = 'message-avatar'
     avatar.setAttribute('aria-hidden', 'true')
-    avatar.textContent = type.includes('user') ? 'Ty' : 'EŚ'
+    if (type.includes('user')) {
+      avatar.textContent = 'Ty'
+    } else {
+      const portrait = document.createElement('img')
+      portrait.src = 'assets/img/hero-elzbieta.jpg'
+      portrait.width = 68
+      portrait.height = 68
+      portrait.decoding = 'async'
+      portrait.setAttribute('role', 'presentation')
+      avatar.append(portrait)
+    }
 
     const content = document.createElement('div')
     content.className = 'message-content'
@@ -313,9 +364,10 @@
 
     message.append(avatar, content)
     chatMessages?.append(message)
+    chatShouldStickToBottom = true
     requestAnimationFrame(() => {
-      if (!chatMessages) return
-      chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: reduceMotion ? 'auto' : 'smooth' })
+      scrollChatToBottom()
+      requestAnimationFrame(() => scrollChatToBottom('auto'))
     })
     return message
   }
@@ -354,11 +406,13 @@
       if (!response.ok || !data.reply) throw new Error(data.error || 'Asystent jest chwilowo niedostępny. Spróbuj ponownie za chwilę.')
 
       typing.remove()
+      scrollChatToBottom('auto')
       addChatMessage(data.reply, 'bot')
       chatHistory.push({ role: 'user', text }, { role: 'model', text: data.reply })
       if (chatHistory.length > 10) chatHistory.splice(0, chatHistory.length - 10)
     } catch (error) {
       typing.remove()
+      scrollChatToBottom('auto')
       addChatMessage(error.message || 'Asystent jest chwilowo niedostępny. Spróbuj ponownie.', 'bot error')
     } finally {
       assistant?.setAttribute('aria-busy', 'false')
